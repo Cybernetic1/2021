@@ -1,0 +1,15 @@
+
+
+\section{Associative attention / recommendation of inference}
+
+The word ``attention'' is used here alternatively, not the same as Attention in BERT or Transformers.
+
+It may be advantageous to use a graph neural network (GNN) as the \textbf{state} of our AI system and such that the transition function $F$ maps the current-state GNN to the next-state GNN.
+
+The size of the GNN is the ``working memory'' size and may be moderately large.  So we need an algorithnm to select a subset of nodes in the GNN as \textbf{candidates} for applying deduction:
+\begin{equation}
+A_1 \wedge A_2 \wedge ... A_n \Rightarrow B .
+\end{equation}
+There are $M \choose N$ ways of choosing a cluster of $N$ nodes from a total of $M$ nodes.  Finding such subsets is akin to what \textbf{recommendation engines} do, where our problem can be regarded as the recommendation of candidates for logic rules application.
+
+Perhaps an efficient algorithm is to calculate scores of something....

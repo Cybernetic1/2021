@@ -6,7 +6,7 @@
 \usepackage{mathtools}
 \usepackage{hyperref}
 
-\usepackage[backend=biber,style=numeric]{biblatex}
+\usepackage[backend=biber,style=authoryear]{biblatex}
 \bibliography{../AGI-book}
 % \renewcommand*{\bibfont}{\footnotesize}
 
@@ -23,7 +23,7 @@
 % \usepackage{newtxtext,newtxmath}	% Times New Roman font
 % \usepackage{sansmath}
 
-\numberwithin{equation}{subsection}
+\numberwithin{equation}{section}
 
 \newcommand{\underdash}[1]{%
 	\tikz[baseline=(toUnderline.base)]{
@@ -68,7 +68,7 @@
 	
 	\item The notion of \textbf{continuous maps} may be advantageous in machine-learning because \textbf{generalization} seems to work best with ``continuous'' domains (as opposed to maps acting on symbolic logic representations which may be discontinuous).
 
-	\item Elements in the infinite-dimensional $\mathcal{H}$ can be realized on a computer as \textbf{neural networks} (which can be seen as functions $\mathbb{R}^n \rightarrow \mathbb{R}^n$ \textbf{finitely} generated from sets of weights).
+	\item Elements in the infinite-dimensional $\mathcal{H}$ can be realized on a computer as \textbf{neural networks} (which are functions $\mathbb{R}^n \rightarrow \mathbb{R}^n$ \textbf{finitely} generated from sets of weights).
 \end{itemize}
 
 % \tableofcontents
@@ -76,7 +76,7 @@
 % 多谢 支持 \smiley
 
 \setcounter{section}{-1}
-\section{Background}
+\section{Inspiration}
 
 In the 1960's Dana Scott constructed a model for untyped $\lambda$-calculus, using a domain $D_{\infty}$ with the property $D_{\infty}^{D_{\infty}} \cong D_{\infty}$.  This started off the field known as \textbf{domain theory}.
 
@@ -86,7 +86,17 @@ Scott's idea is to begin with an initial domain $D_0$ and define $D_{n+1}$ to be
 
 Thus it is guaranteed, for any domain $d \in D_{\infty}$, one can always find a function space $d \rightarrow d$.  Therefore the space $D_{\infty}$ is isomorphic to $ D_{\infty} \rightarrow D_{\infty}$.
 
-The detailed definition of $D_{\infty}$ involves building a cumulative hierarchy of infinite sequences, with pairs of operators $\psi_n, \Psi_n$ going up and down levels.  For a detailed exposition one may refer to \parencite{Stenlund1972}, Ch.1 \S6.
+The detailed definition of $D_{\infty}$ involves building a cumulative hierarchy of infinite sequences, with pairs of operators $\psi_n, \Psi_n$ going up and down levels.  For a gentle exposition one may read \parencite{Stenlund1972}, Ch.1 \S6.
+
+\section{Requirements}
+
+In order to define a logical calculus in $\mathcal{H}$, what we need are:
+\begin{itemize}
+	\item a family of functions dense in $\mathcal{H}$
+	\item self-application:  maps can act on other maps; how to define $f(g)$?
+	\item define the $\mathbf{S}, \mathbf{K}, \mathbf{I}$ combinators in combinatory logic
+ 	\item how does an element $e \in \mathcal{H}$ translate to and from a (syntactic) logic formula?
+\end{itemize}
 
 \section{Elements in $\mathcal{H}$}
 
@@ -94,7 +104,7 @@ The structure of $D_{\infty}$ is reminescent of Cantor's ordinal number $\vareps
 \begin{equation}
 {\displaystyle \varepsilon _{0}=\omega ^{\omega ^{\omega ^{\cdot ^{\cdot ^{\cdot }}}}}=\sup\{\omega ,\omega ^{\omega },\omega ^{\omega ^{\omega }},\omega ^{\omega ^{\omega ^{\omega }}},\dots \}}
 \end{equation}
-and this number is ``smaller'' than the \textbf{continuum}, ie. the real line $\mathbb{R}$.  This led me to think that models of $\lambda$-calculus might be found in the Hilbert space of continuous functions.
+but this number is still ``smaller'' than the \textbf{continuum}, ie. the real line $\mathbb{R}$.  This led me to think that models of $\lambda$-calculus may be found in the Hilbert space of continuous functions.
 
 But such a Hilbert space would be $\infty$-dimensional.  Next I consider the \textbf{neural network} as a function $f$:
 \begin{eqnarray}
@@ -103,86 +113,113 @@ x & \mapsto & y \nonumber
 \end{eqnarray}
 and notice that $f$ and $x, y$ are ``unequal'' because $f$ can \textbf{act on} $x, y$ but not the other way round.  This is partly because $f$ is $\infty$-dimensional whereas $x, y$ are finite-dimensional.  So, what if we increase $n$ to $\infty$, then perhaps $x, y$ would become the same kind of objects as $f$ ?  In an informal sense $\mathcal{H}$ can be regarded as $\mathbb{R}^{\infty}$.
 
-Now we lack the notion of a function \textbf{applying} to another function, such as $f(g)$.  Since we only need the functions as elements of $\mathcal{H}$, the domains $\mathbb{R}^n$ is somewhat ``immaterial''.  We might as well assume $\mathbb{R}^n$ to be common among all functions, so the function \textbf{composition} such as $f \circ g$ always exists.  So we define:
+The Universal Approximation theorem of \parencite{Cybenko1989} (with later extensions by others) states that the family of neural networks is \textbf{dense} in the space of continuous functions, with respect to the supremum norm.  This means that we have a nice way of generating elements in $\mathcal{H}$ that can be finitely represented in a computer.
+
+\section{Function application}
+
+Now we lack the notion of a function \textbf{applying} to another function, such as $f(g)$.  Since we only need the functions as elements of $\mathcal{H}$, the domains $\mathbb{R}^n$ is somewhat ``immaterial''.  We might as well assume $\mathbb{R}^n$ to be common among all functions (the dimension $n$ can be fixed for implementation considerations), and thus function \textbf{composition} such as $f \circ g$ always exists.  So we define:
 \begin{equation}
 \llbracket f(g) \rrbracket = \llbracket g \rrbracket \circ \llbracket f \rrbracket
 \end{equation}
-where $\llbracket \Cdot \rrbracket$ denotes ``model of''.
+where $\llbracket \Cdot \rrbracket$ denotes ``model of''.  (The reversed order $g \circ f$ is to prepare for dealing with tuples; see below.)
 
+\section{Combinatory logic in $\mathcal{H}$}
 
-\section{Logical operations in $\mathcal{H}$}
-
-记得在我的 AGI 架构中，$\vdash$ 是用 神经网络 $F$ 实现的。 
-
-一般来说，$\Delta \Rightarrow \Gamma$ 就是 $\vdash$ 这个映射 对於 $\Delta$ 的一个 \emp{截面} (a restriction of the $\vdash$ map to the domain $\Delta$).  这一点很重要： 一个 map 作用在某些元素上，但这些元素 和那个 map 是「同类」的。 这其实是逻辑结构的一个 defining characteristic.
-
-The map $\vdash$ 存在於某 infinite-dimensional Hilbert space $\mathcal{H}$.  所以 逻辑命题 也应该存在於同一空间内，而且 空间内的 元素可以 act on 自身。 一般来说这是没有可能的，因为 Cantor's theorem 说 $A \neq A^A$.  但如果符合某些 domain theory 的条件则可以有 $A \cong A^A$.
-
-这个做法有两个问题：
+We need to implement the combinators defined by:
 \begin{itemize}
-	\item 如何定义 $f(e)$ where $f, e \in \mathcal{H}$
-	\item given an element $e \in \mathcal{H}$, translate it to a (syntactic) logic formula
+	\item $\mathbf{I} x = x$
+	\item $\mathbf{K} x y = x$
+	\item $\mathbf{S} x y z = xz (yz)$
 \end{itemize}
+which obviously requires that some functions take on $> 1$ arguments.  So we need the notion of \textbf{tuples} and of functions applying to tuples.
 
-Need:
-\begin{itemize}
-	\item family of maps that is dense
-	\item self-application:  maps can act on maps
-\end{itemize}
+\subsubsection*{Tuples}
 
+We can implement tuples like $(g, h)$ simply by stacking them vertically:
 \begin{equation}
-f(g) \quad  \rightsquigarrow \quad \llbracket g \rrbracket \circ \llbracket f \rrbracket
+(g, h) = \begin{bmatrix}
+g \\
+h
+\end{bmatrix}
 \end{equation}
-In order to handle tuples like $(x,y)$, we need to expand our domain to allow functions such as $\mathbb{R}^{2n} \rightarrow \mathbb{R}^n$ with input dimensions $2n, 3n, 4n, ...$ etc.  Then an $n$-ary function can be implemented via (shown here in the binary case):
+which is a $\mathbb{R}^{2n} \rightarrow \mathbb{R}^{2n}$ function.  This can be extended to dimension $kn$.  Function application can be implemented as:
 \begin{equation}
-f(g, h) \quad \rightsquigarrow \quad
+\llbracket f(g, h) \rrbracket =
 \begin{bmatrix}
 \llbracket g \rrbracket \\
 \llbracket h \rrbracket
 \end{bmatrix} \circ \llbracket f \rrbracket
 \end{equation}
-where $f$ is of type $\mathbb{R}^{2n} \rightarrow \mathbb{R}^n$.  With this, we can implement the combinators $\mathbf{S}, \mathbf{K}, \mathbf{I}$ in combinatory logic.  The treatment for $\lambda$-calculus would be analogous, but I'm too busy to work it out at this time.
+where $f$ is of type $\mathbb{R}^{2n} \rightarrow \mathbb{R}^n$.  We can visualize the right hand side like this:
+\begin{equation}
+\begin{tikzcd}[column sep=small, row sep=-0.5em]
+g \arrow[-, dr] & & \\
+& f \arrow[-, r] & {} \\
+h \arrow[-, ur] & &
+\end{tikzcd} 
+\end{equation}
 
-Suppose $a \wedge b \Rightarrow c$ and $d \Rightarrow c$, we would like to make the following two definitions of $c$ be consistent with $f$:
+\subsubsection*{Interpreting logic formulas}
+
+It is helpful to bear in mind that a functional form
+\begin{equation}
+f(g, h) = e
+\end{equation}
+in Hilbert space corresponds to a logic formula
+\begin{equation}
+g \wedge h \stackrel{f}{\Longrightarrow} e
+\end{equation}
+where $f$ plays the role of an \textbf{implication}, or logical \textbf{consequence}, $g \wedge h \vdash e$.  In fact $f$ encodes the \textit{entire} formula $g \wedge h \Rightarrow e$, but even more than that, $f$ can be applied to other arguments.  (Readers may recognize that the function $f$ realizes an implication statement in logic via the \textbf{Curry-Howard isomorphism}.)
+
+With tuples, we can easily implement the combinators $\mathbf{S}, \mathbf{K}, \mathbf{I}$.  The treatment for $\lambda$-calculus would be analogous, and I would add that to a later version of this paper when I have time.
+
+\subsubsection*{Arities}
+
+There is a remaining problem with arities.  Because we allow tuples, compositions with tuples leave us with functions with arity $> 1$.  For example, the following two applications of $f$ yield the same result $c$, and we would like to make these definitions of $f$ consistent:
 \begin{eqnarray}
 \begin{tikzcd}[column sep=small, row sep=-0.5em]
 a \arrow[-, dr] & & \\
-& f \arrow[r] & c\\
+& f \arrow[-, r] & c\\
 b \arrow[-, ur] & &
 \end{tikzcd} 
 & \qquad f(a,b) = c \\
 \begin{tikzcd}[column sep=small]
-d \arrow[-, r] & f \arrow[r] & c
+d \arrow[-, r] & f \arrow[-, r] & c
 \end{tikzcd} 
 & \qquad f(d) = c
 \nonumber 
 \end{eqnarray}
-but the arity of $f$ appears different in the two equations.  My solution is to adjoin a zero input to the second definition, that is:
+but the \textbf{arity} of $f$ appears different in the equations.  My solution is to adjoin a \textbf{null} input to the single input, that is:
 \begin{equation}
 \begin{tikzcd}[column sep=small, row sep=-0.5em]
 d \arrow[-, dr] & & \\
 & f \arrow[r] & c\\
-\emptyset \arrow[-, ur] & &
+\varzero \arrow[-, ur] & &
 \end{tikzcd}
-\qquad f(d, \emptyset) = c
+\qquad f(d, \varzero) = c
 \end{equation}
+In implementation, this can be done ``on demand'', as the number of conjunctions in the premise of a logic rule is usually a small number.
 
-\section{Associative attention / recommendation of inference}
+\section{Usage as AI logic}
 
-The word ``attention'' is used here alternatively, not the same as Attention in BERT or Transformers.
+Usually there would be a ``big'' neural network, representing a special function $f$, that plays the role of a \textbf{knowledge base}, consisting of (the conjunction of) a huge number of logic rules of the form $\Gamma \vdash \Delta$.  This $f$ would send various logic formulas to their conclusions.  In this sense $f$ embodies all the \textit{knowledge} in the AI system.
 
-It may be advantageous to use a graph neural network (GNN) as the \textbf{state} of our AI system and such that the transition function $F$ maps the current-state GNN to the next-state GNN.
+What is special with this Hilbert-space model is that we can now construct arbitrary logic formulas as elements in $\mathcal{H}$, which can be acted upon by $f$.
 
-The size of the GNN is the ``working memory'' size and may be moderately large.  So we need an algorithnm to select a subset of nodes in the GNN as \textbf{candidates} for applying deduction:
+For example, ``if we touch fire we may get burnt'' is a logic formula of the form $A \Rightarrow B$.  In a primitive AI (or animal), this formula is \textit{implicitly} stored in the transition function $f$, which performs the logic inference $A \vdash B$.  The animal or AI has no conscious reckoning of $A \Rightarrow B$.  Now with Hilbert space we can create an element $A \Rightarrow B$, ie. an object that can \textbf{participate} in logic inference.
+
+\section{Conclusion}
+
+I am not highly confident of this invention, as its technical details are a bit complicated (We could build a simpler AI using a big neural network to act on \textit{symbolic} logic formulas; indeed the BERT model is a case in point).  If human-level intelligence turns out to be very hard to learn by an AGI, at least we can turn to this, more powerful approach.
+
+Questions, comments welcome \smiley
+
+Dana Scott (1932-) and S\"{o}ren Stenlund (1943-2019):
 \begin{equation}
-A_1 \wedge A_2 \wedge ... A_n \Rightarrow B .
+\vcenter{\hbox{\includegraphics[scale=1]{Dana-Scott.jpg}}} \qquad
+\vcenter{\hbox{\includegraphics[scale=0.35]{Stenlund.jpg}}} \nonumber
 \end{equation}
-There are $M \choose N$ ways of choosing a cluster of $N$ nodes from a total of $M$ nodes.  Finding such subsets is akin to what \textbf{recommendation engines} do, where our problem can be regarded as the recommendation of candidates for logic rules application.
 
-Perhaps an efficient algorithm is to calculate scores of something....
-
-\section*{References}
-\cc{欢迎提问和讨论}{Questions, comments welcome} \smiley \\ \vspace*{0.4cm}
-% \printbibliography
+\printbibliography
 
 \end{document} 
