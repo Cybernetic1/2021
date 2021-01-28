@@ -49,7 +49,7 @@
 
 \title{\cc{\bfseries\color{blue}{\Huge Logic in Hilbert space}}
 {{\Huge Logic in Hilbert space}}}
-\author{YKY} % Your name
+\author{YKY \\{\small general.intelligence@gmail.com}} % Your name
 %\institute[] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 %{
 %Independent researcher, Hong Kong \\ % Your institution for the title page
@@ -113,7 +113,7 @@ But such a Hilbert space would be $\infty$-dimensional.  Next I consider the \te
 \mathbb{R}^n & \stackrel{f}{\longrightarrow} & \mathbb{R}^n \\
 x & \mapsto & y \nonumber
 \end{eqnarray}
-and notice that $f$ and $x, y$ are ``unequal'' because $f$ can \textbf{act on} $x, y$ but not the other way round.  This is partly because $f$ is $\infty$-dimensional whereas $x, y$ are finite-dimensional.  So, what if we increase $n$ to $\infty$, then perhaps $x, y$ would become the same kind of objects as $f$ ?  In an informal sense $\mathcal{H}$ can be regarded as $\mathbb{R}^{\infty}$.
+and notice that $f$ and $x, y$ are ``unequal'' because $f$ can \textbf{act on} $x, y$ but not the other way round.  This is partly because $f$ is $\infty$-dimensional whereas $x, y$ are finite-dimensional.  So, what if we increase $n$ to $\infty$, then perhaps $x, y$ would become the same kind of objects as $f$ ?  In an informal sense $\mathcal{H}$ is $\mathbb{R}^{\infty}$.
 
 The Universal Approximation theorem of \parencite{Cybenko1989} (with later extensions by others) states that the family of neural networks is \textbf{dense} in the space of continuous functions, with respect to the supremum norm.  This means that we have a nice way of generating elements in $\mathcal{H}$ that can be finitely represented in a computer.
 
@@ -128,11 +128,11 @@ where $\llbracket \Cdot \rrbracket$ denotes ``model of''.  (The reversed order $
 \section{Combinatory logic in $\mathcal{H}$}
 
 We need to implement the combinators defined by:
-\begin{itemize}
-	\item $\mathbf{I} x = x$
-	\item $\mathbf{K} x y = x$
-	\item $\mathbf{S} x y z = xz (yz)$
-\end{itemize}
+\begin{eqnarray}
+\mathbf{I} x &=& x \nonumber \\
+\mathbf{K} x y &=& x \\
+\mathbf{S} x y z &=& xz (yz) \nonumber 
+\end{eqnarray}
 which obviously requires that some functions take on $> 1$ arguments.  So we need the notion of \textbf{tuples} and of functions applying to tuples.
 
 \subsubsection*{Tuples}
@@ -210,7 +210,7 @@ What is special with this Hilbert-space model is that we can now construct arbit
 
 For example, ``if we touch fire we may get burnt'' is a logic formula of the form $A \Rightarrow B$.  In a primitive AI (or animal), this formula is \textit{implicitly} stored in the transition function $f$, which performs the logic inference $A \vdash B$.  The animal or AI has no conscious reckoning of $A \Rightarrow B$.  Now with Hilbert space we can create an element $A \Rightarrow B$, ie. an object that can \textbf{participate} in logic inference.  We can take arbitrarily complex logic formulas and have them represented as Hilbert space elements.
 
-A simple logic formula such as $A \Rightarrow B$ is a \textbf{section} of the big map $f$ restricted to the domain $A$.  In this case, the restricted function is \textbf{degenerate} and is in effect just a pair $(A, B)$.  Also, a single atomic proposition, eg. $A$, can be implemented as $\top \Rightarrow A$, a practice commonly used in Prolog.
+A simple logic formula such as $A \Rightarrow B$ is a \textbf{section} of the big map $f$ restricted to the domain $A$.  In this case, the restricted function is \textbf{degenerate} and is in effect just a pair $(A, B)$.  Also, a single atomic proposition, eg. $A$, can be implemented as $\top \Rightarrow A$, a trick commonly used in Prolog.
 
 \section{Conclusion}
 
