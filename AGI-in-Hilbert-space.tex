@@ -1,0 +1,188 @@
+% TO-DO:
+
+\input{../YKY-preamble.tex}
+
+\usepackage{color}
+\usepackage{mathtools}
+\usepackage{hyperref}
+
+\usepackage[backend=biber,style=numeric]{biblatex}
+\bibliography{../AGI-book}
+% \renewcommand*{\bibfont}{\footnotesize}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage[export]{adjustbox}% http://ctan.org/pkg/adjustbox
+\usepackage{verbatim} % for comments
+% \usepackage{tikz-cd}  % commutative diagrams
+% \newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+% \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+% \usepackage{amssymb}  % \leftrightharpoons
+% \usepackage{wasysym} % frownie face
+% \usepackage{newtxtext,newtxmath}	% Times New Roman font
+% \usepackage{sansmath}
+
+\numberwithin{equation}{subsection}
+
+\newcommand{\underdash}[1]{%
+	\tikz[baseline=(toUnderline.base)]{
+		\node[inner sep=1pt,outer sep=10pt] (toUnderline) {#1};
+		\draw[dashed] ([yshift=-0pt]toUnderline.south west) -- ([yshift=-0pt]toUnderline.south east);
+	}%
+}%
+
+\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+\DeclareMathSymbol{\strictif}{\mathrel}{symbolsC}{74}
+
+\newcommand{\highlight}[1]{\colorbox{pink}{$\displaystyle #1$}}
+
+\newcommand{\emp}[1]{{\color{violet}\textbf{#1}}}
+\newcommand*\confoundFace{$\vcenter{\hbox{\includegraphics[scale=0.2]{../confounded-face.jpg}}}$}
+
+\newcommand*{\Cdot}{\raisebox{-0.5ex}{\scalebox{2}{$\cdot$}}}
+\newcommand{\witness}{\scalebox{0.6}{$\blacksquare$}}
+% \newcommand{\Heytingarrow}{\mathrel{-}\mathrel{\triangleright}}
+\providecommand\Heytingarrow{\relbar\joinrel\mathrel{\vcenter{\hbox{\scalebox{0.75}{$\rhd$}}}}}
+
+\begin{document}
+
+\title{\cc{\bfseries\color{blue}{\Huge Logic in Hilbert space}}
+{{\Huge Logic in Hilbert space}}}
+\author{YKY} % Your name
+%\institute[] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+%{
+%Independent researcher, Hong Kong \\ % Your institution for the title page
+%\medskip
+%\textit{generic.intelligence@gmail.com} % Your email address
+%}
+\date{\today} % Date, can be changed to a custom date
+
+\maketitle
+
+\section*{Summary}
+\begin{itemize}
+	\item It seems possible to construct a model of the \textbf{untyped} $\lambda$-calculus in Hilbert space, with function application $f(g)$ implemented as $\llbracket g \rrbracket \circ \llbracket f \rrbracket$.
+	
+	\item Doing so allows \textbf{self-application} of logic predicates (Curry's paradox can be avoided by the fuzzy truth value ``don't know'')
+	
+	\item The notion of \textbf{continuous maps} may be advantageous in machine-learning because \textbf{generalization} seems to work best with ``continuous'' domains (as opposed to maps acting on symbolic logic representations which may be discontinuous).
+
+	\item Elements in the infinite-dimensional $\mathcal{H}$ can be realized on a computer as \textbf{neural networks} (which can be seen as functions $\mathbb{R}^n \rightarrow \mathbb{R}^n$ \textbf{finitely} generated from sets of weights).
+\end{itemize}
+
+% \tableofcontents
+% \vspace*{0.5cm}
+% 多谢 支持 \smiley
+
+\setcounter{section}{-1}
+\section{Background}
+
+In the 1960's Dana Scott constructed a model for untyped $\lambda$-calculus, using a domain $D_{\infty}$ with the property $D_{\infty}^{D_{\infty}} \cong D_{\infty}$.  This started off the field known as \textbf{domain theory}.
+
+Scott initially believed that such models cannot exist, but later discovered that they can be constructed.  In retrospect, this is not surprising because the Church-Rosser theorem demonstrated that the untyped $\lambda$-calculus is consistent.
+
+Scott's idea is to begin with an initial domain $D_0$ and define $D_{n+1}$ to be the function space $D_n \rightarrow D_n$.
+
+Thus it is guaranteed, for any domain $d \in D_{\infty}$, one can always find a function space $d \rightarrow d$.  Therefore the space $D_{\infty}$ is isomorphic to $ D_{\infty} \rightarrow D_{\infty}$.
+
+The detailed definition of $D_{\infty}$ involves building a cumulative hierarchy of infinite sequences, with pairs of operators $\psi_n, \Psi_n$ going up and down levels.  For a detailed exposition one may refer to \parencite{Stenlund1972}, Ch.1 \S6.
+
+\section{Elements in $\mathcal{H}$}
+
+The structure of $D_{\infty}$ is reminescent of Cantor's ordinal number $\varepsilon_0$:
+\begin{equation}
+{\displaystyle \varepsilon _{0}=\omega ^{\omega ^{\omega ^{\cdot ^{\cdot ^{\cdot }}}}}=\sup\{\omega ,\omega ^{\omega },\omega ^{\omega ^{\omega }},\omega ^{\omega ^{\omega ^{\omega }}},\dots \}}
+\end{equation}
+and this number is ``smaller'' than the \textbf{continuum}, ie. the real line $\mathbb{R}$.  This led me to think that models of $\lambda$-calculus might be found in the Hilbert space of continuous functions.
+
+But such a Hilbert space would be $\infty$-dimensional.  Next I consider the \textbf{neural network} as a function $f$:
+\begin{eqnarray}
+\mathbb{R}^n & \stackrel{f}{\longrightarrow} & \mathbb{R}^n \\
+x & \mapsto & y \nonumber
+\end{eqnarray}
+and notice that $f$ and $x, y$ are ``unequal'' because $f$ can \textbf{act on} $x, y$ but not the other way round.  This is partly because $f$ is $\infty$-dimensional whereas $x, y$ are finite-dimensional.  So, what if we increase $n$ to $\infty$, then perhaps $x, y$ would become the same kind of objects as $f$ ?  In an informal sense $\mathcal{H}$ can be regarded as $\mathbb{R}^{\infty}$.
+
+Now we lack the notion of a function \textbf{applying} to another function, such as $f(g)$.  Since we only need the functions as elements of $\mathcal{H}$, the domains $\mathbb{R}^n$ is somewhat ``immaterial''.  We might as well assume $\mathbb{R}^n$ to be common among all functions, so the function \textbf{composition} such as $f \circ g$ always exists.  So we define:
+\begin{equation}
+\llbracket f(g) \rrbracket = \llbracket g \rrbracket \circ \llbracket f \rrbracket
+\end{equation}
+where $\llbracket \Cdot \rrbracket$ denotes ``model of''.
+
+
+\section{Logical operations in $\mathcal{H}$}
+
+记得在我的 AGI 架构中，$\vdash$ 是用 神经网络 $F$ 实现的。 
+
+一般来说，$\Delta \Rightarrow \Gamma$ 就是 $\vdash$ 这个映射 对於 $\Delta$ 的一个 \emp{截面} (a restriction of the $\vdash$ map to the domain $\Delta$).  这一点很重要： 一个 map 作用在某些元素上，但这些元素 和那个 map 是「同类」的。 这其实是逻辑结构的一个 defining characteristic.
+
+The map $\vdash$ 存在於某 infinite-dimensional Hilbert space $\mathcal{H}$.  所以 逻辑命题 也应该存在於同一空间内，而且 空间内的 元素可以 act on 自身。 一般来说这是没有可能的，因为 Cantor's theorem 说 $A \neq A^A$.  但如果符合某些 domain theory 的条件则可以有 $A \cong A^A$.
+
+这个做法有两个问题：
+\begin{itemize}
+	\item 如何定义 $f(e)$ where $f, e \in \mathcal{H}$
+	\item given an element $e \in \mathcal{H}$, translate it to a (syntactic) logic formula
+\end{itemize}
+
+Need:
+\begin{itemize}
+	\item family of maps that is dense
+	\item self-application:  maps can act on maps
+\end{itemize}
+
+\begin{equation}
+f(g) \quad  \rightsquigarrow \quad \llbracket g \rrbracket \circ \llbracket f \rrbracket
+\end{equation}
+In order to handle tuples like $(x,y)$, we need to expand our domain to allow functions such as $\mathbb{R}^{2n} \rightarrow \mathbb{R}^n$ with input dimensions $2n, 3n, 4n, ...$ etc.  Then an $n$-ary function can be implemented via (shown here in the binary case):
+\begin{equation}
+f(g, h) \quad \rightsquigarrow \quad
+\begin{bmatrix}
+\llbracket g \rrbracket \\
+\llbracket h \rrbracket
+\end{bmatrix} \circ \llbracket f \rrbracket
+\end{equation}
+where $f$ is of type $\mathbb{R}^{2n} \rightarrow \mathbb{R}^n$.  With this, we can implement the combinators $\mathbf{S}, \mathbf{K}, \mathbf{I}$ in combinatory logic.  The treatment for $\lambda$-calculus would be analogous, but I'm too busy to work it out at this time.
+
+Suppose $a \wedge b \Rightarrow c$ and $d \Rightarrow c$, we would like to make the following two definitions of $c$ be consistent with $f$:
+\begin{eqnarray}
+\begin{tikzcd}[column sep=small, row sep=-0.5em]
+a \arrow[-, dr] & & \\
+& f \arrow[r] & c\\
+b \arrow[-, ur] & &
+\end{tikzcd} 
+& \qquad f(a,b) = c \\
+\begin{tikzcd}[column sep=small]
+d \arrow[-, r] & f \arrow[r] & c
+\end{tikzcd} 
+& \qquad f(d) = c
+\nonumber 
+\end{eqnarray}
+but the arity of $f$ appears different in the two equations.  My solution is to adjoin a zero input to the second definition, that is:
+\begin{equation}
+\begin{tikzcd}[column sep=small, row sep=-0.5em]
+d \arrow[-, dr] & & \\
+& f \arrow[r] & c\\
+\emptyset \arrow[-, ur] & &
+\end{tikzcd}
+\qquad f(d, \emptyset) = c
+\end{equation}
+
+\section{Associative attention / recommendation of inference}
+
+The word ``attention'' is used here alternatively, not the same as Attention in BERT or Transformers.
+
+It may be advantageous to use a graph neural network (GNN) as the \textbf{state} of our AI system and such that the transition function $F$ maps the current-state GNN to the next-state GNN.
+
+The size of the GNN is the ``working memory'' size and may be moderately large.  So we need an algorithnm to select a subset of nodes in the GNN as \textbf{candidates} for applying deduction:
+\begin{equation}
+A_1 \wedge A_2 \wedge ... A_n \Rightarrow B .
+\end{equation}
+There are $M \choose N$ ways of choosing a cluster of $N$ nodes from a total of $M$ nodes.  Finding such subsets is akin to what \textbf{recommendation engines} do, where our problem can be regarded as the recommendation of candidates for logic rules application.
+
+Perhaps an efficient algorithm is to calculate scores of something....
+
+\section*{References}
+\cc{欢迎提问和讨论}{Questions, comments welcome} \smiley \\ \vspace*{0.4cm}
+% \printbibliography
+
+\end{document} 
