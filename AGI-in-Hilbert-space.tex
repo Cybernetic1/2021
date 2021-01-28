@@ -66,7 +66,7 @@
 	
 	\item Doing so allows \textbf{self-application} of logic predicates (Curry's paradox can be avoided by the fuzzy truth value ``don't know'')
 	
-	\item The notion of \textbf{continuous maps} may be advantageous in machine-learning because \textbf{generalization} seems to work best with ``continuous'' domains (as opposed to maps acting on symbolic logic representations which may be discontinuous).
+	\item The use of \textbf{continuous maps} may be advantageous in machine-learning because \textbf{generalization} seems to work best with ``continuous'' domains (as opposed to maps acting on symbolic logic representations which may be discontinuous).
 
 	\item Elements in the infinite-dimensional $\mathcal{H}$ can be realized on a computer as \textbf{neural networks} (which are functions $\mathbb{R}^n \rightarrow \mathbb{R}^n$ \textbf{finitely} generated from sets of weights).
 \end{itemize}
@@ -85,6 +85,8 @@ Scott initially believed that such models cannot exist, but later discovered tha
 Scott's idea is to begin with an initial domain $D_0$ and define $D_{n+1}$ to be the function space $D_n \rightarrow D_n$.
 
 Thus it is guaranteed, for any domain $d \in D_{\infty}$, one can always find a function space $d \rightarrow d$.  Therefore the space $D_{\infty}$ is isomorphic to $ D_{\infty} \rightarrow D_{\infty}$.
+
+That this claim does not contradict Cantor's theorem (a set $X$ cannot be isomorphic to $X^X$) is because the functions are restricted to \textbf{continuous} maps, sending open sets to open sets, also known as Scott-continuous (these are not \textit{all} the functions in $X \rightarrow X$).
 
 The detailed definition of $D_{\infty}$ involves building a cumulative hierarchy of infinite sequences, with pairs of operators $\psi_n, \Psi_n$ going up and down levels.  For a gentle exposition one may read \parencite{Stenlund1972}, Ch.1 \S6.
 
@@ -202,11 +204,13 @@ In implementation, this can be done ``on demand'', as the number of conjunctions
 
 \section{Usage as AI logic}
 
-Usually there would be a ``big'' neural network, representing a special function $f$, that plays the role of a \textbf{knowledge base}, consisting of (the conjunction of) a huge number of logic rules of the form $\Gamma \vdash \Delta$.  This $f$ would send various logic formulas to their conclusions.  In this sense $f$ embodies all the \textit{knowledge} in the AI system.
+Usually there would be a ``big'' neural network, representing a special function $f$, that plays the role of a \textbf{knowledge base}, consisting of (the conjunction of) a huge number of logic rules of the form $\Gamma \vdash \Delta$.  This $f$ would send various logic formulas to their conclusions, for a single inference step.  In this sense $f$ embodies all the \textit{knowledge} in the AI system.
 
 What is special with this Hilbert-space model is that we can now construct arbitrary logic formulas as elements in $\mathcal{H}$, which can be acted upon by $f$.
 
-For example, ``if we touch fire we may get burnt'' is a logic formula of the form $A \Rightarrow B$.  In a primitive AI (or animal), this formula is \textit{implicitly} stored in the transition function $f$, which performs the logic inference $A \vdash B$.  The animal or AI has no conscious reckoning of $A \Rightarrow B$.  Now with Hilbert space we can create an element $A \Rightarrow B$, ie. an object that can \textbf{participate} in logic inference.
+For example, ``if we touch fire we may get burnt'' is a logic formula of the form $A \Rightarrow B$.  In a primitive AI (or animal), this formula is \textit{implicitly} stored in the transition function $f$, which performs the logic inference $A \vdash B$.  The animal or AI has no conscious reckoning of $A \Rightarrow B$.  Now with Hilbert space we can create an element $A \Rightarrow B$, ie. an object that can \textbf{participate} in logic inference.  We can take arbitrarily complex logic formulas and have them represented as Hilbert space elements.
+
+A simple logic formula such as $A \Rightarrow B$ is a \textbf{section} of the big map $f$ restricted to the domain $A$.  In this case, the restricted function is \textbf{degenerate} and is in effect just a pair $(A, B)$.  Also, a single atomic proposition, eg. $A$, can be implemented as $\top \Rightarrow A$, a practice commonly used in Prolog.
 
 \section{Conclusion}
 
