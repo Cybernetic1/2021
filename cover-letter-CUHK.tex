@@ -44,6 +44,11 @@
 % \newcommand{\Heytingarrow}{\mathrel{-}\mathrel{\triangleright}}
 \providecommand\Heytingarrow{\relbar\joinrel\mathrel{\vcenter{\hbox{\scalebox{0.75}{$\rhd$}}}}}
 
+\makeatletter
+\newcommand{\verbatimfont}[1]{\def\verbatim@font{#1}}%
+\makeatother
+\verbatimfont{\rmfamily}
+
 \begin{document}
 
 % \title{\vspace*{-3cm}
@@ -70,21 +75,16 @@
 
 Dear CUHK professor(s),
 
-I think I may be a suitable candidate for your research projects as I have a lot of experience in AI, deep learning, and natural language processing (in particular logic and inference).
+\begin{verbatim}
+我是 1989－1994 的本科旧生，后来因为 GDP 太低被踢出校。 
+之后我去了美国再读多次 undergrad. 
+2004年回港，我开始独立研究 AGI (artificial general intelligence) 
+其实我係好想返回学术界，但因为以往 record 太差，
+在香港冇大学收我，才被逼做 independent. 
 
-I have been doing independent research in AGI (artificial general intelligence) since 2004 when I got back from studying in the US.  I have a bachelor's degree, but no master's or PhD qualification.
+二十多年后回来申请 PhD，我觉得很感慨，
 
-But I think I have extensive knowledge in the domains you cited.  
-
-I have been working on the architecture of AGI for > 16 years.  AGI is the research that tries to build human-level intelligence.  My theory is based on a fusion of old-fashioned logic-based AI and the newly-emerged deep learning.
-
-My latest theory posits that the state of an AI system be represented as a set of logic propositions which are invariant under permutations (because the logic conjunction $A \wedge B$ is commutative) and inference steps are performed by so-called \textbf{symmetric} neural networks which were invented (by others) in 2017-18.  Such a system has logic-reasoning ability that may be useful in diverse areas (eg. combining visual objection recognition with language abilities such as relational reasoning).  My theory also provides an interpretation of the mysterious ``attention mechanism'' in the famous BERT model, as a kind of alternative logic, via the Curry-Howard isomorphism.
-
-I am now working on furthering this line of research:  the structure of logic is succinctly described by category / topos theory, this high level of abstraction facilitates transferring the logical structure to deep learning.  (I have been trying many ideas in this direction, but so far not met with success...)
-
-Re tensor networks, it is interesting that I discovered that the AI learning problem (as reinforcement learning, or dynamic programming) is equivalent to solving the Schr\"{o}dinger equation in quantum mechanics.  However, this connection may not be highly useful because the bottleneck of learning seems to occur within the transition function of the dynamics.  I browsed through an introduction to tensor networks (TNs), and found that TNs are mainly concerned with representing the \textbf{coefficients} of many-body quantum wave functions rather than solving the wave functions themselves.  So, at least in this respect, TN is not directly relevant to my AI model, but you may have more interesting ideas that I'd be eager to learn about.
-
-
+\end{verbatim}
 
 \section*{My CV}
 
