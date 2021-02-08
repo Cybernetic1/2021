@@ -1,0 +1,108 @@
+% TO-DO:
+
+\input{../YKY-preamble.tex}
+
+\usepackage{color}
+\usepackage{mathtools}
+\usepackage{hyperref}
+
+\usepackage[backend=biber,style=numeric]{biblatex}
+\bibliography{../AGI-book}
+% \renewcommand*{\bibfont}{\footnotesize}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage[export]{adjustbox}% http://ctan.org/pkg/adjustbox
+\usepackage{verbatim} % for comments
+% \usepackage{tikz-cd}  % commutative diagrams
+% \newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+% \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+% \usepackage{amssymb}  % \leftrightharpoons
+% \usepackage{wasysym} % frownie face
+% \usepackage{newtxtext,newtxmath}	% Times New Roman font
+% \usepackage{sansmath}
+
+\numberwithin{equation}{section}
+
+\newcommand{\underdash}[1]{%
+	\tikz[baseline=(toUnderline.base)]{
+		\node[inner sep=1pt,outer sep=10pt] (toUnderline) {#1};
+		\draw[dashed] ([yshift=-0pt]toUnderline.south west) -- ([yshift=-0pt]toUnderline.south east);
+	}%
+}%
+
+\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+\DeclareMathSymbol{\strictif}{\mathrel}{symbolsC}{74}
+
+\newcommand{\highlight}[1]{\colorbox{pink}{$\displaystyle #1$}}
+
+\newcommand{\emp}[1]{{\color{violet}\textbf{#1}}}
+\newcommand*\confoundFace{$\vcenter{\hbox{\includegraphics[scale=0.2]{../confounded-face.jpg}}}$}
+
+\newcommand{\witness}{\scalebox{0.6}{$\blacksquare$}}
+% \newcommand{\Heytingarrow}{\mathrel{-}\mathrel{\triangleright}}
+\providecommand\Heytingarrow{\relbar\joinrel\mathrel{\vcenter{\hbox{\scalebox{0.75}{$\rhd$}}}}}
+
+\begin{document}
+
+\title{\cc{\bfseries\color{blue}{\Large Kolmogorov-Arnold representation theorem\\ as a special case of Yoneda lemma}}
+{{\Large Eng title}}}
+\author{YKY} % Your name
+%\institute[] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+%{
+%Independent researcher, Hong Kong \\ % Your institution for the title page
+%\medskip
+%\textit{generic.intelligence@gmail.com} % Your email address
+%}
+\date{\today} % Date, can be changed to a custom date
+
+\maketitle
+
+\section*{Summary}
+\begin{itemize}
+	\item Yoneda
+\end{itemize}
+
+% \tableofcontents
+% \vspace*{0.5cm}
+% 多谢 支持 \smiley
+
+\setcounter{section}{-1}
+
+The family of all symmetric functions.  The family of sum of functions.  All symmetric functions can be represented as a function composed with a sum of functions.
+
+Cayley's theorem:  Any group can be represented as a sub-group of a special group, namely the permutation group.
+
+Any symmetric function can be represented as a sub-function of a special symmetric function, namely the sum.
+
+A symmetric functions in $n$ arguments as a category?  A symmetric function is a map $f: X_n \rightarrow \mathbb{R}$ satisfying $f (\sigma x) = f(x)$.  Or perhaps as a group $G$ such that $f(g \cdot x) = f(x)$.  It's a sheaf of functions over the symmetric group $G$.  Perhaps identify with the equivalence class of functions invariant under $G$?
+
+Functions invariant under $G$ can be represented sub-functions of special invariant functions under $G$, namely sum.
+
+Or the category of equivariant functions which is a group...?
+
+A symmetric function is a category with morphisms that are group elements $g \in G$.  All symmetric functions can be represented as sub-functions of a special symmetric function, namely sum.
+
+Yoneda embedding:  $F \hookrightarrow (F^{\mathrm{op}} \rightarrow \mathbf{Set})$ is the right G-set G.
+
+Proof:  Regard a group $G$ as a one-object category $BG$.  The object in the image of the covariant Yoneda embedding $BG \hookrightarrow \mathbf{Set}^{BG^{\mathrm{op}}}$ is the right $G$-set $G$, with $G$ acting by right multiplication.   The only $G$-equivariant endomorphisms of the right $G$-set $G$ are those maps defined by left multiplication with a fixed element of $G$.  In particular, any $G$-equivariant endomorphism of $G$ must be an automorphism, a fact that is not otherwise obvious.
+
+In this way, the Yoneda embedding defines an isomorphism between $G$ and the automorphism group in the right $G$-set $G$, an object in $\mathbf{Set}^{BG^{\mathrm{op}}}$.  Composing with the faithful forgetful functor $\mathbf{Set}^{BG^{\mathrm{op}}} \rightarrow \mathbf{Set}$, we obtain an isomorphism between $G$ and a subgroup of the automorphism group $\mathrm{Sym}(G)$ of the set $G$.  $\blacksquare$
+
+Define a category of symmetric functions $\hat{\mathcal{F}}$.  What are morphisms in this category?  Probably an inner product?  Or composition of functions?
+
+A functor $\mathcal{F} \rightarrow \mathbf{Set} = \mathcal{F}(F, -)$.  The set of $F$ composed with other functions.  
+
+$H_F$ would be some functions composed with $F$.  $X$ would be some other functor from $\mathcal{F} \rightarrow \mathbf{Set}$.  $X(F)$ would be the functor $X$ acting on $F$ which is the composition of some function with $F$. 
+
+\newtheorem{thm}{Theorem}
+\begin{thm}
+	Every symmetric function
+\end{thm}
+
+\section*{References}
+\cc{欢迎提问和讨论}{Questions, comments welcome} \smiley \\ \vspace*{0.4cm}
+% \printbibliography
+
+\end{document} 
