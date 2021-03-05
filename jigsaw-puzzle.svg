@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="jigsaw-puzzle.svg"
+   inkscape:export-filename="/home/yky/latex/2021/jigsaw-puzzle.png"
+   inkscape:export-xdpi="384"
+   inkscape:export-ydpi="384">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="411.74264"
+     inkscape:cy="367.3267"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1059"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.79374999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.98431373;paint-order:markers fill stroke"
+       id="rect134"
+       width="94.287712"
+       height="94.287704"
+       x="35.935181"
+       y="124.70811" />
+    <path
+       id="path79-6"
+       d="m 130.22283,218.99571 -0.0481,-31.44193 h -9.40964 c -3.52636,0 -4.81065,2.09761 -2.08306,4.82494 2.72759,2.72732 -0.80328,4.32938 -4.17063,4.32938 -3.36735,0 -6.89372,-1.60206 -4.17089,-4.32938 2.72759,-2.72759 1.4433,-4.82494 -2.08307,-4.82494 h -9.457525 l -0.158491,9.46758 c -0.05902,3.52561 2.097076,4.81066 4.824666,2.08783 2.72283,-2.72759 4.32966,0.79825 4.32966,4.16613 0,3.36735 -1.60683,6.89848 -4.32966,4.17036 -2.72732,-2.72759 -4.883985,-1.44227 -4.824666,2.08307 l 0.158491,9.41916 z"
+       inkscape:connector-curvature="0"
+       style="overflow:visible;fill:#00ffff;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round"
+       sodipodi:nodetypes="ccssscscscscscc" />
+    <path
+       id="path79-6-7"
+       d="m 130.2229,124.7081 -0.0481,31.44193 h -9.40964 c -3.52637,0 -4.81066,-2.09761 -2.08307,-4.82494 2.72759,-2.72732 -0.80327,-4.32938 -4.17063,-4.32938 -3.36735,0 -6.89371,1.60206 -4.17089,4.32938 2.72759,2.72759 1.4433,4.82494 -2.08306,4.82494 h -9.457533 v -9.46758 c 0,-3.5261 -2.09709,-4.81066 -4.82468,-2.08783 -2.72283,2.72759 -4.32964,-0.79825 -4.32964,-4.16613 0,-3.36735 1.60681,-6.89848 4.32964,-4.17036 2.72732,2.72759 4.82468,1.44277 4.82468,-2.08307 v -9.41916 z"
+       inkscape:connector-curvature="0"
+       style="overflow:visible;fill:#00ffff;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round"
+       sodipodi:nodetypes="ccssscscscscscc" />
+    <g
+       style="overflow:visible;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       id="g89"
+       transform="matrix(0.26458333,0,0,0.26458333,35.321876,124.09479)">
+      <path
+         id="path79"
+         d="m 2.5,121.173 h 35.564 c 13.328,0 18.182,-7.945 7.873,-18.237 C 35.628,92.627 48.973,86.572 61.7,86.572 c 12.727,0 26.055,6.055 15.764,16.364 -10.309,10.292 -5.455,18.237 7.873,18.237 h 35.745 35.781 c 13.328,0 18.183,7.927 7.873,18.236 -10.291,10.309 3.036,16.364 15.764,16.364 12.728,0 26.054,-6.056 15.763,-16.364 -10.309,-10.309 -5.455,-18.236 7.873,-18.236 h 35.781 35.746 c 13.328,0 18.182,-7.945 7.873,-18.237 -10.291,-10.309 3.035,-16.364 15.764,-16.364 12.727,0 26.072,6.055 15.764,16.364 -10.311,10.292 -5.455,18.237 7.873,18.237 H 358.5 M 239.917,358.5 v -35.6 c 0,-13.326 7.945,-18.182 18.236,-7.873 10.311,10.311 16.365,-3.035 16.365,-15.762 0,-12.729 -6.055,-26.055 -16.365,-15.746 -10.291,10.291 -18.236,5.436 -18.236,-7.891 v -35.783 -35.709 c 0,-13.328 7.945,-18.182 18.236,-7.873 10.311,10.309 16.365,-3.035 16.365,-15.763 0,-12.728 -6.055,-26.055 -16.365,-15.746 -10.291,10.292 -18.236,5.455 -18.236,-7.89 V 121.173 85.391 c 0,-13.345 -7.926,-18.182 -18.234,-7.891 -10.291,10.309 -16.363,-3.018 -16.363,-15.746 0,-12.727 6.072,-26.072 16.363,-15.763 10.309,10.309 18.234,5.454 18.234,-7.873 V 2.5 M 2.5,239.845 h 35.564 c 13.328,0 18.182,7.928 7.873,18.236 -10.309,10.308 3.036,16.363 15.763,16.363 12.727,0 26.055,-6.055 15.764,-16.363 -10.309,-10.309 -5.455,-18.236 7.873,-18.236 h 35.745 35.781 c 13.328,0 18.183,-7.945 7.873,-18.236 -10.291,-10.311 3.036,-16.363 15.764,-16.363 12.728,0 26.054,6.053 15.763,16.363 -10.309,10.291 -5.455,18.236 7.873,18.236 h 35.781 35.746 c 13.328,0 18.182,7.928 7.873,18.236 -10.291,10.309 3.035,16.363 15.764,16.363 12.727,0 26.072,-6.055 15.764,-16.363 -10.311,-10.309 -5.455,-18.236 7.873,-18.236 H 358.5 M 121.082,358.5 v -35.6 c 0,-13.326 7.927,-18.182 18.235,-7.873 10.291,10.311 16.364,-3.035 16.364,-15.762 0,-12.729 -6.073,-26.055 -16.364,-15.746 -10.309,10.291 -18.235,5.436 -18.235,-7.891 v -35.783 -35.709 c 0,-13.328 -7.945,-18.182 -18.236,-7.873 -10.31,10.309 -16.364,-3.035 -16.364,-15.763 0,-12.728 6.055,-26.055 16.364,-15.746 10.291,10.292 18.236,5.455 18.236,-7.89 V 121.173 85.391 c 0,-13.345 7.927,-18.182 18.235,-7.891 10.291,10.309 16.364,-3.018 16.364,-15.746 0,-12.727 -6.073,-26.072 -16.364,-15.763 -10.309,10.309 -18.235,5.454 -18.235,-7.873 V 2.5 M 358.681,2.318 H 2.318 v 356.363 h 356.363 z"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+         sodipodi:nodetypes="cscscscscscscscscsccscscscscscscscscsccssscscscscscscscsccscscscscscscscscscccccc" />
+    </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot956"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.66666603px;line-height:1.25;font-family:'Latin Modern Math';-inkscape-font-specification:'Latin Modern Math, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0.26458333,0,0,0.26458333,126.20626,32.808334)"><flowRegion
+         id="flowRegion958"><rect
+           id="rect960"
+           width="153.81801"
+           height="91.180626"
+           x="31"
+           y="704.51971" /></flowRegion><flowPara
+         id="flowPara972"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;text-anchor:middle">AI theory</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot956-1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.66666603px;line-height:1.25;font-family:'Latin Modern Math';-inkscape-font-specification:'Latin Modern Math, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0.26458333,0,0,0.26458333,126.46464,-55.104022)"><flowRegion
+         id="flowRegion958-2"><rect
+           id="rect960-2"
+           width="153.81801"
+           height="91.180626"
+           x="31"
+           y="704.51971" /></flowRegion><flowPara
+         id="flowPara972-9"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;text-anchor:middle">globalist</flowPara><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;text-anchor:middle"
+         id="flowPara1005">vision</flowPara></flowRoot>    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 113.77084,139.30833 25.66458,4.49792"
+       id="path1007"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 116.94583,206.24791 27.25208,11.1125"
+       id="path1009"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 24.60625,107.29375 30.956251,29.63333"
+       id="path1009-4"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+  </g>
+</svg>

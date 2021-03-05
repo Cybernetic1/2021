@@ -9,6 +9,7 @@
 *.fls
 *.out
 *.toc
+*.lbf
 
 ## Intermediate documents:
 *.dvi
