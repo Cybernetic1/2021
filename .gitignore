@@ -20,6 +20,9 @@
 
 # **** YKY: we want to keep PDF files for sharing online in 知乎 etc
 # *.pdf
+# **** ignore Hong Kong (traditional Chinese) versions:
+*-hk.tex
+*-hk.pdf
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl

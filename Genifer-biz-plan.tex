@@ -6,7 +6,7 @@
 
 \usepackage[CJKspace]{xeCJK}
 % \setCJKmainfont[BoldFont=Alibaba PuHuiTi Bold,ItalicFont=AR PL KaitiM GB]{Alibaba PuHuiTi Light}
-\setCJKmainfont[ItalicFont=AR PL KaitiM GB]{Alibaba PuHuiTi}
+\setCJKmainfont[ItalicFont=AR PL KaitiM GB]{Alibaba PuHuiTi Light}
 \setmainfont[ItalicFont=Latin Modern Roman Slanted]{Alibaba Sans:style=Light}
 
 %\usepackage{newtxtext,newtxmath}	% use Times Roman font
@@ -91,7 +91,7 @@
 \usepackage{newtxtext,newtxmath}	% Times New Roman font
 \usepackage{pict2e}		% pciture drawing polygon
 
-\newcommand{\emp}[1]{{\color{blue}\textbf{#1}}}
+\newcommand{\emp}[1]{{\color{blue}#1}}
 \newcommand{\vect}[1]{\boldsymbol{#1}}
 \newcommand{\tab}{\hspace*{1cm}}
 \newcommand*\confoundFace{$\vcenter{\hbox{\includegraphics[scale=0.2]{../confounded-face.jpg}}}$}
@@ -119,25 +119,18 @@
 \date{\today} % Date, can be changed to a custom date
 
 \begin{document}
-
-\usebackgroundtemplate{%
-	\begin{picture}(600,220)
-	\put(35,55){\includegraphics[scale=1]{Genifer-square-logo.png}}
-	\definecolor{graygray}{rgb}{.867,0.867,0.867}
-	{\color{graygray}\polygon*(-20,-80)(-20,-5)(400,85)(400,-80)}
-	\Put(240,-145){\includegraphics[scale=0.08]{robot1.jpg}}
-	\end{picture}
-}
+% \usebackgroundtemplate{%
+%}
 % \addtocounter{page}{-1}
 \begin{frame}[plain,noframenumbering]
 % \titlepage
-\end{frame}
-
-\usebackgroundtemplate{
 	\begin{picture}(600,220)
-	\definecolor{graygray}{rgb}{.867,0.867,0.867}	{\color{graygray}\polygon*(-20,-80)(-20,-5)(400,85)(400,-80)}
+	\put(0,65){\includegraphics[scale=1]{Genifer-square-logo.png}}
+	\definecolor{graygray}{rgb}{.867,0.867,0.867}
+	{\color{graygray}\polygon*(-55,-80)(-55,-5)(400,110)(400,-80)}
+	\Put(215,-105){\includegraphics[scale=0.08]{robot1.jpg}}
 	\end{picture}
-}
+\end{frame}
 
 %\addtocounter{page}{-1}
 %\begin{frame}[noframenumbering]
@@ -157,34 +150,90 @@
 % \frametitle{Business strategy}
 %\fontsize{7pt}{7.2}\selectfont
 \vspace*{2em}
-{\color{blue} \Huge \textbf{Business strategy}}
-\begin{itemize}
-	\item 这是一个 \emp{全球化} 的项目，not based in any particular country, \\
-			所有人可以参与，促进国际间合作
-	
-	\item 我们组织的宗旨，是消除任何 种族／国籍的歧视
-	
-	\item 奖励机制 纯粹由对项目的贡献而定，可以用未来的人工智能 \emp{追溯}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\vspace*{2em}
-{\color{blue} \Huge \textbf{关於我的 AI 理论}}
-\begin{itemize}
-	\item architecture is based on \emp{reinforcement learning} \\
-			（这是很「标准」的架构，例如捉围棋的 Alpha-Go）
-	
-	\item 另一部分是 结合 \emp{深度学习} 和 \emp{逻辑} \\
-			（這部分比較複雜，特別是數理邏輯的最新理論） 
-\end{itemize}
+{\color{blue} \Large 关於我的 AI 理论}\\
 \vspace*{1em}
-{\small 业馀 看书学习 Tensorflow 的人}
+经过十多年研究，我最近解决了 强人工智能 的理论问题\footnote{当然也不排除其他人有截然不同或更好的 ideas} ，主要特点是：
+\begin{itemize}
+	\item 构造非常简单，prototype 可以在几天内完成
+	\item architecture is based on \emp{reinforcement learning} \\
+	（这是很「标准」的架构，例如捉围棋的 Alpha-Go）
+	\item 另一部分是 结合 \emp{深度学习} 和 \emp{逻辑} \\
+	（這部分比較複雜，特別是數理邏輯的最新理論） 
+\end{itemize}
+但基本原理还是很简单的，我会在 technical presentation 介绍。 \\
+\end{frame}
+
+
+\begin{frame}
+\vspace*{2em}
+{\color{blue} \Large Business strategy (1)}
+\vspace*{1em}
+\begin{itemize}
+	\item 我希望 这是一个 \emp{全球化} 的项目，not based in any particular country, \\
+			所有人可以参与，促进国际间合作。 \\
+			我一直以来的理想是 \emp{消除 种族／国籍的歧视}。 \\
+			反歧视的意思是给予每个人同等的机会，\\
+			但自由竞争的结果可以是不同的。 \\
+			据我观察，其实每个国家都有支持全球合作的人，\\
+			只是这种项目未有人组织起来。 \\
+			现代世界 几乎所有人都公认 种族歧视 是不对的，\\
+			但近年国际间也兴起了民粹主义，\\
+			因为人们对「民族历史」的观念和全球化是有抵触的。 \\
+			这是一个复杂的问题，但我觉得应该有全球化合作的生存空间。 
+\end{itemize}
 \end{frame}
 
 \begin{frame}
 \vspace*{2em}
-{\color{blue} \Large \textbf{What remains to be done}}
+{\color{blue} \Large Business strategy (2)}
+\vspace*{1em}
+\begin{itemize}
+	\item 计划以 \emp{DAO (distributive autonomous organization)} 形式运作，\\
+			但现时据我所知还未有用 DAO 组织公司的平台， \\
+			我正在研究这种平台的 \emp{评分算法}，但仍未落实。 \\
+			初步会以传统公司的混合方法管理。
+	\item 奖励机制 纯粹由对项目的贡献而定，可以用未来的人工智能 \emp{追溯}
+	\item AI 软件合约 是 \emp{License Zero}\footnote{https://licensezero.com/}，\\
+			这种合约 在法律上规定使用者付款，\\
+			收入根据 评分再分配给贡献者。
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\vspace*{2em}
+{\color{blue} \Large We're recruiting:}
+\vspace*{1em}
+\begin{itemize}
+	\item \emp{Project organizers / managers} \\
+		负责 组织公司、招揽人才、等。
+	\item \emp{Developers} \\
+		AI 方面，理论可以很复杂，我唔想吓走晒所有人，\\
+		例如： 业馀看书学 Tensorflow 的人也可以帮到手。 \\
+		因为在AI方面的人才很「抢手」，欢迎 part-time 加入，\\
+		待公司有规模后再全职招聘。
+	\item \emp{Researchers} \\
+		在学术界，``ego'' 的问题很严重， \\
+		但我希望找到一班为研发而努力的队友，\\
+		而不是互相内斗的队友。\\
+		我自己也不是一個 IQ 很高的人，\\
+		只是很幸运可以自由地用十几年时间研究 AI. \\
+		在短期内掌握一切AI背后的数学理论是不可能的，\\
+		很多人因此气馁，\\
+		但我会尽量以简单方式解释整个 big picture 让大家了解。 
+\end{itemize}
+\end{frame}
+
+\usebackgroundtemplate{
+	\begin{picture}(600,220)
+	\put(240,110){\includegraphics[scale=0.25]{robot2.jpg}}
+	\definecolor{graygray}{rgb}{.867,0.867,0.867}
+	{\color{graygray}\polygon*(-55,-90)(-55,15)(400,-40)(400,-80)}
+	\end{picture}
+}
+\begin{frame}
+\vspace*{2em}
+{\color{blue} \Large What remains to be done?}
 
 \vspace{0.5em}
 \hspace*{5em}\includegraphics[scale=0.4]{jigsaw-puzzle.png}
