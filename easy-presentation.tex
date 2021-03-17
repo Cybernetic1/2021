@@ -157,13 +157,19 @@
 \frameinlbftrue
 
 \begin{frame}
-\frametitle{CNN 在机器视觉中的成功}
+\frametitle{\cc{CNN 在机器视觉中的成功}{The success of CNN in computer vision}}
 \begin{itemize}
-	\item 在几何学上，视觉 具有 \emp{平移 不变性}：
+	\item \cc{
+	在几何学上，视觉 具有 \emp{平移 不变性}：}{
+	In geometry, vision is said to possess the property of \textbf{translation invariance}:
+	}
 	\begin{equation}
 	\vcenter{\hbox{\includegraphics[scale=0.6]{translation-invariance.png}}}
 	\end{equation}
-	\item Convolution 是一种具有平移不变性的运算：
+	\item \cc{
+	Convolution 是一种具有平移不变性的运算：}{
+	\textbf{Convolution} is an operation invariant under translation:
+	}
 	\begin{equation}
 	(T_x \circ f) * g = T_x \circ ( f * g )
 	\end{equation}
@@ -172,7 +178,10 @@
 
 \begin{frame}[plain]
 \begin{itemize}
-	\item Yann LeCun 等人 利用 CNN 的 \emp{对称性} 加快了学习速度，成功地解决了 机器视觉 的问题
+	\item \cc{
+	Yann LeCun 等人 利用 CNN 的 \emp{对称性} 加快了学习速度，成功地解决了 机器视觉 的问题}{
+	Yann LeCun \textit{et al} exploited the symmetry of CNNs to accelerate learning, successfully solved the visual recognition problem
+	}
 	\begin{equation}
 	\vcenter{\hbox{\includegraphics[scale=0.3]{Yann-LeCun.jpg}}}
 	\end{equation}
@@ -182,19 +191,31 @@
 \begin{frame}
 \frametitle{Symmetry and inductive bias}
 \begin{itemize}
-	\item 在数学上，\emp{对称性} 经常能简化计算，所以数学家 特别喜欢 对称
-	\item 在机器学习中，经常要引入 归纳偏好 (inductive bias)，缩小 \emp{搜寻空间}：
+	\item \cc{
+	在数学上，\emp{对称性} 经常能简化计算，所以数学家 特别喜欢 对称}{
+	In mathematics, symmetry often simplifies computation, which is why mathematicians love to study symmetries
+	}
+	\item \cc{
+	在机器学习中，经常要引入 归纳偏好 (inductive bias)，缩小 \emp{搜寻空间}：}{
+	In machine learning, one introduces \emp{inductive bias} to narrow down the \textbf{search space}:
+	}
 	\begin{equation}
 	\vcenter{\hbox{\includegraphics[scale=0.5]{no-free-lunch.png}}}
 	\end{equation}
-	\item 往往如果 归纳偏好 选对了，可以在短时间内找到答案，否则问题是不可解的 (intractable)
+	\item \cc{
+	往往如果 归纳偏好 选对了，可以在短时间内找到答案，否则问题是不可解的 (intractable)}{
+	Oftentimes, if inductive bias is chosen correctly, solution is found quickly, otherwise problem becomes \textbf{intractable}
+	}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Richard Sutton 的观点}
+\frametitle{\cc{Richard Sutton 的观点}{Richard Sutton's view}}
 \begin{itemize}
-	\item Richard Sutton 认为，我们只需在 强化学习 的框架下 \emp{增加计算力}，就可以找到 strong AI
+	\item \cc{
+	Richard Sutton 认为，我们只需在 强化学习 的框架下 \emp{增加计算力}，就可以找到 strong AI}{
+	Sutton expressed the view that AI can probably be solved merely by \textbf{increasing computing power}, under the reinforcement learning framework
+	}
 	\begin{equation}
 	\vcenter{\hbox{\includegraphics[scale=0.7]{Richard-Sutton.jpg}}}
 	\end{equation}
@@ -203,40 +224,67 @@
 
 \begin{frame}[plain]
 \begin{itemize}
-	\item 我們選擇的只是众多 形式逻辑 之中可能的一种：
+	\item \cc{
+	我們選擇的只是众多 形式逻辑 之中可能的一种：}{
+	Our choice is just one out of many possible \textbf{forms} of logic:
+	}
 	\begin{equation}
 	\vcenter{\hbox{\includegraphics[scale=0.5]{no-free-lunch_Richard-Sutton.png}}}
 	\end{equation}
-	\item 这不只是一个「空想」的问题； 事实上，世界各地的实验室 已经开始了对 AGI 不同形式的搜索！
+	\item \cc{
+	这不只是一个「空想」的问题； 事实上，世界各地的实验室 已经开始了对 AGI 不同形式的搜索！}{
+	This is not only a theoretical issue; \\
+	Indeed, AI labs around the world had begun the search for AGI with various strategies!
+	}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{对 逻辑主义 的质疑}
+\frametitle{\cc{对 逻辑主义 的质疑}{Doubts about logicism}}
 \begin{itemize}
-	\item 很多人怀疑： 人脑真的用 形式逻辑 思考吗？
+	\item \cc{
+	很多人怀疑： 人脑真的用 形式逻辑 思考吗？}{
+	Many are doubtful: does the human brain really use \textbf{formal logic} to think?
+	}
 	\begin{equation}
 	\vcenter{\hbox{\includegraphics[scale=1.0]{murder-scene.png}}}
 	\end{equation}
-	其实人脑比我们想像中更接近逻辑 \\
-	请参看附件：《再谈一次 AI 的逻辑结构》
+	\cc{
+	其实人脑比我们想像中更接近逻辑}{
+	Actually human cognition may be much closer to logic than we've thought
+	}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Structure of logic}
 \begin{itemize}
-	\item 我的想法是： 在深度学习中引入 \emp{逻辑} 的对称性，解决 strong AI 问题
-	\item 因为人的思维 具有 逻辑 的结构，这个 inductive bias 可以帮助我们快速找到 the solution to strong AI
-	\item 逻辑结构很复杂，但最粗略的 symmetry 是 命题的 \emp{可交换律} (commutativity, or permutation invariance):
+	\item \cc{
+	我的想法是： 在深度学习中引入 \emp{逻辑} 的对称性，解决 strong AI 问题}{
+	The idea is:  introduce symmetries of \textbf{logic} into deep learning to solve the AGI problem
+	}
+	\item \cc{
+	因为人的思维 具有 逻辑 的结构，这个 inductive bias 可以帮助我们快速找到 the solution to strong AI}{
+	Because human cognition has logical structure, this inductive bias may help us find a solution to AGI faster
+	}
+	\item \cc{
+	逻辑结构很复杂，但最粗略的 symmetry 是 命题的 \emp{可交换律} (commutativity, or permutation invariance):}{
+	Logic is a complicated structure, but its simplest symmetry is the \textbf{commutativity} (or permutation invariance) of \textbf{propositions}:
+	}
 	\begin{equation}
 	\begin{aligned}
 	A &\wedge B & \equiv && B & \wedge A \\
-	\mbox{下雨} &\wedge \mbox{失恋} & \equiv && \mbox{失恋} &\wedge \mbox{下雨}
+	\mbox{\cc{下雨}{it's raining}} &\wedge \mbox{\cc{失恋}{lovesick}} & \equiv && \mbox{\cc{失恋}{lovesick}} &\wedge \mbox{\cc{下雨}{it's raining}}
 	\end{aligned}
 	\end{equation}
-	\item 它的重要性类似於 视觉中的 平移不变性
-	\item 另一种讲法是： 它将智能系统的 \emp{思维状态} (mental state) 分拆成 一粒粒独立的 \emp{命题} (propositions)
+	\item \cc{
+	它的重要性类似於 视觉中的 平移不变性}{
+	Its importance may be analogous to translation invariance in vision
+	}
+	\item \cc{
+	另一种讲法是： 它将智能系统的 \emp{思维状态} (mental state) 分拆成 一粒粒独立的 \emp{命题} (propositions)}{
+	The significance of commutativity is:  it \textbf{decomposes} the AI system's \emp{mental state} into individual \emp{propositions}
+	}
 \end{itemize}
 \end{frame}
 
@@ -247,7 +295,7 @@
 
 	\item \cc{我浪费了两年时间试图解决这问题，却发现在3年前已经有两篇论文解决了 [PointNet 2017] [DeepSets 2017]，而且数学水平比我高很多
 	}
-	{I wasted 2 years trying to solve this problem, and then find out it has been solved 3 years ago:  [PointNet 2017] and [DeepSets 2017] and their mastery of mathematics is significantly above me!}
+	{I wasted 2 years trying to solve this problem, and then found out it had been solved 3 years before:  [PointNet 2017] and [DeepSets 2017] and their mastery of mathematics is significantly above me!}
 
 	\item Any symmetric function can be represented by the following form (a special case of the Kolmogorov-Arnold representation of functions):
 	\begin{equation}
@@ -275,9 +323,27 @@
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{For example: symmetric NN for object recognition}
+\begin{itemize}
+	\item Imagine objects represented as \textbf{point clouds}:
+		\begin{eqnarray}
+		\nonumber
+		\vcenter{\hbox{\includegraphics[scale=1]{point-cloud-aeroplane.png}}}
+		\quad & \stackrel{f}{\longmapsto} & \quad \mbox{``aeroplane''} \\
+		\nonumber
+		\vcenter{\hbox{\includegraphics[scale=1]{point-cloud-desk.png}}}
+		\quad & \stackrel{f}{\longmapsto} & \quad \mbox{``desk''}
+		\end{eqnarray}
+	\item It does not matter \textbf{in what order} the points are in a sequence; \\
+		the function $f(x_1, ..., x_n)$ is symmetric in its arguments (the points)
+	\item Permutation invariance is \textbf{essential} for this to work
+\end{itemize}
+\end{frame}
+
 \renewcommand{\baselinestretch}{0.9} 
 \begin{frame}
-\frametitle{\cc{应用：BERT 的逻辑化}{Application: logicalization of BERT}}
+\frametitle{\cc{应用：BERT 的逻辑化}{Logicalization of BERT}}
 \begin{itemize}
 	\item \cc{类似地，可以将 BERT 的 隐状态 变成 ``set of propositions'' 的形式，方法是将 原来的 decoder 变成 sym NN：}
 	{Similarly, we can convert BERT's hidden state into a set of propositions, by replacing the original \emp{decoder} with a sym NN:}
