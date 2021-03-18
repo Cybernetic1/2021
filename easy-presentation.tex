@@ -94,7 +94,7 @@
 % \usepackage{newtxtext,newtxmath}	% Times New Roman font
 % \usepackage{sansmath}
 
-\newcommand{\emp}[1]{{\color{violet}#1}}
+\newcommand{\emp}[1]{\textbf{\color{violet}#1}}
 \newcommand{\vect}[1]{\boldsymbol{#1}}
 \newcommand{\tab}{\hspace*{1cm}}
 \newcommand*\confoundFace{$\vcenter{\hbox{\includegraphics[scale=0.2]{../confounded-face.jpg}}}$}
@@ -214,7 +214,7 @@
 \begin{itemize}
 	\item \cc{
 	Richard Sutton 认为，我们只需在 强化学习 的框架下 \emp{增加计算力}，就可以找到 strong AI}{
-	Sutton expressed the view that AI can probably be solved merely by \textbf{increasing computing power}, under the reinforcement learning framework
+	In contrast, Sutton expressed the view that AI can be solved merely by \textbf{increasing computing power}, under the reinforcement learning framework
 	}
 	\begin{equation}
 	\vcenter{\hbox{\includegraphics[scale=0.7]{Richard-Sutton.jpg}}}
@@ -343,7 +343,7 @@
 
 \renewcommand{\baselinestretch}{0.9} 
 \begin{frame}
-\frametitle{\cc{应用：BERT 的逻辑化}{Logicalization of BERT}}
+\frametitle{\cc{BERT 的逻辑化}{Logicalization of BERT}}
 \begin{itemize}
 	\item \cc{类似地，可以将 BERT 的 隐状态 变成 ``set of propositions'' 的形式，方法是将 原来的 decoder 变成 sym NN：}
 	{Similarly, we can convert BERT's hidden state into a set of propositions, by replacing the original \emp{decoder} with a sym NN:}
@@ -359,7 +359,7 @@
 \renewcommand{\baselinestretch}{1.0} 
 
 \begin{frame}
-\frametitle{\cc{应用：}{Application:} content-addressable long-term memory}
+\frametitle{Advantages of logical AI (1)}
 \begin{itemize}
 	\item \cc{以前 BERT 的隐状态 没有逻辑结构，我们不是很清楚它的内容是什么； 逻辑化之后，BERT 内部的命题可以储存在 \emp{长期记忆} 中：}
 	{The original BERT hidden state lacked a logical structure and it was not clear what exactly it contains.  After logicalization, propositions inside BERT can be stored into \emp{long-term memory}:}
@@ -376,15 +376,16 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{\cc{应用：知识图谱 (knowledge graphs)}{Application: knowledge graphs}}
+\frametitle{Advantages of logical AI (2)}
 \begin{itemize}
 	\item \cc{知识图谱 不能直接输入神经网络，它必需分拆成很多 edges，每个 edge 是一个 \emp{关系}，也是一个 \emp{逻辑命题} ；也可以说 ``graphs are isomorphic to logic''}
-	{One cannot feed a knowledge graph directly into an NN, as its input must be embedded in vector space.  A solution is to break the graph into edges, where each edge is equivalent to a relation or proposition.  One could say that graphs are isomorphic to logic}
+	% {One cannot feed a knowledge graph directly into an NN, as its input must be embedded in vector space.  A solution is to break the graph into edges, where each edge is equivalent to a relation or proposition.  One could say that graphs are isomorphic to logic}
+	{Integrates seamlessly with \emp{knowledge graphs}}
 	\begin{equation}
 	\vcenter{\hbox{\includegraphics[scale=0.6]{knowledge-graph.png}}}
 	\end{equation}
-	\item \cc{而这些 edges 似乎必需用 \emp{symmetric} NN 处理，因为它们是 permutation invariant}
-	{Since edges are invariant under permutations, it appears that symmetric NNs are required to process them}
+	% \item \cc{而这些 edges 似乎必需用 \emp{symmetric} NN 处理，因为它们是 permutation invariant}
+	% {Since edges are invariant under permutations, it appears that symmetric NNs are required to process them}
 	% \item Sym NNs are required to handle \emp{graph-rewriting}, an essential operation on knowledge graphs
 \end{itemize}
 \end{frame}
