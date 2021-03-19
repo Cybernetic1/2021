@@ -16,7 +16,7 @@
 %\usepackage{newtxtext,newtxmath}	% use Times Roman font
 %\usepackage{newtxtext}
 %\renewcommand{\familydefault}{\sfdefault}
-%\usefonttheme{serif}
+\usefonttheme{serif}
 \usefonttheme{professionalfonts}
 %\setbeamertemplate{theorems}[numbered]
 \setbeamertemplate{caption}{\insertcaption} 	% no `Figure' prefix before caption
@@ -257,6 +257,22 @@
 \end{frame}
 
 \begin{frame}
+\frametitle{Reinforcement learning}
+\begin{itemize}
+	\item Think of the ``\textbf{state}'' in reinforcement learning like a \textbf{board positon} in a chess game:
+	\begin{equation}
+	\vcenter{\hbox{\includegraphics[scale=0.5]{chess-game-tree.png}}}
+	\end{equation}
+	\item Reinforcement learning seeks to maximize the total \textbf{rewards} accrued over a (possibly infinite) \textbf{time horizon}:
+	\begin{equation}
+	 \mbox{maximize }  S = \int_0^{\infty} L \; dt
+	\end{equation}
+	\item Such maximization gives the AI \textbf{intelligence} because it is often beneficial to \textbf{delay} rewards, eg: to plot a clever chess move
+	\item But reinforcement learning is a \textbf{brute force} approach;  we need to give the model some additional \textbf{inductive bias}, eg, in the form of \textbf{logical structure}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
 \frametitle{Structure of logic}
 \begin{itemize}
 	\item \cc{
@@ -361,18 +377,20 @@
 \begin{frame}
 \frametitle{Advantages of logical AI (1)}
 \begin{itemize}
-	\item \cc{以前 BERT 的隐状态 没有逻辑结构，我们不是很清楚它的内容是什么； 逻辑化之后，BERT 内部的命题可以储存在 \emp{长期记忆} 中：}
-	{The original BERT hidden state lacked a logical structure and it was not clear what exactly it contains.  After logicalization, propositions inside BERT can be stored into \emp{long-term memory}:}
+	% \item \cc{以前 BERT 的隐状态 没有逻辑结构，我们不是很清楚它的内容是什么； 逻辑化之后，BERT 内部的命题可以储存在 \emp{长期记忆} 中：}
+	% {The original BERT hidden state lacked a logical structure and it was not clear what exactly it contains.  After logicalization, propositions inside BERT can be stored into \emp{long-term memory}:}
+	\item With logic, it becomes easy to design cognitive architectures, \\
+	eg: long-term memory module
 	\begin{equation}
 	\vcenter{\hbox{\includegraphics[scale=0.5]{long-term-memory.png}}}
 	\end{equation}
-	例如：「太阳是热的」、「水向下流」是经常正确的命题
-	\item \cc{这种系统 已非常接近 strong AI，而这是有赖 \emp{逻辑化} 才能做到的}
-	{These kind of systems are very close to strong AI, and it depends crucially on logicalization}
-	\item \cc{Content-addressable memory 的想法来自 Alex Graves \textit{et al} 的 Neural Turing Machine [2014]}
-	{The content-addressable memory idea came from Alex Graves \textit{et al}'s Neural Turing Machine [2014]}
+	% 例如：「太阳是热的」、「水向下流」是经常正确的命题
+	% \item \cc{这种系统 已非常接近 strong AI，而这是有赖 \emp{逻辑化} 才能做到的}
+	% {These kind of systems are very close to strong AI, and it depends crucially on logicalization}
+	% \item \cc{Content-addressable memory 的想法来自 Alex Graves \textit{et al} 的 Neural Turing Machine [2014]}
+	% {The content-addressable memory idea came from Alex Graves \textit{et al}'s Neural Turing Machine [2014]}
  \end{itemize}
-\nocite{Graves2014}
+% \nocite{Graves2014}
 \end{frame}
 
 \begin{frame}
@@ -380,7 +398,9 @@
 \begin{itemize}
 	\item \cc{知识图谱 不能直接输入神经网络，它必需分拆成很多 edges，每个 edge 是一个 \emp{关系}，也是一个 \emp{逻辑命题} ；也可以说 ``graphs are isomorphic to logic''}
 	% {One cannot feed a knowledge graph directly into an NN, as its input must be embedded in vector space.  A solution is to break the graph into edges, where each edge is equivalent to a relation or proposition.  One could say that graphs are isomorphic to logic}
-	{Integrates seamlessly with \emp{knowledge graphs}}
+	{Integrate seamlessly with \emp{knowledge graphs}}
+	\item graphs are made up of edges, \\
+	edges = relations between nodes = propositions:
 	\begin{equation}
 	\vcenter{\hbox{\includegraphics[scale=0.6]{knowledge-graph.png}}}
 	\end{equation}
