@@ -122,7 +122,25 @@ where $R$ is the reward.  $V$ is the value function and $Q$ is the value functio
 \end{equation}
 暂时不会 implement forgetting mechanism, 我们只是用一个足够大的 state 装下整个 NL 句子的字（每个 NL字 用一个逻辑命题），\textbf{遗忘} 时间最早的那些 命题。
 
-在这情况下 reinforcement learning 的 update 是：
+在 policy gradient 方法下 reinforcement learning 的 \textbf{update} 是：
+\begin{equation}
+\theta := \theta + \eta \nabla_{\theta} J(\theta)
+\end{equation}
+where
+\begin{itemize}
+	\item $\theta$ = \textbf{parameter} of the policy $\pi_{\theta}$
+	\item $J$ = \textbf{value} function = $\mathbb{E}[\; R(\tau) \;]$
+	\item $R(\tau)$ = total \textbf{reward} of trajectory $\tau$
+\end{itemize}
+where a \textbf{trajectory} is a sequence of (state, action)'s:
+\begin{equation}
+\tau = s_0, a_0, s_1, a_1, ... s_T, a_T.
+\end{equation}
+and the \textbf{policy} is a probability function:
+\begin{eqnarray}
+\pi_{\theta}(\tau) &=& \mbox{probability of trajectory } \tau \\
+ &=& p(s_0) \pi_{\theta}(a_0|s_0) p(s_1|s_0,a_0) \cdot .... \nonumber
+\end{eqnarray}
 
 %\section*{References}
 % \printbibliography
