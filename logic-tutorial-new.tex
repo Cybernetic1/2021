@@ -1,0 +1,135 @@
+% TO-DO:
+% * fuzzy logic re-write
+% * classifying spaces *
+% * Yoneda lemma finish
+% * functorial semanticss
+% * Kripke-Joyal semantics
+% * Cohen forcing *
+% * Sheaves and topos *
+% * Heyting algebra revise *
+
+% * implementation of topology ***
+% * model-based approach
+
+% DONE:
+% * The model is only for working memory.  
+% * Even so, what does the model offer that syntax does not have?
+% * Need a simple semantic model to begin thinking....
+
+\input{../YKY-preamble.tex}
+
+\usepackage{color}
+\usepackage{mathtools}
+\usepackage{hyperref}
+
+\usepackage[backend=biber,style=numeric]{biblatex}
+\bibliography{../AGI-book}
+% \renewcommand*{\bibfont}{\footnotesize}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage[export]{adjustbox}% http://ctan.org/pkg/adjustbox
+\usepackage{verbatim} % for comments
+% \usepackage{newtxtext,newtxmath}	% Times New Roman font
+
+\numberwithin{equation}{subsection}
+
+\newcommand{\underdash}[1]{%
+	\tikz[baseline=(toUnderline.base)]{
+		\node[inner sep=1pt,outer sep=10pt] (toUnderline) {#1};
+		\draw[dashed] ([yshift=-0pt]toUnderline.south west) -- ([yshift=-0pt]toUnderline.south east);
+	}%
+}%
+
+\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+\DeclareMathSymbol{\strictif}{\mathrel}{symbolsC}{74}
+
+\newcommand{\highlight}[1]{\colorbox{pink}{$\displaystyle #1$}}
+
+\newcommand{\emp}[1]{{\color{violet}\textbf{#1}}}
+\newcommand*\confoundFace{$\vcenter{\hbox{\includegraphics[scale=0.2]{../confounded-face.jpg}}}$}
+\newcommand{\underconst}{\includegraphics[scale=0.5]{UnderConst.png}}
+\newcommand{\witness}{\scalebox{0.6}{$\blacksquare$}}
+% \newcommand{\Heytingarrow}{\mathrel{-}\mathrel{\triangleright}}
+\providecommand\Heytingarrow{\relbar\joinrel\mathrel{\vcenter{\hbox{\scalebox{0.75}{$\rhd$}}}}}
+
+\begin{document}
+
+\title{\cc{\bfseries\color{blue}{\Huge《AGI 逻辑导论》}}
+{\bfseries\color{blue}{\Huge《AGI logic tutorial》} }
+}
+\author{YKY} % Your name
+%\institute[] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+%{
+%Independent researcher, Hong Kong \\ % Your institution for the title page
+%\medskip
+%\textit{generic.intelligence@gmail.com} % Your email address
+%}
+\date{\today} % Date, can be changed to a custom date
+
+\maketitle
+
+\section*{Summary}
+\begin{itemize}
+\cc{\item 描述一种可以完整地解决 AGI 的 univeral logic
+}{
+\item Describes a kind of univeral logic that can completely solve AGI.
+}
+\end{itemize}
+
+\tableofcontents
+% \vspace*{0.5cm}
+% 多谢 支持 \smiley
+
+\setcounter{section}{-1}
+\section{Background}
+
+\cc{我们想 \textbf{训练} 一个智能系统，训练 是一个 \textbf{机器学习} 的过程，也是一个 \emp{optimization} problem, 目标是将 \textbf{长期的奖励总和} 最大化：
+}{
+We want to \textbf{training} an intelligent system. Training is a process of \textbf{machine learning} and also a problem of \emp{optimization}. The goal is to maximize \textbf{long-term reward sum}:
+}
+\begin{equation}
+\label{eqn:time-horizon}
+\mbox{maximize: } \int_0^{\infty} R \, dt
+\end{equation}
+\cc{where $R(t)$ = reward at time $t$.  $\int_0^{\infty}$ 表示 计算 累积奖励的 \emp{time horizon}.  （我使用了微分的形式，实际应用通常是离散形式，但两者基本一样，不必深究）
+}{
+where $R(t)$ = reward at time $t$. $\int_0^{\infty}$ represents the \emp{time horizon} for calculating the cumulative reward. (I used the differential form, the actual application is usually the discrete form , But the two are basically the same, so you don’t have to go into it)
+}
+
+\cc{俗语说「棋屎贪吃卒」，在开局初期吃卒，可能导致 $N$步之后被将死，这是\textbf{愚蠢}的行为。 所以 (\ref{eqn:time-horizon})式 令 系统必需顾及长远的利益，遂迫使它学习 \textbf{智慧}。
+}{
+As the saying goes, "Chess shit is greedy for pawns." It may lead to checkmates after $N$ moves. This is \textbf{stupid} behavior. Therefore, the (\ref{eqn:time-horizon}) formula requires the system to take into account long-term interests, and forces it to learn \textbf{wisdom}.
+}
+
+\cc{Architecturally, the AI is a \emp{dynamical system} that constantly updates its ``state'' $\vect{x}$ via: \footnote{Part of the state $\vect{x}$ contains \textbf{sensory input} and \textbf{action output} that allow the AI to interact with the external environment.}
+}{
+Architecturally, the AI is a \emp{dynamical system} that constantly updates its ``state'' $\vect{x}$ via: \footnote{Part of the state $\vect{x}$ contains \textbf{sensory input} and \textbf{action output} that allow the AI to interact with the external environment.}
+}
+\begin{equation}
+\dot{\vect{x}} = \vect{f}(\vect{x})
+\end{equation}
+\cc{或者用离散形式表示：
+}{
+Or expressed in discrete form:
+}
+\begin{equation}
+\vect{x}_{t+1} = \vect{F}(\vect{x}_t)
+\end{equation}
+\cc{$\vect{F}$ 叫作 transition function.  或者更形象地表示：
+}{
+$\vect{F}$ is called transition function. Or more vividly:
+}
+\begin{equation}
+\label{eqn:AGI-architecture}
+\begin{tikzcd}
+\vect{x} \arrow[in=160,out=20,loop,looseness=5,swap,"\vect{F}"]
+\end{tikzcd}
+\end{equation}
+\cc{Our goal is to \textbf{learn} the function $\vect{F}$, implemented as a \emp{deep neural network}.  $\vect{F}$ 包含智能系统内的所有\textbf{知识}。 
+}{
+Our goal is to \textbf{learn} the function $\vect{F}$, implemented as a \emp{deep neural network}. $\vect{F}$ contains all the \textbf{knowledge} in the intelligent system.
+}
+
+\end{document} 
