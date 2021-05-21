@@ -464,8 +464,6 @@ f \triangleq \lambda x. \; x^2
 \subsection{Martin-L\"{o}f type theory}
 \label{sec:Martin-Lof-TT}
 
-{\color{red} English translation proofread up to here.}
-
 \cc{根据 Curry-Howard, 下面的 $A {\color{blue}\Rightarrow} B$ 是一个 逻辑命题，因而是一个 type: 
 }{
 	According to Curry-Howard, $A {\color{blue}\Rightarrow} B$ is a logic proposition and therefore a type:
@@ -512,12 +510,12 @@ f \triangleq \lambda x. \; x^2
 
 \cc{Dependent sum $\displaystyle \sum_A B$ 里面 $B$ 的类型 depends on $A$. 整个 family of A 的 + 的结果变成类似 product $A \times B$.
 }{
-	The type of $B$ in Dependent sum $\displaystyle \sum_A B$ depends on $A$. The result of + for the entire family of A becomes similar to product $A \times B$.
+	The type of $B$ in the dependent sum $\displaystyle \sum_A B$ depends on $A$. The sum of the entire family of $A$ (indexed by $B$) is similar to the product $A \times B$.
 }
 
 \cc{Dependent product $\displaystyle \prod_A B$ 里面 $B$ 的类型 depends on $A$. 整个 family of A 的 $\times$ 的结果变成类似 exponentiation $B^A$.
 }{
-	The type of $B$ in Dependent product $\displaystyle \prod_A B$ depends on $A$. The result of $\times$ for the entire family of A becomes similar to exponentiation $B^A$.
+	The type of $B$ in the dependent product $\displaystyle \prod_A B$ depends on $A$. The product of the entire family of $A$ is similar to the exponentiation $B^A$.
 }
 
 \cc{Dependent products can be used to define \textbf{predicates} such as Human() and Mortal().  They are of type $\displaystyle \mathrm{Obj} \rightarrow \Omega = \Omega^{\mathrm{Obj}} = \prod_{\mathrm{Obj}} \Omega$.  \footnote{Note that ``objects'' here mean logic objects, not objects in category theory.}
@@ -527,13 +525,10 @@ f \triangleq \lambda x. \; x^2
 
 \cc{一个很漂亮的结果是： 如果用 $\sum_A B$ 和 $\prod_A B$ 定义 逻辑命题，则这些 types 如果被 inhabited 的话，分别对应於 $\exists A. B(A)$ 和 $\forall A. B(A)$. 这是因为： 如果 $A \times B$ inhabited，表示\textbf{至少存在}一个 $B(A)$； 而如果 $B^A$ inhabited，则存在一个函数，将\textbf{任意的} $A$ send to $B$.
 }{
-	A very beautiful result is: If you use $\sum_A B$ and $\prod_A B$ to define logic propositions, these types, if inhabited, correspond to $\exists A. B(A)$ and $\forall A, respectively . B(A)$. This is because: If $A \times B$ is inhabited, it means that \textbf{exists} at least one $B(A)$; and if $B^A$ is inhabited, there is a function that will \textbf{arbitrary} $A$ send to $B$.
+	A very beautiful result is: If we use $\sum_A B$ and $\prod_A B$ to define logic propositions, these types, if inhabited, correspond to $\exists A. B(A)$ and $\forall A. B(A)$, respectively. This is because: If $A \times B$ is inhabited, it means there \textbf{exists} at least one $B(A)$; and if $B^A$ is inhabited, there is a function that sends \textbf{arbitrary} $A$'s to $B$'s.
 }
 
-\cc{Per Martin-L\"{o}f (1942-) was the first logician to see the full importance of the connection between intuitionistic logic and type theory.
-}{
-	Per Martin-L\"{o}f (1942-) was the first logician to see the full importance of the connection between intuitionistic logic and type theory.
-}
+Per Martin-L\"{o}f (1942-) was the first logician to see the full importance of the connection between intuitionistic logic and type theory.
 \begin{equation}
 \nonumber
 \mbox{Per Martin-L\"{o}f (1942-)} \quad \vcenter{\hbox{\includegraphics[scale=0.5]{../2020/Martin-Lof.jpg}}}
@@ -543,13 +538,13 @@ f \triangleq \lambda x. \; x^2
 
 \cc{很多人都知道，经典逻辑中 $\wedge, \vee$ 对应於 \textbf{算术运算} $\times, +$（也可以看成是 fuzzy logic 的 $\min, \max$.） 其实这就是 George Boole 尝试将 \emp{逻辑} 变成 某种\emp{代数} 的原因。
 }{
-	Many people know that in classical logic $\wedge, \vee$ corresponds to \textbf{arithmetic operation} $\times, +$ (it can also be regarded as fuzzy logic $\min, \max$.) In fact, this is George Boole tried to turn \emp{logic} into some kind of \emp{algebra} reason.
+	Many people know that in classical logic $\wedge, \vee$ correspond to the \textbf{arithmetic operations} $\times, +$ (they also correspond to $\min, \max$  in fuzzy logic.)  Historically, that was the reason why George Boole tried to formulate \emp{logic} as some kind of \emp{algebra}.
 }
 
-\cc{较少人知道的是 $A \Rightarrow B$ 也对应於 $B^A$： \footnote{其中 $0^0$ 是「不确定式」，但按照 组合学 惯例可以定义为 1.}
+\cc{较少人知道的是 $A \Rightarrow B$ 也对应於 $B^A$：
 }{
-	What less people know is that $A \Rightarrow B$ also corresponds to $B^A$: \footnote{where $0^0$ is "indeterminate", but according to the combinatorics convention, it can be defined as 1.}
-}
+	What fewer people know is that $A \Rightarrow B$ also corresponds to $B^A$:
+} \footnote{I learned this from David Corfield's book \cite{Corfield}}
 \begin{equation}
 \label{truth-table:material-implication}
 \begin{tabular}{|c|c|c|c|}
@@ -566,9 +561,15 @@ $A$ & $B$ & $A \Rightarrow B$ & $B^A$ \\
 \hline 
 \end{tabular} 
 \end{equation}
+\cc{
+其中 $0^0$ 是「不确定式」，但按照 组合学 惯例可以定义为 1.
+}{
+where $0^0$ is ``indeterminate'', but according to combinatorics convention, it can be defined as 1.
+}
+
 \cc{这个惊奇的「巧合」似乎再一次证实 Curry-Howard correspondence 是正确的； 特别地，它意味 $\Rightarrow$ 应该看成是 \textbf{函数}，即所谓 ``functional interpretation of logical deduction.'' 
 }{
-	This surprising "coincidence" seems to prove once again that Curry-Howard correspondence is correct; in particular, it means that $\Rightarrow$ should be regarded as \textbf(function), the so-called ``functional interpretation of logical deduction.''
+	This surprising "coincidence" seems to prove once again that Curry-Howard correspondence is correct;  In particular, it means that $\Rightarrow$ should be interpreted as \textbf(function), the so-called ``functional interpretation of logical deduction.''
 }
 
 \subsection{The problem of material implication}
@@ -576,41 +577,41 @@ $A$ & $B$ & $A \Rightarrow B$ & $B^A$ \\
 
 \cc{更详细观察，table (\ref{truth-table:material-implication}) 里面 $A$ 和 $B$ 的 truth values 可以看成是它们的 types 有没有 \textbf{inhabitants}. Type $A$ 的 inhabitant 就是它的证明 $\witness$，没有证明就是 $\emptyset$.  或者推广到：命题 $A$ 的真值 = $A$ 的 type 作为 集合 的 \textbf{cardinality}; The truth valuation of $A = |A|$.  这样看，$A \Rightarrow B$ 的真值 就是 $|B^A|$, 亦即是从 $\{\witness\}$ 或 $\emptyset$ 到 $\{\witness\}$ 或 $\emptyset$ 的 map 的\textbf{个数}, 而这个 map 只有在 $\emptyset \mapsto \{\witness\}$ 的时候是空集（不可能）。
 }{
-	To observe in more detail, the truth values of $A$ and $B$ in the table (\ref{truth-table:material-implication}) can be regarded as whether their types are \textbf{inhabitants}. Type $A$’s inhabitant It is its proof $\witness$, and no proof is $\emptyset$. Or it can be generalized to: the truth value of the proposition $A$ = the type of $A$ as the set \textbf{cardinality}; $|A|$. In this way, the true value of $A \Rightarrow B$ is $|B^A|$, that is, from $\{\witness\}$ or $\emptyset$ to $\{\witness\}$ or $\emptyset$ map \textbf{number}, and this map is only empty set when $\emptyset \mapsto \{\witness\}$ (impossible).
+	To observe in more detail, the truth values of $A$ and $B$ in table (\ref{truth-table:material-implication}) can be regarded as whether their types have \textbf{inhabitants}.  A type's inhabitant is its proof $\witness$, whereas $\emptyset$ means no proof.  More abstractly:  the truth value of the proposition $A$ = the \textbf{cardinality} of the type $A$ as a set; $|A|$.  In this way, the true value of $A \Rightarrow B$ is $|B^A|$, that is, the \textbf{number} of maps from $\{\witness\}$ or $\emptyset$ to $\{\witness\}$ or $\emptyset$, and such maps is the empty set only in the case $\emptyset \mapsto \{\witness\}$ (which is impossible).
 }
 
 \cc{这个观察 可以推广到 fuzzy logic (\S\ref{sec:fuzzy-implication}) 和 strict implication $A \strictif B$ (\S\ref{sec:strict-implication}).
 }{
-This observation can be extended to fuzzy logic (\S\ref(sec:fuzzy-implication)) and strict implication $A \strictif B$ (\S\ref(sec:strict-implication)).
+	This observation may be extended to fuzzy logic (\S\ref(sec:fuzzy-implication)) and strict implication $A \strictif B$ (\S\ref(sec:strict-implication)).
 }
 
 \cc{但 material implication 导致某种悖论：
 }{
-But material implication leads to a certain paradox:
+	However, material implication seems to lead to a certain fallacy:
 }
 \begin{equation}
 A \wedge B \quad \vdash \quad A \Rightarrow B
 \end{equation}
 \cc{例如
 }{
-E.g
+For example,
 }
 \begin{equation}
 \mbox{\cc{看见黑猫}{seeing black cat}} \wedge \mbox{\cc{发生车祸}{car accident}} \quad \vdash \quad \mbox{\cc{看见黑猫}{seeing black cat}} \Rightarrow \mbox{\cc{发生车祸}{car accident}}
 \end{equation}
 \cc{即任何两件\textbf{同时}发生的事件，会导致类似\textbf{因果}的结论，然而这因果关系未必成立。 这个谬误出现的原因，似乎是因为混淆了不同时间的 \emp{cases}.  换句话说： 我们应该验证了 table (\ref{truth-table:material-implication}) 的所有 cases，然后才下结论说 $A \Rightarrow B$； 然而根据 经典逻辑的 material implication，只需要一个 case 就可以下结论说 $A \Rightarrow B$.
 }{
-That is to say, any two occurrences of \textbf{simultaneously} will lead to a conclusion similar to \textbf{causality}, but this causal relationship may not be established. The reason for this fallacy seems to be the confusion of \emp{cases} at different times. In other words: We should verify all the cases of table (\ref{truth-table:material-implication}) before drawing conclusions Say $A \Rightarrow B$; However, according to the material implication of classical logic, only one case is needed to conclude that $A \Rightarrow B$.
+	That is to say, any two \textbf{coincidental} occurrences will lead to a conclusion similar to \textbf{causality}, even though this causal relationship may not exist.  This fallacy seems stem from the confusion of \textbf{cases at different times}.  In other words:  We should verify all the cases in table (\ref{truth-table:material-implication}) before drawing the conclusion $A \Rightarrow B$;  However, according to classical logic, only one case is needed to establish that $A \Rightarrow B$.
 }
 
 \cc{那么，这个谬误 为什么没有在 经典逻辑 AI 系统中被发现？
 }{
-So, why is this fallacy not found in the classic logic AI system?
+	So, why is this flaw not discovered in classic logic AI systems?
 }
 
 \cc{所谓 \textbf{inductive learning of logic rules}，其原理是根据以下的「生成模型」： 
 }{
-The principle of the so-called \textbf{inductive learning of logic rules} is based on the following "generative model":
+	The principle of the so-called \textbf{inductive learning of logic rules} is based on the following ``generative model'':
 }
 \begin{equation}
 \begin{tikzcd}[| /.tip = {Bar[scale=3]}, column sep = large]
@@ -620,30 +621,26 @@ The principle of the so-called \textbf{inductive learning of logic rules} is bas
 \end{equation}
 \cc{这种 generators 的思想，和 数学中 generators of ideals, groups, function fields, 等 是一样的。 
 }{
-The idea of this kind of generators is the same as generators of ideals, groups, function fields, etc. in mathematics.
+	The idea behind such ``generators'' is the same as generators of ideals, groups, function fields, etc. in mathematics.
 }
 
 \cc{Machine learning 的目的，是求得一组这样的 generators，而它生成的\textbf{机制}，即是逻辑推导 $\vdash$.
 }{
-The purpose of machine learning is to obtain a set of such generators, and the \textbf{mechanism} it generates is a logical derivation $\vdash$.
+	The purpose of machine learning is to obtain a set of such generators, and the \textbf{generating mechanism} is logic derivation, $\vdash$.
 }
 
 \cc{但由於在 learning 的过程中，需要验证 \textbf{不同时间}的 cases，因此避免了 太轻易接受 $A \Rightarrow B$ 的问题。 
 }{
-However, since the cases of \textbf{different time} need to be verified during the learning process, the problem of accepting $A \Rightarrow B$ too easily is avoided.
+	However, since the cases (occurring at \textbf{different times}) need to be verified during the learning process, the problem of accepting $A \Rightarrow B$ too easily is avoided.
 }
 
 \section{Topos theory}
 
 \subsection{Basics}
 
-\begin{equation}
-\nonumber
-\mbox{Joachim Lambek (1922-2014)} \quad \vcenter{\hbox{\includegraphics[scale=0.4]{../2020/Lambek.jpg}}}
-\end{equation}
 \cc{将 type theory 对应到 category theory，这工作是 Lambek 做的，於是完成了 Curry-Howard-Lambek 的「三位一体」：
 }{
-	Corresponding type theory to category theory, this work was done by Lambek, thus completing Curry-Howard-Lambek's "Trinity":
+	Making a connection between type theory and category theory, this work was done by Lambek, thus creating a Curry-Howard-Lambek ``Trinity'':
 }
 % \tikzcdset{arrows={line width=3pt}}
 \begin{equation}
@@ -654,19 +651,24 @@ However, since the cases of \textbf{different time} need to be verified during t
 \end{tikzcd}
 \end{equation}
 
+\begin{equation}
+\nonumber
+\mbox{Joachim Lambek (1922-2014)} \quad \vcenter{\hbox{\includegraphics[scale=0.4]{../2020/Lambek.jpg}}}
+\end{equation}
+
 \cc{Topos 的重要意义在於 它是一个可以用来 \textbf{进行逻辑运算} 的范畴，关键在於它可以表达 \textbf{子集} 的概念，或更一般地叫作 \emp{sub-objects}.
 }{
-	The important significance of Topos is that it is a category that can be used for \textbf{for logical operations}. The key is that it can express the concept of \textbf{sub-objects}, or more generally called \emp{sub-objects}.
+	The significance of topos is that it is a category in which one can perform \textbf{logic / set-theoretic operations}.  The key is that it can express the concept of \textbf{sub-sets}, or more generally called \emp{sub-objects}.
 }
 
 \cc{一个 topos $\mathcal{C}$ 里面存在 sub-object classifer $\Omega$ 使得 $X \rightarrow \Omega \cong \mbox{sub-objects of } X$.  换句话说 $X$ 的 子集 可以用 $X \rightarrow \Omega$ 这个映射来 \emp{represent}.
 }{
-	A topos $\mathcal(C)$ has sub-object classifer $\Omega$ in it, so that $X \rightarrow \Omega \cong \mbox{sub-objects of} X$. In other words, a subset of $X$ can be used $X \rightarrow \Omega$ This mapping comes from \emp{represent}.
+	Every topos $\mathcal(C)$ has a sub-object classifer $\Omega$, so that $X \rightarrow \Omega \cong \mbox{sub-objects of} X$.  In other words, a subset of $X$ can be represented by the map $X \rightarrow \Omega$.
 }
 
 \cc{在 $\mathbf{Set}$ 这个 topos 里面，$\Omega$ 是一个有\textbf{两个}元素的集合，可以记作 $\{ \top, \bot \}$.  那么 $X \rightarrow \Omega$ 就是一些 \emp{命题}，例如 $X$ 是人的集合，则 $\begin{tikzcd}[column sep = 12ex] X \arrow[r, "\mathrm{mathematician}"] & \Omega \end{tikzcd}$ 定义哪些人是数学家。 
 }{
-	In the topos of $\mathbf{Set}$, $\Omega$ is a set of \textbf{two} elements, which can be written as $\{ \top, \bot \}$. Then $X \rightarrow \Omega$ are some \emp{propositions}, for example, $X$ is a collection of people, then $\begin{tikzcd}[ampersand replacement=\&, column sep = 12ex]
+	In the topos of $\mathbf{Set}$, $\Omega$ is a set of \textbf{two} elements, which can be written as $\{ \top, \bot \}$.  Maps like $X \rightarrow \Omega$ are \emp{propositions}.  For example, if $X$ is a collection of people, then $\begin{tikzcd}[ampersand replacement=\&, column sep = 12ex]
 	X \arrow[r, "\mathrm{mathematician}"] \& \Omega \end{tikzcd}$ defines who is a mathematician.
 }
 
@@ -683,32 +685,32 @@ Y \arrow[r, swap, "\Chi_m"] & \Omega
 \end{equation}
 \cc{其中：
 }{
-	among them:
+	where:
 }
 \begin{itemize}
-	\cc{	\item $X \stackrel{!}{\longrightarrow} 1$ 是个 unique arrow，它将 集合 $X$ \textbf{整个地}映射到 1. 而 1 是 terminal object，它的定义就是说，通向它的箭咀只能有一个。
+	\cc{\item $X \stackrel{!}{\longrightarrow} 1$ 是个 unique arrow，它将 集合 $X$ \textbf{整个地}映射到 1. 而 1 是 terminal object，它的定义就是说，通向它的箭咀只能有一个。
 	}{
-		\item $X \stackrel{!}{\longrightarrow} 1$ is a unique arrow, which maps the collection $X$ \textbf{entirely} to 1. And 1 is a terminal object, which is defined as leading to it There can only be one arrow.
+		\item $X \stackrel{!}{\longrightarrow} 1$ is a unique arrow, which maps the set $X$ \textbf{entirely} to 1.  1 is the \emp{terminal object}, which is defined by saying there can only be one arrow leading to it.
 	}
 	
-	\cc{	\item $\begin{tikzcd}[ampersand replacement=\&] 1 \arrow[r, "\mathrm{true}"] \& \Omega \end{tikzcd}$ 在 $\top$ 和 $\bot$ 之间选择 $\top$, 因此叫 ``true'' arrow.
+	\cc{\item $\begin{tikzcd}[ampersand replacement=\&] 1 \arrow[r, "\mathrm{true}"] \& \Omega \end{tikzcd}$ 在 $\top$ 和 $\bot$ 之间选择 $\top$, 因此叫 ``true'' arrow.
 	}{
-		\item $\begin{tikzcd}[ampersand replacement=\&] 1 \arrow[r, "\mathrm{true}"] \& \Omega \end{tikzcd}$ choose between $\top$ and $\bot$ $\top$, so Call it ``true'' arrow.
+		\item $\begin{tikzcd}[ampersand replacement=\&] 1 \arrow[r, "\mathrm{true}"] \& \Omega \end{tikzcd}$ picks out $\top$ between $\top$ and $\bot$, so we call it the ``true'' arrow.
 	}
 	
-	\cc{	\item $\begin{tikzcd}[ampersand replacement=\&] X \arrow[r, tail, "m"] \& Y \end{tikzcd}$ 是 \emp{monic} arrow，特别地，在 $\mathbf{Set}$ 里面它就是 \emp{inclusion} map，即 $\begin{tikzcd}[ampersand replacement=\&] X \arrow[r, hook, "m"] \& Y \end{tikzcd}$.  它表示 $X$ 是 $Y$ 的\textbf{子集}，$X \subseteq Y$.
+	\cc{\item $\begin{tikzcd}[ampersand replacement=\&] X \arrow[r, tail, "m"] \& Y \end{tikzcd}$ 是 \emp{monic} arrow，特别地，在 $\mathbf{Set}$ 里面它就是 \emp{inclusion} map，即 $\begin{tikzcd}[ampersand replacement=\&] X \arrow[r, hook, "m"] \& Y \end{tikzcd}$.  它表示 $X$ 是 $Y$ 的\textbf{子集}，$X \subseteq Y$.
 	}{
-		\item $\begin{tikzcd}[ampersand replacement=\&] X \arrow[r, tail, "m"] \& Y \end{tikzcd}$ is \emp{monic} arrow, especially, in $\mathbf{Set}$ it is \emp{inclusion} map, ie $\begin{tikzcd}[ampersand replacement=\&] X \arrow[r, hook, "m"] \& Y \end{tikzcd}$. It means that $X$ is a \textbf{ subset of $Y$ }, $X \subseteq Y$.
+		\item $\begin{tikzcd}[ampersand replacement=\&] X \arrow[r, tail, "m"] \& Y \end{tikzcd}$ is a \emp{monic} arrow;  Particularly, in $\mathbf{Set}$ it is the \emp{inclusion map}, ie $\begin{tikzcd}[ampersand replacement=\&] X \arrow[r, hook, "m"] \& Y \end{tikzcd}$.  It means that $X$ is a \textbf{subset} of $Y$, $X \subseteq Y$.
 	}
-	
-	\cc{	\item $\begin{tikzcd}[ampersand replacement=\&] Y \arrow[r, "\Chi_m"] \& \Omega \end{tikzcd}$ 是集合论中熟悉的 \emp{characteristic function}, 当元素 $e \in X \subseteq Y$ 时，$\Chi(e)$ 取值 1，否则为 0.  正是 $\Chi_m$ 的存在令这幅图 commute.  $\Chi_m$ 也记作 $\ulcorner m \urcorner$.
+
+	\cc{\item $\begin{tikzcd}[ampersand replacement=\&] Y \arrow[r, "\Chi_m"] \& \Omega \end{tikzcd}$ 是集合论中熟悉的 \emp{characteristic function}, 当元素 $e \in X \subseteq Y$ 时，$\Chi(e)$ 取值 1，否则为 0.  正是 $\Chi_m$ 的存在令这幅图 commute.  $\Chi_m$ 也记作 $\ulcorner m \urcorner$.
 	}{
-		\item $\begin{tikzcd}[ampersand replacement=\&] Y \arrow[r, "\Chi_m"] \& \Omega \end{tikzcd}$ is the familiar \emp{characteristic function} in set theory, when the element $e \in X \subseteq For Y$, $\Chi(e)$ takes the value 1, otherwise it is 0. It is the existence of $\Chi_m$ that makes this picture committee. $\Chi_m$ is also recorded as $\ulcorner m \urcorner$.
+		\item $\begin{tikzcd}[ampersand replacement=\&] Y \arrow[r, "\Chi_m"] \& \Omega \end{tikzcd}$ is the familiar \emp{characteristic function} in set theory.  When the element $e \in X \subseteq Y$, $\Chi(e)$ takes the value 1, otherwise it is 0.  It is the existence of $\Chi_m$ that makes this diagram commute.  $\Chi_m$ is also denoted $\ulcorner m \urcorner$.
 	}
 \end{itemize}
 \cc{不熟悉基本范畴论的读者，我非常推荐看一看《Conceptual Mathematics》这本书，写得连中学生也可以看懂，而作者之一的 Lawvere 正是 topos 理论的创始人。 
 }{
-	For readers who are not familiar with basic category theory, I highly recommend reading the book "Conceptual Mathematics", which is written so that even middle school students can understand it. One of the authors, Lawvere, is the founder of topos theory.
+	For readers who are not familiar with basic category theory, I highly recommend the book \textit{Conceptual Mathematics}, written in a style even high school students can understand.  One of the authors is Lawvere, creator of topos theory.
 }
 
 \cc{从 $\mathbf{Set}$ 的角度看，这个 diagram 很易理解，但 topos 的好处是它可以将这些逻辑概念 \textbf{generalize} 到比 $\mathbf{Set}$ 更一般的范畴。 
@@ -718,7 +720,7 @@ Y \arrow[r, swap, "\Chi_m"] & \Omega
 
 \cc{Topos 理论的重要性 在於 它用 category 的语言 \textbf{重新表述}了 集合论的整个基础。 特别地，逻辑学中的符号，例如 $P(x), \forall x, \exists x,$ 表面上看似无法用范畴论表示，这正是 Lawvere 惊人的成就。 
 }{
-	The importance of the Topos theory is that it uses the language of category \textbf{restatement} the entire basis of set theory. In particular, the symbols in logic, such as $P(x), \forall x, \exists x,$ seem to be unable to be expressed by category theory on the surface. This is Lawvere's amazing achievement.
+	The importance of the Topos theory is that it uses the language of category to \textbf{re-formulate} the entire basis of set theory.  In particular, the symbols in logic, such as $P(x), \forall x, \exists x$, seemed impossible to express in category theory.  This is Lawvere's amazing achievement.
 }
 \begin{equation}
 \nonumber
@@ -728,7 +730,7 @@ Y \arrow[r, swap, "\Chi_m"] & \Omega
 
 \cc{再看一次 图 (\ref{eqn:subobject-classifier}):
 }{
-	Look again Figure (\ref(eqn:subobject-classifier)):
+	Look again at the commutative diagram (\ref(eqn:subobject-classifier)):
 }
 \begin{equation}
 \begin{tikzcd}[column sep = normal]
@@ -738,32 +740,20 @@ Y \arrow[r, swap, "\ulcorner m \urcorner"] & {\color{red}\Omega}
 \end{equation}
 \cc{右边的 ${\color{red}\mathrel{\substack{1\\\downarrow\\\Omega}}}$ 称为 \emp{generic subobject}.  它的 \emp{pull back} square 用 ${\color{red}\lrcorner}$ 记号表示。 而左边的 $\mathrel{\substack{X\\\downarrow\\Y}}$ 则是一般的 sub-object. We say that the \textbf{property} of being a sub-object is \emp{stable under pullbacks}.
 }{
-	The ${\color{red}\mathrel{\substack{1\\\downarrow\\\Omega}}}$ on the right is called \emp{generic subobject}. Its \emp{pull back} square uses the ${\color{red}\lrcorner}$ sign indicates. And the $\mathrel{\substack{X\\\downarrow\\Y}}$ on the left is a general sub-object. We say that the \textbf{property} of being a sub-object is \emp{stable under pullbacks}.
+	The ${\color{red}\mathrel{\substack{1\\\downarrow\\\Omega}}}$ on the right is called the \emp{generic subobject}.  Its \emp{pull back} square is indicated by ${\color{red}\lrcorner}$.  And the $\mathrel{\substack{X\\\downarrow\\Y}}$ on the left is a general sub-object.  We say that the \textbf{property} of being a sub-object is \emp{stable under pullbacks}.
 }
 
 \subsection{$\forall$ and $\exists$ as adjunctions}
 
-\cc{Let $\mbox{Forms}(\bar{X})$ denote the set of formulas with only the variables $\bar{X}$ free. ($\bar{X}$ may contain multiple variables.)
-}{
-	Let $\mbox{Forms}(\bar{X})$ denote the set of formulas with only the variables $\bar{X}$ free. ($\bar{X}$ may contain multiple variables.)
-}
+Let $\mbox{Forms}(\bar{X})$ denote the set of formulas with only the variables $\bar{X}$ free. ($\bar{X}$ may contain multiple variables.)
 
-\cc{Then one can always trivially add an additional \textbf{dummy} variable $Y$:
-}{
-	Then one can always trivially add an additional \textbf{dummy} variable $Y$:
-}
+Then one can always trivially add an additional \textbf{dummy} variable $Y$:
 \begin{equation}
 \delta : \mbox{Forms}(\bar{X}) \rightarrow \mbox{Forms}(\bar{X}, Y)
 \end{equation}
-\cc{taking each formula $\Phi(\bar{X})$ to itself.
-}{
-	taking each formula $\Phi(\bar{X})$ to itself.
-}
+taking each formula $\Phi(\bar{X})$ to itself.
 
-\cc{It turns out that $\exists$ and $\forall$ are \textbf{adjoints} to the map $\delta$:
-}{
-	It turns out that $\exists$ and $\forall$ are \textbf{adjoints} to the map $\delta$:
-}
+It turns out that $\exists$ and $\forall$ are \textbf{adjoints} to the map $\delta$:
 \begin{equation}
 \begin{tikzcd}[column sep = large]
 \mbox{Forms}(\bar{X}) 
@@ -775,7 +765,7 @@ Y \arrow[r, swap, "\ulcorner m \urcorner"] & {\color{red}\Omega}
 \end{equation}
 \cc{or simply denoted as $\exists \dashv \delta \dashv \forall$.  而这是十分 makes sense 的，因为 一个 $\Phi(\bar{X},Y)$ 的式子，经过 $\forall Y. \; \Phi(\bar{X},Y)$ 之后，就变成一个和 $Y$ \textbf{无关}的式子。
 }{
-or simply denoted as $\exists \dashv \delta \dashv \forall$.  And this makes a lot of sense, because a formula $\Phi(\bar{X},Y)$, after being quantified by $\forall Y. \; \Phi(\bar{X},Y)$, becomes a formula that is \textbf{independent} of $Y$.
+	or simply denoted as $\exists \dashv \delta \dashv \forall$.  And this makes a lot of sense, because a formula $\Phi(\bar{X},Y)$, after being quantified by $\forall Y. \; \Phi(\bar{X},Y)$, becomes a formula that is \textbf{independent} of $Y$.
 }
 
 \cc{In \textbf{cylindric algebra}, the quantifiers $\forall_Y$ and $\exists_Y$ can be interpreted as \textbf{projections} where $Y$ is the component that is ``killed'' by the projections:
@@ -786,15 +776,14 @@ or simply denoted as $\exists \dashv \delta \dashv \forall$.  And this makes a l
 \vcenter{\hbox{\includegraphics[scale=0.7]{../2020/cylindrification-projected.png}}}
 \end{equation}
 
-\cc{另一个方法是 借助 $T$ 定义}
-\cc{{Another way is to define with the help of a variable set $T$}
+\cc{另一个方法是 借助 $T$ 定义
 }{
-	{Another way is to define with the help of a variable set $T$}
+	Another way is to define with the help of a variable set $T$
 }
-\footnote{This formula is from \parencite{Abramsky2011} } （\cc{注意 在下图中 $\bar{X}$ 和 $Y$ 变成平面）：}
-\cc{{(Note that $\bar{X}$ and $Y$ are show as 2D domains below) :}
+\footnote{This formula is from \parencite{Abramsky2011} }
+\cc{（注意 在下图中 $\bar{X}$ 和 $Y$ 变成平面）：
 }{
-	{(Note that $\bar{X}$ and $Y$ are show as 2D domains below) :}
+	(Note that $\bar{X}$ and $Y$ are show as 2D domains below) :
 }
 % \color[rgb]{0.0,0.5,0.0}  %% dark blue
 \begin{eqnarray}
@@ -803,25 +792,22 @@ or simply denoted as $\exists \dashv \delta \dashv \forall$.  And this makes a l
 &S \subseteq \delta^{-1} (T) \qquad \Longleftrightarrow \qquad \exists {}_Y  S \subseteq T& \\
 &\vcenter{\hbox{\includegraphics[scale=0.7]{../2020/Lawvere-quantifier-exists.png}}}& \nonumber
 \end{eqnarray}
-\cc{熟悉 Galois theory 的读者 可以理解 adjunction 是 \textbf{Galois connection} 的推广形式。 用日常语言讲： 我们知道 $S$，想定义 $\exists S$； $S$ 存在於论域 $Y$，$\exists S$ 存在於 论域 $\bar{X}$； 借助「影子」$T$ 在 论域 $\bar{X}$ 夹著 $\exists S$，则影子的「原象」在论域 $Y$ 夹著 $S$.  下图是 $\delta$ 是 projection 的特例， $\delta$ 是「杀掉」$Y$ 的 projection：}
-\cc{{Readers familiar with Galois theory may understand adjunctions as a generalization of \textbf{Galois connections}.  In everyday language:  We know $S$, and would like to define $\exists S$.  $S$ lives in the domain  $Y$, $\exists S$ in the domain $\bar{X}$.  We seek the help of a ``shadow'' $T$ in domain $\bar{X}$ to get ahold of $\exists S$, and the shadow's ``original'' in domain $Y$ would be holding $S$.  The following is a special case where $\delta$ is a projection, one that ``kills'' the dimension $Y$:}
+\cc{熟悉 Galois theory 的读者 可以理解 adjunction 是 \textbf{Galois connection} 的推广形式。 用日常语言讲： 我们知道 $S$，想定义 $\exists S$； $S$ 存在於论域 $Y$，$\exists S$ 存在於 论域 $\bar{X}$； 借助「影子」$T$ 在 论域 $\bar{X}$ 夹著 $\exists S$，则影子的「原象」在论域 $Y$ 夹著 $S$.  下图是 $\delta$ 是 projection 的特例， $\delta$ 是「杀掉」$Y$ 的 projection：
 }{
-	{Readers familiar with Galois theory may understand adjunctions as a generalization of \textbf{Galois connections}.  In everyday language:  We know $S$, and would like to define $\exists S$.  $S$ lives in the domain  $Y$, $\exists S$ in the domain $\bar{X}$.  We seek the help of a ``shadow'' $T$ in domain $\bar{X}$ to get ahold of $\exists S$, and the shadow's ``original'' in domain $Y$ would be holding $S$.  The following is a special case where $\delta$ is a projection, one that ``kills'' the dimension $Y$:}
+	Readers familiar with Galois theory may understand adjunctions as a generalization of \textbf{Galois connections}.  In everyday language:  We know $S$, and would like to define $\exists S$.  $S$ lives in the domain  $Y$, $\exists S$ in the domain $\bar{X}$.  We seek the help of a ``shadow'' $T$ in domain $\bar{X}$ to get ahold of $\exists S$, and the shadow's ``original'' in domain $Y$ would be holding $S$.  The following is a special case where $\delta$ is a projection, one that ``kills'' the dimension $Y$:
 }
 \begin{equation}
 \label{fig:Lawvere-cylindrification-exists}
 \vcenter{\hbox{\includegraphics[scale=0.7]{../2020/Lawvere-cylindrification-exists.png}}}
 \end{equation}
-\cc{注意： (\ref{fig:Lawvere-cylindrification-exists}) 的 $\delta$ 是 $\bar{X} \times Y \rightarrow X$ 的 projection，但 (\ref{eqn:Abramsky-1}) 的 $\delta$ 可以是\textbf{任何} $Y \rightarrow X$ 的映射，这似乎是 $\forall$ 和 $\exists$ 的最一般的定义。 范畴论 定义 的好处是 方便推广到其他逻辑「模型」，例如 过渡到 Banach space.}
-\cc{{Note that in (\ref{fig:Lawvere-cylindrification-exists}), $\delta$ is a projection from $\bar{X} \times Y \rightarrow X$, but the $\delta$ in (\ref{eqn:Abramsky-1}) can be \textbf{any} map $Y \rightarrow X$, and this seems to be the most general definition of $\forall$ and $\exists$.  The advantage of using categorical definitions is that they can be easily transferred to other categories, such as Hilbert space.}
+\cc{注意： (\ref{fig:Lawvere-cylindrification-exists}) 的 $\delta$ 是 $\bar{X} \times Y \rightarrow X$ 的 projection，但 (\ref{eqn:Abramsky-1}) 的 $\delta$ 可以是\textbf{任何} $Y \rightarrow X$ 的映射，这似乎是 $\forall$ 和 $\exists$ 的最一般的定义。 范畴论 定义 的好处是 方便推广到其他逻辑「模型」，例如 过渡到 Banach space.
 }{
-	{Note that in (\ref{fig:Lawvere-cylindrification-exists}), $\delta$ is a projection from $\bar{X} \times Y \rightarrow X$, but the $\delta$ in (\ref{eqn:Abramsky-1}) can be \textbf{any} map $Y \rightarrow X$, and this seems to be the most general definition of $\forall$ and $\exists$.  The advantage of using categorical definitions is that they can be easily transferred to other categories, such as Hilbert space.}
+	Note that in (\ref{fig:Lawvere-cylindrification-exists}), $\delta$ is a projection from $\bar{X} \times Y \rightarrow X$, but the $\delta$ in (\ref{eqn:Abramsky-1}) can be \textbf{any} map $Y \rightarrow X$, and this seems to be the most general definition of $\forall$ and $\exists$.  The advantage of using categorical definitions is that they can be easily transferred to other categories, such as Hilbert space.
 }
 
-\cc{类似地有 $\forall$ 的定义：}
-\cc{{Similarly we have the definition of $\forall$:}
+\cc{类似地有 $\forall$ 的定义：
 }{
-	{Similarly we have the definition of $\forall$:}
+	Similarly we have the definition of $\forall$:
 }
 \begin{eqnarray}
 \forall T \subseteq \bar{X}: \qquad 
@@ -833,6 +819,8 @@ or simply denoted as $\exists \dashv \delta \dashv \forall$.  And this makes a l
 \end{equation}
 
 \subsection{$\wedge$ and $\Rightarrow$ as product-hom adjunction}
+
+{\color{red} English translation proofread up to here.}
 
 \cc{一个只有原子命题的逻辑系统是「静止」的，不能推出新的结论： 
 }{
