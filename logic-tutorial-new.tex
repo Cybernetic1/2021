@@ -820,11 +820,9 @@ It turns out that $\exists$ and $\forall$ are \textbf{adjoints} to the map $\del
 
 \subsection{$\wedge$ and $\Rightarrow$ as product-hom adjunction}
 
-{\color{red} English translation proofread up to here.}
-
 \cc{一个只有原子命题的逻辑系统是「静止」的，不能推出新的结论： 
 }{
-	A logical system with only atomic propositions is "stationary" and cannot draw new conclusions:
+	A logical system with only atomic propositions is ``stationary'' and cannot draw new conclusions:
 }
 \begin{eqnarray}
 A & \qquad & A \nonumber \\
@@ -833,7 +831,7 @@ C & \qquad & C \nonumber
 \end{eqnarray}
 \cc{但如果左边加多一个式子 $A \Rightarrow D$，则可以推出新的结论 $D$：
 }{
-	But if one more formula $A \Rightarrow D$ is added to the left, a new conclusion $D$ can be derived:
+	But if a conditional formula $A \Rightarrow D$ is added to the left, a new conclusion $D$ can be drawn:
 }
 \begin{eqnarray}
 \label{eqn:deduction}
@@ -844,12 +842,12 @@ C & \qquad & C \nonumber \\
 \end{eqnarray}
 \cc{换句话说，$\Rightarrow$ 算符 是逻辑引擎的「燃料」，没有它不能推动逻辑 inference 的过程。 
 }{
-	In other words, the $\Rightarrow$ operator is the "fuel" of the logic engine, without which it cannot promote the process of logic inference.
+	In other words, the $\Rightarrow$ operator is the "fuel" of a logic engine, without which the process of logic inference cannot ``run''.
 }
 
 \cc{$\vdash$ 的功能和 $\Rightarrow$ 类似，但 $\vdash$ 是 \textbf{元逻辑} (meta-logic) 的符号，而 $\Rightarrow$ 是逻辑\textbf{之内}的算符。
 }{
-	The function of $\vdash$ is similar to $\Rightarrow$, but $\vdash$ is a symbol of \textbf{meta-logic} (meta-logic), and $\Rightarrow$ is an operator within logical \textbf{}.
+	The function of $\vdash$ is similar to $\Rightarrow$, but $\vdash$ is a \textbf{meta-logic} symbol, whereas $\Rightarrow$ is an operator within logic.
 }
 
 \cc{在 (\ref{eqn:deduction}) 中，${\color{red} A \Rightarrow D}$ 导致了 $A \vdash D$ 的出现。
@@ -859,7 +857,7 @@ C & \qquad & C \nonumber \\
 
 \cc{一般来说，$\Delta \Rightarrow \Gamma$ 就是 $\vdash$ 这个映射 对於 $\Delta$ 的一个 \emp{截面} (a restriction of the $\vdash$ map to the domain $\Delta$).  这一点很重要： 一个 map 作用在某些元素上，但这些元素 和那个 map 是「同类」的。 这其实是逻辑结构的一个 defining characteristic.
 }{
-	Generally speaking, $\Delta \Rightarrow \Gamma$ is the mapping of $\vdash$ to a \emp{section} of $\Delta$ (a restriction of the $\vdash$ map to the domain $\Delta$) This is very important: a map acts on certain elements, but these elements and the map are "same kind". This is actually a defining characteristic of the logical structure.
+	Generally speaking, $\Delta \Rightarrow \Gamma$ is a \emp{section} of the mapping $\vdash$ by $\Delta$ (a restriction of the $\vdash$ map to the domain $\Delta$).  This is very important:  a map acts on certain elements, but the elements and the maps are ``on the same footing''.  This is actually a defining characteristic of logic structure.
 }
 
 \cc{在 topos 里有一个很重要的 \emp{product-hom adjunction},  它说的是 $A \wedge B$ 和 $A \Rightarrow B$ 之间的邻接：
@@ -871,24 +869,14 @@ C & \qquad & C \nonumber \\
 \end{equation}
 \cc{这在逻辑上 是见惯的，没有什么稀奇，它推论 $A \Rightarrow B$ 可以替代 $A \vdash B$.  由於 $\vdash$ 在我们的 AI 系统中是 \textbf{神经网络}，这表示 神经网络中的「黑箱」知识可以「外在化」(externalize) 成 \textbf{逻辑命题}，这一点 在智能系统中 是有关键的重要性，因为它表示 知识可以透过语言学习得到（虽然这也不是必需 范畴论 才可以看得出来。） 
 }{
-This is logically accustomed and nothing unusual. It infers that $A \Rightarrow B$ can replace $A \vdash B$. Since $\vdash$ is \textbf{neural network} in our AI system, this It means that the "black box" knowledge in the neural network can be "externalized" (externalize) into \textbf{logic propositions}, which is of key importance in intelligent systems, because it means that knowledge can be obtained through language learning ( Although this is not necessarily a category theory to be able to see it.)
+	This is nothing unusual in logic.  It means that $A \Rightarrow B$ can replace $A \vdash B$.  Since $\vdash$ is a \textbf{neural network} in our AI system, this means the ``black box'' knowledge in the neural network can be ``externalized'' as \textbf{logic propositions}, which is of key importance in intelligent systems, because it means that knowledge can be obtained through \textit{learning via language} (Although one does not necessarily need category theory to see it.)
 }
 
 \subsection{Classifying topos $\leftrightharpoons$ internal language}
 
-\cc{问题是 witness 是什么？  例如「匙羹在杯内」是因为其他 视觉 propositions 得到的结论。 它是 true 这一点是重要的，但它的 ``intension'' 更重要。  或者说 proof 过程中处理的是 proof objects.  
-}{
-	The question is what is a witness? For example, "the spoon is in the cup" is the result of other visual propositions. It is true that it is important, but its ``intension'' is more important. In other words, the proof objects are processed in the proof process.
-}
-
-\cc{这个 proof object 它除了是一件 syntactic 的东西之外还可以是什么？  或者说 map 的 \textbf{domain} 是命题，但被 map 映射的是 evidence?
-}{
-	What can this proof object be besides being a syntactic thing? In other words, the \textbf{domain} of the map is a proposition, but what is mapped by the map is evidence?
-}
-
 \cc{想认识一个\textbf{范畴}，最重要的是问： 它的 objects 是啥？ 它的 morphisms 是啥？ 
 }{
-	To know a \textbf{category}, the most important thing is to ask: What are its objects? What are its morphisms?
+	To understand a \textbf{category}, the most important questions are:  What are its objects? What are its morphisms?
 }
 
 \cc{Lambek 给出的对应是：
@@ -896,20 +884,11 @@ This is logically accustomed and nothing unusual. It infers that $A \Rightarrow 
 	The correspondence given by Lambek is:
 }
 \begin{itemize}
-	\cc{	\item types $\leftrightsquigarrow$ objects
-	}{
-		\item types $\leftrightsquigarrow$ objects
-	}
-	\cc{	\item terms $\leftrightsquigarrow$ morphisms
-	}{
-		\item terms $\leftrightsquigarrow$ morphisms
-	}
+	\item types $\leftrightsquigarrow$ objects
+	\item terms $\leftrightsquigarrow$ morphisms
 \end{itemize}
 
-\cc{We have the following transformations betweeen two formalisms:
-}{
-	We have the following transformations between two formalisms:
-}
+We have the following transformations between two formalisms:
 \begin{equation}
 \begin{tikzcd}[column sep = 20ex]
 \boxed{\mbox{topos}} \; \mathcal{C}
@@ -918,10 +897,7 @@ This is logically accustomed and nothing unusual. It infers that $A \Rightarrow 
 \arrow[l, shift left, "\mbox{classifying topos}"]
 \end{tikzcd}.
 \end{equation}
-\cc{In other words,
-}{
-	In other words,
-}
+In other words,
 \begin{equation}
 \mathcal{C} = \mathcal{C}\ell(T), \quad T = \mathrm{Th}(\mathcal{C}).
 \end{equation}
@@ -934,56 +910,51 @@ This is logically accustomed and nothing unusual. It infers that $A \Rightarrow 
 \vcenter{\hbox{\includegraphics[scale=0.2]{../2020/Yoneda.jpg}}}
 \end{equation}
 
-
 \cc{在一个范畴 $\mathcal{C}$ 里面，考虑 其中一个物体 $A$ 到其他物体的 morphism, $A \rightarrow \bullet$.  这可以说是，透过 $A$「看」其他物体的方法。
 }{
-	In a category $\mathcal{C}$, consider the morphism from one of the objects $A$ to other objects, $A \rightarrow \bullet$. This can be said to be the method of "seeing" other objects through $A$ .
+	In a category $\mathcal{C}$, consider the morphisms from one object $A$ to other objects, $A \rightarrow \bullet$.  This is like ``seeing'' other objects through $A$.
 }
 
 \cc{\textbf{例：} 在 $\mathbf{Set}$ 里面，$1 \rightarrow X$ 是用 终点物体 1「看」其他物体，看到的是集合的 \textbf{元素}。
 }{
-	\textbf{Example:} In $\mathbf{Set}$, $1 \rightarrow X$ is used to "look at" other objects, and what you see is the set of \textbf{elements}.
+	\textbf{Example:} In $\mathbf{Set}$, $1 \rightarrow X$ means to ``look at'' other objects through 1, and what you see is the set of \textbf{elements}.
 }
 
 \cc{\textbf{例：} 映射 $\mathbb{R} \rightarrow X$ 是 空间 $X$ 中的 \textbf{曲线}，可以说 $\mathbb{R}$「看到」曲线。
 }{
-	\textbf{Example:} The mapping $\mathbb{R} \rightarrow X$ is the \textbf{curve} in the space $X$. It can be said that $\mathbb{R}$ "sees" the curve.
+	\textbf{Example:} A mapping $\mathbb{R} \rightarrow X$ is a \textbf{curve} in the space $X$.  It can be said that $\mathbb{R}$ ``sees'' curves.
 }
 
 \cc{\textbf{例：} 在 ordered set $(\mathbb{R}, \le)$ 里面 物体 $0 \rightarrow x$ 可以「看到」$x$ 是不是 \textbf{positive}.
 }{
-	\textbf{Example:} In the ordered set $(\mathbb{R}, \le)$ the object $0 \rightarrow x$ can "see" whether $x$ is \textbf{positive}.
+	\textbf{Example:}  In the ordered set $(\mathbb{R}, \le)$ the object $0 \rightarrow x$ can ``see'' whether $x$ is \textbf{positive}.
 }
 
 \cc{类似地，可以考虑 对偶 的情况，$\bullet \rightarrow A$ 是其他物体怎样「看」$A$ 的方法。
 }{
-	Similarly, we can consider the dual case, $\bullet \rightarrow A$ is how other objects "see" $A$.
+	Similarly, we can consider the dual case, $\bullet \rightarrow A$ is how other objects ``see'' $A$.
 }
 
 \cc{\textbf{例：} 在 $\mathbf{Set}$ 里面，$X \rightarrow 2$ 是其他物体「看」2 的方式，得到的是 $X$ 的\textbf{子集}, $\powerset(X)$. 
 }{
-	\textbf{Example:} In $\mathbf{Set}$, $X \rightarrow 2$ is the way other objects "look" 2 and what you get is the \textbf{subset}, $\powerset( of $X$ X)$.
+	\textbf{Example:}  In $\mathbf{Set}$, $X \rightarrow 2$ is the way other objects ``see'' 2 and what you get is the \textbf{subsets} of $X$, $\powerset(X)$.
 }
 
 \cc{\textbf{例：} 在 $\mathbf{Top}$ 里面，2 包含一个 open set 和一个 closed set，$X \rightarrow 2$ 得出的是 $X$ 的\textbf{开子集}，$\mathrm{Opens}(X)$.
 }{
-	\textbf{Example:} In $\mathbf{Top}$, 2 contains an open set and a closed set, $X \rightarrow 2$ gets the \textbf{open subset} of $X$, $\ mathrm{Opens}(X)$.
+	\textbf{Example:}  In $\mathbf{Top}$, 2 contains an open set and a closed set, $X \rightarrow 2$ sees the \textbf{open subsets} of $X$, $\mathrm{Opens}(X)$.
 }
 
-\cc{A functor $X: \mathcal{A} \rightarrow \mathbf{Set}$ is \emp{representable} if $X \cong H^A$ for some $A \in \mathcal{A}$.
-}{
-	A functor $X: \mathcal{A} \rightarrow \mathbf{Set}$ is \emp{representable} if $X \cong H^A$ for some $A \in \mathcal{A}$.
-}
+A functor $X: \mathcal{A} \rightarrow \mathbf{Set}$ is \emp{representable} if $X \cong H^A$ for some $A \in \mathcal{A}$.
 
 \cc{$H^A$ 的意思是 $\mathcal{A}(A, -)$, 这是一个集合。 
 }{
-	$H^A$ means $\mathcal{A}(A, -)$, which is a set.
+	$H^A$ denotes $\mathcal{A}(A, -)$;  This is a set.
 }
 
-\cc{A \emp{representation of $X$} is a choice of an object $A \in \mathcal{A}$ and an isomorphism between $H^A$ and $X$. 
-}{
-	A \emp{representation of $X$} is a choice of an object $A \in \mathcal{A}$ and an isomorphism between $H^A$ and $X$.
-}
+A \emp{representation} of $X$ is a choice of an object $A \in \mathcal{A}$ and an isomorphism between $H^A$ and $X$.
+
+\underconst
 
 \emp{Yoneda embedding} of $\mathcal{A}$:
 \begin{equation}
@@ -992,25 +963,13 @@ H_{\bullet}: \mathcal{A} \rightarrow [\mathcal{A}^{\mathrm{op}} , \mathbf{Set}]
 
 \begin{align}
 \mbox{For each } A \in \mathcal{A} \mbox{, we have a functor} \quad
-\cc{& \mathcal{A} \stackrel{H^A}{\longrightarrow} \mathbf{Set} \nonumber \\
-}{
-	& \mathcal{A} \stackrel{H^A}{\longrightarrow} \mathbf{Set} \nonumber \\
-}
+& \mathcal{A} \stackrel{H^A}{\longrightarrow} \mathbf{Set} \nonumber \\
 \mbox{Putting them all together gives a functor} \quad
-\cc{& \mathcal{A}^{\mathrm{op}} \stackrel{H^{\bullet}}{\longrightarrow} [\mathcal{A} , \mathbf{Set}] \\[10pt]
-}{
-	& \mathcal{A}^{\mathrm{op}} \stackrel{H^{\bullet}}{\longrightarrow} [\mathcal{A} , \mathbf{Set}] \\[10pt]
-}
+& \mathcal{A}^{\mathrm{op}} \stackrel{H^{\bullet}}{\longrightarrow} [\mathcal{A} , \mathbf{Set}] \\[10pt]
 \mbox{For each } A \in \mathcal{A} \mbox{, we have a functor} \quad
-\cc{& \mathcal{A}^{\mathrm{op}} \stackrel{H_A}{\longrightarrow} \mathbf{Set} \nonumber \\
-}{
-	& \mathcal{A}^{\mathrm{op}} \stackrel{H_A}{\longrightarrow} \mathbf{Set} \nonumber \\
-}
+& \mathcal{A}^{\mathrm{op}} \stackrel{H_A}{\longrightarrow} \mathbf{Set} \nonumber \\
 \mbox{Putting them all together gives a functor} \quad
-\cc{& \mathcal{A} \stackrel{H_{\bullet}}{\longrightarrow} [\mathcal{A}^{\mathrm{op}} , \mathbf{Set}] \nonumber
-}{
-	& \mathcal{A} \stackrel{H_{\bullet}}{\longrightarrow} [\mathcal{A}^{\mathrm{op}} , \mathbf{Set}] \nonumber
-}
+& \mathcal{A} \stackrel{H_{\bullet}}{\longrightarrow} [\mathcal{A}^{\mathrm{op}} , \mathbf{Set}] \nonumber
 \end{align}
 
 \begin{equation}
@@ -1028,50 +987,32 @@ H_{\bullet}: \mathcal{A} \rightarrow [\mathcal{A}^{\mathrm{op}} , \mathbf{Set}]
 [\mathcal{A}^{\mathrm{op}} , \mathbf{Set}] (H_A, X) \cong X(A)
 \end{equation}
 
-\cc{How sheaves give rise to representables.
-}{
-	How sheaves give rise to representables.
-}
+How sheaves give rise to representables.
 
-\subsubsection{Application: symmetric neural networks}
+\subsubsection{(Application?) symmetric neural networks}
 
 \cc{（我觉得这个可能是 Yoneda lemma 的一个应用，但根据 MathOverflow 上一些专家的看法，只是表面上有点相似。另一个（有证明的）例子是 \textbf{continuation-passing style} 是 类型 $a$ 和 $(a \rightarrow r) \rightarrow r$ 之间的等价关係，但我仍未看懂 ....）
 }{
-	(I think this may be an application of Yoneda lemma, but according to some experts on MathOverflow, it is just a bit similar on the surface. Another (proven) example is \textbf{continuation-passing style} which is of type $a$ and The equivalence relationship between $(a \rightarrow r) \rightarrow r$, but I still don’t understand...)
+	(I think this may be an application of Yoneda lemma, but according to some experts on MathOverflow, the resemblance is only superficial.  Another (proven) example is \textbf{continuation-passing style} as an equivalence between the types $a$ and $(a \rightarrow r) \rightarrow r$;  But I still don't fully understand it...)
 }
 
-\cc{The \textbf{Kolmogorov–Arnold representation theorem} states that every multivariate continuous function can be represented as a sum of continuous functions of one variable:
-}{
-	The \textbf{Kolmogorov–Arnold representation theorem} states that every multivariate continuous function can be represented as a sum of continuous functions of one variable:
-}
+The \textbf{Kolmogorov–Arnold representation theorem} states that every multivariate continuous function can be represented as a sum of continuous functions of one variable:
 \begin{equation}
 f(x_1,... ,x_n) = \sum_{q=0}^{2n}\Phi_{q} \left(\sum_{p=1}^n \phi_{q,p}(x_p) \right)
 \end{equation}
-\cc{It can be specialized to such that every symmetric multivariate function can be represented as a sum of (the same) functions of one variable:
-}{
-	It can be specialized to such that every symmetric multivariate function can be represented as a sum of (the same) functions of one variable:
-}
+It can be specialized to such that every symmetric multivariate function can be represented as a sum of (the same) functions of one variable:
 \begin{equation}
 \label{symmetric-functions}
 f(x_1, ..., x_n) = g(h(x_1) + ... + h(x_n))
 \end{equation}
 
-\cc{Cayley's theorem:  Any group can be represented as a sub-group of a special group, namely the permutation group.
-}{
-	Cayley's theorem:  Any group can be represented as a sub-group of a special group, namely the permutation group.
-}
+Cayley's theorem:  Any group can be represented as a sub-group of a special group, namely the permutation group.
 
-\cc{Any symmetric function can be represented as a sub-function of a special symmetric function, namely the sum.
-}{
-	Any symmetric function can be represented as a sub-function of a special symmetric function, namely the sum.
-}
+Any symmetric function can be represented as a sub-function of a special symmetric function, namely the sum.
 
 \subsection{Model theory, functorial semantics}
 
-\cc{We interpret formulas in a topos $\mathcal{E}$ by assigning each an \emp{extension}.  This is called \emp{internal} semantics.
-}{
-	We interpret formulas in a topos $\mathcal{E}$ by assigning each an \emp{extension}.  This is called \emp{internal} semantics.
-}
+We interpret formulas in a topos $\mathcal{E}$ by assigning each an \emp{extension}.  This is called \emp{internal} semantics.
 
 \begin{equation}
 \tikzmark{a1} a \tikzmark{c1} \; {\color{red}\cdot} \; \tikzmark{b1} b \longmapsto \llbracket \tikzmark{a2} a \rrbracket \tikzmark{c2} \; {\color{red}\cdot} \; \llbracket \tikzmark{b2} b \rrbracket
@@ -1082,24 +1023,26 @@ f(x_1, ..., x_n) = g(h(x_1) + ... + h(x_n))
 \end{tikzpicture}
 \end{equation}
 
-
 \subsection{Generalized elements}
+
+{\color{red} English translation proofread up to here.}
 
 \cc{一个 逻辑命题 $\phi$ 可以看成是由 某论域 $A \stackrel{\phi}{\rightarrow} \Omega$ 的函数，其中 $\Omega = \{ \top, \bot \}$.
 }{
-	A logic proposition $\phi$ can be regarded as a function of a certain domain $A \stackrel{\phi}{\rightarrow} \Omega$, where $\Omega = \{ \top, \bot \}$.
+	A logic proposition $\phi$ can be regarded as a function from a certain domain $A \stackrel{\phi}{\rightarrow} \Omega$, where $\Omega = \{ \top, \bot \}$.
 }
 
-\cc{也可以说：命题 $\phi(x)$ 是真的，其中 $x$ 是 $A$ 的\emp{元素}。 In category theory, we use the terminal object $1$ to ``pick out'' elements of $A$, as follows:
+\cc{也可以说：命题 $\phi(x)$ 是真的，其中 $x$ 是 $A$ 的\emp{元素}。
 }{
-	It can also be said that the proposition $\phi(x)$ is true, where $x$ is the \emp{element} of $A$. In category theory, we use the terminal object $1$ to ``pick out'' elements of $A$, as follows:
+	It can also be said that the proposition $\phi(x)$ is true, where $x$ is an \emp{element} of $A$.
 }
+In category theory, we use the terminal object $1$ to ``pick out'' elements of $A$, as follows:
 \begin{equation}
 1 \stackrel{x}{\rightarrow} A \stackrel{\phi}{\rightarrow} \Omega.
 \end{equation}
 \cc{In $\mathbf{Set}$, 任意一个由 1 出发的函数 $x: 1 \rightarrow A$ 可以直接看成是 $A$ 的「元素」。
 }{
-	In $\mathbf{Set}$, any function starting from 1 $x: 1 \rightarrow A$ can be directly regarded as the "element" of $A$.
+	In $\mathbf{Set}$, any map from 1, $x: 1 \rightarrow A$, can be directly regarded as an ``element'' of $A$.
 }
 
 \cc{但如果我们用另一个 论域 $C$ 取代 1，换句话说：
@@ -1743,6 +1686,16 @@ $A$ & $B$ & $A \Rightarrow B$ \\
 \cc{关於 fuzzy truth value 还有个问题： 一个对象的 \textbf{属性} 在某程度上可以随意增加或减少，因此纯粹 计算 属性的\textbf{数量}，并不能客观地决定 truth value.  似乎每个 属性 应该有某种 \emp{测度} (measure) 或 \emp{权重} (weight), 这样在改变 属性 的描述时，fuzzy truth value 保持\textbf{不变}。
 }{
 	There is another problem with the fuzzy truth value: The \textbf{attribute} of an object can be increased or decreased at will to a certain extent, so purely calculating the \textbf{number} of the attribute cannot objectively determine the truth value. It seems that each attribute There should be some kind of \emp{measure} (measure) or \emp{weight} (weight), so that when the description of the attribute is changed, the fuzzy truth value remains \textbf{unchanged}.
+}
+
+\cc{问题是 witness 是什么？  例如「匙羹在杯内」是因为其他 视觉 propositions 得到的结论。 它是 true 这一点是重要的，但它的 ``intension'' 更重要。  或者说 proof 过程中处理的是 proof objects.  
+}{
+	What is a proof witness?  For example, ``the spoon is in the cup'' is the result of other visual propositions.  Its truth is important, but its ``intension'' is even more important.  In other words, proof objects are the essence in the proof process.
+}
+
+\cc{这个 proof object 它除了是一件 syntactic 的东西之外还可以是什么？  或者说 map 的 \textbf{domain} 是命题，但被 map 映射的是 evidence?
+}{
+	What can this proof object be besides being a syntactic thing? In other words, the \textbf{domain} of the map is a proposition, but what is mapped by the map is evidence?
 }
 
 \subsection{Fuzzy implication}
