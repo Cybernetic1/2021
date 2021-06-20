@@ -987,13 +987,23 @@ H_{\bullet}: \mathcal{A} \rightarrow [\mathcal{A}^{\mathrm{op}} , \mathbf{Set}]
 [\mathcal{A}^{\mathrm{op}} , \mathbf{Set}] (H_A, X) \cong X(A)
 \end{equation}
 
-How sheaves give rise to representables.
+\{ How sheaves give rise to representables.... \}
+
+\subsubsection{Application: continuation-passing style}
+
+There is an isomorphism between the types $a$ and $\forall r. (a \rightarrow r) \rightarrow r$.  It follows from the Yoneda lamma.
+
+The type $\forall r. (a \rightarrow r) \rightarrow r$ is also known as the \textbf{continuation-passing style} of the type $a$.
+
+The continution-passing style may be of special importance to logic, because it allows to extend the Curry-Howard correspondence to \textbf{classical} logic.  As we know, this correspondence is originally between \textbf{intuitionistic} logic and type theory.  The continuation-passing style corresponds to classical negation. 
+
+(will expound on this further....)
 
 \subsubsection{(Application?) symmetric neural networks}
 
-\cc{（我觉得这个可能是 Yoneda lemma 的一个应用，但根据 MathOverflow 上一些专家的看法，只是表面上有点相似。另一个（有证明的）例子是 \textbf{continuation-passing style} 是 类型 $a$ 和 $(a \rightarrow r) \rightarrow r$ 之间的等价关係，但我仍未看懂 ....）
+\cc{（我觉得这个可能是 Yoneda lemma 的一个应用，但根据 MathOverflow 上一些专家的看法，只是表面上有点相似。
 }{
-	(I think this may be an application of Yoneda lemma, but according to some experts on MathOverflow, the resemblance is only superficial.  Another (proven) example is \textbf{continuation-passing style} as an equivalence between the types $a$ and $(a \rightarrow r) \rightarrow r$;  But I still don't fully understand it...)
+	(I think this may be an application of Yoneda lemma, but according to some experts on MathOverflow, the resemblance is only superficial.)
 }
 
 The \textbf{Kolmogorov–Arnold representation theorem} states that every multivariate continuous function can be represented as a sum of continuous functions of one variable:
@@ -1012,7 +1022,7 @@ Any symmetric function can be represented as a sub-function of a special symmetr
 
 \subsection{Model theory, functorial semantics}
 
-We interpret formulas in a topos $\mathcal{E}$ by assigning each an \emp{extension}.  This is called \emp{internal} semantics.
+Model theory is basically a \textbf{functorial} map from logic formulas to algebraic objects:
 
 \begin{equation}
 \tikzmark{a1} a \tikzmark{c1} \; {\color{red}\cdot} \; \tikzmark{b1} b \longmapsto \llbracket \tikzmark{a2} a \rrbracket \tikzmark{c2} \; {\color{red}\cdot} \; \llbracket \tikzmark{b2} b \rrbracket
@@ -1022,6 +1032,18 @@ We interpret formulas in a topos $\mathcal{E}$ by assigning each an \emp{extensi
 \draw[->, out=-45, in=-135, transform canvas={shift={(6pt,-2pt)}}, red] (c1.center) to (c2.center);
 \end{tikzpicture}
 \end{equation}
+
+On the left side is a syntactic formula (eg. logic formula), and on the right side is an object composed of elements in an algebraic \textbf{language} or \textbf{structure}.
+
+For example, if we want to define an \textbf{Abelian group}, we would have a (syntactic) axiom that says:
+\begin{equation}
+a \cdot b = b \cdot a
+\end{equation}
+which expresses a formal (syntactic) rule concerning its symbols.  Using model theory, the syntactic object such as $a \cdot b$ is mapped to the actual algebraic objects, ie, the elements of an Abelian group.  Crucially, the multiplication symbol $\cdot$ is also mapped to the group multiplication operation.  We say that such a mapping is \textbf{functorial} --- it maps elements to elements and operations to operations.
+
+This is the main idea behind functorial semantics.
+
+We interpret formulas in a topos $\mathcal{E}$ by assigning each an \emp{extension}.  In topos theory this is called \emp{internal} semantics.  Note the terminology is a bit confusing.
 
 \subsection{Generalized elements}
 
