@@ -1047,8 +1047,6 @@ We interpret formulas in a topos $\mathcal{E}$ by assigning each an \emp{extensi
 
 \subsection{Generalized elements}
 
-{\color{red} English translation proofread up to here.}
-
 \cc{一个 逻辑命题 $\phi$ 可以看成是由 某论域 $A \stackrel{\phi}{\rightarrow} \Omega$ 的函数，其中 $\Omega = \{ \top, \bot \}$.
 }{
 	A logic proposition $\phi$ can be regarded as a function from a certain domain $A \stackrel{\phi}{\rightarrow} \Omega$, where $\Omega = \{ \top, \bot \}$.
@@ -1056,7 +1054,7 @@ We interpret formulas in a topos $\mathcal{E}$ by assigning each an \emp{extensi
 
 \cc{也可以说：命题 $\phi(x)$ 是真的，其中 $x$ 是 $A$ 的\emp{元素}。
 }{
-	It can also be said that the proposition $\phi(x)$ is true, where $x$ is an \emp{element} of $A$.
+	Another way to put it is that the proposition $\phi(x)$ is true, where $x$ is an \emp{element} of $A$.
 }
 In category theory, we use the terminal object $1$ to ``pick out'' elements of $A$, as follows:
 \begin{equation}
@@ -1069,105 +1067,90 @@ In category theory, we use the terminal object $1$ to ``pick out'' elements of $
 
 \cc{但如果我们用另一个 论域 $C$ 取代 1，换句话说：
 }{
-	But if we replace 1 with another domain $C$, in other words:
+	But if we replace 1 with another domain $C$, as in:
 }
 \begin{equation}
 C \stackrel{x}{\rightarrow} A \stackrel{\phi}{\rightarrow} \Omega.
 \end{equation}
 \cc{这样的 $x: C \rightarrow A$ 叫作 $A$ 的 \emp{generalized element}.
 }{
-	Such $x: C \rightarrow A$ is called the \emp(generalized element) of $A$.
+	Such an $x: C \rightarrow A$ is called a \emp{generalized element} of $A$.
 }
 
 \cc{另一个术语是： $C$ \emp{forces} $\phi(x)$, notation: $C \Vdash \phi(x)$.  这术语来自 Paul Cohen 为了解决 Continuum Hypothesis 而提出的 forcing 技巧，见 \S\ref{sec:forcing}.
 }{
-	Another term is: $C$ \emp{forces} $\phi(x)$, notation: $C \Vdash \phi(x)$. This term comes from the forcing technique proposed by Paul Cohen to solve Continuum Hypothesis, see \S\ref{sec:forcing}.
+	Another terminology is to say that $C$ \emp{forces} $\phi(x)$, notation: $C \Vdash \phi(x)$. This comes from the forcing technique, first invented by Paul Cohen, to solve the Continuum Hypothesis, see \S\ref{sec:forcing}.
 }
 
 \cc{另一个说法是： $\phi(x)$ is true \emp{at stage} $C$. （这术语来自 possible-world semantics）
 }{
-	Another statement is: $\phi(x)$ is true \emp{at stage} $C$. (This term comes from possible-world semantics)
+	Yet another way to put it is that $\phi(x)$ is true \emp{at stage} $C$. (This comes from possible-world semantics.)
 }
 
 \subsection{Internal vs external semantics}
 
 \cc{假设 $\phi(\bullet)$ 是一个谓词，$\phi$ 的论域 (domain) 是 $A$.  例如 $\phi(x)$ 表示 $x$ 是男性，$x \in$ 人。  则 $\phi(x)$ 这个命题的 \emp{extension}（外延）就是在「人」的集合中属於「男性」的元素。 
 }{
-	Suppose $\phi(\bullet)$ is a predicate, and the domain of $\phi$ is $A$. For example, $\phi(x)$ means $x$ is male and $x \in$ is person. Then the \emp{extension} (extension) of the proposition $\phi(x)$ is the element that belongs to the "male" in the set of "people".
+	Suppose $\phi(\bullet)$ is a predicate, and the domain of $\phi$ is $A$. For example, $\phi(x)$ means $x$ is male and $x \in$ people.  Then the \emp{extension} of the proposition $\phi(x)$ are the elements that are ``male'' in the set ``people''.
 }
 
 \cc{知道了 $\phi$ 的 extension 就可以判断，对每一个 $x \in A, \phi(x)$ 的真假。  换句话说，提供了一种 \emp{interpretation} 的方法。 
 }{
-	Knowing the extension of $\phi$ can judge whether each $x \in A, \phi(x)$ is true or false. In other words, a method of \emp{interpretation} is provided.
+	Knowing the extension of $\phi$ allows to determine for each $x \in A$ whether $\phi(x)$ is true or false.  In other words, we have a method of \emp{interpretation}.
 }
 
-\cc{The ``internal'' way to interpret type theory in a topos is where a formula $\phi$ in context $x_1: A_1, ... , x_n: A_n$ is interpreted as a \textbf{subobject} of $A_1 \times ... \times A_n$.
-}{
-	The ``internal'' way to interpret type theory in a topos is where a formula $\phi$ in context $x_1: A_1, ... , x_n: A_n$ is interpreted as a \textbf{subobject} of $A_1 \times ... \times A_n$.
-}
+The ``internal'' way to interpret type theory in a topos is where a formula $\phi$ in context $x_1: A_1, ... , x_n: A_n$ is interpreted as a \textbf{subobject} of $A_1 \times ... \times A_n$.
 
 \cc{这个方法叫 \emp{internal semantics}.（注意 extension 的概念是 internal 的，有点混淆）
 }{
-	This method is called \emp{internal semantics}. (Note that the concept of extension is internal, which is a bit confusing)
+	This approach is called \emp{internal semantics}.  (Note that the idea of ``extension'' is ``internal'', which is a bit confusing.)
 }
 
 \cc{另一种方法是： 指定 哪些 generalized elements 符合某个 谓词。  后者叫 \emp{external semantics}：
 }{
-	Another method is to specify which generalized elements meet a certain predicate. The latter is called \emp{external semantics}:
+	The other approach is to specify which generalized elements satisfy a certain predicate.  The latter is called \emp{external semantics}:
 }
 
 \subsection{Kripke-Joyal / external semantics}
 
-\cc{External semantics describe which generalized elements satisfy each formula.
-}{
-	External semantics describe which generalized elements satisfy each formula.
-}
+External semantics describe which generalized elements satisfy each formula.
 
 \cc{Generalized element 的意思是 $I \stackrel{a}{\rightarrow} A \stackrel{\phi}{\rightarrow} \Omega$, 记作 $a \Vdash \phi$.
 }{
-	Generalized element means $I \stackrel{a}{\rightarrow} A \stackrel{\phi}{\rightarrow} \Omega$, denoted as $a \Vdash \phi$.
+	``Generalized element'' means $I \stackrel{a}{\rightarrow} A \stackrel{\phi}{\rightarrow} \Omega$, denoted as $a \Vdash \phi$.
 }
 
-\cc{A generalized element satisfies a formula iff it is a member of the formula's \textbf{extension}.
-}{
-	A generalized element satisfies a formula iff it is a member of the formula's \textbf{extension}.
-}
+A generalized element satisfies a formula iff it is a member of the formula's \textbf{extension}.
 
 \subsection{Cohen's method of forcing}
 \label{sec:forcing}
 
 \cc{在 数理逻辑／集合论 里，forcing 指的是一些 加在某 集合 $G$ 上的 \emp{条件}，说某些 元素 属於 或不属於 $G$.  这些 条件 用逻辑表达，例如：
 }{
-	In mathematical logic/set theory, forcing refers to some \emp{conditions} added to a certain set $G$, saying that certain elements belong to or do not belong to $G$. These conditions are expressed in logic, for example:
+	In mathematical logic / set theory, forcing refers to some \emp{conditions} added to a certain set $G$, saying that certain elements belong or not belong to $G$.  Such conditions are expressed in logic, for example:
 }
 \begin{equation}
 c = \{ 3 \in G, 57 \notin G, 873 \notin G \}
 \end{equation}
-\cc{is a condition.
-}{
-	is a condition.
-}
+is a condition.
 
 \cc{例如，条件 $c$ 可以「强迫」集合 $G$ 里面至少有 100 个质数、或至少有 1万个质数。 记作 $c \Vdash P$, $P$ 是某个逻辑命题。
 }{
-	For example, the condition $c$ can "force" the set $G$ to have at least 100 prime numbers, or at least 10,000 prime numbers. Denoted as $c \Vdash P$, $P$ is a logic proposition.
+	For example, a condition $c$ can ``force'' the set $G$ to have at least 100 prime numbers, or at least 10,000 prime numbers.  The notation is $c \Vdash P$, where $P$ is a logic proposition.
 }
 
 \cc{以下内容和 AGI 无关，但因为数学上有趣所以写一下。
 }{
-	The following content has nothing to do with AGI, but because it is mathematically interesting, write it.
+	The following content is unrelated to AGI, but is included for mathematical interest.
 }
 
-\cc{Continuum hypothesis (CH):
-}{
-	Continuum hypothesis (CH):
-}
+Continuum hypothesis (CH):
 \begin{equation}
 2^{\aleph_0} = \aleph_1
 \end{equation}
 \cc{这是说： 连续统 $[0,1]$ 的基数 $2^{\aleph_0}$ 紧接在 可数集合的基数 之后。
 }{
-	This means: the cardinality of the continuum $[0,1]$ $2^{\aleph_0}$ immediately after the cardinality of the countable set.
+	This says that the cardinality of the continuum $[0,1]$, $2^{\aleph_0}$, comes immediately after the cardinality of the countable set.
 }
 
 \cc{1878 年，Cantor 提出 CH \\
@@ -1176,13 +1159,12 @@ c = \{ 3 \in G, 57 \notin G, 873 \notin G \}
 }
 \cc{1900 年，Hilbert 列出 连续统假设 为「23问题」的第一个 \\
 }{
-	In 1900, Hilbert listed the continuum hypothesis as the first \\
+	In 1900, Hilbert listed the continuum hypothesis as the first of his ``23 Problems''\\
 }
 \cc{
 \tab Hilbert 给出了一个证明，但里面有 bug \\}{
-	Hilbert gave a proof, but it contained an error.
+	\tab Hilbert gave a proof, but it contained an error \\
 }
-
 \cc{1938 年，G\"{o}del 证明 ZF + CH is consistent，换句话说：ZF cannot disprove CH \\
 }{
 	In 1938, G\"{o}del proved that ZF + CH is consistent, in other words: ZF cannot disprove CH \\
@@ -1193,7 +1175,7 @@ c = \{ 3 \in G, 57 \notin G, 873 \notin G \}
 }
 \cc{
 \tab 他用的方法叫 ``forcing''}{
-	The method he used is called ``forcing''.
+	\tab The method he used is called ``forcing''.
 }
 
 \begin{equation}
@@ -1203,54 +1185,36 @@ c = \{ 3 \in G, 57 \notin G, 873 \notin G \}
 
 \subsection{Sheaves}
 
-\cc{Sheaves capture the idea of ``indexing''.
-}{
-	Sheaves capture the idea of ``indexing''.
-}
+Sheaves capture the idea of ``indexing''.
 
-\cc{Functors $\mathcal{C}^{\mathrm{op}} \rightarrow \mathbf{Set}$ are called \emp{pre-sheaves} on $\mathcal{C}$.
-}{
-	Functors $\mathcal{C}^{\mathrm{op}} \rightarrow \mathbf{Set}$ are called \emp{pre-sheaves} on $\mathcal{C}$.
-}
+Functors $\mathcal{C}^{\mathrm{op}} \rightarrow \mathbf{Set}$ are called \emp{pre-sheaves} on $\mathcal{C}$.
 
 \cc{Pre-sheaf 要变成 sheaf 还需符合 sheaf condition，这是一种典型的 gluing condition, 意思是在 $U_i \cap U_j$ 这些重合的邻域上，presheaf 的 sections 是\textbf{一致}的。 
 }{
-	Pre-sheaf must meet the sheaf condition to become sheaf. This is a typical gluing condition, which means that in the overlapping neighborhoods of $U_i \cap U_j$, the sections of presheaf are \textbf{consistent}.
+	A pre-sheaf must meet the sheaf condition to become a sheaf.  This is a typical \textbf{gluing condition}, which says that in the overlapping neighborhoods of $U_i \cap U_j$, the sections of the presheaf are \textbf{consistent}.
 }
 
 \cc{当 $\mathcal{C}^{\mathrm{op}}$ = topology of open sets 时，我觉得下图特别容易理解：
 }{
-	When $\mathcal{C}^{\mathrm{op}}$ = topology of open sets, I think the following figure is particularly easy to understand:
+	For $\mathcal{C}^{\mathrm{op}}$ = the topology of open sets, I think the following figure is helpful for understanding:
 }
 \begin{equation}
 \vcenter{\hbox{\includegraphics[scale=0.7]{../2020/sheaf.png}}}
 \end{equation}
 
-\cc{Some $\mathbf{Set}$-valued functors are \emp{representable}, ie, isomorphic to a hom-functor.
-}{
-	Some $\mathbf{Set}$-valued functors are \emp{representable}, ie, isomorphic to a hom-functor.
-}
+Some $\mathbf{Set}$-valued functors are \emp{representable}, ie, isomorphic to a hom-functor.
 
-\cc{For an object $S$ of a category $\mathcal{C}$, the functor
-}{
-	For an object $S$ of a category $\mathcal{C}$, the functor
-}
+For an object $S$ of a category $\mathcal{C}$, the functor
 \begin{equation}
 H^S : \mathcal{C} \rightarrow \mathbf{Set}
 \end{equation}
-\cc{sends an object to its set of generalized elements of shape $S$.  The functoriality tells us that any map $A \rightarrow B$ in $\mathcal{C}$ transforms $S$-elements of $A$ into $S$-elements of $B$.  For example, taking $\mathcal{C} = \mathbf{Top}$ and $S = S^1$, any continuous map $A \rightarrow B$ transforms loops in $A$ into loops in $B$.
-}{
-	sends an object to its set of generalized elements of shape $S$.  The functoriality tells us that any map $A \rightarrow B$ in $\mathcal{C}$ transforms $S$-elements of $A$ into $S$-elements of $B$.  For example, taking $\mathcal{C} = \mathbf{Top}$ and $S = S^1$, any continuous map $A \rightarrow B$ transforms loops in $A$ into loops in $B$.
-}
+sends an object to its set of generalized elements of shape $S$.  The functoriality tells us that any map $A \rightarrow B$ in $\mathcal{C}$ transforms $S$-elements of $A$ into $S$-elements of $B$.  For example, taking $\mathcal{C} = \mathbf{Top}$ and $S = S^1$, any continuous map $A \rightarrow B$ transforms loops in $A$ into loops in $B$.
 
-\cc{In logic, the category of predicates can be regarded as a sheaf over its domain $\mathrel{\substack{\mathbf{Pred}\\\downarrow\\\mathbf{Set}}}$.
-}{
-	In logic, the category of predicates can be regarded as a sheaf over its domain $\mathrel{\substack{\mathbf{Pred}\\\downarrow\\\mathbf{Set}}}$.
-}
+In logic, the category of predicates can be regarded as a sheaf over its domain $\mathrel{\substack{\mathbf{Pred}\\\downarrow\\\mathbf{Set}}}$.
 
 \cc{我暂时还不太清楚 sheaf 理论对 AI 来说有什么重大意义。 
 }{
-	For the time being, I don’t know the significance of the sheaf theory to AI.
+	For the time being, I don’t know the significance of sheaf theory to AGI.
 }
 
 \subsection{Kleene realizability}
@@ -1259,17 +1223,13 @@ H^S : \mathcal{C} \rightarrow \mathbf{Set}
 
 \section{Intuitionistic logic}
 
-\cc{In 1933, G\"{o}del proposed an interpretation of intuitionistic logic using possible-world semantics.
-}{
-	In 1933, G\"{o}del proposed an interpretation of intuitionistic logic using possible-world semantics.
-}
+In 1933, G\"{o}del proposed an interpretation of intuitionistic logic using possible-world semantics.
 
-\cc{In topos theory $A \Rightarrow B$ is adjoint (via the hom-product adjunction) to $A \vdash B$, which is ``okay'' because it is independent of which implication (material or strict) we are using.
-}{
-	In topos theory $A \Rightarrow B$ is adjoint (via the hom-product adjunction) to $A \vdash B$, which is ``okay'' because it is independent of which implication (material or strict) we are using.
-}
+In topos theory $A \Rightarrow B$ is adjoint (via the hom-product adjunction) to $A \vdash B$, which is ``okay'' because it is independent of which implication (material or strict) we are using.
 
 \subsection{Heyting algebra}
+
+{\color{red} English translation proofread up to here.}
 
 \begin{equation}
 \mbox{Arend Heyting (1898-1980)} \quad 
@@ -1277,17 +1237,14 @@ H^S : \mathcal{C} \rightarrow \mathbf{Set}
 \end{equation}
 \cc{1930 年，Heyting 给出了 constructive mathematics 的一种 axiomatization, called \emp{intuitionistic logic} (IL).  Heyting algebra 是一种 IL 的 \emp{代数模型}，正如 Boolean algebra 是 经典逻辑的 代数模型。 
 }{
-In 1930, Heyting gave a kind of axiomatization of constructive mathematics, called \emp{intuitionistic logic} (IL). Heyting algebra is a \emp{algebraic model} of IL, just as Boolean algebra is an algebraic model of classical logic.
+	In 1930, Heyting gave a kind of axiomatization of constructive mathematics, called \emp{intuitionistic logic} (IL).  Heyting algebra is an \emp{algebraic model} of IL, just as Boolean algebra is an algebraic model of classical logic.
 }
-	
-\cc{Heyting algebra is to intuitionistic logic what Boolean algebra is to classical logic.
-}{
-	Heyting algebra is to intuitionistic logic what Boolean algebra is to classical logic.
-}
+
+Heyting algebra is to intuitionistic logic what Boolean algebra is to classical logic.
 
 \cc{例如，以下的 \emp{拓樸}模型 和 \emp{格} (lattice) 模型，都是 Heyting algebra 的模型： （下图的两个例子似乎不正确，有待修改....）
 }{
-	For example, the following \emp{topology} model and \emp{格} (lattice) model are both models of Heyting algebra: (The two examples in the figure below seem incorrect and need to be modified...)
+	For example, the following \emp{topological} model and \emp{lattice} model are both models of Heyting algebra: (The two examples in the figure below seem incorrect and need to be modified...)
 }
 \begin{equation}
 \boxed{
@@ -1552,10 +1509,7 @@ M \Vdash \square A \; [w] \quad \Leftrightarrow \quad \forall w' \succeq w. \; M
 
 \subsection{Intensional vs extensional}
 
-\cc{``Beethoven's 9th symphony'' and ``Beethoven's choral symphony'' has the same \emp{extension} but different \emp{intensions}.
-}{
-	``Beethoven's 9th symphony'' and ``Beethoven's choral symphony'' has the same \emp{extension} but different \emp{intensions}.
-}
+``Beethoven's 9th symphony'' and ``Beethoven's choral symphony'' have the same \emp{extension} but different \emp{intensions}.
 
 \subsection{Intensional logic}
 
