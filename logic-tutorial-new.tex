@@ -1167,7 +1167,8 @@ Continuum hypothesis (CH):
 }
 \cc{1938 年，G\"{o}del 证明 ZF + CH is consistent，换句话说：ZF cannot disprove CH \\
 }{
-	In 1938, G\"{o}del proved that ZF + CH is consistent, in other words: ZF cannot disprove CH \\
+	In 1938, G\"{o}del proved that ZF + CH is consistent,\\
+	\tab in other words: ZF cannot disprove CH \\
 }
 \cc{1963 年，Paul Cohen 证明 ZF cannot prove CH \\
 }{
@@ -1196,7 +1197,7 @@ Functors $\mathcal{C}^{\mathrm{op}} \rightarrow \mathbf{Set}$ are called \emp{pr
 
 \cc{当 $\mathcal{C}^{\mathrm{op}}$ = topology of open sets 时，我觉得下图特别容易理解：
 }{
-	For $\mathcal{C}^{\mathrm{op}}$ = the topology of open sets, I think the following figure is helpful for understanding:
+	For $\mathcal{C}^{\mathrm{op}}$ = the topology of open sets, I think the following figure is helpful to understanding:
 }
 \begin{equation}
 \vcenter{\hbox{\includegraphics[scale=0.7]{../2020/sheaf.png}}}
@@ -1239,13 +1240,13 @@ In topos theory $A \Rightarrow B$ is adjoint (via the hom-product adjunction) to
 }{
 	In 1930, Heyting gave a kind of axiomatization of constructive mathematics, called \emp{intuitionistic logic} (IL).  Heyting algebra is an \emp{algebraic model} of IL, just as Boolean algebra is an algebraic model of classical logic.
 }
-
-Heyting algebra is to intuitionistic logic what Boolean algebra is to classical logic.
+(Heyting algebra is to intuitionistic logic what Boolean algebra is to classical logic.)
 
 \cc{例如，以下的 \emp{拓樸}模型 和 \emp{格} (lattice) 模型，都是 Heyting algebra 的模型： （下图的两个例子似乎不正确，有待修改....）
 }{
 	For example, the following \emp{topological} model and \emp{lattice} model are both models of Heyting algebra: (The two examples in the figure below seem incorrect and need to be modified...)
 }
+\cc{
 \begin{equation}
 \boxed{
 	\begin{aligned}
@@ -1264,6 +1265,26 @@ Heyting algebra is to intuitionistic logic what Boolean algebra is to classical 
 		\end{tikzpicture}
 }}
 \end{equation}
+}{
+\begin{equation}
+\boxed{
+	\begin{aligned}
+	\mbox{rain} & \\
+	& \hspace*{1em} \boxed{\mbox{grass wet}} \\
+	& \boxed{\mbox{no tennis}} \; 
+	\end{aligned}
+} \quad \quad
+\vcenter{\hbox{
+		\begin{tikzpicture}[scale=0.8]
+		\node[label={[xshift=0em, yshift=-0.5em]\mbox{rain}}] (a) at (1,0) {\textbullet};
+		\node[label={[xshift=-0.5em, yshift=-2em]\mbox{grass wet}}, swap] (b) at (0,-2) {\textbullet};
+		\node[label={[xshift=1.5em, yshift=-2em]\mbox{no tennis}}, swap] (c) at (2,-2) {\textbullet};
+		\draw[-,shorten <=-10pt, shorten >=-10pt] (a) to (b);
+		\draw[-,shorten <=-10pt, shorten >=-10pt] (a) to (c);
+		\end{tikzpicture}
+}}
+\end{equation}
+}
 \cc{两者之间是等价的，起源於 \emp{Stone duality} (every Boolean algebra is isomorphic to a topology of open sets)，其后再被推广到 \emp{Priestley} 拓扑对偶 等，都是大同小异的。
 }{
 	The two are equivalent, originated from \emp{Stone duality} (every Boolean algebra is isomorphic to a topology of open sets), and then generalized to \emp{Priestley} topological duality, etc., all of which are similar .
