@@ -8,15 +8,16 @@
 
 \documentclass[orivec]{llncs}
 \usepackage{graphicx}
-\usepackage{amsmath}		% for "cases"
-\usepackage{amsfonts}	% for frakur fonts
+\usepackage{amsmath}	% for "cases"
+% \usepackage{amsfonts}	% for frakur fonts
+\usepackage{amssymb}    % for \rightsquigarrow, \blacksquare
+%\usepackage{mathtools}
 % \usepackage{mathrsfs}	% for curly "E" error symbol
 \usepackage{float}
 \usepackage{comment}
 % \usepackage[most]{tcolorbox}	% for wrapping example in color box
 % \usepackage{wrapfig}		% wrap figure beside text, used in example
 \usepackage{tikz-cd}		% commutative diagrams
-% \usepackage{amsfonts}
 % \usepackage{amssymb}		% for \multimap, \updownarrow, \bigstar
 \usepackage{sectsty}		% change section color
 \usepackage{hyperref}	% refs, links become clickable
@@ -64,6 +65,15 @@
 \newcommand{\dashh}{\textemdash~}
 \newcommand{\english}[1]{\rmfamily \textit{``#1''}\rmfamily}
 
+\newcommand{\witness}{\scalebox{0.6}{$\blacksquare$}}
+
+\newcommand{\underdash}[1]{%
+	\tikz[baseline=(toUnderline.base)]{
+		\node[inner sep=1pt,outer sep=10pt] (toUnderline) {#1};
+		\draw[dashed] ([yshift=-0pt]toUnderline.south west) -- ([yshift=-0pt]toUnderline.south east);
+	}%
+}%
+
 % ***** Boxed variables inside math equations
 % \newcommand*{\boxedcolor}{black}
 \makeatletter
@@ -81,7 +91,7 @@
 \title{AGI via ``deep logic''}
 \author{
 %\usebox{\MyName} 
-甄景贤 (King-Yin Yan) \quad Dmitri Tkatch \quad 肖达 (Da Xiao) \quad Juan Carlos Kuri Pinto
+甄景贤 (King-Yin Yan) 
 % \\ \footnotesize{General.Intelligence@Gmail.com}
 }
 \institute{General.Intelligence@Gmail.com}
@@ -96,7 +106,7 @@
 
 \begin{abstract}
 % 这篇是背景，介绍一个基於 \textbf{增强学习} 和 \textbf{深度学习} 的极简约的 cognitive architecture，它在数学上是一个Hamiltonian 系统，而其 Lagrangian 对应於智能系统的「奖励」或「欲望」的价值。 经典逻辑 AI 的技巧可以搬到这个 setting 之下，而连续时间化之后，可以用上微分几何的技巧。 传统的「逻辑 AI 知识表述」被新的表述法取代，后者的结构是由神经网络的深度学习「诱导」出来的。
-An integration of deep learning and logic is proposed, based on the Curry-Howard isomorphism.  Under this interpretation, it turns out that Google's BERT, where current state-of-the-art language models are derived from, can be regarded as a special form of logic.  Furthermore, this structure can be incorporated into a reinforcement-learning framework to provide a minimalist AGI architecture. 
+An integration of deep learning and logic is proposed, based on the Curry-Howard isomorphism.  Under this interpretation, it turns out that Google's BERT, where current state-of-the-art language models are derived from, can be regarded as a special form of logic.  Moreover, this structure can be incorporated under a reinforcement-learning framework to form a minimal AGI architecture.
 %The bottleneck algorithm in AGI is the inductive learning of knowledge.  The importance of this algorithm in our AI era is like what the steam engine was to the industrial revolution.  This paper: 1) outlines a minimalist AGI architecture; 2) defines a logic structure for AGI systems; 3) imposes the logic structure on the control system, as inductive bias to speed up learning.
 % The system consists of an iterative function whose role is analogous to the consequence operator ($\vdash$) in logic, and is approximated by a deep neural network (this is the key efficiency-boosting step).
 %Its continuous limit can be described by differential geometry.  The old-fashioned logic-based knowledge representation with discrete propositions is abandoned in favor of a representation induced by deep neural learning.
@@ -104,7 +114,7 @@ An integration of deep learning and logic is proposed, based on the Curry-Howard
 \end{abstract}
 
 \begin{keywords}
-cognitive architecture, reinforcement learning, deep learning, logic-based artificial intelligence
+deep learning, symbolic logic, logic-based AI, neural-symbolic integration, Curry-Howard isomorphism, category theory, topos theory, fuzzy logic
 \end{keywords}
 
 %本文介绍一些（非原创的）已知理论，然后指出一些新的研究方向。
@@ -116,30 +126,35 @@ cognitive architecture, reinforcement learning, deep learning, logic-based artif
 % {\footnotesize Note: technical terms with \uwave{wavy underline} have Wikipedia entries and will not be explained further in this paper. }
 
 \setcounter{section}{-1}
-\section{Summary}
+\section{Introduction: the Curry-Howard isomorphism}
 \label{sec:0}
 
-We propose an AGI architecture:
-\begin{enumerate}
-	\item with \textbf{reinforcement learning} (RL) as top-level framework
-	\begin{itemize}
-		\item State space = mental space
-		% \item Standard RL techniques can be employed to speed up learning (\S\ref{sec:policy-gradient})
-	\end{itemize}
-	\item \textbf{Logic} structure is imposed on the \textbf{knowledge representation} (KR)
-		\begin{itemize}
-		\item State transitions are given by logic rules = actions in RL
-		\item The logic state $\vect{x}$ is decomposable into \textbf{propositions} (\S\ref{sec:LBAI-structure})
-		\end{itemize}
-	\item The set of logic rules is approximated by a deep neural network
-		\begin{itemize}
-		\item Just the most basic kind of feed-forward neural network (FFNN) is required
-		\item Logic conjunctions are \textbf{commutative}, so working-memory elements can be presented in any order (\S\ref{sec:commutative-structure})
-		\item \textbf{Stochastic} actions are represented by \textbf{Gaussian kernels} (radial basis functions) (\S\ref{sec:logic-actions}), thus partly avoiding the curse of dimensionality
-	\end{itemize}
-\end{enumerate}
+As the risk of sounding too elementary, we would go over some basic background knowledge, that may help those readers who are unfamiliar with this area of mathematics.
 
-The rest of this paper will explain these design features in detail.
+The Curry-Howard isomorphism expresses a connection between logic \textbf{syntax} and its underlying \textbf{proof} mechanism.  Consider the mathematical declaration of a \textbf{function} $f$ with its domain and co-domain:
+\begin{equation}
+f: A \rightarrow B .
+\end{equation}
+This notation comes from type theory, where $A$ and $B$ are \textbf{types} (which we can think of as sets or general spaces) and the function $f$ is an \textbf{element} in the function type $A \rightarrow B$.
+
+What the Curry-Howard isomorphism says is that we can regard $A \rightarrow B$ as a \textbf{logic} formula $A \Rightarrow B$ (an implication), and the function $f$ as a \textbf{proof} process that maps a proof of $A$ to a proof of $B$.
+
+The following may give a clearer picture:
+\begin{equation}
+\label{eqn:Curry-Howard}
+\begin{aligned}
+\boxed{\mbox{logic}} \quad \quad \underdash{$A \Longrightarrow B$} & \\
+\boxed{\mbox{program}} \quad \quad \witness \; \stackrel{f}{\longmapsto} \; \witness \hspace*{10pt} & .
+\end{aligned}
+\end{equation}
+What you see here is a logic formula ``on the surface'', with an underlying proof mechanism which is a \textbf{function}.  The logic propositions $A$ and $B$ coincide with the \textbf{domains} (or \textbf{types}) specified by type theory.  Hence the great educator Philip Wadler calls it ``propositions as types''. \footnote{See his introductory video: https://www.youtube.com/watch?v=IOiZatlZtGU . Other textbooks on the Curry-Howard isomorphism include: }
+
+The gist of our theory is that Deep Learning provides us with non-linear functions (implemented as neural networks) that serve as the proof mechanism of logic via the Curry-Howard isomorphism.  Using this idea, we can impose the mathematical structure of logic (such as symmetries) onto deep neural networks.  Such constraints serve as \textbf{inductive bias} that can accelerate learning, according to the celebrated ``No Free Lunch'' theory.
+
+As an aside, the Curry-Howard isomorphism also establishes connections to diverse disciplines.  Whenever there is a space of elements and some operations over them, there is a chance that it has an underlying ``logic'' to it.  For example, in quantum mechanics, Hilbert space and Hermitian operators.  Another example: in String Theory, strings and cobordisms between them (The following is the famous ``pair of pants'' cobordism, representing a process in time that merges two strings into one):
+\begin{equation}
+\vcenter{\hbox{\includegraphics[scale=0.3]{../2020/pair-of-pants.png}}}
+\end{equation}
 
 \section{Prior research}
 
@@ -148,6 +163,8 @@ The rest of this paper will explain these design features in detail.
 AIXI.
 
 Reinforcement learning.
+
+Quantum mechanics and path integrals.
 
 \subsection{Neuro-symbolic integration}
 
@@ -159,6 +176,22 @@ Ron Sun.
 
 GLOM.
 
+\section{The structure of logic}
+
+\subsection{Curry-Howard isomorphism, dependent type theory}
+
+\subsection{Topos theory}	
+
+The logic of sheaves is intuitionistic.
+
+Fuzzy logic.  Every set is a pullback of the true map.  Every fuzzy set should be the pullback of the fuzzy true map?
+
+\subsection{BERT as a logic}
+
+\section{``No Free Lunch'' theory}
+
+\subsection{Experiments}
+
 \section{Reinforcement-learning architecture}
 
 The comparison of RL with neuroscience helps to crack the brain code:
@@ -168,27 +201,27 @@ The comparison of RL with neuroscience helps to crack the brain code:
 	\item What enables \textbf{learning} (in the state transtion function)?
 \end{itemize}
 
-\section{The structure of logic}
+We propose an AGI architecture:
+\begin{enumerate}
+	\item with \textbf{reinforcement learning} (RL) as top-level framework
+	\begin{itemize}
+		\item State space = mental space
+		% \item Standard RL techniques can be employed to speed up learning (\S\ref{sec:policy-gradient})
+	\end{itemize}
+	\item \textbf{Logic} structure is imposed on the \textbf{knowledge representation} (KR)
+	\begin{itemize}
+		\item State transitions are given by logic rules = actions in RL
+		\item The logic state $\vect{x}$ is decomposable into \textbf{propositions} (\S\ref{sec:LBAI-structure})
+	\end{itemize}
+	\item The set of logic rules is approximated by a deep neural network
+	\begin{itemize}
+		\item Just the most basic kind of feed-forward neural network (FFNN) is required
+		\item Logic conjunctions are \textbf{commutative}, so working-memory elements can be presented in any order (\S\ref{sec:commutative-structure})
+		\item \textbf{Stochastic} actions are represented by \textbf{Gaussian kernels} (radial basis functions) (\S\ref{sec:logic-actions}), thus partly avoiding the curse of dimensionality
+	\end{itemize}
+\end{enumerate}
 
-\subsection{Curry-Howard isomorphism, dependent type theory}
-
-As the risk of being overly rudimentary, we would go over some basic ideas, that may help the readers who are not familiar with this area of mathematics.
-
-The Curry-Howard isomorphism
-
-Pair of pants, quantum logic, ...
-
-\subsection{Topos theory}	
-
-The logic of sheaves is intuitionistic.
-
-\subsection{BERT as a logic}
-
-\subsection{Neuroscience considerations}
-
-\subsection{Experiments}
-
-\section{Reinforcement-learning architecture}
+The rest of this paper will explain these design features in detail.
 
 The \textbf{metaphor} in the title of this paper is that of RL controlling an autonomous agent to navigate the maze of ``thoughts space'', seeking the optimal path:
 \begin{equation}
@@ -1008,6 +1041,8 @@ In (\ref{fig:LBAI}) and (\ref{fig:carousel}), some propositions need to be forgo
 \end{itemize}
 
 \section*{Acknowledgements}
+
+\quad Dmitri Tkatch \quad 肖达 (Da Xiao) \quad Juan Carlos Kuri Pinto
 
 I would like to thank the following people for invaluable discussions over many years:  Ben Goertzel, Pei Wang (王培), Abram Demski, Russell Wallace, SeH, Jonathan Yan, and others.  Also thanks to all the university professors and researchers in Hong Kong (especially in the math departments, and their guests), strangers who taught me things on Zhihu.com (知乎), Quora.com, and StackOverflow.
 
