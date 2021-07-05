@@ -22,6 +22,11 @@
 \usepackage{sectsty}		% change section color
 \usepackage{hyperref}	% refs, links become clickable
 \usepackage[normalem]{ulem} 	% underline unbroken with \uline
+
+\usepackage[backend=biber,style=numeric]{biblatex}
+\bibliography{../AGI-book}
+% \bibliographystyle{plain} % or number or aaai ...
+
 % \usepackage{listings}		% for algorithm
 % \lstset{
 %	basicstyle=\footnotesize\ttfamily,
@@ -88,7 +93,7 @@
 \newsavebox{\MyName}
 \savebox{\MyName}{\includegraphics[scale=0.6]{YKY.png}}
 
-\title{AGI via ``Deep Logic''}
+\title{AGI via Combining Logic with Deep Learning}
 \author{
 %\usebox{\MyName} 
 甄景贤 (King-Yin Yan) 
@@ -106,7 +111,7 @@
 
 \begin{abstract}
 % 这篇是背景，介绍一个基於 \textbf{增强学习} 和 \textbf{深度学习} 的极简约的 cognitive architecture，它在数学上是一个Hamiltonian 系统，而其 Lagrangian 对应於智能系统的「奖励」或「欲望」的价值。 经典逻辑 AI 的技巧可以搬到这个 setting 之下，而连续时间化之后，可以用上微分几何的技巧。 传统的「逻辑 AI 知识表述」被新的表述法取代，后者的结构是由神经网络的深度学习「诱导」出来的。
-An integration of deep learning and logic is proposed, based on the Curry-Howard isomorphism.  Under this interpretation, it turns out that Google's BERT, where current state-of-the-art language models are derived from, can be regarded as a special form of logic.  Moreover, this structure can be incorporated under a reinforcement-learning framework to form a minimal AGI architecture.
+An integration of deep learning and logic is proposed, based on the Curry-Howard isomorphism.  Under this interpretation, it turns out that Google's BERT, which many currently state-of-the-art language models are derived from, can be regarded as a special form of logic.  Moreover, this structure can be incorporated under a reinforcement-learning framework to form a minimal AGI architecture.  This paper also surveys some category theory of logic and topos theory, which may be helpful to practitioners of AGI.
 %The bottleneck algorithm in AGI is the inductive learning of knowledge.  The importance of this algorithm in our AI era is like what the steam engine was to the industrial revolution.  This paper: 1) outlines a minimalist AGI architecture; 2) defines a logic structure for AGI systems; 3) imposes the logic structure on the control system, as inductive bias to speed up learning.
 % The system consists of an iterative function whose role is analogous to the consequence operator ($\vdash$) in logic, and is approximated by a deep neural network (this is the key efficiency-boosting step).
 %Its continuous limit can be described by differential geometry.  The old-fashioned logic-based knowledge representation with discrete propositions is abandoned in favor of a representation induced by deep neural learning.
@@ -135,7 +140,7 @@ The Curry-Howard isomorphism expresses a connection between logic \textbf{syntax
 \begin{equation}
 f: A \rightarrow B .
 \end{equation}
-This notation comes from type theory, where $A$ and $B$ are \textbf{types} (which we can think of as sets or general spaces) and the function $f$ is an \textbf{element} in the function type $A \rightarrow B$.
+This notation comes from type theory, where $A$ and $B$ are \textbf{types} (which we can think of as sets or general spaces) and the function $f$ is an \textbf{element} in the function space $A \rightarrow B$, which is also a type.
 
 What the Curry-Howard isomorphism says is that we can regard $A \rightarrow B$ as a \textbf{logic} formula $A \Rightarrow B$ (an implication), and the function $f$ as a \textbf{proof} process that maps a proof of $A$ to a proof of $B$.
 
@@ -147,54 +152,99 @@ The following may give a clearer picture:
 \boxed{\mbox{program}} \quad \quad \witness \; \stackrel{f}{\longmapsto} \; \witness \hspace*{10pt} & .
 \end{aligned}
 \end{equation}
-What you see here is a logic formula ``on the surface'', with an underlying proof mechanism which is a \textbf{function}.  The logic propositions $A$ and $B$ coincide with the \textbf{domains} (or \textbf{types}) specified by type theory.  Hence the great educator Philip Wadler calls it ``propositions as types''. \footnote{See his introductory video: https://www.youtube.com/watch?v=IOiZatlZtGU . Other textbooks on the Curry-Howard isomorphism include: }
+What we see here is a logic formula ``on the surface'', with an underlying proof mechanism which is a \textbf{function}.  Here the $\witness$'s represent proof objects or witnesses.  The logic propositions $A$ and $B$ coincide with the \textbf{domains} (or \textbf{types}) specified by type theory.  Hence the great educator Philip Wadler calls it ``propositions as types''. \footnote{See his introductory video: https://www.youtube.com/watch?v=IOiZatlZtGU .} 
+Other textbooks on the Curry-Howard isomorphism include: \cite{}
 
-The gist of our theory is that Deep Learning provides us with non-linear functions (implemented as neural networks) that serve as the proof mechanism of logic via the Curry-Howard isomorphism.  Using this idea, we can impose the mathematical structure of logic (such as symmetries) onto deep neural networks.  Such constraints serve as \textbf{inductive bias} that can accelerate learning, according to the celebrated ``No Free Lunch'' theory.
+The gist of our theory is that Deep Learning provides us with neural networks (ie. non-linear functions) that serve as the proof mechanism of logic via the Curry-Howard isomorphism.  With this interpretation, we can impose the mathematical structure of logic (such as symmetries) onto neural networks.  Such constraints serve as \textbf{inductive bias} that can accelerate learning, according to the celebrated ``No Free Lunch'' theory.
 
-As an aside, the Curry-Howard isomorphism also establishes connections to diverse disciplines.  Whenever there is a space of elements and some operations over them, there is a chance that it has an underlying ``logic'' to it.  For example, in quantum mechanics, Hilbert space and Hermitian operators.  Another example: in String Theory, strings and cobordisms between them (The following is the famous ``pair of pants'' cobordism, representing a process in time that merges two strings into one):
+In particular, logic propositions in a conjunction (such as $A \wedge B$) are commutative, ie. invariant under permutations, which is a ``symmetry'' of logic.  This symmetry essentially decomposes a logic ``state'' into a set of propositions, and seems to be a fundamental feature of most logics known to humans.  Imposing this symmetry on neural networks gives rise to symmetric neural networks, which can be easily implemented thanks to separate research on the latter topic.  This is discussed in \S\ref{sec:commutative-structure}.
+
+As an aside, the Curry-Howard isomorphism also establishes connections to diverse disciplines.  Whenever there is a space of elements and some operations over them, there is a chance that it has an underlying ``logic'' to it.  For example, in quantum mechanics, Hilbert space and Hermitian operators.  Another example: in String Theory, strings and cobordisms between them (The following is the famous ``pair of pants'' cobordism, representing a process in time that splits one string into two):
 \begin{equation}
 \vcenter{\hbox{\includegraphics[scale=0.3]{../2020/pair-of-pants.png}}}
 \end{equation}
 
 \section{Prior Research}
 
-\subsection{Cognitive Architectures and Reinforcement Learning}
-
-\textbf{Reinforcement Learning (RL).}  In the 1980's, Richard Sutton \cite{Sutton1984} introduced reinforcement learning as an AI algorithm, drawing inspiration from Control Theory and Dynamic Programming.  In retrospect, RL already has sufficient generality to be considered an AGI theory, or at least as a top-level framework for describing AGI architectures.
-
-\textbf{AIXI.}  AIXI's environmental setting is the same as ours, but its agent's internal model is a universal Turing machine (UTM), and the optimal action is chosen by maximizing potential rewards over all programs of the UTM.  In our (minimal) model, the UTM is \uline{constrained} to be a neural network, where the NN's \textbf{state} is analogous to the UTM's \textbf{tape}, and the optimal weights (program) are found via Bellman optimality.
-
-\textbf{Relation to Quantum mechanics and Path Integrals.}
-
 \subsection{Neuro-Symbolic Integration}
 
-Pascal Hitzler (\textit{et. al.})'s ``Core Method''.
+There has been a long history of attempts to integrate symbolic logic with neural processing, with pioneers such as Ron Sun, Dov Gabbay, among others.  We consider 2 approaches below.
 
-Pedro Domingos' $\partial$-ILP.
+\textbf{Pascal Hitzler (\textit{et. al.})'s ``Core Method''} \cite{Hitzler2011} is model-based (as in model theory in logic).  An interpretation $\mathcal{I}$ is a function that assigns truth values to the set of all possible ground atoms.  To a logic program $P$ is associated a semantic operator $\mathcal{T}_P : \mathcal{I}_P \rightarrow \mathcal{I}_P$, where $\mathcal{I}_P$ is an interpretation endowed with the topology of the Cantor set.  Then $P$ is approximated by a neural network $f: \mathcal{I}_P \rightarrow \mathbb{R}$.
 
-Geoffrey Hinton's GLOM theory.
+\textbf{Pedro Domingos' $\partial$-ILP.} \cite{Domingos}
+
+\textbf{Geoffrey Hinton's GLOM theory.} \cite{Hinton}
+
+\subsection{Cognitive Architectures and Reinforcement Learning}
+
+\textbf{Reinforcement Learning (RL).}  In the 1980's, Richard Sutton \cite{Sutton1984} introduced reinforcement learning as an AI paradigm, drawing inspiration from Control Theory and Dynamic Programming.  In retrospect, RL already has sufficient generality to be considered an AGI theory, or at least as a top-level framework for describing AGI architectures.
+
+\textbf{Relation to AIXI.}  AIXI is an abstract AGI model introduced by Marcus Hutter in 2000 \cite{Hutter2000}.  AIXI's environmental setting is the external ``world'' as observed by some sensors.  The agent's internal model is a universal Turing machine (UTM), and the optimal action is chosen by maximizing potential rewards over all programs of the UTM.  In our (minimal) model, the UTM is \uline{constrained} to be a neural network, where the NN's \textbf{state} is analogous to the UTM's \textbf{tape}, and the optimal weights (program) are found via Bellman optimality.
+
+\textbf{Relation to Quantum mechanics and Path Integrals.}  At the core of RL is the Bellman equation, which governs the update of the utility function to reach its optimal value.  This equation (in discrete time) is equivalent to the Hamilton-Jacobi equation in differential form.  Nowadays they are unified as the Hamilton-Jacobi-Bellman equation, under the name ``optimal control theory'' \cite{Liberzon2012}.  In turn, the Hamilton-Jacobi equation is closely related to the Schr\"{o}dinger equation in quantum mechanics:
+\begin{equation}
+\boxed{\mbox{Bellman eqn.}} --- \boxed{\mbox{Hamilton-Jacobi eqn.}} --- \boxed{\mbox{Schr\"{o}dinger eqn.}}
+\end{equation}
+but the second link is merely ``heuristic'';  it is the well-studied ``quantization'' process whose meaning remains mysterious to this day.  Nevertheless, the path integral method introduced by Richard Feynmann can be applied to RL algorithms, eg. \cite{Kappen}.
+
+The Hamilton-Jacobi equation gives the RL problem a ``symplectic'' structure;  Such problems are best solved by so-called symplectic integrators.  Surprisingly, in the RL / AI literature, which has witnessed tremendous growth in recent years, there is scarcely any mention of the Hamilton-Jacobi connection, while the most efficient heuristics (such as policy gradient, Actor-Critic, etc.) seem to exploit other structural characteristics of the ``world''.
 
 \section{The Mathematical Structure of Logic}
 
 Currently, the most mathematically advanced and satisfactory description of logic seems to base on category theory, known as categorial logic and topos theory.  This direction was pioneered by William Lawvere in the 1950-60's.  The body of work in this field is quite vast, but we shall briefly survey the main points that are relevant to AGI.
 
-\subsection{Curry-Howard Isomorphism, Dependent Type Theory}
+\subsection{Dependent Type Theory}
+
+The Curry-Howard isomorphism identifies \textit{propositional} intuitionistic logic with type theory.  As such, the arrow $\rightarrow$ in type theory is ``used up'' (it corresponds to the implication arrow $\Rightarrow$ in intuitionistic logic).  However, predicates are also a kind of functions (arrows), so how could we accomodate predicates in type theory such that Curry-Howard continues to hold?  This is the idea behind Martin L\"{o}f's Dependent Type Theory.
+
+\begin{equation}
+\label{eqn:2-levels-of-TT}
+\vcenter{\hbox{\includegraphics[scale=0.5]{../2020/why-Martin-Lof.png}}}
+\end{equation}
+
+The type of $B$ in the dependent sum $\displaystyle \sum_A B$ depends on $A$. The sum of the entire family of $A$ (indexed by $B$) is similar to the product $A \times B$.
+
+The type of $B$ in the dependent product $\displaystyle \prod_A B$ depends on $A$. The product of the entire family of $A$ is similar to the exponentiation $B^A$.
 
 \subsection{Topos Theory}
 
+The most important commutative diagram in Topos theory is this one:
+\begin{equation}
+\label{eqn:subobject-classifier}
+\begin{tikzcd}[column sep = normal]
+X \arrow[r, "!"] \arrow[d, tail, swap, "m"] & 1 \arrow[d, "\mathrm{true}"] \\
+Y \arrow[r, swap, "\chi_m"] & \Omega
+\end{tikzcd}
+\end{equation}
+
 The logic of sheaves is intuitionistic.
 
-Fuzzy logic.  Every set is a pullback of the true map.  Every fuzzy set should be the pullback of the fuzzy true map?
+\subsection{Fuzzy logic and fuzzy topos}
 
-\subsection{Permutation Symmetry and Symmetric Neural Networks}
+Every set is a pullback of the true map.  Every fuzzy set should be the pullback of the fuzzy true map?
 
+\section{Permutation Symmetry and Symmetric Neural Networks}
+
+One basic characteristic of (classical) logic is that the conjuction $\wedge$ is \textbf{commutative}:
+\begin{equation}
+\mathsf{P} \wedge \mathsf{Q} \quad \Leftrightarrow \quad \mathsf{Q} \wedge \mathsf{P} .
+\end{equation}
 
 
 \subsection{BERT as a Logic}
 
 \section{``No Free Lunch'' Theory}
 
-\subsection{Experiments}
+\section{Experiment}
+
+A simple test of the symmetric neural network, under reinforcement learning (policy gradient), has been applied to the Tic-Tac-Toe game. \footnote{ Code is on GitHub: }
+
+The state of the game is represented as a set of 9 propositions, where all the propositions are initialized as ``null'' propositions.  During each step of the game, a new proposition is added to the set (ie. over-writing the null propositions).  Each proposition encodes who the player is, and which square $(i,j)$ she has chosen.  In other words, it is a predicate of the form: \texttt{move(player,i,j)}.  The neural network takes all 9 propositions as input, and outputs a new proposition;  Thus it is a permutation-invariant function.
+
+In comparison, the game state of traditional RL algorithms (eg. AlphaGo \cite{}) usually is represented as a vector of dimension same as the chessboard (eg. $3 \times 3$ in Tic-Tac-Toe and $8 \times 8$ in Chess).  This state vector remains the same constant length even if there are very few pieces on the chessboard.  Our logic-based representation may offer some advantages over the board-vector representation, and likely induces a different way of ``reasoning'' about the game.
+
+In our Tic-Tac-Toe experiment, convergence of learning is observed, but the algorithm fell short of achieving the highest score (19 instead of 20), and the score displayed unstable oscillating behavior after it got near the optimal value.  Further investigation is required, but it seems to be a promising start.
 
 \section{Conclusion and Future Directions}
 
@@ -204,8 +254,9 @@ Fuzzy logic.  Every set is a pullback of the true map.  Every fuzzy set should b
 
 I would like to thank the following people for invaluable discussions over many years:  Ben Goertzel, Pei Wang (王培), Abram Demski, Russell Wallace, SeH, Jonathan Yan, and others.  Also thanks to all the university professors and researchers in Hong Kong (especially in the math departments, and their guests), strangers who taught me things on Zhihu.com (知乎), Quora.com, and StackOverflow.
 
-\bibliographystyle{plain} % or number or aaai ...
-\bibliography{../AGI-book}
+{\color{red}(Diagrams in this paper can be re-organized in the traditional format, please contact the author if this is desired.)}
+
+\printbibliography
 
 \pagebreak
 
@@ -369,10 +420,6 @@ For more advanced theories on \textit{discrete} mechanics and control, \textit{c
 
 %==================================================================================
 \end{comment}
-
-\subsection{Comparison with AIXI \cite{Wikipedia-AIXI}}
-
-AIXI's environmental setting is the same as ours, but its agent's internal model is a universal Turing machine, and the optimal action is chosen by maximizing potential rewards over all programs of the UTM.  In our (minimal) model, the UTM is \uline{constrained} to be a neural network, where the NN's \textbf{state} is analogous to the UTM's \textbf{tape}, and the optimal weights (program) are found via Bellman optimality.
 
 \begin{comment}
 
