@@ -88,7 +88,7 @@
 \newsavebox{\MyName}
 \savebox{\MyName}{\includegraphics[scale=0.6]{YKY.png}}
 
-\title{AGI via ``deep logic''}
+\title{AGI via ``Deep Logic''}
 \author{
 %\usebox{\MyName} 
 甄景贤 (King-Yin Yan) 
@@ -126,7 +126,7 @@ deep learning, symbolic logic, logic-based AI, neural-symbolic integration, Curr
 % {\footnotesize Note: technical terms with \uwave{wavy underline} have Wikipedia entries and will not be explained further in this paper. }
 
 \setcounter{section}{-1}
-\section{Introduction: the Curry-Howard isomorphism}
+\section{Introduction: the Curry-Howard Isomorphism}
 \label{sec:0}
 
 As the risk of sounding too elementary, we would go over some basic background knowledge, that may help those readers who are unfamiliar with this area of mathematics.
@@ -156,41 +156,58 @@ As an aside, the Curry-Howard isomorphism also establishes connections to divers
 \vcenter{\hbox{\includegraphics[scale=0.3]{../2020/pair-of-pants.png}}}
 \end{equation}
 
-\section{Prior research}
+\section{Prior Research}
 
-\subsection{Cognitive architectures and reinforcement learning}
+\subsection{Cognitive Architectures and Reinforcement Learning}
 
-AIXI.
+\textbf{Reinforcement Learning (RL).}  In the 1980's, Richard Sutton \cite{Sutton1984} introduced reinforcement learning as an AI algorithm, drawing inspiration from Control Theory and Dynamic Programming.  In retrospect, RL already has sufficient generality to be considered an AGI theory, or at least as a top-level framework for describing AGI architectures.
 
-Reinforcement learning.
+\textbf{AIXI.}  AIXI's environmental setting is the same as ours, but its agent's internal model is a universal Turing machine (UTM), and the optimal action is chosen by maximizing potential rewards over all programs of the UTM.  In our (minimal) model, the UTM is \uline{constrained} to be a neural network, where the NN's \textbf{state} is analogous to the UTM's \textbf{tape}, and the optimal weights (program) are found via Bellman optimality.
 
-Quantum mechanics and path integrals.
+\textbf{Relation to Quantum mechanics and Path Integrals.}
 
-\subsection{Neuro-symbolic integration}
+\subsection{Neuro-Symbolic Integration}
 
-Pascal Hitzler.
+Pascal Hitzler (\textit{et. al.})'s ``Core Method''.
 
-$\partial$-ILP
+Pedro Domingos' $\partial$-ILP.
 
-Ron Sun.
+Geoffrey Hinton's GLOM theory.
 
-GLOM.
+\section{The Mathematical Structure of Logic}
 
-\section{The structure of logic}
+Currently, the most mathematically advanced and satisfactory description of logic seems to base on category theory, known as categorial logic and topos theory.  This direction was pioneered by William Lawvere in the 1950-60's.  The body of work in this field is quite vast, but we shall briefly survey the main points that are relevant to AGI.
 
-\subsection{Curry-Howard isomorphism, dependent type theory}
+\subsection{Curry-Howard Isomorphism, Dependent Type Theory}
 
-\subsection{Topos theory}	
+\subsection{Topos Theory}
 
 The logic of sheaves is intuitionistic.
 
 Fuzzy logic.  Every set is a pullback of the true map.  Every fuzzy set should be the pullback of the fuzzy true map?
 
-\subsection{BERT as a logic}
+\subsection{Permutation Symmetry and Symmetric Neural Networks}
 
-\section{``No Free Lunch'' theory}
+
+
+\subsection{BERT as a Logic}
+
+\section{``No Free Lunch'' Theory}
 
 \subsection{Experiments}
+
+\section{Conclusion and Future Directions}
+
+\section*{Acknowledgements}
+
+\quad Dmitri Tkatch \quad 肖达 (Da Xiao) \quad Juan Carlos Kuri Pinto
+
+I would like to thank the following people for invaluable discussions over many years:  Ben Goertzel, Pei Wang (王培), Abram Demski, Russell Wallace, SeH, Jonathan Yan, and others.  Also thanks to all the university professors and researchers in Hong Kong (especially in the math departments, and their guests), strangers who taught me things on Zhihu.com (知乎), Quora.com, and StackOverflow.
+
+\bibliographystyle{plain} % or number or aaai ...
+\bibliography{../AGI-book}
+
+\pagebreak
 
 \section{Reinforcement-learning architecture}
 
@@ -1039,14 +1056,5 @@ In (\ref{fig:LBAI}) and (\ref{fig:carousel}), some propositions need to be forgo
 	 %\textit{The structure of memory} \cite{YanMemory}.
 	\item Implementation of the system is currently under way.
 \end{itemize}
-
-\section*{Acknowledgements}
-
-\quad Dmitri Tkatch \quad 肖达 (Da Xiao) \quad Juan Carlos Kuri Pinto
-
-I would like to thank the following people for invaluable discussions over many years:  Ben Goertzel, Pei Wang (王培), Abram Demski, Russell Wallace, SeH, Jonathan Yan, and others.  Also thanks to all the university professors and researchers in Hong Kong (especially in the math departments, and their guests), strangers who taught me things on Zhihu.com (知乎), Quora.com, and StackOverflow.
-
-\bibliographystyle{plain} % or number or aaai ...
-\bibliography{../AGI-book}
 
 \end{document}
