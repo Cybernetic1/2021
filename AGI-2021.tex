@@ -110,31 +110,24 @@
 % \setlength{\parskip}{2.8ex}
 
 \begin{abstract}
-% 这篇是背景，介绍一个基於 \textbf{增强学习} 和 \textbf{深度学习} 的极简约的 cognitive architecture，它在数学上是一个Hamiltonian 系统，而其 Lagrangian 对应於智能系统的「奖励」或「欲望」的价值。 经典逻辑 AI 的技巧可以搬到这个 setting 之下，而连续时间化之后，可以用上微分几何的技巧。 传统的「逻辑 AI 知识表述」被新的表述法取代，后者的结构是由神经网络的深度学习「诱导」出来的。
 An integration of deep learning and logic is proposed, based on the Curry-Howard isomorphism.  Under this interpretation, it turns out that Google's BERT, which many currently state-of-the-art language models are derived from, can be regarded as a special form of logic.  Moreover, this structure can be incorporated under a reinforcement-learning framework to form a minimal AGI architecture.  We also mention some insights gleaned from category and topos theory that may be helpful to practitioners of AGI.
-%The bottleneck algorithm in AGI is the inductive learning of knowledge.  The importance of this algorithm in our AI era is like what the steam engine was to the industrial revolution.  This paper: 1) outlines a minimalist AGI architecture; 2) defines a logic structure for AGI systems; 3) imposes the logic structure on the control system, as inductive bias to speed up learning.
-% The system consists of an iterative function whose role is analogous to the consequence operator ($\vdash$) in logic, and is approximated by a deep neural network (this is the key efficiency-boosting step).
-%Its continuous limit can be described by differential geometry.  The old-fashioned logic-based knowledge representation with discrete propositions is abandoned in favor of a representation induced by deep neural learning.
-% The problem of general intelligence can be described and solved in the logic-based AI paradigm, but the main obstacle is that learning is too slow.  The logic-based knowledge representation with discrete propositions is abandoned in favor of a neural-based ``amorphous'' representation induced from the top down, using a deep neural network (DNN).  The DNN acts iteratively on a state space (the ``mental state''), forming a dynamical system.  This system is in turn controlled by reinforcement learning, ``navigating'' the space of mental states as in a maze.
 \end{abstract}
 
 \begin{keywords}
 deep learning, symbolic logic, logic-based AI, neural-symbolic integration, Curry-Howard isomorphism, category theory, topos theory, fuzzy logic
 \end{keywords}
 
-%本文介绍一些（非原创的）已知理论，然后指出一些新的研究方向。
-% In order to understand our main theory \cite{YanBridge}, most of the present paper can be ignored, except for \S\ref{sec:0} and a basic understanding of reinforcement learning (eg.  my tutorial \cite{YanRLtutorialEN}).
-
-% Most of this paper is background information, eg. the ``Hamiltonian theory'' is already well-known and is not our original contribution.
-% The first part of this paper introduces some existing theory, and then speculates on new research directions.
-
-% {\footnotesize Note: technical terms with \uwave{wavy underline} have Wikipedia entries and will not be explained further in this paper. }
-
 {\color{red}(To the editor:  Diagrams in this paper can be re-organized in the traditional format, please contact the author if this is desired.  Some references are yet to be filled in.)}
 
 \setcounter{section}{-1}
-\section{Introduction: the Curry-Howard Isomorphism}
+\section{Introduction}
 \label{sec:0}
+
+The results in the present paper does not make use of category theory in any significant way (nor the Curry-Howard isomorphism, for that matter).  Its main accomplishment is to express AGI in the categorical language.  To the layperson the concepts of category theory (such as pullbacks, adjunctions, toposes, sheaves, ...) may be difficult to grasp, but they are the mathematician's ``daily bread''.  We hope that describing AGI in categorical terms will entice more mathematicians to work on this important problem.
+
+Secondly, an abstract formulation allows us to see clearly what is meant by ``the mathematical structure of logic'', without which logic is just a collection of strange rules and axioms, leaving us with a feeling that something may be ``amiss'' in our theory.
+
+\subsection{The Curry-Howard Isomorphism}
 
 As the risk of sounding too elementary, we would go over some basic background knowledge, that may help those readers who are unfamiliar with this area of mathematics.
 
@@ -290,11 +283,11 @@ But could there be drastically different logics?  One observes that pictures and
 
 A simple test of the symmetric neural network, under reinforcement learning (policy gradient), has been applied to the Tic-Tac-Toe game. \footnote{ Code with documentation is on GitHub: https://github.com/Cybernetic1/policy-gradient }
 
-The state of the game is represented as a set of 9 propositions, where all the propositions are initialized as ``null'' propositions.  During each step of the game, a new proposition is added to the set (ie. over-writing the null propositions).  Each proposition encodes who the player is, and which square $(i,j)$ she has chosen.  In other words, it is a predicate of the form: \texttt{move(player,i,j)}.  The neural network takes all 9 propositions as input, and outputs a new proposition;  Thus it is a permutation-invariant function.
+The state of the game is represented as a set of 9 propositions, where all propositions are initialized as ``null'' in the beginning.  During each step of the game, a new proposition is added to the set (ie. over-writing the null propositions).  Each proposition encodes who the player is, and which square $(i,j)$ she has chosen.  In other words, it is a predicate of the form: \texttt{move(player,i,j)}.  The neural network takes 9 propositions as input, and outputs a new proposition;  Thus it is a permutation-invariant function.
 
-In comparison, the game state of traditional RL algorithms (eg. AlphaGo \cite{Silver2016} \cite{Silver2017} \cite{Pumperla2019}) usually is represented as a vector of dimension same as the chessboard (eg. $3 \times 3$ in Tic-Tac-Toe and $8 \times 8$ in Chess).  This state vector remains the same constant length even if there are very few pieces on the chessboard.  Our logic-based representation may offer some advantages over the board-vector representation, and likely induces a different way of ``reasoning'' about the game.
+In comparison, the game state of traditional RL algorithms (eg. AlphaGo \cite{Silver2016} \cite{Silver2017} \cite{Pumperla2019}) usually is represented as a ``chessboard'' vector (eg. $3 \times 3$ in Tic-Tac-Toe, $8 \times 8$ in Chess, $19 \times 19 = 361$ in Go).  This state vector is the same constant length even if there are very few pieces on the chessboard.  Our logic-based representation may offer some advantages over the board-vector representation, and likely induces a different ``way of reasoning'' about the game. \footnote{In AlphaGo and AlphaZero, the algorithm uses auxiliary ``feature planes'' that are also chessboard vectors, to indicate which stones have ``liberty'', ``ko'', etc.}
 
-In our Tic-Tac-Toe experiment, convergence of learning is observed, but the algorithm fell short of achieving the highest score (19 instead of 20), and the score displayed unstable oscillating behavior after it got near the optimal value.  Further investigation is required, but it seems to be a promising start.
+In our Tic-Tac-Toe experiment, convergence of learning is observed, but the algorithm fell short of achieving the highest score (19 instead of 20), and the score displayed unstable oscillating behavior after it got near the optimal value.  In comparison, the board-vector version (also using policy gradient) fails to get near the highest score after 2 hours, and it also shows oscillatory behavior.  Further investigation is required, but this seems to be a promising start.
 
 \section{Conclusion and Future Directions}
 
@@ -302,7 +295,7 @@ We described a minimal AGI with a logic that can derive one new proposition per 
 
 \section*{Acknowledgements}
 
-Thanks Ben Goertzel for suggesting that neural networks are advantageous over pure symbolic logic because they have fast learning algorithms (by gradient descent).  That was at a time when ``deep learning'' was not yet a popular word.  Thanks Dmitri Tkatch for pointing me to existing research of symmetric neural networks.  Thanks Dr. 肖达 (Da Xiao) for explaining details of BERT. 
+Thanks Ben Goertzel for suggesting that neural networks are advantageous over pure symbolic logic because they have fast learning algorithms (by gradient descent).  That was at a time when ``deep learning'' was not yet a popular word.  Thanks Dmitri Tkatch for pointing me to existing research of symmetric neural networks.  Thanks Dr. 肖达 (Da Xiao) for explaining to me details of BERT. 
 
 Also thanks to the following people for invaluable discussions over many years:  Ben Goertzel, Pei Wang (王培), Abram Demski, Russell Wallace, Juan Carlos Kuri Pinto, SeH, Jonathan Yan, and others.  Also thanks to all the university professors and researchers in Hong Kong (especially in the math departments, and their guests), strangers who taught me things on Zhihu.com (知乎), Quora.com, and StackOverflow.
 
