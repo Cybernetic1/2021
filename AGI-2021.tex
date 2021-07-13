@@ -10,6 +10,7 @@
 \usepackage{amsmath}	% for "cases"
 % \usepackage{amsfonts}	% for frakur fonts
 \usepackage{amssymb}    % for \rightsquigarrow, \blacksquare
+\usepackage{stmaryrd}	% \llbracket
 %\usepackage{mathtools}
 % \usepackage{mathrsfs}	% for curly "E" error symbol
 \usepackage{float}
@@ -17,6 +18,7 @@
 % \usepackage[most]{tcolorbox}	% for wrapping example in color box
 % \usepackage{wrapfig}		% wrap figure beside text, used in example
 \usepackage{tikz-cd}		% commutative diagrams
+% \usepackage{tikz}
 % \usepackage{amssymb}		% for \multimap, \updownarrow, \bigstar
 \usepackage{sectsty}		% change section color
 \usepackage{hyperref}	% refs, links become clickable
@@ -167,6 +169,29 @@ There has been a long history of attempts to integrate symbolic logic with neura
 \textbf{Pascal Hitzler (\textit{et. al.})'s ``Core Method''} \cite{Hitzler2011} is model-based (as in model theory in logic).  An interpretation $\mathcal{I}$ is a function that assigns truth values to the set of all possible ground atoms.  To a logic program $P$ is associated a semantic operator $\mathcal{T}_P : \mathcal{I}_P \rightarrow \mathcal{I}_P$, where $\mathcal{I}_P$ is an interpretation endowed with the topology of the Cantor set.  Then $P$ is approximated by a neural network $f: \mathcal{I}_P \rightarrow \mathbb{R}$.
 
 \textbf{$\partial$-ILP} \cite{Evans2017} is also model-based, and moreover it is focused on the learning problem.  A valuation is a vector $[0,1]^n$ mapping each ground atom to a real number $\in [0,1]$.  Each clause is attached with a Boolean flag (actually relaxed to be a continuous value) to indicate whether it is included in the results or not.  From each clause $c$ one can generate a function $\mathcal{F}_c$ on valuations that implements a single step of forward inference.  Then gradient descent is used to learn which clauses should be included.
+
+From a categorical perspective, model theory is a \textbf{functor} mapping logic syntax to algebraic objects and operations between them (hence the name ``functorial semantics''):
+
+\begin{equation}
+\boxed{\mbox{syntax}} \quad
+\tikzmark{a1} a \tikzmark{c1} \; {\color{red}\cdot} \; \tikzmark{b1} b \longmapsto \llbracket \tikzmark{a2} a \rrbracket \tikzmark{c2} \; {\color{red}\cdot} \; \llbracket \tikzmark{b2} b \rrbracket
+\quad \boxed{\mbox{algebraic objects, eg. group elements}}
+\begin{tikzpicture}[overlay, remember picture, distance=1.1cm]
+\draw[->, out=40, in=135, transform canvas={shift={(4pt,10pt)}}] (a1.center) to (a2.center);
+\draw[->, out=40, in=135, transform canvas={shift={(4pt,10pt)}}] (b1.center) to (b2.center);
+\draw[->, out=-30, in=-140, transform canvas={shift={(6pt,-2pt)}}, red] (c1.center) to (c2.center);
+\end{tikzpicture}
+\end{equation}
+
+Model theory is interesting when the target structure has additional properties not specified by the logic syntax.  For example, the predicate \texttt{male(x)} may be modelled by:
+\begin{equation}
+\begin{tabular}{|c|c|c|} \hline
+algebraic geometry & \texttt{male}(x) $ \Leftrightarrow f(x) \ge 0$ & $f$ is a polynomial \\
+linear algebra & \texttt{male}(x) $ \Leftrightarrow M x \ge 0$ & $M$ is a matrix \\
+topology & \texttt{male}(x) $ \Leftrightarrow x \in S $ & $S$ is an open set \\
+\hline
+\end{tabular}
+\end{equation}
 
 The author believes that representing and learning relational knowledge is perhaps the final piece of the puzzle in AGI research.  We would like to mention Geoffrey Hinton's recent \textbf{GLOM theory} \cite{Hinton}, which addresses the problem of representing a hierarchy of visual structures.
 
