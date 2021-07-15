@@ -155,7 +155,7 @@ The gist of our theory is that Deep Learning provides us with neural networks (i
 
 In particular, logic propositions in a conjunction (such as $A \wedge B$) are commutative, ie. invariant under permutations, which is a ``symmetry'' of logic.  This symmetry essentially decomposes a logic ``state'' into a set of propositions, and seems to be a fundamental feature of most logics known to humans.  Imposing this symmetry on neural networks gives rise to symmetric neural networks, which can be easily implemented thanks to a separate result by other researchers.  This is discussed in \S\ref{sec:commutative-structure}.
 
-As an aside, the Curry-Howard isomorphism also establishes connections to diverse disciplines.  Whenever there is a space of elements and some operations over them, there is a chance that it has an underlying ``logic'' to it.  For example, in quantum mechanics, Hilbert space and Hermitian operators.  Another example: in String Theory, strings and cobordisms between them (The following is the famous ``pair of pants'' cobordism, representing a process in time that splits one string into two):
+As an aside, the Curry-Howard isomorphism also establishes connections to diverse disciplines.  Whenever there is a space of elements and some operations over them, there is a chance that it has an underlying ``logic'' to it (see eg. Baez and Stay's ``Rosetta Stone'' paper: \cite{Baez2010}, also \cite{Heunen2019}).  For example, in quantum mechanics, Hilbert space and Hermitian operators.  Another example: in String Theory, strings and cobordisms between them (The following is the famous ``pair of pants'' cobordism, representing a process in time that merges two strings into one (time is read upwards)):
 \begin{equation}
 \vcenter{\hbox{\includegraphics[scale=0.2]{../2020/pair-of-pants.png}}}
 \end{equation}
@@ -195,7 +195,7 @@ topology & \texttt{male}(x) $ \Leftrightarrow x \in S $ & $S$ is an open set \\
 \end{equation}
 Model-based methods appear to be impractical for AGI because the number of grounded atomic propositions would be too large (potentially infinite, if we include also propositions that are imagined) to be stored in a computer (or human brain).  However, if all possible atoms are embedded in a mathematical space through mapping schemes such as (\ref{table:modelling-schemes}), it may be feasible.
 
-In the logical or syntactic approach, propositions exist in the product space of predicates and objects;  For example the relation $a R b$ lives in the space $\mathbb{R}\mathrm{el} \times \mathbb{O}\mathrm{bj}^2$ where $\mathbb{R}\mathrm{el}$ is the space of all possible relations and $\mathbb{O}\mathrm{bj}$ the space of all possible objects (here objects mean logical or first-order objects, not categorical objects).  In contrast, in the model-based approach one places objects in a high dimensional space such that their positions satisfy the constraints imposed by various predicates (eg. polynomials or matrices or open sets).
+In the logical or syntactic approach, propositions exist in the product space of predicates and objects;  For example the relation $a R b$ lives in the space $\mathbb{R}\mathrm{el} \times \mathbb{O}\mathrm{bj} \times \mathbb{O}\mathrm{bj}$ where $\mathbb{R}\mathrm{el}$ is the space of all possible relations and $\mathbb{O}\mathrm{bj}$ the space of all possible objects (here objects mean logical or first-order objects, not categorical objects).  In contrast, in the model-based approach one places objects in a high dimensional space such that their positions satisfy the constraints imposed by various predicates (eg. polynomials or matrices or open sets).
 
 The author believes that representing and learning relational knowledge is perhaps the final piece of the puzzle in AGI research.  We would like to mention Geoffrey Hinton's recent \textbf{GLOM theory} \cite{Hinton}, which addresses the problem of representing a hierarchy of visual structures.
 
@@ -207,7 +207,7 @@ The author believes that representing and learning relational knowledge is perha
 
 \textbf{Relation to Quantum mechanics and Path Integrals.}  At the core of RL is the Bellman equation, which governs the update of the utility function to reach its optimal value.  This equation (in discrete time) is equivalent to the Hamilton-Jacobi equation in differential form.  Nowadays they are unified as the Hamilton-Jacobi-Bellman equation, under the name ``optimal control theory'' \cite{Liberzon2012}.  In turn, the Hamilton-Jacobi equation is closely related to the Schr\"{o}dinger equation in quantum mechanics:
 \begin{equation}
-\boxed{\mbox{Bellman eqn.}} --- \boxed{\mbox{Hamilton-Jacobi eqn.}} --- \boxed{\mbox{Schr\"{o}dinger eqn.}}
+\boxed{\mbox{Bellman eqn.}} \leftrightsquigarrow \boxed{\mbox{Hamilton-Jacobi eqn.}} \leftrightsquigarrow \boxed{\mbox{Schr\"{o}dinger eqn.}}
 \end{equation}
 but the second link is merely ``heuristic'';  it is the well-studied ``quantization'' process whose meaning remains mysterious to this day.  Nevertheless, the path integral method introduced by Richard Feynmann can be applied to RL algorithms, eg. \cite{Kappen2007}.
 
@@ -233,7 +233,7 @@ The expressiveness of predicate logic (in one form or another) is a highly desir
 
 \subsection{(Fuzzy?) Topos Theory}
 
-The author's previous paper \cite{Yan2012} proposed a fuzzy-probabilistic logic where probabilities are distributed over fuzzy truth values.  To this day, he still believes that regarding fuzziness as a generalization of binary truth is philosophically sound.  Thus it behoves to develop a generalization of standard topos theory to the fuzzy case.  
+The author's previous paper \cite{Yan2012} proposed a fuzzy-probabilistic logic where probabilities are distributed over fuzzy truth values.  To this day, he still believes that regarding fuzziness as a generalization of binary truth is philosophically sound.  Thus it behooves to develop a generalization of standard topos theory to the fuzzy case.  
 
 The most important commutative diagram in Topos theory is this one:
 \begin{equation}
@@ -244,6 +244,10 @@ Y \arrow[r, swap, "\chi_m"] & \Omega
 \end{tikzcd}
 \end{equation}
 It can be understood as saying that every set is a pullback of the true map, in analogy to the idea of a ``moduli space''.  Following this idea, is it true that every fuzzy set should be the pullback of the fuzzy true map?  It seems that the theory of fuzzy topos is still an open research problem \cite{Jardine2019} \cite{Vickers2010}.
+
+\cite{Belohlavek2017} \S5.2.4 provides a concise review of the categorical treatment of fuzzy sets:  The sub-object classifier $\Omega$ that characterizes classical set theory is generalized to a \textbf{complete Heyting algebra} (CHA, also called a \textbf{frame}, which captures the structure of a topology, ie, the lattice of open subsets of a set), and thus it is realized that \textit{the internal logic of topos is intuitionistic}.
+
+This line of research culminated in \cite{Hohle2007} and \cite{Hohle2007b}, where fuzzy set theory is interpreted as sub-fields of sheave theory, ie, complete $\Omega$-valued sets, where $\Omega$ is a frame.  
 
 % The logic of sheaves is intuitionistic.
 
@@ -285,8 +289,8 @@ And this can be easily implemented with a few lines of Tensorflow, see \S\ref{se
 
 \subsection{Why BERT is a Logic}
 
-In the following diagram \footnote{From blog article: Illustrated: Self-Attention
--- Step-by-step guide to self-attention with illustrations and code \\ https://towardsdatascience.com/illustrated-self-attention-2d627e33b20a }, observe that the Transformer is permutation-invariant (or more precisely, \textbf{equivariant}).  That is to say, for example, if input \#1 and \#2 are swapped, then output \#1 and \#2 would also be swapped:
+BERT (and its variants) are based on the Transformer architecture \cite{Devlin2018}, and Transformers are based solely on the Self-Attention mechanism \cite{Vaswani2017}.  In the following diagram \footnote{From blog article: Illustrated: Self-Attention
+-- Step-by-step guide to self-attention with illustrations and code \\ https://towardsdatascience.com/illustrated-self-attention-2d627e33b20a }, one can verify that the Transformer is permutation-invariant (or more precisely, \textbf{equivariant}).  That is to say, for example, if input \#1 and \#2 are swapped, then output \#1 and \#2 would also be swapped:
 \begin{equation}
 \vcenter{\hbox{\includegraphics[scale=0.3]{self-attention.png}}}
 \end{equation}
@@ -313,7 +317,7 @@ A simple test of the symmetric neural network, under reinforcement learning (pol
 
 The state of the game is represented as a set of 9 propositions, where all propositions are initialized as ``null'' in the beginning.  During each step of the game, a new proposition is added to the set (ie. over-writing the null propositions).  Each proposition encodes who the player is, and which square $(i,j)$ she has chosen.  In other words, it is a predicate of the form: \texttt{move(player,i,j)}.  The neural network takes 9 propositions as input, and outputs a new proposition;  Thus it is a permutation-invariant function.
 
-In comparison, the game state of traditional RL algorithms (eg. AlphaGo \cite{Silver2016} \cite{Silver2017} \cite{Pumperla2019}) usually is represented as a ``chessboard'' vector (eg. $3 \times 3$ in Tic-Tac-Toe, $8 \times 8$ in Chess, $19 \times 19 = 361$ in Go).  This state vector is the same constant length even if there are very few pieces on the chessboard.  Our logic-based representation may offer some advantages over the board-vector representation, and likely induces a different ``way of reasoning'' about the game. \footnote{In AlphaGo and AlphaZero, the algorithm uses auxiliary ``feature planes'' that are also chessboard vectors, to indicate which stones have ``liberty'', ``ko'', etc.}
+In comparison, the game state of traditional RL algorithms (eg. AlphaGo \cite{Silver2016} \cite{Silver2017} \cite{Pumperla2019}) usually is represented as a ``chessboard'' vector (eg. $3 \times 3$ in Tic-Tac-Toe, $8 \times 8$ in Chess, $19 \times 19 = 361$ in Go \footnote{In AlphaGo and AlphaZero, the algorithm makes use of several auxiliary ``feature planes'' that are also chessboard vectors, to indicate which stones have ``liberty'', ``ko'', etc.}).  This state vector is the same constant length even if there are very few pieces on the chessboard.  Our logic-based representation may offer some advantages over the board-vector representation, and likely induces a different ``way of reasoning'' about the game.
 
 In our Tic-Tac-Toe experiment, convergence of learning is observed, but the algorithm fell short of achieving the highest score (19 instead of 20), and the score displayed unstable oscillating behavior after it got near the optimal value.  In comparison, the board-vector version (also using policy gradient) fails to get near the highest score after 2 hours, and it also shows oscillatory behavior.  Further investigation is required, but this seems to be a promising start.
 
