@@ -185,6 +185,7 @@ From a categorical perspective, model theory is a \textbf{functor} mapping logic
 
 Model theory is interesting when the target structure has additional properties not specified by the logic syntax.  For example, the predicate \texttt{male(x)} may be modelled by:
 \begin{equation}
+\label{table:modelling-schemes}
 \begin{tabular}{|c|c|c|} \hline
 algebraic geometry & \texttt{male}(x) $ \Leftrightarrow f(x) \ge 0$ & $f$ is a polynomial \\
 linear algebra & \texttt{male}(x) $ \Leftrightarrow M x \ge 0$ & $M$ is a matrix \\
@@ -192,6 +193,9 @@ topology & \texttt{male}(x) $ \Leftrightarrow x \in S $ & $S$ is an open set \\
 \hline
 \end{tabular}
 \end{equation}
+Model-based methods appear to be impractical for AGI because the number of grounded atomic propositions would be too large (potentially infinite, if we include also propositions that are imagined) to be stored in a computer (or human brain).  However, if all possible atoms are embedded in a mathematical space through mapping schemes such as (\ref{table:modelling-schemes}), it may be feasible.
+
+In the logical or syntactic approach, propositions exist in the product space of predicates and objects;  For example the relation $a R b$ lives in the space $\mathbb{R}\mathrm{el} \times \mathbb{O}\mathrm{bj}^2$ where $\mathbb{R}\mathrm{el}$ is the space of all possible relations and $\mathbb{O}\mathrm{bj}$ the space of all possible objects (here objects mean logical or first-order objects, not categorical objects).  In contrast, in the model-based approach one places objects in a high dimensional space such that their positions satisfy the constraints imposed by various predicates (eg. polynomials or matrices or open sets).
 
 The author believes that representing and learning relational knowledge is perhaps the final piece of the puzzle in AGI research.  We would like to mention Geoffrey Hinton's recent \textbf{GLOM theory} \cite{Hinton}, which addresses the problem of representing a hierarchy of visual structures.
 
