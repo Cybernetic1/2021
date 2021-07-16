@@ -118,13 +118,11 @@ An integration of deep learning and logic is proposed, based on the Curry-Howard
 deep learning, symbolic logic, logic-based AI, neural-symbolic integration, Curry-Howard isomorphism, category theory, topos theory, fuzzy logic
 \end{keywords}
 
-{\color{red}(To the editor:  Diagrams in this paper can be re-organized in the traditional format, please contact the author if this is desired.)}
-
 \setcounter{section}{-1}
 \section{Introduction}
 \label{sec:0}
 
-The results in the present paper does not make use of category theory in any significant way (nor the Curry-Howard isomorphism, for that matter).  Its main accomplishment is to express AGI in the categorical language.  To the layperson the concepts of category theory (such as pullbacks, adjunctions, toposes, sheaves, ...) may be difficult to grasp, but they are the mathematician's ``daily bread''.  We hope that describing AGI in categorical terms will entice more mathematicians to work on this important topic.
+The results in the present paper does not make use of category theory in any significant way (nor the Curry-Howard isomorphism, for that matter).  Its main accomplishment is to express AGI in the categorical language.  To the lay person the concepts of category theory (such as pullbacks, adjunctions, toposes, sheaves, ...) may be difficult to grasp, but they are the mathematician's ``daily bread''.  We hope that describing AGI in categorical terms will entice more mathematicians to work on this important topic.
 
 Secondly, an abstract formulation allows us to see clearly what is meant by ``the mathematical structure of logic'', without which logic is just a collection of strange rules and axioms, leaving us with a feeling that something may be ``amiss'' in our theory.
 
@@ -193,9 +191,13 @@ Model-based methods appear to be impractical for AGI because the number of groun
 
 In the logical or syntactic approach, propositions exist in the product space of predicates and objects;  For example the relation $a R b$ lives in the space $\mathbb{R}\mathrm{el} \times \mathbb{O}\mathrm{bj} \times \mathbb{O}\mathrm{bj}$ where $\mathbb{R}\mathrm{el}$ is the space of all possible relations and $\mathbb{O}\mathrm{bj}$ the space of all possible objects (here objects mean logical or first-order objects, not categorical objects).  In contrast, in the model-based approach one places objects in a high dimensional space such that their positions satisfy the constraints imposed by various predicates (eg. polynomials or matrices or open sets).
 
-\textbf{Pascal Hitzler (\textit{et. al.})'s ``Core Method''} \cite{Hitzler2011}.  An interpretation $\mathcal{I}$ is a function that assigns truth values to the set of all possible ground atoms.  To a logic program $P$ is associated a semantic operator $\mathcal{T}_P : \mathcal{I}_P \rightarrow \mathcal{I}_P$, where $\mathcal{I}_P$ is an interpretation endowed with the topology of the Cantor set.  Then $P$ is approximated by a neural network $f: \mathcal{I}_P \rightarrow \mathbb{R}$.
+\textbf{Pascal Hitzler (\textit{et. al.})'s ``Core Method''} \cite{Hitzler2011}.  An interpretation $\mathcal{I}$ is a function that assigns truth values to the set of all possible ground atoms.  To a logic program $P$ is associated a semantic operator $\mathcal{T}_P : \mathcal{I}_P \rightarrow \mathcal{I}_P$, where $\mathcal{I}_P$ is an interpretation endowed with the topology of the Cantor set.  Then $P$ is approximated by a neural network $f: \mathcal{I}_P \rightarrow \mathbb{R}$.  Inference is performed by..., learning is achieved by....
 
-\textbf{$\partial$-ILP} \cite{Evans2017} is focused on the learning problem.  A valuation is a vector $[0,1]^n$ mapping each ground atom to a real number $\in [0,1]$.  Each clause is attached with a Boolean flag to indicate whether it is included in the results or not.  From each clause $c$ one can generate a function $\mathcal{F}_c$ on valuations that implements a single step of forward inference.  Actually the Boolean flag is relaxed to be a continuous value and gradient descent is used to learn which clauses should be included.
+\textbf{$\partial$-ILP} \cite{Evans2017} is focused on the learning problem.  A valuation is a vector $[0,1]^n$ mapping each ground atom to a real number $\in [0,1]$.  Each clause is attached with a Boolean flag to indicate whether it is included in the results or not.  From each clause $c$ one can generate a function $\mathcal{F}_c$ on valuations that implements a single step of forward inference.  Actually the Boolean flag is relaxed to be a continuous value and gradient descent is used to learn which clauses should be included.  Inference is performed by..., learning is achieved by....
+
+In general, in the \textbf{model-theoretic} approach, ...
+
+In the \textbf{type-theoretic} (or ``syntactic'') approach, ...
 
 We would also like to mention Geoffrey Hinton's recent \textbf{GLOM theory} \cite{Hinton2021}, which addresses the problem of representing a hierarchy of visual structures.  This further supports that representing and learning relational knowledge is a research topic of central importance, and that there is a convergence of ``mainstream'' AI with AGI.
 
@@ -211,7 +213,7 @@ We would also like to mention Geoffrey Hinton's recent \textbf{GLOM theory} \cit
 \end{equation}
 but the second link is merely ``heuristic'';  it is the well-studied ``quantization'' process whose meaning remains mysterious to this day.  Nevertheless, the path integral method introduced by Richard Feynmann can be applied to RL algorithms, eg. \cite{Kappen2007}.
 
-The Hamilton-Jacobi equation gives the RL setting a ``symplectic'' structure \cite{Mann2018};  Such problems are best solved by so-called symplectic integrators (proposed by Feng Kang 冯康 in the 1980s \cite{Feng2010}, see also \cite{Leimkuhler2004}).  Surprisingly, in the RL / AI literature, which has witnessed tremendous growth in recent years, there is scarcely any mention of the Hamilton-Jacobi connection, while the most efficient heuristics (such as policy gradient, Actor-Critic, etc.) seem to exploit other structural characteristics of ``the world''.
+The Hamilton-Jacobi equation gives the RL setting a ``symplectic'' structure \cite{Mann2018};  Such problems are best solved by so-called symplectic integrators (proposed by 冯康 (Feng Kang) in the 1980s \cite{Feng2010}, see also \cite{Leimkuhler2004}).  Surprisingly, in the RL / AI literature, which has witnessed tremendous growth in recent years, there is scarcely any mention of the Hamilton-Jacobi structure, while the most efficient heuristics (such as policy gradient, experience replay, Actor-Critic, etc.) seem to exploit other structural characteristics of ``the world''.
 
 \section{The Mathematical Structure of Logic}
 
@@ -220,6 +222,8 @@ Currently, the most mathematically advanced and satisfactory description of logi
 \subsection{Predicates and Dependent Type Theory}
 
 The Curry-Howard isomorphism identifies \textit{propositional} intuitionistic logic with type theory.  As such, the arrow $\rightarrow$ in type theory is ``used up'' (it corresponds to the implication arrow $\Rightarrow$ in intuitionistic logic).  However, predicates are also a kind of functions (arrows), so how could we accomodate predicates in type theory such that Curry-Howard continues to hold?  This is the idea behind Martin L\"{o}f's dependent type theory.
+
+Dependent type theory merely tells us that the spaces... 
 
 The expressiveness of predicate logic (in one form or another) is a highly desirable feature for AGI knowledge representations.  So it seems necessary to incorporate dependent type theory into our logic.  From a categorical perspective, predicates can be regarded as \textbf{fibers} over a base set;  This is the treatment given in Bart Jacob's book \cite{Jacobs1999}.  Thus category theory gives us more insight into the (predicate) structure of logic, though it is as yet unclear how to make use of this particular idea.
 %\begin{equation}
@@ -247,7 +251,7 @@ It can be understood as saying that every \textbf{set} is a \textbf{pullback} of
 
 \cite{Belohlavek2017} \S5.2.4 provides a concise review of the categorical treatment of fuzzy sets:  The sub-object classifier $\Omega$ that characterizes classical set theory is generalized to a \textbf{complete Heyting algebra} (CHA, also called a \textbf{frame}, which captures the structure of a topology, ie, the lattice of open subsets of a set;  This includes the interval $[0,1]$ as a special case), and thus leads to the recognition that \textit{the internal logic of a topos is intuitionistic}.
 
-This line of research culminated in H\"{o}hle's \cite{Hohle2007} and \cite{Hohle2007b}, where fuzzy set theory is interpreted as sub-fields of sheave theory, ie, complete $\Omega$-valued sets, where $\Omega$ is a frame.  More recent papers seem to support this \cite{Jardine2019} \cite{Vickers2010}.
+This line of research culminated in H\"{o}hle's \cite{Hohle2007} and \cite{Hohle2007b}, where fuzzy set theory is interpreted as sub-fields of sheave theory, ie, complete $\Omega$-valued sets, where $\Omega$ is a frame.  More recent papers seem to support this thinking \cite{Jardine2019} \cite{Vickers2010}.
 
 % The logic of sheaves is intuitionistic.
 
@@ -292,7 +296,7 @@ And this can be easily implemented with a few lines of Tensorflow, see \S\ref{se
 BERT (and its variants) are based on the Transformer architecture \cite{Devlin2018}, and Transformers are based solely on the Self-Attention mechanism \cite{Vaswani2017}.  In the following diagram \footnote{From blog article: Illustrated: Self-Attention
 -- Step-by-step guide to self-attention with illustrations and code \\ https://towardsdatascience.com/illustrated-self-attention-2d627e33b20a }, one can verify that the Transformer is permutation-invariant (or more precisely, \textbf{equivariant}).  That is to say, for example, if input \#1 and \#2 are swapped, then output \#1 and \#2 would also be swapped:
 \begin{equation}
-\vcenter{\hbox{\includegraphics[scale=0.3]{self-attention.png}}}
+\vcenter{\hbox{\includegraphics[scale=0.25]{self-attention.png}}}
 \end{equation}
 In other words, each Transformer layer takes $N$ inputs and produces $N$ equivariant outputs.  That is the same as saying that \textit{each} output is permutation-invariant in all its inputs.  As we explained in the last section, permutation invariance is the symmetry that characterizes a logic as having \textit{individual} propositions.
 
@@ -302,13 +306,13 @@ A comment is in order here, about the choice of the word ``head''.  In logic pro
 
 \section{``No Free Lunch'' Theory}
 
-The following conceptual diagram \footnote{The horizontal axis represents some measure of algorithmic complexity and the vertical axis represents variations within the parameter space.  $\blacktriangleright$ indicates where search begins.} illustrates the possibility that there might exist some form of logic that is drastically different from the symbolic logic currently known to humans:
+The following conceptual diagram illustrates the possibility that there might exist some form of logic that is drastically different from the symbolic logic currently known to humans:
 \begin{equation}
-\vcenter{\hbox{\includegraphics[scale=0.45]{no-free-lunch_Richard-Sutton.png}}}
+\vcenter{\hbox{\includegraphics[scale=0.45]{no-free-lunch.png}}}
 \end{equation}
-but there is no efficient algorithm to find them.  The permutation symmetry proposed in this paper forces our logic to be decomposable into \textbf{propositions}.  Such a logical form allows a mental state to be enumerated as a list of sentences (proposition), same as the ``linear'' nature of human \textbf{languages}.  If the AGI knowledge representation is linear (in the sequential sense) and symbolic, then it would not be far from our formulation -- all these logics belong to one big family.
+but there is no efficient algorithm to find them (because grey area is much larger than shaded area).  The permutation symmetry proposed in this paper forces our logic to be decomposable into \textbf{propositions}.  Such a logical form allows a mental state to be enumerated as a list of sentences (proposition), same as the ``linear'' nature of human \textbf{languages}.  If the AGI knowledge representation is linear (in the sequential sense) and symbolic, then it would not be far from our formulation -- all these logics belong to one big family.
 
-But could there be drastically different logics?  One observes that pictures and music are not easily described by words, indeed they are 2-dimensional structures.  This suggests that the brain may use \textbf{multi-dimensional} matrices of features to represent the world.  Such a ``logic'' would be very different from sequential logic and it would be interesting and fruitful to analyze the relation between them.
+But could there be drastically different logics?  One observes that pictures and music are not easily described by words, indeed they are 2-dimensional structures.  This suggests that the brain may use \textbf{multi-dimensional} arrays of features to represent the world.  Such a ``logic'' would be very different from sequential logic and it would be interesting and fruitful to analyze the relation between them.
 
 \section{Experiment}
 \label{sec:experiment}
@@ -332,5 +336,7 @@ Thanks Ben Goertzel for suggesting that neural networks are advantageous over pu
 Also thanks to the following people for invaluable discussions over many years:  Ben Goertzel, Pei Wang (王培), Abram Demski, Russell Wallace, Juan Carlos Kuri Pinto, SeH, Jonathan Yan, and others.  Also thanks to all the university professors and researchers in Hong Kong (especially in the math departments, and their guests), strangers who taught me things on Zhihu.com (知乎), Quora.com, and StackOverflow.
 
 \printbibliography
+
+{\color{red}(To the editor:  Diagrams in this paper can be re-organized in the traditional format, please contact the author if this is desired.)}
 
 \end{document}
