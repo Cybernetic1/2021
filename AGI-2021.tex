@@ -114,7 +114,7 @@
 % \setlength{\parskip}{2.8ex}
 
 \begin{abstract}
-An integration of deep learning and logic is proposed, based on the Curry-Howard isomorphism.  Under this interpretation, it turns out that Google's BERT, which many currently state-of-the-art language models are derived from, can be regarded as a special form of logic.  Moreover, this structure can be incorporated under a reinforcement-learning framework to form a minimal AGI architecture.  We also mention some insights gleaned from category and topos theory that may be helpful to practitioners of AGI.
+An integration of deep learning and symbolic logic is proposed, based on the Curry-Howard isomorphism and categorical logic.  The propositional structure of logic is seen as a symmetry, namely the permutation invariance of propositions;  This can be implemented using so-called symmetric neural networks.  Under our interpretation, it turns out that Google's BERT, which many currently state-of-the-art language models are derived from, can be regarded as a special form of logic.  This BERT-like structure can be incorporated under a reinforcement-learning framework to form a minimal AGI architecture.  We also mention some insights gleaned from category and topos theory that point to future directions and may be helpful to other researchers, including mathematicians interested in AGI.
 \end{abstract}
 
 \begin{keywords}
@@ -152,9 +152,13 @@ The following may give a clearer picture:
 What we see here is a logic formula ``on the surface'', with an underlying proof mechanism which is a \textbf{function}.  Here the $\witness$'s represent proof objects or witnesses.  The logic propositions $A$ and $B$ coincide with the \textbf{domains} (or \textbf{types}) specified by type theory.  Hence the great educator Philip Wadler calls it ``propositions as types''. \footnote{See his introductory video: https://www.youtube.com/watch?v=IOiZatlZtGU .} 
 Other textbooks on the Curry-Howard isomorphism include: \cite{Sorensen2006} \cite{Simmons2000} \cite{Thompson1991}.
 
-The gist of our theory is that Deep Learning provides us with neural networks (ie. non-linear functions) that serve as the proof mechanism of logic via the Curry-Howard isomorphism.  With this interpretation, we can impose the mathematical structure of logic (eg. symmetries) onto neural networks.  Such constraints serve as \textbf{inductive bias} that can accelerate learning, according to the celebrated ``No Free Lunch'' theory \cite{Wolpert1997}.
+The gist of our theory is that Deep Learning provides us with neural networks (ie. non-linear functions) that serve as the proof mechanism of logic via the Curry-Howard isomorphism.  With this interpretation, we can impose the mathematical structure of logic (eg. symmetries) onto neural networks.  Such constraints serve as \textbf{inductive bias} that can accelerate learning, according to the celebrated ``No Free Lunch'' theory \cite{Wolpert1997} \cite{Alpaydin2020} \cite{Shalev-Shwartz2014}.
 
 In particular, logic propositions in a conjunction (such as $A \wedge B$) are commutative, ie. invariant under permutations, which is a ``symmetry'' of logic.  This symmetry essentially decomposes a logic ``state'' into a set of propositions, and seems to be a fundamental feature of most logics known to humans.  Imposing this symmetry on neural networks gives rise to symmetric neural networks, which can be easily implemented thanks to a separate result by other researchers.  This is discussed in \S\ref{sec:commutative-structure}.
+
+We have not been clear about what the \textbf{proof witnesses} are.  In our current implementation, types are regions in vector space and witnesses are just points inside the type regions.  When some propositions imply another proposition, there is a function mapping witnesses in some regions to a new witness in another region.  Thus, such vector space regions are nearly tautologous with proof witnesses (ie. points versus the regions containing them).  In other words, the ``big'' vector space is divided into many small regions representing various propositions.
+
+We should point out that the Curry-Howard isomorphism has not played a significant role in our current AGI theory.  The representation of \textbf{conditional} statements (eg. $A \Rightarrow B$) requires \textbf{function types} which are hard to represent as vectors.  So the only function type in our system is the ``main'' neural network simulating the $\vdash$ operator.  In the language of classical logic-based AI, this is similar to having  ``Horn form'' logic rules in the knowledge base, acting on \textbf{atomic} propositions only.
 
 As an aside, the Curry-Howard isomorphism also establishes connections to diverse disciplines.  Whenever there is a space of elements and some operations over them, there is a chance that it has an underlying ``logic'' to it (see eg. Baez and Stay's ``Rosetta Stone'' paper: \cite{Baez2010}, also \cite{Heunen2019}).  For example, in quantum mechanics, that of Hilbert space and Hermitian operators.  Another example: in String Theory, strings and cobordisms between them (The following is the famous ``pair of pants'' cobordism, representing a process in time that merges two strings into one (time is read upwards)):
 \begin{equation}
@@ -191,20 +195,20 @@ topology & \texttt{male}(x) $ \Leftrightarrow x \in S $ & $S$ is an open set \\
 \hline
 \end{tabular}
 \end{equation}
-Model-based methods appear to be impractical for AGI because the number of grounded atomic propositions would be too large (potentially infinite, if we include also propositions that are imagined).  However, if all possible atoms are embedded in a mathematical space through mapping schemes such as the above (\ref{table:modelling-schemes}), it may be feasible.
+Model-based methods may appear impractical for AGI because the number of grounded atomic propositions is too large (potentially infinite, if we include also propositions that are imagined).  However, if all possible atoms are embedded in a mathematical space through mapping schemes such as the above (\ref{table:modelling-schemes}), it may be approximately feasible.
 
-In the \textbf{type-theoretic} or ``syntactic'' approach  (including the one in this paper), propositions exist in the product space of predicates and objects;  For example the predicate $P(a,b)$ lives in the space $\logical{Pred} \times \logical{Obj} \times \logical{Obj}$ where $\logical{Pred}$ is the space of all possible predicates and $\logical{Obj}$ the space of all possible objects \footnote{Here objects mean logical or first-order objects, not categorical objects}.  \textbf{Inference} is performed by the main neural network, while \textbf{learning} changes the network weights.  This is simple and straightforward.
+In the \textbf{type-theoretic} or ``syntactic'' approach  (including the one in this paper), propositions (= types) are regions in some vector space.  Currently our simple scheme is to map predicates like $P(a,b)$ into the Cartesian product $\logical{Pred} \times \logical{Obj} \times \logical{Obj}$ where $\logical{Pred}$ is the space of all possible predicates and $\logical{Obj}$ the space of all possible objects \footnote{Here objects mean logical or first-order objects, not categorical objects} (but this is not the only option; see \S\ref{sec:dependent-types}).  \textbf{Inference} is performed by a neural network simulating the single-step consequence operator $\vdash$, while \textbf{learning} is through changing of network weights.  This is relatively simple and straightforward.
 
-Whereas, in the \textbf{model-theoretic} approach one places objects in a high dimensional space such that their positions satisfy the constraints imposed by various predicates (eg. polynomials or matrices or open sets).  Now \textbf{inference} occurs as the system pays \textit{attention} to some points in an $\logical{Object}$ space, which points are covered by some predicates, thus forming propositions, leading to awareness of new propositions, ... and so on.  It is interesting that, under this scheme, it seems as if all truths are known \textit{a priori}, and the system just needs to pay attention to them.  \textbf{Learning} changes the geometric shapes of predicates and thus forms new truths to be discovered by the system.
+Whereas, in the \textbf{model-theoretic} approach one places objects in a high-dimensional space such that their positions satisfy the constraints imposed by various predicates (eg. polynomials, matrices, open sets, ...)  Now \textbf{inference} occurs as the system pays \textit{attention} to some points in an $\logical{Object}$ space, which points are covered by some predicates, thus forming propositions, leading to awareness of new propositions, ... and so on.  It is interesting that, under this scheme, it seems as if all truths are known \textit{a priori}, and the system just needs to pay attention to them.  \textbf{Learning} changes the geometric shapes of predicates and thus forms new truths to be discovered by the system.
 
 \begin{enumerate}
-	\item In Pascal Hitzler and Anthony Seda's \textbf{Core Method} \cite{Hitzler2011}, an \textbf{interpretation} $\mathcal{I}$ is a function that assigns truth values to the set of all possible ground atoms in a logic language $\mathcal{L}$.  One can see $\mathcal{I}$ as an enumeration of ground atoms that are true, and thus it provides a model to interpret any logic formula in $\mathcal{L}$.  Moreover $\mathcal{I}$ is a function from the space $X$ of atoms to $\mathbf{2} = \{ \top, \bot \}$ and can be given a topology $\mathbf{2}^X$ which is $X$ copies of the discrete topology of $\mathbf{2}$.  Such a topology makes $\mathcal{I}$ homeomorphic to the \textbf{Cantor set} in $[0,1]$. To a logic program $P$ is associated a \textbf{semantic operator} $\mathcal{T}_P : \mathcal{I} \rightarrow \mathcal{I}$, performing a single step of forward \textbf{inference}.  Finally, the space of interpretations $\mathcal{I}$ is embedded into $\mathbb{R}$ using a ``level mapping'' (the level of an atom increases by each inference step;  All the atoms of an interpretation $\mathcal{I}$ are translated into a fractional number in base $b$).  This allows $\mathcal{T}_P$ to be approximated by a neural network $f: \mathcal{I} \rightarrow \mathbb{R}$.  \\
-	The goal of this research is to find the fixed-point semantics of logic programs, but with suitable modifications, the same mathematical structure may be used to build an inference engine or AGI.  In such case, the logic program would function as the \textbf{knowledge base} while interpretations would play the role of \textbf{working memory} (though the memory could only be a subset of an interpretation, due to physical limitation).
+	\item In Pascal Hitzler and Anthony Seda's \textbf{Core Method} \cite{Hitzler2011}, an \textbf{interpretation} $\mathcal{I}$ is a function that assigns truth values to the set of all possible ground atoms in a logic language $\mathcal{L}$.  One can see $\mathcal{I}$ as an enumeration of ground atoms that are true, and thus it provides a model to interpret any logic formula in $\mathcal{L}$.  Moreover $\mathcal{I}$ is a function from the space $X$ of atoms to $\mathbf{2} = \{ \top, \bot \}$ and can be given a topology $\mathbf{2}^X$ which is $X$ copies of the discrete topology of $\mathbf{2}$.  Such a topology makes $\mathcal{I}$ homeomorphic to the \textbf{Cantor set} in $[0,1]$. To a logic program $P$ is associated a \textbf{semantic operator} $\mathcal{T}_P : \mathcal{I} \rightarrow \mathcal{I}$, performing a single step of forward \textbf{inference}.  Finally, the space of interpretations $\mathcal{I}$ is embedded into $\mathbb{R}$ using a ``level mapping'' (The level of an atom increases by each inference step;  All the atoms of an interpretation $\mathcal{I}$ are translated into a fractional number in base $b$).  This allows $\mathcal{T}_P$ to be approximated by a neural network $f: \mathcal{I} \rightarrow \mathbb{R}$.  \\
+	The goal of their research is to find the fixed-point semantics of logic programs, but with suitable modifications, the same mathematical structure may be used to build an inference engine or AGI.  In such case, the logic program would function as the \textbf{knowledge base} while interpretations would play the role of \textbf{working memory} (though the memory could only be a subset of an interpretation, due to physical limitation).
 
-	\item \textbf{$\partial$-ILP} \cite{Evans2017} is focused on the learning problem.  A \textbf{valuation} is a vector $[0,1]^n$ mapping every ground atom to a real number $\in [0,1]$.  Each clause is attached with a Boolean flag to indicate whether it is included in the results or not.  From each clause $c$ one can generate a function $\mathcal{F}_c$ on valuations that implements a single step of forward \textbf{inference}.  To enable differentiability, the Boolean flag is relaxed to be a continuous value and gradient descent is used to \textbf{learn} which clauses should be included.
+	\item \textbf{$\partial$-ILP} \cite{Evans2017} is focused on the learning problem, but its set-up seems similar to the first example.  A \textbf{valuation} is a vector $[0,1]^n$ mapping every ground atom to a real number $\in [0,1]$.  Each clause is attached with a Boolean flag to indicate whether it is included in the results or not.  From each clause $c$ one can generate a function $\mathcal{F}_c$ on valuations that implements a single step of forward \textbf{inference}.  To enable differentiability, the Boolean flag is relaxed to be a continuous value and gradient descent is used to \textbf{learn} which clauses should be included.
 \end{enumerate}
 
-We would also like to mention Geoffrey Hinton's recent \textbf{GLOM theory} \cite{Hinton2021}, which addresses the problem of representing a hierarchy of visual structures.  This further supports that representing and learning \textbf{relational} (logical) knowledge is a research topic of central importance, and that there is a convergence of ``mainstream'' AI with AGI.
+We would also like to mention Geoffrey Hinton's recent \textbf{GLOM theory} \cite{Hinton2021}, which addresses the problem of representing a hierarchy of visual structures.  OpenCog has also been applied to neural-symbolic integration \cite{Goertzel2009} \cite{Potapov2019}.  These further support that representing and learning \textbf{relational} (logical) knowledge is a topic of central importance, and that there is a convergence of ``mainstream'' AI with AGI.
 
 \subsection{Cognitive Architectures and Reinforcement Learning}
 
@@ -216,7 +220,7 @@ We would also like to mention Geoffrey Hinton's recent \textbf{GLOM theory} \cit
 \begin{equation}
 \boxed{\mbox{Bellman eqn.}} \leftrightsquigarrow \boxed{\mbox{Hamilton-Jacobi eqn.}} \leftrightsquigarrow \boxed{\mbox{Schr\"{o}dinger eqn.}}
 \end{equation}
-but the second link is merely ``heuristic'';  it is the well-studied ``quantization'' process whose meaning remains mysterious to this day.  Nevertheless, the path integral method introduced by Richard Feynmann can be applied to RL algorithms, eg. \cite{Kappen2007}.
+but the second link is merely ``heuristic'';  it is the well-studied ``quantization'' process whose meaning remains mysterious to this day.  Nevertheless, the \textbf{path integral} method introduced by Richard Feynmann can be applied to RL algorithms, eg. \cite{Kappen2007}.
 
 The Hamilton-Jacobi equation gives the RL setting a ``symplectic'' structure \cite{Mann2018};  Such problems are best solved by so-called symplectic integrators (proposed by 冯康 (Feng Kang) in the 1980s \cite{Feng2010}, see also \cite{Leimkuhler2004}).  Surprisingly, in the RL / AI literature, which has witnessed tremendous growth in recent years, there is scarcely any mention of the Hamilton-Jacobi structure, while the most efficient heuristics (such as policy gradient, experience replay, Actor-Critic, etc.) seem to exploit other structural characteristics of ``the world''.
 
@@ -225,16 +229,19 @@ The Hamilton-Jacobi equation gives the RL setting a ``symplectic'' structure \ci
 Currently, the most mathematically advanced and satisfactory description of logic seems to base on category theory, known as categorial logic and topos theory.  This direction was pioneered by William Lawvere in the 1950-60's.  The body of work in this field is quite vast, but we shall briefly mention some points that are relevant to AGI.  A more detailed tutorial on categorical logic, with a focus on AGI, is in preparation \cite{Yan2021}.
 
 \subsection{Predicates and Dependent Type Theory}
+\label{sec:dependent-types}
 
 The Curry-Howard isomorphism identifies \textit{propositional} intuitionistic logic with type theory.  As such, the arrow $\rightarrow$ in type theory is ``used up'' (it corresponds to the implication arrow $\Rightarrow$ in intuitionistic logic).  However, predicates are also a kind of functions (arrows), so how could we accomodate predicates in type theory such that Curry-Howard continues to hold?  This is the idea behind Martin L\"{o}f's \textbf{dependent type theory}.
 
-In dependent type theory, a predicate $P(\cdot)$ is a \textbf{type constructor} (\cite{Sorensen2006} \S8.7) taking an element $a$ of type $\logical{Obj}$ to create a new type $P(a)$.  For example, each element $a \in \{ \text{John, Socrates, Kermit} \}$ creates a new type Human$(a)$, and thus $\mathrm{Human}$ is a \textbf{family} of types or a \textbf{dependent type}:
+In dependent type theory, a predicate $P(\cdot)$ is a \textbf{type constructor} (see \cite{Sorensen2006} \S8.7 or \cite{Nordstrom2000}) taking an element $a$ of type $\logical{Obj}$ to create a new type $P(a)$.  For example, each element $a \in \{ \text{John, Socrates, Kermit} \}$ creates a new type Human$(a)$, and thus $\mathrm{Human}$ is a \textbf{family} of types or a \textbf{dependent type}:
 \begin{equation}
 \vcenter{\hbox{\includegraphics[scale=0.45]{dependent-type.png}}}
 \end{equation}
-Mathematically, a dependent type is a \textbf{product} of types indexed by another type, denoted $\Pi_A B$.  If every source element maps to the same type $B$, then this product \textit{degenerates} into the ordinary function type $A \rightarrow B$.
+Mathematically, a dependent type is a product of types \textbf{indexed} by another type, denoted $\Pi_A B$, which is really a form of \textbf{exponentiation}.  If every source element maps to the same type $B$, then $\Pi_A B$ \textit{degenerates} into the ordinary function type $A \rightarrow B$ (cf. \cite{Nordstrom2000} \S3.3).  
 
-An immediate question is:  what kind of structure does dependent type theory impose on the inference operator $\vdash$, and thus our neural network?  The answer is surprising:  almost none.  Curry-Howard isomorphism merely tells us that predicates such as $P(\cdot)$ is a \textbf{type constructor} taking an existing type to create a new type, and an atomic proposition such as $P(a)$ would be a \textbf{dependent type}.  It does not constrain the functions mapping between such spaces.
+So far, we did not make use of dependent types:  predicates are represented using simple Cartesian products (ie. vector concatenation) such as $\logical{Pred} \times \logical{Obj}$, but there is the possibility of exploiting more general indexing schemes.
+
+%An immediate question is:  what kind of structure does dependent type theory impose on the inference operator $\vdash$, and thus our neural network?  The answer is surprising:  almost none.  Curry-Howard isomorphism merely tells us the types (ie. spaces) in which elements reside, but it does not constrain the functions mapping between such spaces.
 
 The expressiveness of predicate logic (in one form or another) is a highly desirable feature for AGI knowledge representations.  So it seems necessary to incorporate dependent type theory into our logic.  From a categorical perspective, predicates can be regarded as \textbf{fibers} over a base set;  This is the treatment given in Bart Jacob's book \cite{Jacobs1999}.  Thus category theory gives us more insight into the (predicate) structure of logic, though it is as yet unclear how to make use of this particular idea.
 %\begin{equation}
@@ -260,9 +267,9 @@ Y \arrow[r, swap, "\chi_m"] & \Omega
 \end{equation}
 It can be understood as saying that every \textbf{set} is a \textbf{pullback} of the true map $1 \rightarrow \Omega$ (which ``picks out'' true from $\Omega = \{ \top, \bot \}$), in analogy to the idea of a ``moduli space'' where every family is a pullback of a ``universal family'' \cite{Schlichenmaier2010} \cite{Harris2006}.  Following this idea, could it be that every fuzzy set is the pullback of a fuzzy ``true'' map?  
 
-The book \cite{Belohlavek2017} \S5.2.4 provides a concise review of the categorical treatment of fuzzy sets:  The sub-object classifier $\Omega$ that characterizes classical set theory is generalized to a \textbf{complete Heyting algebra} (CHA, also called a \textbf{frame}, which captures the structure of a topology, ie, the lattice of open subsets of a set;  This includes the interval $[0,1]$ as a special case), and thus leads to the recognition that \textit{the internal logic of a topos is intuitionistic}.
+The book \cite{Belohlavek2017} \S5.2.4 provides a concise review of the categorical treatment of fuzzy sets:  The sub-object classifier $\Omega$ that characterizes classical set theory is generalized to a \textbf{complete Heyting algebra} (CHA, also called a \textbf{frame}, which captures the structure of a topology, ie, the lattice of open subsets of a set;  This includes the interval $[0,1]$ as a special case, in accord with our philosophical intuition), and also leads to the recognition that \textit{the internal logic of a topos is intuitionistic} (this will be further explained in the tutorial \cite{Yan2021}).
 
-This line of research culminated in H\"{o}hle's \cite{Hohle2007} and \cite{Hohle2007b}, where fuzzy set theory is interpreted as sub-fields of sheave theory, ie, complete $\Omega$-valued sets, where $\Omega$ is a frame.  More recent papers seem to support this thinking \cite{Jardine2019} \cite{Vickers2010}.
+This line of research leads to H\"{o}hle's \cite{Hohle2007} and \cite{Hohle2007b}, where fuzzy set theory is interpreted as sub-fields of \textbf{sheave} theory, ie, complete $\Omega$-valued sets, where $\Omega$ is a frame.  More recent papers seem to be in favor of this thinking: \cite{Jardine2019} \cite{Vickers2010}.
 
 % The logic of sheaves is intuitionistic.
 
@@ -278,20 +285,20 @@ One basic characteristic of (classical) logic is that the conjunction $\wedge$ i
 \begin{equation}
 \mathsf{P} \wedge \mathsf{Q} \quad \Leftrightarrow \quad \mathsf{Q} \wedge \mathsf{P} .
 \end{equation}
-This remains true of probabilistic logic, where $\wedge$ and $\vee$ are unified as conditional probability tables (CPTs) of the nodes of Bayesian networks.
+This remains true of probabilistic logic, where $\wedge$ and $\vee$ are unified as conditional probability tables (CPTs) of the nodes of Bayesian networks.  (Note: the commutative structure of $\wedge$ also gives rise to \textbf{monoidal categories}, that capture processes that can be executed in parallel; See \cite{Heunen2019} for an introduction.)
 
 Once we know the symmetry, the question is how to impose this symmetry on deep neural networks.  Interestingly, the answer already comes from an independent line of research (namely, PointNet \cite{Qi2017a} and Deep Sets \cite{Zaheer2017a}) that deals with visual object recognition of point clouds, eg:
 \begin{equation}
 \vcenter{\hbox{\includegraphics[scale=0.8]{point-cloud-aeroplane.png}}} \qquad
 \vcenter{\hbox{\includegraphics[scale=0.8]{point-cloud-desk.png}}}
 \end{equation}
-In a point cloud, it does not matter the order in which the points are presented, as inputs to the classifier function.  Such a function needs to be permutation invariant to a huge number of points.
+In a point cloud, it does not matter the order in which the points are presented, as inputs to the classifier function.  Such a function needs to be permutation invariant to a huge number of points.  More generally, see also these recent articles on the use of geometry and symmetry in deep learning: \cite{Bronstein2021} \cite{Bronstein2021a}.
 
 From \cite{Zaheer2017a}: the \textbf{Kolmogorov–Arnold representation theorem} states that every multivariate continuous function can be represented as a sum of continuous functions of one variable:
 \begin{equation}
 f(x_1,... ,x_n) = \sum_{q=0}^{2n}\Phi_{q} \left(\sum_{p=1}^n \phi_{q,p}(x_p) \right)
 \end{equation}
-It can be specialized to such that every symmetric multivariate function can be represented as a sum of (the same) functions of one variable:
+Their paper specialized the theorem to the case that every symmetric multivariate function can be represented as a sum of (the same) functions of one variable:
 \begin{equation}
 \label{symmetric-functions}
 f(x_1, ..., x_n) = g(h(x_1) + ... + h(x_n))
@@ -300,7 +307,7 @@ This leads to the following implementation using neural networks:
 \begin{equation}
 \vcenter{\hbox{\includegraphics[scale=0.4]{g-and-h-networks.png}}}
 \end{equation}
-And this can be easily implemented with a few lines of Tensorflow, see \S\ref{sec:experiment}.
+And this can be easily implemented with just a few lines of Tensorflow, see \S\ref{sec:experiment}.
 
 \subsection{Why BERT is a Logic}
 
@@ -311,7 +318,7 @@ BERT (and its variants) are based on the Transformer architecture \cite{Devlin20
 \end{equation}
 In other words, each Transformer layer takes $N$ inputs and produces $N$ equivariant outputs.  That is the same as saying that \textit{each} output is permutation-invariant in all its inputs.  As we explained in the last section, permutation invariance is the symmetry that characterizes a logic as having \textit{individual} propositions.
 
-The following is a simplified diagram of an Attention layer.  The output is a new proposition that depends on the input objects, and thus, functions as a \textbf{predicate}:
+Below is a simplified diagram of an Attention layer.  The output is a new proposition that depends on the input objects, and thus, functions as a \textbf{predicate}:
 \begin{equation}
 \vcenter{\hbox{\includegraphics[scale=0.5]{attention-as-predicate.png}}}
 \end{equation}
@@ -322,7 +329,9 @@ A comment is in order here, about the choice of the word ``head''.  In logic pro
 
 \section{``No Free Lunch'' Theory}
 
-The following conceptual diagram of the algorithmic \textbf{search space} illustrates the possibility that there might exist some form of logic that is drastically different from the symbolic logic currently known to humans:
+In machine learning, ``No Free Lunch'' \cite{Wolpert1997} \cite{Alpaydin2020} refers to the fact that accelerating the search for a solution by ignoring one part of the search space (known as ''inductive bias'' \cite{Alpaydin2020}) is just as good as ignoring another part, if the solutions are believed to be evenly distributed in those regions.  For example, the symmetry proposed here reduces the search space by a factor of $1/n!$ where $n$ is the number of propositions in working memory.
+
+The following conceptual diagram of the algorithmic search space illustrates the possibility that there might exist some form of logic that is drastically different from the symbolic logic currently known to humans:
 \begin{equation}
 \vcenter{\hbox{\includegraphics[scale=0.45]{no-free-lunch.png}}}
 \end{equation}
@@ -339,7 +348,11 @@ The state of the game is represented as a set of 9 propositions, where all propo
 
 In comparison, the game state of traditional RL algorithms (eg. AlphaGo \cite{Silver2016} \cite{Silver2017} \cite{Pumperla2019}) usually is represented as a ``chessboard'' vector (eg. $3 \times 3$ in Tic-Tac-Toe, $8 \times 8$ in Chess, $19 \times 19 = 361$ in Go \footnote{In AlphaGo and AlphaZero, the algorithm makes use of several auxiliary ``feature planes'' that are also chessboard vectors, to indicate which stones have ``liberty'', ``ko'', etc.}).  This state vector is the same constant length even if there are very few pieces on the chessboard.  Our logic-based representation may offer some advantages over the board-vector representation, and likely induces a different ``way of reasoning'' about the game.
 
-In our Tic-Tac-Toe experiment, convergence of learning is observed, but the algorithm fell short of achieving the highest score (19 instead of 20), and the score displayed unstable oscillating behavior after it got near the optimal value.  In comparison, the board-vector version (also using policy gradient) fails to get near the highest score after 2 hours, and it also shows oscillatory behavior.  Further investigation is required, but this seems to be a promising start.
+In our Tic-Tac-Toe experiment, convergence of learning is observed early on, but the algorithm fell short of achieving the highest score (19 instead of 20), and the score displayed unstable oscillating behavior after it got near the optimal value:
+\begin{equation}
+\vcenter{\hbox{\includegraphics[scale=0.2]{TTT2-test4-convergence.png}}}
+\end{equation}
+In comparison, the board-vector version (also using policy gradient) fails to get near the highest score after 2 hours, and it also shows oscillatory behavior (suggesting the latter is due to the Policy Gradient algorithm).  Further investigation is needed, but this seems to be a promising start.
 
 \section{Conclusion and Future Directions}
 
