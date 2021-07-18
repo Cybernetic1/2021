@@ -158,7 +158,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -169,10 +169,10 @@
     <rect
        style="opacity:1;vector-effect:none;fill:#dfdfdf;fill-opacity:1;stroke:none;stroke-width:0.79374999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
        id="rect4646"
-       width="76.729164"
-       height="80.962486"
-       x="-104.77501"
-       y="251.22708"
+       width="61.780212"
+       height="80.301033"
+       x="-89.82605"
+       y="251.88853"
        ry="0"
        transform="scale(-1,1)"
        inkscape:export-xdpi="384"

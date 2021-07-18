@@ -125,7 +125,7 @@ deep learning, symbolic logic, logic-based AI, neural-symbolic integration, Curr
 \section{Introduction}
 \label{sec:0}
 
-Results in the present paper does not make use of category theory in any significant way (nor the Curry-Howard isomorphism, for that matter).  Its main accomplishment is to express AGI in the categorical language.  To the lay person, the concepts of category theory (such as pullbacks, adjunctions, fibration, toposes, sheaves, ...) may be difficult to grasp, but they are the mathematician's ``daily bread''.  We hope that describing AGI in categorical terms will entice more mathematicians to work on this important topic.
+Results in the present paper does not make use of category theory in any significant way (nor the Curry-Howard isomorphism, for that matter).  Its main accomplishment is to express AGI in the categorical language.  To the lay person, concepts of category theory (such as pullbacks, adjunctions, fibration, toposes, sheaves, ...) may be difficult to grasp, but they are the mathematician's ``daily bread''.  We hope that describing AGI in categorical terms will entice more mathematicians to work on this important topic.
 
 Secondly, an abstract formulation allows us to see clearly what is meant by ``the mathematical structure of logic'', without which logic is just a collection of strange rules and axioms, leaving us with a feeling that something may be ``amiss'' in our theory.
 
@@ -149,14 +149,14 @@ The following may give a clearer picture:
 \boxed{\mbox{program}} \quad \quad \witness \; \stackrel{f}{\longmapsto} \; \witness \hspace*{10pt} & .
 \end{aligned}
 \end{equation}
-What we see here is a logic formula ``on the surface'', with an underlying proof mechanism which is a \textbf{function}.  Here the $\witness$'s represent proof objects or \textbf{witnesses}.  The logic propositions $A$ and $B$ coincide with the \textbf{domains} (or \textbf{types}) specified by type theory.  Hence the great educator Philip Wadler calls it ``propositions as types''. \footnote{See his introductory video: https://www.youtube.com/watch?v=IOiZatlZtGU .} 
+What we see here is a logic formula ``on the surface'', with an underlying proof mechanism which is a \textbf{function}, or $\lambda$-calculus term.  Here the $\witness$'s represent proof objects or \textbf{witnesses}.  The logic propositions $A$ and $B$ coincide with the \textbf{domains} (or \textbf{types}) specified by type theory.  Hence the great educator Philip Wadler calls it ``propositions as types''. \footnote{See his introductory video: https://www.youtube.com/watch?v=IOiZatlZtGU .} 
 Other textbooks on the Curry-Howard isomorphism include: \cite{Sorensen2006} \cite{Simmons2000} \cite{Thompson1991}.
 
 The gist of our theory is that Deep Learning provides us with neural networks (ie. non-linear functions) that serve as the proof mechanism of logic via the Curry-Howard isomorphism.  With this interpretation, we can impose the mathematical structure of logic (eg. symmetries) onto neural networks.  Such constraints serve as \textbf{inductive bias} that can accelerate learning, according to the celebrated ``No Free Lunch'' theory \cite{Wolpert1997} \cite{Alpaydin2020} \cite{Shalev-Shwartz2014}.
 
 In particular, logic propositions in a conjunction (such as $A \wedge B$) are commutative, ie. invariant under permutations, which is a ``symmetry'' of logic.  This symmetry essentially decomposes a logic ``state'' into a set of propositions, and seems to be a fundamental feature of most logics known to humans.  Imposing this symmetry on neural networks gives rise to symmetric neural networks, which can be easily implemented thanks to a separate result by other researchers.  This is discussed in \S\ref{sec:commutative-structure}.
 
-We have not been clear about what the \textbf{proof witnesses} are.  In our current implementation, types are regions in vector space and witnesses are just points inside the type regions.  When some propositions imply another proposition, there is a function mapping witnesses in some regions to a new witness in another region.  Thus, such vector space regions are nearly tautologous with proof witnesses (ie. points versus the regions containing them).  In other words, the ``big'' vector space is divided into many small regions representing various propositions.
+We have not been clear about what the \textbf{proof witnesses} are.  In our current implementation, types are regions in vector space and witnesses are just points inside the regions.  When some propositions imply another proposition, there is a function mapping witnesses in some regions to a new witness in another region.  Thus, such spatial regions are nearly tautologous with proof witnesses (ie. points versus the regions containing them).  In other words, the ``big'' vector space is divided into many small regions representing various propositions.
 
 We should point out that the Curry-Howard isomorphism has not played a significant role in our current AGI theory.  The representation of \textbf{conditional} statements (eg. $A \Rightarrow B$) requires \textbf{function types} which are hard to represent as vectors.  So the only function type in our system is the ``main'' neural network simulating the $\vdash$ operator.  In the language of classical logic-based AI, this is similar to having  ``Horn form'' logic rules in the knowledge base, acting on \textit{atomic} propositions only.
 
@@ -235,6 +235,7 @@ The Curry-Howard isomorphism identifies \textit{propositional} intuitionistic lo
 
 In dependent type theory, a predicate $P(\cdot)$ is a \textbf{type constructor} (see \cite{Sorensen2006} \S8.7 or \cite{Nordstrom2000}) taking an element $a$ of type $\logical{Obj}$ to create a new type $P(a)$.  For example, each element $a \in \{ \text{John, Socrates, Kermit} \}$ creates a new type Human$(a)$, and thus $\mathrm{Human}$ is a \textbf{family} of types or a \textbf{dependent type}:
 \begin{equation}
+\label{fig:dependent-type}
 \vcenter{\hbox{\includegraphics[scale=0.45]{dependent-type.png}}}
 \end{equation}
 Mathematically, a dependent type is a product of types \textbf{indexed} by another type, denoted $\Pi_A B$, which is really a form of \textbf{exponentiation}.  If every source element maps to the same type $B$, then $\Pi_A B$ \textit{degenerates} into the ordinary function type $A \rightarrow B$ (cf. \cite{Nordstrom2000} \S3.3).  
@@ -243,7 +244,7 @@ So far, we did not make use of dependent types:  predicates are represented usin
 
 %An immediate question is:  what kind of structure does dependent type theory impose on the inference operator $\vdash$, and thus our neural network?  The answer is surprising:  almost none.  Curry-Howard isomorphism merely tells us the types (ie. spaces) in which elements reside, but it does not constrain the functions mapping between such spaces.
 
-The expressiveness of predicate logic (in one form or another) is a highly desirable feature for AGI knowledge representations.  So it seems necessary to incorporate dependent type theory into our logic.  From a categorical perspective, predicates can be regarded as \textbf{fibers} over a base set;  This is the treatment given in Bart Jacob's book \cite{Jacobs1999}.  Thus category theory gives us more insight into the (predicate) structure of logic, though it is as yet unclear how to make use of this particular idea.
+The expressiveness of predicate logic (in one form or another) is a highly desirable feature for AGI knowledge representations.  So it seems necessary to incorporate dependent type theory into our logic.  From a categorical perspective, predicates can be regarded as \textbf{fibers} over a base set.  Fibrations capture the structure of \textbf{indexing} and \textbf{substitutions} (as shown in the diagram (\ref{fig:dependent-type})).  This is the treatment given in Bart Jacob's book \cite{Jacobs1999}.  Thus category theory gives us more insight into the (predicate) structure of logic, though it is as yet unclear how to make use of this particular idea.
 %\begin{equation}
 %\label{eqn:2-levels-of-TT}
 %\vcenter{\hbox{\includegraphics[scale=0.5]{../2020/why-Martin-Lof.png}}}
@@ -267,7 +268,7 @@ Y \arrow[r, swap, "\chi_m"] & \Omega
 \end{equation}
 It can be understood as saying that every \textbf{set} is a \textbf{pullback} of the true map $1 \rightarrow \Omega$ (which ``picks out'' true from $\Omega = \{ \top, \bot \}$), in analogy to the idea of a ``moduli space'' where every family is a pullback of a ``universal family'' \cite{Schlichenmaier2010} \cite{Harris2006}.  Following this idea, could it be that every fuzzy set is the pullback of a fuzzy ``true'' map?  
 
-The book \cite{Belohlavek2017} \S5.2.4 provides a concise review of the categorical treatment of fuzzy sets:  The sub-object classifier $\Omega$ that characterizes classical set theory is generalized to a \textbf{complete Heyting algebra} (CHA, also called a \textbf{frame}, which captures the structure of a topology, ie, the lattice of open subsets of a set;  This includes the interval $[0,1]$ as a special case, in accord with our philosophical intuition), and also leads to the recognition that \textit{the internal logic of a topos is intuitionistic} (this will be further explained in the tutorial \cite{Yan2021}).
+The book \cite{Belohlavek2017} \S5.2.4 provides a concise review of the categorical treatment of fuzzy sets:  The sub-object classifier $\Omega$ that characterizes classical set theory is generalized to a \textbf{complete Heyting algebra} (CHA, also called a \textbf{frame}, which captures the structure of a topology, ie, the lattice of open subsets of a set;  This includes the interval $[0,1]$ as a special case, in accord with our philosophical intuition), and also leads to the recognition that \textit{the internal logic of a topos is intuitionistic} (see \cite{MacLane1992}, and this will be further explained in the tutorial \cite{Yan2021}).
 
 This line of research leads to H\"{o}hle's \cite{Hohle2007} and \cite{Hohle2007b}, where fuzzy set theory is interpreted as sub-fields of \textbf{sheave} theory, ie, complete $\Omega$-valued sets, where $\Omega$ is a frame.  More recent papers seem to be in favor of this thinking: \cite{Jardine2019} \cite{Vickers2010}.
 
