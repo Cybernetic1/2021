@@ -228,7 +228,7 @@ Currently, the most mathematically advanced and satisfactory description of logi
 
 The Curry-Howard isomorphism identifies \textit{propositional} intuitionistic logic with type theory.  As such, the arrow $\rightarrow$ in type theory is ``used up'' (it corresponds to the implication arrow $\Rightarrow$ in intuitionistic logic).  However, predicates are also a kind of functions (arrows), so how could we accomodate predicates in type theory such that Curry-Howard continues to hold?  This is the idea behind Martin L\"{o}f's \textbf{dependent type theory}.
 
-In dependent type theory, a predicate $P(\cdot)$ is a \textbf{type constructor} (\cite{Sorensen2006} \S8.7) taking an element $a$ of type $\logical{Obj}$ to create a new type $P(a)$.  For example, each element $a \in \{ \text{John, Socrates, Kermit} \}$ creates a new type Human$(a)$, and thus $\mathrm{Human}$ is a \textbf{family} of types or a \textbf{dependent type}:
+In dependent type theory, a predicate $P(\cdot)$ is a \textbf{type constructor} (\cite{Sorensen2006} \S8.7) taking an element $a$ of type $A$ to create a new type $P(a)$.  For example, each element $a \in \{ \text{John, Socrates, Kermit} \}$ creates a new type Human$(a)$, and thus $\mathrm{Human}$ is a \textbf{family} of types or a \textbf{dependent type}:
 \begin{equation}
 \vcenter{\hbox{\includegraphics[scale=0.45]{dependent-type.png}}}
 \end{equation}
