@@ -311,7 +311,7 @@ This leads to the following implementation using neural networks:
 \begin{equation}
 \vcenter{\hbox{\includegraphics[scale=0.4]{g-and-h-networks.png}}}
 \end{equation}
-And this can be easily implemented with just a few lines of Tensorflow, see \S\ref{sec:experiment}.
+And this can be easily implemented with just a few lines of Tensorflow, see \S\ref{sec:experiment}.  The idea of using symmetric neural networks to process logical / relational data has already been explored by one of Google's research teams in 2017, which they called RN (Relational Networks) \cite{Santoro2017} \cite{Battaglia2018}.  Their results further confirm the viability of this idea.
 
 \subsection{Why BERT is a Logic}
 
@@ -321,6 +321,13 @@ BERT (and its variants) are based on the Transformer architecture \cite{Devlin20
 \vcenter{\hbox{\includegraphics[scale=0.25]{self-attention.png}}}
 \end{equation}
 In other words, each Transformer layer takes $N$ inputs and produces $N$ equivariant outputs.  That is the same as saying that \textit{each} output is permutation-invariant in all its inputs.  As we explained in the last section, permutation invariance is the symmetry that characterizes a logic as having \textit{individual} propositions.
+
+\textbf{Proof that equi-variance $\Leftrightarrow$ symmetric} (for an $N$-input $N$-output set function): $\Leftarrow$: Suppose we have constructed $n$ symmetric functions $f_1, ..., f_N$, satisfying $\forall \sigma. \; \vec{f}(\vec{x}) = \vec{f}(\sigma \vec{x})$, with $\sigma$ taking values in the symmetric group $\mathfrak{S}_N$.  We can re-state the condition as $\forall \sigma. \; \sigma \vec{f}(\vec{x}) = \vec{f}(\sigma \vec{x})$ by re-naming the functions, because $\{ f_i \}$ is a set.  $\Rightarrow$: If we have $N$ equi-variant functions $t_1, ..., t_N$, satisfying $\forall \sigma. \; \sigma \vec{t}(\vec{x}) = \vec{t}(\sigma \vec{x})$, we can also re-state the condition as $\forall \sigma. \; \sigma^{-1} \sigma \; \vec{t}(\vec{x}) = \vec{t}(\sigma \vec{x})$ by re-naming elements in the set $\{ t_i \}. \quad \blacksquare$
+
+This is illustrated by the following diagram (for $N = 3$):
+\begin{equation}
+\vcenter{\hbox{\includegraphics[scale=0.4]{symmetry-of-the-Transformer.png}}}
+\end{equation}
 
 Below is a simplified diagram of an Attention layer.  The output is a new proposition that depends on the input objects, and thus, functions as a \textbf{predicate}:
 \begin{equation}
