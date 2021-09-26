@@ -329,10 +329,21 @@ This is illustrated by the following diagram (for $N = 3$):
 \vcenter{\hbox{\includegraphics[scale=0.4]{symmetry-of-the-Transformer.png}}}
 \end{equation}
 
-Below is a simplified diagram of an Attention layer.  The output is a new proposition that depends on the input objects, and thus, functions as a \textbf{predicate}:
+A self-Attention layer can be implemented by this formula (which appears in numerous tutorials):
+\begin{equation}
+\label{eqn:self-attention}
+Z = \sum \mathrm{softmax}(\frac{1}{\sqrt{d_k}} Q \cdot K^T) V
+\end{equation}
+where $Q. K, V$ are \textit{linear} transformations of the inputs $X_i$ by multiplying (learned) matrices $W^Q, W^K, W^V$ respectively.  We hypothesize that (\ref{eqn:self-attention}) is just a \textit{general} form of equivariant functions, ie, it represents an arbitrary non-linear transformation of the input vectors $X_i$ to the output vector $Z$, without any constraints other than equivariance.  Below is a simplified diagram of a single self-Attention layer:
 \begin{equation}
 \vcenter{\hbox{\includegraphics[scale=0.5]{attention-as-predicate.png}}}
 \end{equation}
+The output is a new proposition that depends on the input objects, and thus, functions as a \textbf{predicate}.
+However, this representation of predicates-within-proposition is not efficient for logic inference.  We may visualize the non-linear (due to the softmax in $Z$) deformation of the input and output vector-embedding spaces as follows:
+\begin{equation}
+\vcenter{\hbox{\includegraphics[scale=0.6]{predicate-deformation.png}}}
+\end{equation}
+The problem is that a \textbf{universally quantified} formula such as $\forall x. P(x) \Rightarrow Q(x)$ requires mapping a source region to a target region in embedding spaces.  This kind of mapping shapes are difficult or slow to learn because it requires many pairs of input-output data points.  But BERT/GPT is famous for being able to make \textbf{few-shot generalizations}.  Thus we conjecture that in BERT/GPT the logical proposition is not just one equivariant unit but is \textbf{decomposed} into several units (eg. ``I love you'' at the input stage is decomposed into 3 vector units: ``I'', ``love'', and ``you'').  In other words, BERT/GPT performs logic inference / derivations on the \textbf{syntactic} level, ie, via \textbf{symbolic} manipulations.
 
 In \textbf{Multi-Head Attention}, the intermediate computations are duplicated multiple (eg, $M = 8$) times, each with their own weight matrices.  From the logic point of view, this amounts to duplicating $M$ logic rules per output.  But since the next layer still expects $N$ inputs, the $M$ outputs are combined into one, before the next stage.  Thus, from the logic point of view this merely increased the parameters \textit{within} a single logic rule, and seems not significant to increase the power of the logic rule-base.  Indeed, experimental results seem to confirm that multi-head attention is not particularly gainful towards performance.
 

@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage{tikz-cd} 
+
+\begin{document}
+
+\thispagestyle{empty}
+
+%\begin{tikzcd}[column sep=large]
+%F(Q)(F x) \arrow{r}{F[x\setminus y]} & F(Q)(F y) \\%
+%P(x) \arrow{r}{[x\setminus y]} \arrow[u, Rightarrow, "F"] & P(y) \arrow[u, Rightarrow, "F"]
+%\end{tikzcd}
+
+%\footnotesize
+\begin{tikzcd}[column sep=8em]
+	F(\mathrm{mortal})(F(Socrates)) \arrow{r}{F[Socrates\setminus Plato]} & F(\mathrm{mortal})(F(Plato)) \\%
+	\mathrm{human}(Socrates) \arrow{r}{[Socrates\setminus Plato]} \arrow[u, Rightarrow] & \mathrm{human}(Plato) \arrow[u, Rightarrow]
+\end{tikzcd}
+
+\end{document} 
