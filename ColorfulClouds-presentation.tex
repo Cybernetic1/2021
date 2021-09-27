@@ -29,7 +29,7 @@
 
 \newcommand{\highlight}[1]{\colorbox{pink}{$\displaystyle #1$}}
 
-\newcommand{\emp}[1]{{\color{violet}\textbf{#1}}}
+\newcommand{\emp}[1]{{\color{blue}\textbf{#1}}}
 \newcommand*\confoundFace{$\vcenter{\hbox{\includegraphics[scale=0.2]{../2020/../confounded-face.jpg}}}$}
 \newcommand{\underconst}{\includegraphics[scale=0.5]{../2020/UnderConst.png}}
 \newcommand{\witness}{\scalebox{0.6}{$\blacksquare$}}
@@ -58,7 +58,7 @@
 \end{itemize}
 
 \setcounter{section}{-1}
-\section{我们的策略}
+\section{我的策略}
 
 \begin{itemize}
 	\item 将 BERT/GPT 解释为一种 逻辑／符号演算的系统
@@ -71,6 +71,14 @@
 		那就很难想出改良的思路
 \end{itemize}
 
+\section{逻辑 + BERT/GPT 混合的好处}
+
+\begin{itemize}
+	\item Long-term memory as a separate module
+	\item Explicitly edit memories
+	\item Make the BERT/GPT model more transparant
+\end{itemize}
+
 \section{Transformer 的 equi-variance}
 
 \begin{equation}
@@ -79,21 +87,29 @@
 
 \section{Logic AI 的基本架构}
 
-系统的 \textbf{状态} (state) = 例如： \\
+经典 logic-based AI 的架构，其实很简单的：
+\begin{equation}
+\vcenter{\hbox{\includegraphics[scale=1]{LBAI-architecture.png}}}
+\end{equation}
+借用 \emp{认知科学} 术语，Working Memory = 系统的 \emp{状态} (state), \\
+例如： \\
 \tab 我很肚饿 $\wedge$ \\
 \tab 冰箱没有食物 $\wedge$ \\
 \tab 现在是午夜3点 $\wedge$ \\
 \tab 商店已经打烊 $\wedge$ \\
-\tab .... $\wedge$ ....
+\tab .... $\wedge$ .... \\
+换句话说，状态 是 一堆 逻辑命题 的 \emp{集合}
 
-换句话说，状态 是 一堆 逻辑命题 的 \textbf{集合}
-
+Working Memory 的 状态更新 是靠 逻辑 rules 的作用，\\
+例如： $\forall x. \; \mbox{human}(x) \rightarrow \mbox{mortal}(x)$
 
 \begin{itemize}
 	\item 一直以来，人们觉得 大脑的 KR（knowledge representtation, 知识表述）跟符号逻辑 肯定是大相迳庭的
 \end{itemize}
 
 \section{Seq-seq-2-seq}
+
+我提出： BERT/GPT 可能是一种 ``seq-seq $\rightarrow$ seq'' architecture.
 
 \begin{itemize}
 	\item 逻辑 与 自然语言 之间大约有这样的对应： \\
@@ -107,33 +123,30 @@
 		所以 状态 = 命题集 = sequence of sequences (seq-seq)
 	\item transition fn: seq-seq $\rightarrow$ seq-seq 
 		\begin{equation}
-		\vcenter{\hbox{\includegraphics[scale=0.9]{seq-seq-2-seq-with-BERT.png}}}
+		\vcenter{\hbox{\includegraphics[scale=1]{seq-seq-2-seq-with-BERT.png}}}
 		\end{equation}
-	\item 「状态 」的另一个名称是 working memory \\
-		（借用 \textbf{认知科学} 术语）
 	\item 每次状态更新时，我们可以只增添一个命题，\\
-		「\textbf{遗忘}」另一个命题
+		「\emp{遗忘}」另一个命题
 	\item 因此 transition fn 只需是 seq-seq $\rightarrow$ seq
-	\item 而我想说的是： BERT/GPT 可能就是一种 seq-seq $\rightarrow$ seq
 \end{itemize}
 
 \section{强化学习的考虑}
 
 \begin{itemize}
 	\item 从 强化学习 的角度看，\\
-	每个 iteration 要输出一个 \textbf{命题} = 几个\textbf{词语}
-	\item 这 输出 对应于 强化学习的 \textbf{actions}
+	每个 iteration 要输出一个 \emp{命题} = 几个\emp{词语}
+	\item 这 输出 对应于 强化学习的 \emp{actions}
 	\item 换句话说，每个 action = 一个命题 = 几个词语
-	\item 所以，我们需要输出 在 actions 之上的 \textbf{概率分布} \\
+	\item 所以，我们需要输出 在 actions 之上的 \emp{概率分布} \\
 		（而不仅仅是一个 action）
 	\item 数学上 这是 $\{ \mbox{所有可能命题} \} \rightarrow \mathbb{R}$ 的空间 $= \mathbb{R}^{|X|}$
 	\item 这个空间异常大，我初时觉得 没有希望在计算机上表达
 	\item 但 Dr肖达 解释了一个很有效率的方法， \\
-			用 矩阵乘法 将输出 由 1024维 \textbf{扩张}到 25000维：
+			用 矩阵乘法 将输出 由 1024维 \emp{扩张}到 25000维：
 		\begin{equation}
 		\vcenter{\hbox{\includegraphics[scale=0.7]{BERT-action-probability-distribution.png}}}
 		\end{equation}
-	\item 但这个做法，其实输出的 只有 1024个 \textbf{独立}的份量
+	\item 但这个做法，其实输出的 只有 1024个 \emp{独立}的份量
 \end{itemize}
 
 例如，「天气很热，我在家中整天\underline{\hspace*{2cm}}」\\
@@ -156,14 +169,14 @@
 \tab \textbullet 视窗未 active ....
 
 考虑这些例子，我暂时不清楚 1024维 够不够用。 \\
-以 1024-dim 表示所有 \textbf{概念} 是足够的（cf. Word2Vec） \\
-但未知它能不能够 表示所有常见的 \textbf{multi-modal} 概率分布。
+以 1024-dim 表示所有 \emp{概念} 是足够的（cf. Word2Vec） \\
+但未知它能不能够 表示所有常见的 \emp{multi-modal} 概率分布。
 % 似乎 1024 个份量，长远来说是不够的。 
 
 \begin{comment}
 \newcommand{\ttt}{$\blacktriangleright$}
 那怎么解决呢？ \\
-有个方法是 将所有概念 按照「本体论」\textbf{ontology} 分类， \\
+有个方法是 将所有概念 按照「本体论」\emp{ontology} 分类， \\
 例如： 物体\ttt 生物\ttt 人体\ttt 上肢\ttt 手臂\ttt 手\ttt 手指 \\
 \let\ttt\undefined
 然后 每次输出的是一个 sub-class 的 label， \\
