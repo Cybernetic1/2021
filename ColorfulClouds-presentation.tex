@@ -73,6 +73,7 @@
 
 \section{逻辑 + BERT/GPT 混合的好处}
 
+\emp{似乎} 有一些优势，但我暂时未能提出一个很有说服力的 说法：
 \begin{itemize}
 	\item Long-term memory as a separate module
 	\item Explicitly edit memories
@@ -81,16 +82,23 @@
 
 \section{List of things desirable regardless of logicalization}
 
+由于我比较熟悉 logic，我不知有没有不用 logic 的更好方法.... 各位同学可以想想。
+
 \begin{itemize}
 	\item 希望 BERT/GPT 的 inference 更 robust
-	\item BERT/GPT 直接学习知识的能力 (``learn by being told'')
+	\item BERT/GPT 直接学习知识的能力 (``learn by being told'') \\
+		那就可以将这 AI 放到人类工作环境，透过工作教导 AI \\
+		似乎需要「长期记忆」(LTM) \\
+		但如果这 LTM 不是一个独立 module,\\
+		可能比较麻烦?
 \end{itemize}
 
 \section{Transformer 的 equi-variance}
 
-\begin{equation}
-\vcenter{\hbox{\includegraphics[scale=0.3]{self-attention.png}}}
-\end{equation}
+（见 知乎 文章）
+%\begin{equation}
+%\vcenter{\hbox{\includegraphics[scale=0.3]{self-attention.png}}}
+%\end{equation}
 
 \section{Logic AI 的基本架构}
 
@@ -109,6 +117,8 @@
 
 Working Memory 的 状态更新 是靠 逻辑 rules 的作用，\\
 例如： $\forall x. \; \mbox{human}(x) \rightarrow \mbox{mortal}(x)$
+
+\section{神经科学 带来的的启发}
 
 \begin{itemize}
 	\item 一直以来，人们觉得 大脑的 KR（knowledge representtation, 知识表述）跟符号逻辑 肯定是大相迳庭的
@@ -210,7 +220,10 @@ Few-shot generalization.
 \label{linkage-father}
 \end{equation}
 
-用 self-Attention 表达，即是将 输入层 的一个 token ``copy'' 到输出层。 
+用 self-Attention 表达，即是将 输入层 的一个 token ``copy'' 到输出层的 另一个 token 位置：
+\begin{equation}
+\vcenter{\hbox{\includegraphics[scale=0.7]{attention-among-words.png}}}
+\end{equation}
 
 \section{Relation algebra}
 
@@ -254,8 +267,18 @@ Albert & 是 爷爷 of & Charles
 
 \section{自动 产生／运行 代码}
 
-「计算我生命中的秒数」
+我们可以\emp{生成}一些 programming problems，\\
+而且 100\% 肯定 答案是正确的。
+%「计算我生命中的秒数」
 
+逻辑上的 $\forall$ \emp{泛化} 可以保证 \\
+学习出来的知识是正确的，\\
+因为它很有可能是 \emp{minimum description length} (MDL).
+
+但逻辑引擎的问题是：\\
+它没有很高效率的 \emp{learning algorithm} （不像 深度学习）
+
+问题是 BERT/GPT 可以怎样「帮助」逻辑引擎 的学习...？
 % \section*{References}
 % \cc{欢迎提问和讨论}{Questions, comments welcome} \smiley \\ \vspace*{0.4cm}
 % \printbibliography
