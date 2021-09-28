@@ -79,6 +79,13 @@
 	\item Make the BERT/GPT model more transparant
 \end{itemize}
 
+\section{List of things desirable regardless of logicalization}
+
+\begin{itemize}
+	\item 希望 BERT/GPT 的 inference 更 robust
+	\item BERT/GPT 直接学习知识的能力 (``learn by being told'')
+\end{itemize}
+
 \section{Transformer 的 equi-variance}
 
 \begin{equation}
@@ -189,6 +196,21 @@ Working Memory 的 状态更新 是靠 逻辑 rules 的作用，\\
 
 Few-shot generalization.
 
+\section{Variable binding}
+
+量词 $\forall X$ 将 变量 $X$「捆绑」，意思是在 $\forall X$ 的 \emp{有效范围} (scope) 内，所有 $X$'s 的取值 必须是\emp{一样}的：
+\begin{equation}
+\vspace{0.8cm}
+\forall X, Y, Z.  \;\;  \text{grandfather}({\color{red}X} \tikzmark{x}, {\color{red}Z} \tikzmark{z}) \leftarrow \text{father}({\color{red}X} \tikzmark{p}, {\color{red}Y} \tikzmark{y}) \wedge \mbox{father}({\color{red}Y} \tikzmark{q}, {\color{red}Z} \tikzmark{r})
+\begin{tikzpicture}[overlay,remember picture,out=45,in=135,distance=1.1cm]
+\draw[-,red, transform canvas={shift={(-5pt,18pt)}}] (x.center) to (p.center);
+\draw[-,red, transform canvas={shift={(-5pt,18pt)}}] (y.center) to (q.center);
+\draw[-,red, transform canvas={shift={(-5pt,-3pt)}}, out=-45,in=225] (z.center) to (r.center);
+\end{tikzpicture}
+\label{linkage-father}
+\end{equation}
+
+用 self-Attention 表达，即是将 输入层 的一个 token ``copy'' 到输出层。 
 
 \section{Relation algebra}
 
@@ -199,6 +221,36 @@ $F$ & $\circ$ & $F$ & = & $G$ \\
 爸爸 & 的 & 爸爸 & 是 & 爷爷
 \end{tabular}
 \end{equation}
+
+\begin{equation}
+\begin{tabular}{ccc}
+\label{eqn:RA-premise}
+$a$ & $F$ & $b$ \\
+Albert & 是 爸爸 of & Bob \\
+$b$ & $F$ & $c$ \\
+Bob & 是 爸爸 of & Charles
+\end{tabular}
+\end{equation}
+\begin{equation}
+\label{eqn:RA-conclusion}
+\begin{tabular}{ccccc}
+$a$ & $(\; F$ & $\circ$ & $F \; )$ & $c$ \\
+Albert & 是 爸爸 of && 爸爸 of & Charles
+\end{tabular}
+\end{equation}
+\begin{equation}
+\begin{tabular}{ccc}
+$a$ & $G$ & $c$ \\
+Albert & 是 爷爷 of & Charles
+\end{tabular}
+\end{equation}
+其实 上例中 (\ref{eqn:RA-premise}) $\Rightarrow$ (\ref{eqn:RA-conclusion}) 混合了 predicate logic. \\ Relation algebra 只描述 \emp{关系} 之间的代数，\\
+但不涉及 关系\emp{内}的元素。 
+
+这个例子表明 BERT/GPT 用的可能是 \\
+一种更为 flexible 的 \emp{rewriting system}（改写系统）。 
+
+{\footnotesize 注意： relation algebra 不同于 relational algebra, 后者是 描述 database 用。}
 
 \section{自动 产生／运行 代码}
 
