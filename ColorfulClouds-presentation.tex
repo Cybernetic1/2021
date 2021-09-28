@@ -209,8 +209,8 @@ Few-shot generalization.
 \section{Variable binding}
 
 量词 $\forall X$ 将 变量 $X$「捆绑」，意思是在 $\forall X$ 的 \emp{有效范围} (scope) 内，所有 $X$'s 的取值 必须是\emp{一样}的：
+\vspace*{0.6cm}
 \begin{equation}
-\vspace{0.8cm}
 \forall X, Y, Z.  \;\;  \text{grandfather}({\color{red}X} \tikzmark{x}, {\color{red}Z} \tikzmark{z}) \leftarrow \text{father}({\color{red}X} \tikzmark{p}, {\color{red}Y} \tikzmark{y}) \wedge \mbox{father}({\color{red}Y} \tikzmark{q}, {\color{red}Z} \tikzmark{r})
 \begin{tikzpicture}[overlay,remember picture,out=45,in=135,distance=1.1cm]
 \draw[-,red, transform canvas={shift={(-5pt,18pt)}}] (x.center) to (p.center);
@@ -220,7 +220,7 @@ Few-shot generalization.
 \label{linkage-father}
 \end{equation}
 
-用 self-Attention 表达，即是将 输入层 的一个 token ``copy'' 到输出层的 另一个 token 位置：
+用 self-Attention 表达，即是将 输入层 的一个 token ``copy'' 到输出层的 另一个 token 位置。 （可以对比下图：）
 \begin{equation}
 \vcenter{\hbox{\includegraphics[scale=0.7]{attention-among-words.png}}}
 \end{equation}
