@@ -106,6 +106,8 @@
 \begin{equation}
 \vcenter{\hbox{\includegraphics[scale=1]{LBAI-architecture.png}}}
 \end{equation}
+重点是我们将 update loop 那个函数 看成是 对应于 BERT/GPT.
+
 借用 \emp{认知科学} 术语，Working Memory = 系统的 \emp{状态} (state), \\
 例如： \\
 \tab 我很肚饿 $\wedge$ \\
@@ -138,14 +140,25 @@ Working Memory 的 状态更新 是靠 逻辑 rules 的作用，\\
 	\item 命题集 = sequence of 命题， \\
 		命题 = sequence of concepts，\\
 		所以 状态 = 命题集 = sequence of sequences (seq-seq)
-	\item transition fn: seq-seq $\rightarrow$ seq-seq 
+	\item transition function: seq-seq $\rightarrow$ seq-seq 
 		\begin{equation}
 		\vcenter{\hbox{\includegraphics[scale=1]{seq-seq-2-seq-with-BERT.png}}}
 		\end{equation}
 	\item 每次状态更新时，我们可以只增添一个命题，\\
 		「\emp{遗忘}」另一个命题
-	\item 因此 transition fn 只需是 seq-seq $\rightarrow$ seq
+		\begin{equation}
+		\vcenter{\hbox{\includegraphics[scale=1]{forgetting-mechanism.png}}}
+		\end{equation}
+	\item 因此 transition function 只需是 seq-seq $\rightarrow$ seq
 \end{itemize}
+
+\emp{长期记忆} 可以这样实现：
+\begin{equation}
+\vcenter{\hbox{\includegraphics[scale=1]{long-term-memory.png}}}
+\end{equation}
+它透过 Working Memory 的内容 决定 输出什么 命题，其机制类似 \emp{推荐系统} (recommender systems).
+
+已经有类似的研究，利用 BERT/GPT 提取 \emp{知识图谱} 资料 (COMET). 
 
 \section{强化学习的考虑}
 
@@ -272,7 +285,7 @@ Albert & 是 爷爷 of & Charles
 %「计算我生命中的秒数」
 
 逻辑上的 $\forall$ \emp{泛化} 可以保证 \\
-学习出来的知识是正确的，\\
+学习出来的 规则 是正确的，\\
 因为它很有可能是 \emp{minimum description length} (MDL).
 
 但逻辑引擎的问题是：\\
