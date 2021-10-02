@@ -575,14 +575,14 @@ where $0^0$ is ``indeterminate'', but according to combinatorics convention, it 
 \subsection{The problem of material implication}
 \label{sec:material-implication}
 
-\cc{更详细观察，table (\ref{truth-table:material-implication}) 里面 $A$ 和 $B$ 的 truth values 可以看成是它们的 types 有没有 \textbf{inhabitants}. Type $A$ 的 inhabitant 就是它的证明 $\witness$，没有证明就是 $\emptyset$.  或者推广到：命题 $A$ 的真值 = $A$ 的 type 作为 集合 的 \textbf{cardinality}; The truth valuation of $A = |A|$.  这样看，$A \Rightarrow B$ 的真值 就是 $|B^A|$, 亦即是从 $\{\witness\}$ 或 $\emptyset$ 到 $\{\witness\}$ 或 $\emptyset$ 的 map 的\textbf{个数}, 而这个 map 只有在 $\emptyset \mapsto \{\witness\}$ 的时候是空集（不可能）。
+\cc{更详细观察，table (\ref{truth-table:material-implication}) 里面 $A$ 和 $B$ 的 truth values 可以看成是它们的 types 有没有 \textbf{inhabitants}. Type $A$ 的 inhabitant 就是它的证明 $\witness$，没有证明就是 $\emptyset$.  或者推广到：命题 $A$ 的真值 = $A$ 的 type 作为 集合 的 \textbf{cardinality}; The truth valuation of $A = |A|$.  这样看，$A \Rightarrow B$ 的真值 就是 $|B^A|$, 亦即是从 $\{\witness\}$ 或 $\emptyset$ 到 $\{\witness\}$ 或 $\emptyset$ 的 map 的\textbf{个数}, 而这个 map 只有在 $ \{\witness\} \mapsto \emptyset$ 的时候是空集（不可能）。
 }{
-	To observe in more detail, the truth values of $A$ and $B$ in table (\ref{truth-table:material-implication}) can be regarded as whether their types have \textbf{inhabitants}.  A type's inhabitant is its proof $\witness$, whereas $\emptyset$ means no proof.  More abstractly:  the truth value of the proposition $A$ = the \textbf{cardinality} of the type $A$ as a set; $|A|$.  In this way, the true value of $A \Rightarrow B$ is $|B^A|$, that is, the \textbf{number} of maps from $\{\witness\}$ or $\emptyset$ to $\{\witness\}$ or $\emptyset$, and such maps is the empty set only in the case $\emptyset \mapsto \{\witness\}$ (which is impossible).
+	To observe in more detail, the truth values of $A$ and $B$ in table (\ref{truth-table:material-implication}) can be regarded as whether their types have \textbf{inhabitants}.  A type's inhabitant is its proof $\witness$, whereas $\emptyset$ means no proof.  More abstractly:  the truth value of the proposition $A$ = the \textbf{cardinality} of the type $A$ as a set; $|A|$.  In this way, the true value of $A \Rightarrow B$ is $|B^A|$, that is, the \textbf{number} of maps from $\{\witness\}$ or $\emptyset$ to $\{\witness\}$ or $\emptyset$, and such maps is the empty set only in the case $\{\witness\} \mapsto \emptyset$ (which is impossible).
 }
 
 \cc{这个观察 可以推广到 fuzzy logic (\S\ref{sec:fuzzy-implication}) 和 strict implication $A \strictif B$ (\S\ref{sec:strict-implication}).
 }{
-	This observation may be extended to fuzzy logic (\S\ref(sec:fuzzy-implication)) and strict implication $A \strictif B$ (\S\ref(sec:strict-implication)).
+	This observation may be extended to fuzzy logic (\S\ref{sec:fuzzy-implication}) and strict implication $A \strictif B$ (\S\ref{sec:strict-implication}).
 }
 
 \cc{但 material implication 导致某种悖论：
@@ -1003,7 +1003,7 @@ The continution-passing style may be of special importance to logic, because it 
 
 \cc{（我觉得这个可能是 Yoneda lemma 的一个应用，但根据 MathOverflow 上一些专家的看法，只是表面上有点相似。
 }{
-	(I think this may be an application of Yoneda lemma, but according to some experts on MathOverflow, the resemblance is only superficial.)
+	(I thought this could be an application of Yoneda lemma, but according to some experts on MathOverflow, the resemblance is only superficial.)
 }
 
 The \textbf{Kolmogorov–Arnold representation theorem} states that every multivariate continuous function can be represented as a sum of continuous functions of one variable:
