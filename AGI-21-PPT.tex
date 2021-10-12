@@ -100,11 +100,12 @@
 \newcommand*\confoundFace{$\vcenter{\hbox{\includegraphics[scale=0.2]{../confounded-face.jpg}}}$}
 \newcommand{\smiley}{$\vcenter{\hbox{\includegraphics[scale=0.05]{../smiling-face.png}}}$}
 
-%%%%%%%% Make table of contents %%%%%%%
-
 \makeatletter
 \renewcommand{\boxed}[1]{\fbox{\m@th$\displaystyle\scalebox{0.9}{#1}$} \,}
 \makeatother
+
+%%%%%%%% Make table of contents %%%%%%%
+
 \newif\ifframeinlbf
 \frameinlbftrue
 \makeatletter
@@ -118,11 +119,31 @@
 	\else\fi
 }
 
+%%%%%%%% Include Parts in TOC %%%%%%%
+
+\makeatletter
+\AtBeginPart{%
+	\addtocontents{toc}{\protect\beamer@partintoc{\the\c@part}{\beamer@partnameshort}{\the\c@page}}%
+}
+%% number, shortname, page.
+\providecommand\beamer@partintoc[3]{%
+	\ifnum\c@tocdepth=-1\relax
+	% requesting onlyparts.
+	\makebox[6em]{PART #1:} #2
+	\par
+	\fi
+}
+\define@key{beamertoc}{onlyparts}[]{%
+	\c@tocdepth=-1\relax
+}
+\makeatother%
+
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-\title[Logic route to strong AI]{{\Huge ``Easy'' presentation} \\ \vspace*{0.4cm} The logic route to strong AI}
+\title[AGI via Logic]{{\Huge AGI via Combining Logic and Deep Learning}
+ \\ \vspace*{0.4cm} AGI 2021 Conference}
 \author{\cc{YKY}{YKY}} % Your name
 %\institute[] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 %{
@@ -155,6 +176,122 @@
 %------------------------------------------------
 
 \frameinlbftrue
+
+\part{Categorical Logic}
+\frame{\partpage}
+
+\begin{frame}
+\frametitle{Categorical Logic}
+\begin{itemize}
+	\item Quantifier as adjunctions
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Fibrations}
+\begin{itemize}
+	\item Fibration
+\end{itemize}
+\begin{equation}
+\vcenter{\hbox{\includegraphics[scale=0.5]{dependent-type.png}}}
+\nonumber
+\end{equation}
+\end{frame}
+
+\part{Model-based vs Syntax-based}
+\frame{\partpage}
+
+\begin{frame}
+\frametitle{Hitzler's Core Method}
+\begin{itemize}
+	\item The \textbf{semantic operator} $\mathcal{T}_P$ updates an interpretation to another interpretation:
+\end{itemize}
+\centering
+\includegraphics[scale=0.5]{Hitzler-semantic-operator.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{Hitzler's Core Method}
+\begin{itemize}
+	\item The \textbf{level mapping} $\iota$ takes an interpretation to a real number:
+\end{itemize}
+\begin{equation}
+\vcenter{\hbox{\includegraphics[scale=0.5]{Hitzler-level-mapping.png}}} \nonumber
+\end{equation}
+\end{frame}
+
+\part{Reinforcement Learning}
+\frame{\partpage}
+
+\begin{frame}
+\frametitle{This is a lamprey}
+	\includegraphics[scale=0.65]{lamprey.jpg}
+\end{frame}
+
+\begin{frame}
+\frametitle{Evolution of the Neocortex}
+\centering
+\includegraphics[scale=0.4]{lamprey-to-neocortex.jpg}
+\end{frame}
+
+\begin{frame}
+\frametitle{Neocortex vs Reinforcement Learning}
+\centering
+\includegraphics[scale=0.5]{neocortex-vs-RL.png}
+\end{frame}
+
+\part{BERT / GPT}
+\frame{\partpage}
+
+\begin{frame}
+\frametitle{Equivariance of the Transformer}
+\begin{itemize}
+	\item Many people already know this: \\
+	the Transformer module is \textbf{equivariant} in its inputs and outputs:
+\end{itemize}
+\centering
+\includegraphics[scale=0.2]{self-attention.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{Additivity of Word Embeddings}
+\centering
+\includegraphics[scale=0.5]{positional-encoding.png}
+\vspace*{1em}
+\begin{itemize}
+	\item This suggests that word embeddings can be added together to give \textbf{composite} meanings
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{BERT's Hidden Representation}
+\begin{itemize}
+	\item This may be a close description of how BERT performs question-answering or logic deduction:
+\end{itemize}
+\vspace*{1em}
+\centering
+\includegraphics[scale=0.7]{Transformer-QnA.png}
+\end{frame}
+
+\part{BERT + Knowledge Graphs}
+\frame{\partpage}
+
+\begin{frame}
+\frametitle{Memory Formation}
+\begin{itemize}
+	\item Memory
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Memory Recall}
+\begin{itemize}
+	\item Memory retrieval
+\end{itemize}
+\end{frame}
+
+\part{Old Stuffs}
+\frame{\partpage}
 
 \begin{frame}
 \frametitle{\cc{CNN 在机器视觉中的成功}{The success of CNN in computer vision}}
@@ -483,7 +620,7 @@
 \begin{frame}
 \frametitle{References}
 \cc{多谢收看}{Thanks for watching} \smiley \\
-\printbibliography
+% \printbibliography
 \textbf{Illustration credits:}
 \begin{itemize}
 	\item Translation invariance, from Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks $\rhd$ Convolutional Networks)
