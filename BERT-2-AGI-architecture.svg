@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="436.88462"
-     inkscape:cy="3185.2953"
+     inkscape:zoom="2"
+     inkscape:cx="369.88462"
+     inkscape:cy="2985.2953"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -3216,6 +3216,70 @@
          d="M 0,0 5,-5 -12.5,0 5,5 Z"
          id="path3335" />
     </marker>
+    <marker
+       inkscape:collect="always"
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker7221-3"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path7219-56" />
+    </marker>
+    <marker
+       inkscape:collect="always"
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker7221-3-0"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path7219-56-9" />
+    </marker>
+    <marker
+       inkscape:collect="always"
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker7221-3-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path7219-56-0" />
+    </marker>
+    <marker
+       inkscape:collect="always"
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker7221-3-0-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path7219-56-9-2" />
+    </marker>
   </defs>
   <metadata
      id="metadata5">
@@ -6360,18 +6424,22 @@
        id="rect481-1-1"
        width="104.51043"
        height="13.758331"
-       x="71.689995"
-       y="462.92694"
-       ry="4.4979167" />
+       x="66.398331"
+       y="512.93317"
+       ry="4.4979167"
+       inkscape:export-xdpi="192"
+       inkscape:export-ydpi="192" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="123.88281"
-       y="471.65817"
-       id="text485-1-2"><tspan
+       x="118.59115"
+       y="521.66443"
+       id="text485-1-2"
+       inkscape:export-xdpi="192"
+       inkscape:export-ydpi="192"><tspan
          sodipodi:role="line"
-         x="123.88281"
-         y="471.65817"
+         x="118.59115"
+         y="521.66443"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.264583"
          id="tspan487-6-7">Working Memory</tspan></text>
     <image
@@ -6383,26 +6451,26 @@
        preserveAspectRatio="none"
        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAO0AAADhCAYAAAAkjzL0AAAACXBIWXMAAA7qAAAO6gGjimNxAAAN L0lEQVR4nO3d+3NTZR7Hcf7QdS+ul2G8gIiKyH1VVO4IhQIlFCm1XJbSga5QhFSxEQWFVp3iGB2n NOI4VmfiOBN/+ezzPclJT0LSpmmS5yR5//De2alD8uSc59XnXNJkhaQV5KfZ2QcaHx+t2vDw9qrd uPGS7txZXVeXL2+s+rgXLx5YcEy+txlphfcBdGLRSW4IoijqhRbHyvFHX/e9e7flez90at4H0K5V gukbURwLYY+OngJ0g/I+gDhnE8wm23IPR2nhois1oBfP+wDiEkDjVbhCA/nRvA/AB85GXdAhP5DD C2bditn7AJqd7dhwBfU96ajx2S/d8Iq3XY33Pd9Au8TCWygG1H4r+55Q5KfohS/fcxK0FZCyitJi 2Wocnh/7nrNdiTaEykpK9dbugL0PoJbC81KgUqMLAbfT+bD3AVQrPDf1vVOpewovasX9qrT3AUSz jWUbzffOI7KjOju6i+MK7H0A4Tkq90sprtkRX5xWX29PbBuBw19qp2xhicPqy6pKVEc+V9+WPRHn qtSJ2QLUarxNfwJWVuqG7MJVq/A25UHtMNhWVrBSt9UKvA1/QA6DifKHzc1611XDHsh+u7CyEpVm F6wafbW5IVh5eyHRwtkRaKPwcihM1KIadaW5rn9kvzFYXYnqy+6otBQt565Ey8/OdVuC1q6G+X6x RJ2SLX71nOfWfDjM+4SJmtNSD5drAsvhMFFzW8rhMmCJYlKtcAFLFKNqgQtYophl739YMlruwRL5 baH3LT/yA97lRBSPqt0O4j4sUUyzU9RF0XIeSxSvKp3fclhMFPPKD5OLV4t9D4yIKle+2gb/Y2+j 8j0wIqreI2i5xUMU76LvTw7+1M73gIho4WxhLaLl0JioPSqi5U/uiNqj8F1S3JslapOKaH0PhIhq K/wLINAStUmgJWqzQEvUZg0NvZ5He/8+F6KI2qGBgf/k0abTL3sfDBEtXl/f5jzaTGa998EQ0cKl Us+pt3dTHu2ff27V5OQa74Mioupdvvx0KdqZmVe9D4qIqnf8+N9L0eZyr3sfFBFVLr/K/q0UrbTd rbaveR8cET1afpWtgFZ6x53bvuh9gEQ03/wqWwXtw4ebvQ+SiOabX2WroJV2anqa+7ZEcejMmccj YBdAm8txmEzku7GxlWVgF0Ar7dbcHFeTiXw1Pv5MBbCLoJX2OLhveh88Ubdl73wqPY9dAlppn7LZ HRwqE7UoOySuDrZGtNK77hx3r4O71vsLIurkKp/D1olWOuDg7gMuUZMaHX26BrBLRCsddHD3K53m Q82JGtm5c//W0aOPNQetdChoZmar9xdK1O59+unzwX3Yvr7Hmo9WOqy5uZ3eXzRRu3bz5rMaGnpc /f3/aB1a6Yg7XD7oDpc3ed8ARO3SrVvPBxecBgf/pYGBf7Yebb6jymb3a3KSz5kiWihbXUdGntT5 80/4Rysdc/W5c13eRUVU3mefrdKHH67UpUtP6cKFJ+KF1srlDoOXyPX556v08cfP6urVlcEtndii lY4HZbMHOGSmrs3eiphMPqNr11a2D1op4Trh8PZoeppPe6Tu6NatVZqYeD4A27Zopf4gwzszwx8g UOd1+/Z8BrZj0Eong3K5PvBSx/Tlly/o7t01nY1Wei8om7ULVnyZNbVfBnVqak3w129W16DNdyro 4cNd7ryXT4KkePfVVy+6ebrW9VJQV6OVBoKy2V63+r7lNgSfUUXx6N69NbIvqPv++1eCvvvuZdBG 0eY7HTQ3d8CtwLuVTm/zvuOoe7p79wV9881a/fDDOv3446tuEVkfBNoa0EqDxXK5fgd4j9tQG7zv VOrMDONPP63Xr79u1M8/bwianV0P2nrRSu8Xy+VOApga0rffvhRA/eOPLfrtt01BoG0CWmko0hl3 GN3jEO91G5E/zqeFS6df0S+/bNDvv2/SX39tC7CGgbaFaOc761bhUwHgdJr3PtPqAJZBnZuzif5G kGENA20M0M53LiiXG3A7zO4H72Al7vDs+5XT6XXul/ZGt8+3FOZz2BugbRe0+c5HuqBstt/t1CNu B7/hNjx/wN+updN2ZXeD25fb3H7dUZi7b0cCbcegnW+4WDZ70u38Y24ivAnkGJZOG5yNwbde2FfW SLsK7SyABW3XoZUuukYiXXKQT7lJ0ucmzPZik5OveJ/AnVo6/VqxmZlNwbdb5HK7CnNwT6RdAi1o K6Kdb7Ss/7kJlQhKp98qNjm5zvvEj3vT0+vcttoQNDOzxW3Dt4IPws/Pr/2R9pUFWtAuE+18V8q6 Wmxuzu4n97oJ+nZXgbYP+rPs0zqz2b2FuRLWE+lgYV6FgRa0ntFKYzWVy424Cd5fbGZmb8kKHj08 n55u3hd+p9Nby9pS7OHDd9zY9hSb39d9hf0f7UikXoEWtOo0tKX/xvqgrOhzXy4b20hh7GHR1/ff su1wpmzbDUa29enIvjhV2DcnI50o7M8w0IIWtAItaEELWoEWtAItaEELWoEWtKAFrUALWtCCVqBN CLSgFWhBC1rQCrSgBS1oBVrQgha0Ai1oQQtagRa0Ai1oQQtagRa0oAWtQAta0IJWoAUtaEFbJdCC FrQCLWhBC1qBNiHQglagBS1oQSvQgha0oBVoQQta0Aq0oAUtaAVa0Aq0oAUtaAVa0IIWtAItaEEL WoEWtKAFbZVAC1rQCrSgBS1oBdqEQAtagRa0oAWtQAta0IJWoAUtaEEr0IIWtKAVaEEr0IIWtKAV aEELWtAKtKAFLWgFWtCCFrRVAi1oQSvQgha0oBVoEwItaAVa0IIWtAItaEELWoEWtKAFrUALWtCC VqAFrUALWtCCVqAFLWhBK9CCFrSgFWhBC1rQVgm0oAWtQAta0IJWoE0ItKAVaEELWtAKtKAFLWgF WtCCFrQCLWhBC1qBFrQCLWhBC1qBFrSgBa1AC1rQglagBS1oQVsl0IIWtAItaEELWoE2IdCCVqAF LWhBK9CCFrSgFWhBC1rQCrSgBS1oBVrQCrSgBS1oBVrQgha0Ai1oQQtagRa0oAVtlUALWtAKtKAF LWgF2oRAC1qBFrSgBa1AC1rQglagBS1oQSvQgha0oBVoQSvQgha0oBVoQQta0Aq0oAUtaAVa0IIW tFUCLWhBK9CCFrSgFWgTAi1oBVrQgha0Ai1oOxntuXO2Lxzamzf3CLSgBW380Y6N2X53aG/cOCLQ gha08Uc7O/vAvQ6HdmLiA4EWtKCNN9qenifda9AKa0X+/4AWtKCNM9rwIpRCtKnUPoEWtKCNL9ov vvjcvYYI2qmpOwItaEEbT7Q9Pavd+LVCpYfHBnenQAta0MYPbXSVVRRtJvNAoAUtaOOFtnyVVRSt lUzajgAtaEEbF7ThbR5VQ6vgMDncQKAFLWh9og3fTFHeIz+ww+RMZrdAC1rQ+kQ7f4unvIo/nJi4 KtCCFrR+0FY6j9ViaFWEC1rQgraVaO2dT5XOY1ULWhXhgha0CYG2+WhrAavF0KoIF7SgDQNtM9DW Cla1oFUA1yYYaEGbEGgbj/bQoadqBqta0aoAN5M5INCCFrSNQ3v06GY3ttoMaqloVbgdlEz2C7Sg Be3y0J44sdL998r3YRdryf9AxcNl0IIWtPWgPX587ZIOh8ur6x8pWHVnXXaOC1rQgrZWtIOD9prq M6flog1LJk8KtKAF7cJoz559Ttev2z5cnjc1Aq0Kq24eL2hBC9oo2uHh1RoZse24fGdhDXsga2rq S2UyRwRa0IL2GQ0Nvb6sc9dqNfTBwpLJ8w6v7UTQgrb70J4//677+W33nI23pWahDUsmbfKAFrTd gfbixdd0717zsIY19cGt/PnuKbfy9gm0oO1EtJcubdT4uO2j5loKa8mThNnKOzV1VKAFbSegHRk5 2JKVtbyWPlmYXbBKJgcEWtC2G9pr17boyhWbq613E+bticPyq69NANCCNr5oR0cPudX1jnscv14U B7Rh4eqbydgkAS1o/aP96KNtunrVto9/H9G8D6BSExPXlErZBAEtaFuL9uuvNzuoh5tyf7VReR/A YiWTF9zhs73LCrSgbQ7a+/e3amysV/lv2vA/5xfL+wBqzW4dTUx86FbgE27jJgRa0C4H7fj4bl2/ PqhPPrHt7H9+LyXvA6i3/P1fW4VtUoEWtIujtS9Qz3+1q//5u5y8D6BR2SqcTA47xPYOLNCCdrvs 2yAnJq60zWFvrXkfQDPKr8LDbqedVCZjt5JA2w1o7UvkUqn9AVR5noPNzPsAWlF4PpxMvu92qk1K 0LY72kxmh9uX73bkSrpY3gfgq1LINllBG1e09jU1qdRBt6/OKP+Rvv7nj8+8DyBO5SFfV1gqddr9 FrcJDtpWoE2lehzMRAAzzPeciGPeB9AuTU3dVSnoQQfa7h2DdiloU6nDDuYJYC4j7wPohPKgbxRL pd4vlskYqO5Am0r1FrOP2rVP7QzLf2m5/33VCXkfQLcVxZ1MjpQAt9U7mg+0mcxx99x9kY6VVApx 1vv27Ma8D4CIltb/Aej5eUtLjB6aAAAAAElFTkSuQmCC "
        id="image165-6-0"
-       x="-5.3774009"
-       y="461.77875"
+       x="-10.669067"
+       y="511.785"
        inkscape:export-filename="/home/yky/latex/2021/long-term-memory.png" />
     <text
        inkscape:export-ydpi="192"
        inkscape:export-xdpi="192"
        id="text471-6-9"
-       y="481.71249"
-       x="14.579967"
+       y="531.71875"
+       x="9.2882996"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
        xml:space="preserve"
        inkscape:export-filename="/home/yky/latex/2021/long-term-memory.png"><tspan
          id="tspan473-8-3"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.264583"
-         y="481.71249"
-         x="14.579967"
+         y="531.71875"
+         x="9.2882996"
          sodipodi:role="line">Long-Term</tspan><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.264583"
-         y="490.53195"
-         x="14.579967"
+         y="540.53821"
+         x="9.2882996"
          sodipodi:role="line"
          id="tspan2173-6">Memory</tspan></text>
     <path
@@ -6411,26 +6479,26 @@
        sodipodi:nodetypes="ccc"
        inkscape:connector-curvature="0"
        id="path1595-3-0"
-       d="m 161.81363,463.15814 c 5.29165,-16.13959 26.71909,-13.49243 26.59059,8.99584 -0.37248,14.35876 -16.64982,23.35473 -25.92914,6.08542"
+       d="m 156.52196,513.16439 c 5.29165,-16.13959 26.71909,-13.49243 26.59059,8.99584 -0.37248,14.35876 -16.64982,23.35473 -25.92914,6.08542"
        style="fill:none;stroke:#000000;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-mid:url(#marker4379-4-3);marker-end:url(#marker1599-1-7)"
        inkscape:export-filename="/home/yky/latex/2021/long-term-memory.png" />
     <text
        inkscape:export-ydpi="192"
        inkscape:export-xdpi="192"
        id="text3247-8-6"
-       y="448.52365"
-       x="158.21011"
+       y="498.52991"
+       x="152.91844"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
        xml:space="preserve"
        inkscape:export-filename="/home/yky/latex/2021/long-term-memory.png"><tspan
          id="tspan7888-9-2"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.264583"
-         y="448.52365"
-         x="158.21011"
+         y="498.52991"
+         x="152.91844"
          sodipodi:role="line">⊢ operator</tspan></text>
     <g
        id="g12494-2-2-4-9-6"
-       transform="matrix(0.28222223,0,0,0.28222223,-3.9042848,194.57912)"
+       transform="matrix(0.28222223,0,0,0.28222223,-9.1959515,244.58537)"
        inkscape:export-xdpi="192"
        inkscape:export-ydpi="192"
        inkscape:export-filename="/home/yky/latex/2021/long-term-memory.png"
@@ -6470,19 +6538,19 @@
        inkscape:export-ydpi="192"
        inkscape:export-xdpi="192"
        id="text471-6-6-9"
-       y="502.72278"
-       x="23.176855"
+       y="552.729"
+       x="17.885189"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
        xml:space="preserve"
        inkscape:export-filename="/home/yky/latex/2021/long-term-memory.png"><tspan
          id="tspan473-8-8-2"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.264583"
-         y="502.72278"
-         x="23.176855"
+         y="552.729"
+         x="17.885189"
          sodipodi:role="line">= database of facts</tspan></text>
     <path
        style="vector-effect:none;fill:none;fill-opacity:1;stroke:#000005;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Mend-9-3-3-8-8-3-3)"
-       d="m 35.821112,476.51945 c 13.440827,-8.78419 25.227729,-6.83967 32.821259,-6.3634"
+       d="m 30.529445,526.5257 c 13.440827,-8.78419 25.227729,-6.83967 32.821259,-6.3634"
        id="path5594-67-2-7-3-5-0-8-02"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc"
@@ -6490,7 +6558,7 @@
        inkscape:export-ydpi="192"
        inkscape:export-filename="/home/yky/latex/2021/long-term-memory.png" />
     <g
-       transform="matrix(0,0.26458333,-0.22762653,0,169.25397,343.08329)"
+       transform="matrix(0,0.26458333,-0.22762653,0,163.9623,393.08954)"
        inkscape:label="Layer 1"
        id="layer1-83-3"
        inkscape:export-filename="/home/yky/latex/2021/long-term-memory.png"
@@ -6510,7 +6578,7 @@
     </g>
     <path
        style="vector-effect:none;fill:none;fill-opacity:1;stroke:#000005;stroke-width:0.794;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.588, 1.588;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Mend-9-3-3-8-8-3-8-6)"
-       d="m 98.165361,484.17008 c 0.846686,12.75294 -38.986063,11.33759 -59.808766,1.6009"
+       d="m 92.873694,534.17633 c 0.846686,12.75294 -38.986063,11.33759 -59.808766,1.6009"
        id="path5594-67-2-7-3-5-0-8-0-9"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc"
@@ -6520,16 +6588,16 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="79.495216"
-       y="500.76227"
+       x="74.203552"
+       y="550.76849"
        id="text7428-2"
        inkscape:export-filename="/home/yky/latex/2021/long-term-memory.png"
        inkscape:export-xdpi="192"
        inkscape:export-ydpi="192"><tspan
          sodipodi:role="line"
          id="tspan7426-2"
-         x="79.495216"
-         y="500.76227"
+         x="74.203552"
+         y="550.76849"
          style="font-size:7.05556px;stroke-width:0.264583">context</tspan></text>
     <path
        inkscape:export-ydpi="192"
@@ -6537,7 +6605,7 @@
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path7169-4"
-       d="m 124.84006,494.28711 c 0,0 8.73125,-3.96874 9.78959,-15.87499"
+       d="m 119.54839,544.29336 c 0,0 8.73125,-3.96874 9.78959,-15.87499"
        style="fill:none;stroke:#2a7fff;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7221-85778)"
        inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
     <path
@@ -6545,62 +6613,145 @@
        inkscape:export-xdpi="192"
        inkscape:connector-curvature="0"
        id="path7171-7"
-       d="m 145.47747,476.82461 c 3.175,10.58333 11.37708,16.13958 11.37708,16.13958"
+       d="m 140.1858,526.83086 c 3.175,10.58333 11.37708,16.13958 11.37708,16.13958"
        style="fill:none;stroke:#2a7fff;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7181-73306)"
        inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png"
        sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="51.339783"
-       y="455.10715"
+       x="46.048115"
+       y="505.1134"
        id="text7428-2-6"
        inkscape:export-filename="/home/yky/latex/2021/long-term-memory.png"
        inkscape:export-xdpi="192"
        inkscape:export-ydpi="192"><tspan
          sodipodi:role="line"
          id="tspan7426-2-5"
-         x="51.339783"
-         y="455.10715"
+         x="46.048115"
+         y="505.1134"
          style="font-size:7.05556px;stroke-width:0.264583">facts suggestion</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;line-height:0.95;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#2a7fff;fill-opacity:1;stroke:none;stroke-width:0.264583;"
-       x="123.83559"
-       y="500.88004"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;line-height:0.95;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#2a7fff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="118.54392"
+       y="550.88629"
        id="text7428-2-69"
        inkscape:export-filename="/home/yky/latex/2021/long-term-memory.png"
        inkscape:export-xdpi="192"
        inkscape:export-ydpi="192"><tspan
          sodipodi:role="line"
          id="tspan7426-2-3"
-         x="123.83559"
-         y="500.88004"
-         style="font-size:7.05556px;stroke-width:0.264583;fill:#2a7fff;">sentence</tspan><tspan
+         x="118.54392"
+         y="550.88629"
+         style="font-size:7.05556px;fill:#2a7fff;stroke-width:0.264583">sentence</tspan><tspan
          sodipodi:role="line"
-         x="123.83559"
-         y="507.58282"
-         style="font-size:7.05556px;stroke-width:0.264583;fill:#2a7fff;"
+         x="118.54392"
+         y="557.58905"
+         style="font-size:7.05556px;fill:#2a7fff;stroke-width:0.264583"
          id="tspan2759">in</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;line-height:0.95;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#2a7fff;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="161.14183"
-       y="500.35089"
+       x="155.85016"
+       y="550.35712"
        id="text7428-2-7"
        inkscape:export-filename="/home/yky/latex/2021/long-term-memory.png"
        inkscape:export-xdpi="192"
        inkscape:export-ydpi="192"><tspan
          sodipodi:role="line"
-         x="161.14183"
-         y="500.35089"
+         x="155.85016"
+         y="550.35712"
          style="font-size:7.05556px;fill:#2a7fff;stroke-width:0.264583"
          id="tspan2761">some</tspan><tspan
          sodipodi:role="line"
-         x="161.14183"
-         y="507.05368"
+         x="155.85016"
+         y="557.05994"
          style="font-size:7.05556px;fill:#2a7fff;stroke-width:0.264583"
          id="tspan4020">conclusion</tspan></text>
+    <g
+       inkscape:export-ydpi="768"
+       inkscape:export-xdpi="768"
+       transform="translate(-10.842141,344.97154)"
+       id="g494-9-6-3"
+       style="stroke-width:0.79375;stroke-miterlimit:4;stroke-dasharray:none">
+      <rect
+         style="opacity:1;vector-effect:none;fill:#ffffae;fill-opacity:1;stroke:#000000;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect481-2-1-6"
+         width="24.077091"
+         height="11.641663"
+         x="93.662498"
+         y="145.12918"
+         ry="4.4979167" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.79375;stroke-miterlimit:4;stroke-dasharray:none"
+         x="105.1095"
+         y="153.33125"
+         id="text485-2-1-7"><tspan
+           sodipodi:role="line"
+           x="105.1095"
+           y="153.33125"
+           style="text-align:center;text-anchor:middle;stroke-width:0.79375;stroke-miterlimit:4;stroke-dasharray:none"
+           id="tspan487-8-5-5">BERT</tspan></text>
+    </g>
+    <g
+       id="g6311">
+      <path
+         inkscape:export-ydpi="192"
+         inkscape:export-xdpi="192"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path7169-2"
+         d="m 90.890021,512.97549 v -9.2604"
+         style="fill:none;stroke:#000000;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7221-3)"
+         inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
+      <path
+         inkscape:export-ydpi="192"
+         inkscape:export-xdpi="192"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path7169-2-3"
+         d="m 98.827526,512.97549 v -9.2604"
+         style="fill:none;stroke:#000000;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7221-3-0)"
+         inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
+    </g>
+    <g
+       id="g6311-6"
+       transform="translate(0,-22.754175)">
+      <path
+         inkscape:export-ydpi="192"
+         inkscape:export-xdpi="192"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path7169-2-1"
+         d="m 90.890021,512.97549 v -9.2604"
+         style="fill:none;stroke:#000000;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7221-3-6)"
+         inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
+      <path
+         inkscape:export-ydpi="192"
+         inkscape:export-xdpi="192"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path7169-2-3-8"
+         d="m 98.827526,512.97549 v -9.2604"
+         style="fill:none;stroke:#000000;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7221-3-0-6)"
+         inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="95.267502"
+       y="477.36908"
+       id="text7428-2-6-7"
+       inkscape:export-filename="/home/yky/latex/2021/long-term-memory.png"
+       inkscape:export-xdpi="192"
+       inkscape:export-ydpi="192"><tspan
+         sodipodi:role="line"
+         id="tspan7426-2-5-9"
+         x="95.267502"
+         y="477.36908"
+         style="font-size:7.05556px;stroke-width:0.264583">next tokens</tspan></text>
   </g>
   <g
      inkscape:label="Hidden"
