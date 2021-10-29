@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="2"
-     inkscape:cx="369.88462"
-     inkscape:cy="2985.2953"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="377.38462"
+     inkscape:cy="3055.1948"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -45,6 +45,67 @@
      inkscape:document-rotation="0" />
   <defs
      id="defs2">
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="marker7221-85778"
+       id="marker13134">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:#2a7fff;fill-opacity:1;fill-rule:evenodd;stroke:#2a7fff;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path13132" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="marker7221-85778"
+       id="marker13124">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:#2a7fff;fill-opacity:1;fill-rule:evenodd;stroke:#2a7fff;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path13122" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="marker7221-85778"
+       id="marker8272"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:#2a7fff;fill-opacity:1;fill-rule:evenodd;stroke:#2a7fff;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path8270" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="marker7221-85778"
+       id="marker8262">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:#2a7fff;fill-opacity:1;fill-rule:evenodd;stroke:#2a7fff;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path8260" />
+    </marker>
     <marker
        inkscape:isstock="true"
        style="overflow:visible"
@@ -3201,84 +3262,64 @@
          id="path3332" />
     </marker>
     <marker
-       inkscape:collect="always"
        inkscape:isstock="true"
        style="overflow:visible"
        refX="0"
        refY="0"
        orient="auto"
        inkscape:stockid="marker7221-85778"
-       id="marker7221-85778">
+       id="marker8262-5">
       <path
          inkscape:connector-curvature="0"
          transform="matrix(-0.4,0,0,-0.4,-4,0)"
          style="fill:#2a7fff;fill-opacity:1;fill-rule:evenodd;stroke:#2a7fff;stroke-width:1pt;stroke-opacity:1"
          d="M 0,0 5,-5 -12.5,0 5,5 Z"
-         id="path3335" />
+         id="path8260-9" />
     </marker>
     <marker
-       inkscape:collect="always"
        inkscape:isstock="true"
        style="overflow:visible"
-       id="marker7221-3"
        refX="0"
        refY="0"
        orient="auto"
-       inkscape:stockid="Arrow1Mend">
+       inkscape:stockid="marker7221-85778"
+       id="marker8272-7">
       <path
          inkscape:connector-curvature="0"
          transform="matrix(-0.4,0,0,-0.4,-4,0)"
-         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         style="fill:#2a7fff;fill-opacity:1;fill-rule:evenodd;stroke:#2a7fff;stroke-width:1pt;stroke-opacity:1"
          d="M 0,0 5,-5 -12.5,0 5,5 Z"
-         id="path7219-56" />
+         id="path8270-8" />
     </marker>
     <marker
-       inkscape:collect="always"
        inkscape:isstock="true"
        style="overflow:visible"
-       id="marker7221-3-0"
        refX="0"
        refY="0"
        orient="auto"
-       inkscape:stockid="Arrow1Mend">
+       inkscape:stockid="marker7221-85778"
+       id="marker8262-7">
       <path
          inkscape:connector-curvature="0"
          transform="matrix(-0.4,0,0,-0.4,-4,0)"
-         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         style="fill:#2a7fff;fill-opacity:1;fill-rule:evenodd;stroke:#2a7fff;stroke-width:1pt;stroke-opacity:1"
          d="M 0,0 5,-5 -12.5,0 5,5 Z"
-         id="path7219-56-9" />
+         id="path8260-93" />
     </marker>
     <marker
-       inkscape:collect="always"
        inkscape:isstock="true"
        style="overflow:visible"
-       id="marker7221-3-6"
        refX="0"
        refY="0"
        orient="auto"
-       inkscape:stockid="Arrow1Mend">
+       inkscape:stockid="marker7221-85778"
+       id="marker8272-78">
       <path
          inkscape:connector-curvature="0"
          transform="matrix(-0.4,0,0,-0.4,-4,0)"
-         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         style="fill:#2a7fff;fill-opacity:1;fill-rule:evenodd;stroke:#2a7fff;stroke-width:1pt;stroke-opacity:1"
          d="M 0,0 5,-5 -12.5,0 5,5 Z"
-         id="path7219-56-0" />
-    </marker>
-    <marker
-       inkscape:collect="always"
-       inkscape:isstock="true"
-       style="overflow:visible"
-       id="marker7221-3-0-6"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Arrow1Mend">
-      <path
-         inkscape:connector-curvature="0"
-         transform="matrix(-0.4,0,0,-0.4,-4,0)"
-         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
-         d="M 0,0 5,-5 -12.5,0 5,5 Z"
-         id="path7219-56-9-2" />
+         id="path8270-7" />
     </marker>
   </defs>
   <metadata
@@ -3298,6 +3339,65 @@
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Layer 1">
+    <g
+       id="g6311-6"
+       transform="translate(21.695834,-22.754175)"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#2a7fff;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker8272);stop-color:#000000;stop-opacity:1"
+       inkscape:export-xdpi="192"
+       inkscape:export-ydpi="192">
+      <path
+         inkscape:export-ydpi="192"
+         inkscape:export-xdpi="192"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path7169-2-1"
+         d="m 90.890021,512.97549 v -9.2604"
+         style="font-variation-settings:normal;vector-effect:none;fill:none;fill-opacity:1;stroke:#2a7fff;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker13124);stop-color:#000000;stop-opacity:1"
+         inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
+      <path
+         inkscape:export-ydpi="192"
+         inkscape:export-xdpi="192"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path7169-2-3-8"
+         d="m 98.827526,512.97549 v -9.2604"
+         style="font-variation-settings:normal;vector-effect:none;fill:none;fill-opacity:1;stroke:#2a7fff;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker13134);stop-color:#000000;stop-opacity:1"
+         inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
+    </g>
+    <path
+       inkscape:export-ydpi="192"
+       inkscape:export-xdpi="192"
+       inkscape:connector-curvature="0"
+       id="path7171-7"
+       d="m 143.2147,512.51267 c 0.26459,-15.875 1.32293,-27.25208 -6.74687,-35.32187"
+       style="fill:none;stroke:#2a7fff;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7181-73306)"
+       inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png"
+       sodipodi:nodetypes="cc" />
+    <g
+       id="g6311"
+       transform="translate(21.695834)"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#2a7fff;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker7221-85778);stop-color:#000000;stop-opacity:1"
+       inkscape:export-xdpi="192"
+       inkscape:export-ydpi="192">
+      <path
+         inkscape:export-ydpi="192"
+         inkscape:export-xdpi="192"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path7169-2"
+         d="m 90.890021,512.97549 v -9.2604"
+         style="font-variation-settings:normal;vector-effect:none;fill:none;fill-opacity:1;stroke:#2a7fff;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker8262);stop-color:#000000;stop-opacity:1"
+         inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
+      <path
+         inkscape:export-ydpi="192"
+         inkscape:export-xdpi="192"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path7169-2-3"
+         d="m 98.827526,512.97549 v -9.2604"
+         style="font-variation-settings:normal;vector-effect:none;fill:none;fill-opacity:1;stroke:#2a7fff;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker8272);stop-color:#000000;stop-opacity:1"
+         inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
+    </g>
     <path
        inkscape:export-ydpi="768"
        inkscape:export-xdpi="768"
@@ -6599,24 +6699,6 @@
          x="74.203552"
          y="550.76849"
          style="font-size:7.05556px;stroke-width:0.264583">context</tspan></text>
-    <path
-       inkscape:export-ydpi="192"
-       inkscape:export-xdpi="192"
-       sodipodi:nodetypes="cc"
-       inkscape:connector-curvature="0"
-       id="path7169-4"
-       d="m 119.54839,544.29336 c 0,0 8.73125,-3.96874 9.78959,-15.87499"
-       style="fill:none;stroke:#2a7fff;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7221-85778)"
-       inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
-    <path
-       inkscape:export-ydpi="192"
-       inkscape:export-xdpi="192"
-       inkscape:connector-curvature="0"
-       id="path7171-7"
-       d="m 140.1858,526.83086 c 3.175,10.58333 11.37708,16.13958 11.37708,16.13958"
-       style="fill:none;stroke:#2a7fff;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7181-73306)"
-       inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png"
-       sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -6634,45 +6716,45 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;line-height:0.95;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#2a7fff;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="118.54392"
-       y="550.88629"
+       x="135.47726"
+       y="544.40399"
        id="text7428-2-69"
        inkscape:export-filename="/home/yky/latex/2021/long-term-memory.png"
        inkscape:export-xdpi="192"
        inkscape:export-ydpi="192"><tspan
          sodipodi:role="line"
          id="tspan7426-2-3"
-         x="118.54392"
-         y="550.88629"
+         x="135.47726"
+         y="544.40399"
          style="font-size:7.05556px;fill:#2a7fff;stroke-width:0.264583">sentence</tspan><tspan
          sodipodi:role="line"
-         x="118.54392"
-         y="557.58905"
+         x="135.47726"
+         y="551.10675"
          style="font-size:7.05556px;fill:#2a7fff;stroke-width:0.264583"
          id="tspan2759">in</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;line-height:0.95;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#2a7fff;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="155.85016"
-       y="550.35712"
+       x="161.06358"
+       y="478.1066"
        id="text7428-2-7"
        inkscape:export-filename="/home/yky/latex/2021/long-term-memory.png"
        inkscape:export-xdpi="192"
        inkscape:export-ydpi="192"><tspan
          sodipodi:role="line"
-         x="155.85016"
-         y="550.35712"
+         x="161.06358"
+         y="478.1066"
          style="font-size:7.05556px;fill:#2a7fff;stroke-width:0.264583"
          id="tspan2761">some</tspan><tspan
          sodipodi:role="line"
-         x="155.85016"
-         y="557.05994"
+         x="161.06358"
+         y="484.80939"
          style="font-size:7.05556px;fill:#2a7fff;stroke-width:0.264583"
-         id="tspan4020">conclusion</tspan></text>
+         id="tspan4020">conclusions</tspan></text>
     <g
-       inkscape:export-ydpi="768"
-       inkscape:export-xdpi="768"
-       transform="translate(-10.842141,344.97154)"
+       inkscape:export-ydpi="192"
+       inkscape:export-xdpi="192"
+       transform="translate(10.853691,344.97154)"
        id="g494-9-6-3"
        style="stroke-width:0.79375;stroke-miterlimit:4;stroke-dasharray:none">
       <rect
@@ -6693,55 +6775,12 @@
            x="105.1095"
            y="153.33125"
            style="text-align:center;text-anchor:middle;stroke-width:0.79375;stroke-miterlimit:4;stroke-dasharray:none"
-           id="tspan487-8-5-5">BERT</tspan></text>
-    </g>
-    <g
-       id="g6311">
-      <path
-         inkscape:export-ydpi="192"
-         inkscape:export-xdpi="192"
-         sodipodi:nodetypes="cc"
-         inkscape:connector-curvature="0"
-         id="path7169-2"
-         d="m 90.890021,512.97549 v -9.2604"
-         style="fill:none;stroke:#000000;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7221-3)"
-         inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
-      <path
-         inkscape:export-ydpi="192"
-         inkscape:export-xdpi="192"
-         sodipodi:nodetypes="cc"
-         inkscape:connector-curvature="0"
-         id="path7169-2-3"
-         d="m 98.827526,512.97549 v -9.2604"
-         style="fill:none;stroke:#000000;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7221-3-0)"
-         inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
-    </g>
-    <g
-       id="g6311-6"
-       transform="translate(0,-22.754175)">
-      <path
-         inkscape:export-ydpi="192"
-         inkscape:export-xdpi="192"
-         sodipodi:nodetypes="cc"
-         inkscape:connector-curvature="0"
-         id="path7169-2-1"
-         d="m 90.890021,512.97549 v -9.2604"
-         style="fill:none;stroke:#000000;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7221-3-6)"
-         inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
-      <path
-         inkscape:export-ydpi="192"
-         inkscape:export-xdpi="192"
-         sodipodi:nodetypes="cc"
-         inkscape:connector-curvature="0"
-         id="path7169-2-3-8"
-         d="m 98.827526,512.97549 v -9.2604"
-         style="fill:none;stroke:#000000;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7221-3-0-6)"
-         inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
+           id="tspan487-8-5-5">BERT'</tspan></text>
     </g>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="95.267502"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#2a7fff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="116.96334"
        y="477.36908"
        id="text7428-2-6-7"
        inkscape:export-filename="/home/yky/latex/2021/long-term-memory.png"
@@ -6749,9 +6788,56 @@
        inkscape:export-ydpi="192"><tspan
          sodipodi:role="line"
          id="tspan7426-2-5-9"
-         x="95.267502"
+         x="116.96334"
          y="477.36908"
-         style="font-size:7.05556px;stroke-width:0.264583">next tokens</tspan></text>
+         style="font-size:7.05556px;fill:#2a7fff;fill-opacity:1;stroke-width:0.264583">next tokens</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="62.976616"
+       y="463.77463"
+       id="text1277"><tspan
+         sodipodi:role="line"
+         id="tspan1275"
+         x="62.976616"
+         y="463.77463"
+         style="font-size:7.05556px;stroke-width:0.264583" /></text>
+    <g
+       id="g6311-5"
+       transform="translate(40.878259,24.870845)"
+       style="font-variation-settings:normal;vector-effect:none;fill:none;fill-opacity:1;stroke:#2a7fff;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker7221-85778);stop-color:#000000"
+       inkscape:export-xdpi="192"
+       inkscape:export-ydpi="192">
+      <path
+         inkscape:export-ydpi="192"
+         inkscape:export-xdpi="192"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path7169-2-33"
+         d="m 90.890021,512.97549 v -9.2604"
+         style="font-variation-settings:normal;vector-effect:none;fill:none;fill-opacity:1;stroke:#2a7fff;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker8262-5);stop-color:#000000;stop-opacity:1"
+         inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
+      <path
+         inkscape:export-ydpi="192"
+         inkscape:export-xdpi="192"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path7169-2-3-83"
+         d="m 98.827526,512.97549 v -9.2604"
+         style="font-variation-settings:normal;vector-effect:none;fill:none;fill-opacity:1;stroke:#2a7fff;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker8272-7);stop-color:#000000;stop-opacity:1"
+         inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.264583"
+       x="67.258224"
+       y="570.74219"
+       id="text52755"><tspan
+         sodipodi:role="line"
+         id="tspan52753"
+         x="67.258224"
+         y="570.74219"
+         style="stroke-width:0.264583" /></text>
   </g>
   <g
      inkscape:label="Hidden"

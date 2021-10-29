@@ -159,6 +159,21 @@ Jerry Hobbs 提出 abductive interpretation of natural language\\
 		而这件事没有因为 深度学习的出现而解决。
 \end{itemize}
 
+\section*{Hot-swap architecture}
+
+\begin{equation}
+\vcenter{\hbox{\includegraphics[scale=0.9]{hot-swap-architecture.png}}}
+\end{equation}
+
+\begin{itemize}
+	\item 问题是 BERT 和 Sym 的 state 是否可以混合？
+	\item 主要目的是想将 BERT states 变成 ground states,\\
+		则以后可以「接地应用」
+	\item 如果可以将 BERT 的知识内容 转移到 Sym，似乎是有益的
+	\item 问题是 如果用 RL + Sym 训练 masked language model, \\
+		凭什么 觉得 这样 学到的知识 是 grounded?
+\end{itemize}
+
 % \section*{References}
 % \cc{欢迎提问和讨论}{Questions, comments welcome} \smiley \\ \vspace*{0.4cm}
 % \printbibliography
