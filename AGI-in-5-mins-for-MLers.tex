@@ -172,6 +172,24 @@ Jerry Hobbs 提出 abductive interpretation of natural language\\
 	\item 如果可以将 BERT 的知识内容 转移到 Sym，似乎是有益的
 	\item 问题是 如果用 RL + Sym 训练 masked language model, \\
 		凭什么 觉得 这样 学到的知识 是 grounded?
+	\item 所谓 grounded 就是依照 internal consistency 训练，\\
+		但如果依照 token prediction 会如何？
+	\item Next sentence / token prediction 不是真的知识，\\
+		因为缺乏深层理解，有时甚至是错的
+	\item 先前说过 如果要学习 logical consistency 需要 量度 压缩，\\
+		但深度学习没有 压缩 metric，\\
+		只能量度 prediction accuracy.
+	\item 所以 token prediction 其实也没有影响 groundedness
+\end{itemize}
+
+\section*{BERT 的奇怪点}
+
+\begin{itemize}
+	\item $N$-in $N$-out 表示 它每次可以输出 $N$ 个结论
+	\item 但 $Q, K, V$ 是同一组矩阵，是不是表示 只有 \textbf{1条} rule？
+	\item 其实每个 概念 可以代表 1条 rule，类似 $Q \Rightarrow V$
+	\item 从 Neural Turing Machine 的角度，\\
+		它是某种 content-addressed memory retrieval
 \end{itemize}
 
 % \section*{References}
