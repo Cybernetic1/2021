@@ -258,7 +258,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1"
      inkscape:cx="400"
-     inkscape:cy="600"
+     inkscape:cy="560"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -325,7 +325,7 @@
        inkscape:export-xdpi="192"
        inkscape:connector-curvature="0"
        id="path7171-7"
-       d="m 133.64027,58.74971 c 3.175,10.583333 11.37708,16.139583 11.37708,16.139583"
+       d="m 137.60902,47.63721 c 3.175,10.583333 11.37708,16.139583 11.37708,16.139583"
        style="fill:none;stroke:#2a7fff;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7181-73306)"
        inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png"
        sodipodi:nodetypes="cc" />
@@ -385,7 +385,7 @@
        inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
     <g
        id="g6311-6"
-       transform="translate(-22.420525,-422.04366)">
+       transform="translate(36.316975,-450.08949)">
       <path
          inkscape:export-ydpi="192"
          inkscape:export-xdpi="192"
