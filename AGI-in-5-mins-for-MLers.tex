@@ -188,15 +188,17 @@ Jerry Hobbs 提出 abductive interpretation of natural language\\
 	\item $N$-in $N$-out 表示 它每次可以输出 $N$ 个结论
 	\item 但 $Q, K, V$ 是同一组矩阵，是不是表示 只有 \textbf{1条} rule？
 	\item 其实每个 概念 可以代表 1条 rule，类似 $Q \Rightarrow V$
-	\item 从 Neural Turing Machine 的角度，\\
-		它是某种 content-addressed memory retrieval
-	\item 一个重要问题是 BERT 怎样做 $\forall$ quantification?
+	\item 以前也猜测过 Q-K-V 是一种 universal computation.
+	\item 最有趣问题是 BERT 如何做到 $\forall$ quantification?
 		\begin{equation}
 		\vcenter{\hbox{\includegraphics[scale=1]{BERT-forall-quantification.png}}}
 		\end{equation}
+	\item 从 Neural Turing Machine 的角度，\\
+		它是某种 content-addressed memory retrieval
 	\item 关键是在 ``therefore'' axis 上预测了 Socrates.
 	\item 似乎在其他的 nodes 里 存在有 compound concepts.
 	\item 而最后 Socrates 从某些 compound(s) 里面 提取了出来.
+	\item 
 \end{itemize}
 
 % \section*{References}
