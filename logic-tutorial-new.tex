@@ -993,7 +993,9 @@ H_{\bullet}: \mathcal{A} \rightarrow [\mathcal{A}^{\mathrm{op}} , \mathbf{Set}]
 
 There is an isomorphism between the types $a$ and $\forall r. (a \rightarrow r) \rightarrow r$.  It follows from the Yoneda lamma.
 
-The type $\forall r. (a \rightarrow r) \rightarrow r$ is also known as the \textbf{continuation-passing style} of the type $a$.
+The type $\forall r. (a \rightarrow r) \rightarrow r$ is also known as the \textbf{continuation-passing style} (CPS) of the type $a$.
+
+Intuitively, CPS can be understand as saying that:  having a value is just as good as having a function that will give that value to a callback.
 
 The continution-passing style may be of special importance to logic, because it allows to extend the Curry-Howard correspondence to \textbf{classical} logic.  As we know, this correspondence is originally between \textbf{intuitionistic} logic and type theory.  The continuation-passing style corresponds to classical negation. 
 
