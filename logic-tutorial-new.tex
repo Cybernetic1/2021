@@ -74,7 +74,7 @@
 \begin{itemize}
 \cc{\item 描述一种可以完整地解决 AGI 的 univeral logic
 }{
-\item Describes a kind of univeral logic suitable for solving AGI.
+\item Outlines the mathematical structure of logic as formulated using category theory, the latest and most satisfactory approach so far.  This mathematical knowledge may help the AGI designer if they want to endow neural networks with logic structure, if this is deemed desirable.
 }
 \end{itemize}
 
@@ -1244,9 +1244,11 @@ In topos theory $A \Rightarrow B$ is adjoint (via the hom-product adjunction) to
 }
 (Heyting algebra is to intuitionistic logic what Boolean algebra is to classical logic.)
 
-\cc{例如，以下的 \emp{拓樸}模型 和 \emp{格} (lattice) 模型，都是 Heyting algebra 的模型： （下图的两个例子似乎不正确，有待修改....）
+Reference: \parencite{Dunn2001}
+
+\cc{例如，以下的 \emp{拓樸}模型 和 \emp{格} (lattice) 模型，都是 Heyting algebra 的模型： 
 }{
-	For example, the following \emp{topological} model and \emp{lattice} model are both models of Heyting algebra: (The two examples in the figure below seem incorrect and need to be modified...)
+	For example, the following \emp{topological} model and \emp{lattice} model are both models of Heyting algebra:
 }
 \cc{
 \begin{equation}
@@ -1272,14 +1274,14 @@ In topos theory $A \Rightarrow B$ is adjoint (via the hom-product adjunction) to
 \boxed{
 	\begin{aligned}
 	\mbox{rain} & \\
-	& \hspace*{1em} \boxed{\mbox{grass wet}} \\
+	& \boxed{\mbox{grass wet}} \\
 	& \boxed{\mbox{no tennis}} \; 
 	\end{aligned}
 } \quad \quad
 \vcenter{\hbox{
 		\begin{tikzpicture}[scale=0.8]
 		\node[label={[xshift=0em, yshift=-0.5em]\mbox{rain}}] (a) at (1,0) {\textbullet};
-		\node[label={[xshift=-0.5em, yshift=-2em]\mbox{grass wet}}, swap] (b) at (0,-2) {\textbullet};
+		\node[label={[xshift=-1em, yshift=-2.22em]\mbox{grass wet}}, swap] (b) at (0,-2) {\textbullet};
 		\node[label={[xshift=1.5em, yshift=-2em]\mbox{no tennis}}, swap] (c) at (2,-2) {\textbullet};
 		\draw[-,shorten <=-10pt, shorten >=-10pt] (a) to (b);
 		\draw[-,shorten <=-10pt, shorten >=-10pt] (a) to (c);
@@ -1289,12 +1291,24 @@ In topos theory $A \Rightarrow B$ is adjoint (via the hom-product adjunction) to
 }
 \cc{两者之间是等价的，起源於 \emp{Stone duality} (every Boolean algebra is isomorphic to a topology of open sets)，其后再被推广到 \emp{Priestley} 拓扑对偶 等，都是大同小异的。
 }{
-	The two are equivalent, originated from \emp{Stone duality} (every Boolean algebra is isomorphic to a topology of open sets), and then generalized to \emp{Priestley} topological duality, etc., all of which are similar .
+	The two are equivalent from \emp{Stone duality} (every Boolean algebra is isomorphic to a topology of open sets), and then generalized to \emp{Priestley} topological duality, etc., all of which are similar .
 }
+
+The relation $\le$ defines the ``cover'' relation:
+\begin{equation}
+a \mbox{ covers } b \quad \mbox{means} \quad a \le b \mbox{ ``immediately''}
+\end{equation}
+and this defines also the \textbf{Hasse diagram}.
+
+A lattice can be equivalently turned into an algebra via:
+\begin{equation}
+a \le b \quad \Leftrightarrow \quad  a * b = a.
+\end{equation}
+This yields a semi-lattice.  A lattice has 2 operations, where * can be either meet $\wedge$ or join $\vee$.
 
 \cc{注意： $\mbox{下雨} \Heytingarrow \mbox{草地湿}$ 是 Heyting implication，这个 $\Heytingarrow$ 的存在 并不是因为「下雨」的\textbf{真值} 比「草地湿」的\textbf{真值 小}。 
 }{
-	Note: $\mbox{rainy} \Heytingarrow \mbox{grass wet}$ is Heyting implication. The existence of this $\Heytingarrow$ is not because the \textbf{true value} of "rainy" is better than "grass wet"\ textbf{true value is small}.
+	Note: $\mbox{rainy} \Heytingarrow \mbox{grass wet}$ is Heyting implication. The existence of this $\Heytingarrow$ is not because the \textbf{true value} of "rainy" is better than "grass wet" \textbf{true value is small}.
 }
 
 \cc{The Heyting implication $a \Heytingarrow b$ exists for all elements $a, b, x$ such that:
