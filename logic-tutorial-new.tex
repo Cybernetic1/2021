@@ -995,11 +995,17 @@ There is an isomorphism between the types $a$ and $\forall r. (a \rightarrow r) 
 
 In the theory of functional programming, the type $\forall r. (a \rightarrow r) \rightarrow r$ is also known as the \textbf{continuation-passing style} (CPS) of the type $a$.
 
-Intuitively, CPS can be understood as that: having a value is just as good as having a function that will give that value to a callback.
+Intuitively, CPS can be understood as saying that having a value is just as good as having a function that will give that value to a callback.
 
 CPS is of special interest to logic, because it allows to extend the Curry-Howard correspondence from intuitionistic logic to \textbf{classical} logic.
 
-There exists a \textbf{Kolmogorov translation} that converts a classical proposition to an intuitionistic proposition.  The Kolmogorov translation is a special case of CPS.
+\{ Explain CPS in functional programming... \}
+
+There exists a \textbf{Kolmogorov translation} $k(\cdot)$ that converts a proposition such that (basically) each atom is preceded by a double negation ($\neg \neg$).  This translation has the property that
+\begin{equation}
+\phi \mbox{ provable in classical logic} \Leftrightarrow k(\phi) \mbox{ provable in intuitionistic logic.}
+\end{equation}
+The Kolmogorov translation is a special case of CPS.
 
 \subsubsection{(Application?) symmetric neural networks}
 
