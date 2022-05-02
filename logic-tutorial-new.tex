@@ -207,8 +207,8 @@ x \mbox{\cc{ 是偶数}{ is even}} \Longrightarrow x + 2 \mbox{\cc{ 是偶数}{ 
 \end{equation}
 \tolerance=99999
 \cc{This is called the \emp{Brouwer-Heyting-Kolmogorov (BHK) interpretation}.  由於这个想法比较 subtle，它不断被重复发现很多次，命名者可以包括： Brouwer-Heyting-Kolmogorov-Sch\"{o}nfinkel-Curry-Meredith-Kleene-Feys-G\"{o}del-L\"{a}uchli-Kreisel-Tait-Lawvere-Howard-\mbox{de Bruijn}-Scott-Martin-L\"{o}f-Girard-Reynolds-Stenlund-Constable-Coquand-Huet-Lambek ....
-}{
-	This is called the \emp{Brouwer-Heyting-Kolmogorov (BHK) interpretation}.  Because of the subtlety of the idea, it has been re-discovered many times.  The names can include: Brouwer-Heyting-Kolmogorov-Sch\"{o}nfinkel -Curry-Meredith-Kleene-Feys-G\"{o}del-L\"{a}uchli-Kreisel-Tait-Lawvere-Howard-\mbox{de Bruijn}-Scott-Martin-L\"{o} f-Girard-Reynolds-Stenlund-Constable-Coquand-Huet-Lambek...
+}
+	{This is called the \emp{Brouwer-Heyting-Kolmogorov (BHK) interpretation}.  Because of the subtlety of the idea, it has been re-discovered many times.  The names can include: Brouwer-Heyting-Kolmogorov-Sch\"{o}nfinkel -Curry-Meredith-Kleene-Feys-G\"{o}del-L\"{a}uchli-Kreisel-Tait-Lawvere-Howard-\mbox{de Bruijn}-Scott-Martin-L\"{o} f-Girard-Reynolds-Stenlund-Constable-Coquand-Huet-Lambek...
 }
 
 \cc{根据 HoTT (homotopy type theory)，一个命题 可以\textbf{有}或\textbf{没有}证明； 如果有，则它的证明都是一样的，所以 经典逻辑命题 只可以取值 \textbf{真}或\textbf{假}。 我的理论推断： 模糊逻辑的取值 $\in [ 0,1 ]$ 是因为 fuzzy 命题 可以有「部分」的证明（见 \S\ref{sec:fuzzy-logic}）。 
@@ -743,6 +743,41 @@ Y \arrow[r, swap, "\ulcorner m \urcorner"] & {\color{red}\Omega}
 	The ${\color{red}\mathrel{\substack{1\\\downarrow\\\Omega}}}$ on the right is called the \emp{generic subobject}.  Its \emp{pull back} square is indicated by ${\color{red}\lrcorner}$.  And the $\mathrel{\substack{X\\\downarrow\\Y}}$ on the left is a general sub-object.  We say that the \textbf{property} of being a sub-object is \emp{stable under pullbacks}.
 }
 
+\subsection{Interpreting logic in a topos}
+
+Key idea is that propositions are interpreted as ``maps towards $\Omega$'':
+\begin{equation}
+p: \Gamma \rightarrow \Omega
+\label{eqn:proposition-in-topos}
+\end{equation}
+This is very natural, because propositions are functions that return truth values.
+
+$\Gamma$ is a \textbf{variable context} specifying the arguments (and their types) that the predicate $p$ depends on.  For example, if $p$ is of the form $p(x_1, x_2, ...)$, then
+\begin{equation}
+\Gamma = x_1{:}A_1, x_2{:}A_2, ... = A_1 \times A_2 \times ...
+\end{equation}
+
+According to topos theory, (\ref{eqn:proposition-in-topos}) is also a \textbf{subobject} of $\Gamma$.  For example, the predicate ``Male'' is a subobject of the domain of ``Humans''.
+
+\subsubsection{Interpreting $\Rightarrow$}
+
+In proof theory, the arrow $\Rightarrow$ arises from the ($\Rightarrow$I) rule:
+\begin{equation}
+\frac{ \Gamma | \Phi, \phi \vdash \psi }
+{ \Gamma | \Phi \vdash \phi \Rightarrow \psi }
+\qquad (\Rightarrow\mathrm{I})
+\end{equation}
+where $\Gamma | \Phi$ denotes the \textbf{variable context} $\Gamma$ concatenated with the \textbf{propositional context} or \textbf{context of assumptions} $\Phi$.
+
+The entailment relation $\vdash$ is interpreted also as subobject or \textbf{inclusion}:
+\begin{equation}
+\Gamma | \; \phi_1, \phi_2, ... \vdash \psi
+\qquad \mbox{means} \qquad
+\llbracket \phi_1 \rrbracket \wedge \llbracket \phi_2 \rrbracket \wedge ... \; {\color{red}\le} \; \llbracket \psi \rrbracket
+\end{equation}
+
+Recall that, under the Curry-Howard interpretation for propositional logic, $\Rightarrow$ corresponds to $\lambda$-terms and to morphisms in a CCC (Cartesian-closed Category).  Now every topos is automatically a CCC.  In a topos, $\Rightarrow$ is interpreted as sub-objects, but nevertheless they are still morphisms.
+
 \subsection{$\forall$ and $\exists$ as adjunctions}
 
 Let $\mbox{Forms}(\bar{X})$ denote the set of formulas with only the variables $\bar{X}$ free. ($\bar{X}$ may contain multiple variables.)
@@ -847,7 +882,7 @@ C & \qquad & C \nonumber \\
 
 \cc{$\vdash$ 的功能和 $\Rightarrow$ 类似，但 $\vdash$ 是 \textbf{元逻辑} (meta-logic) 的符号，而 $\Rightarrow$ 是逻辑\textbf{之内}的算符。
 }{
-	The function of $\vdash$ is similar to $\Rightarrow$, but $\vdash$ is a \textbf{meta-logic} symbol, whereas $\Rightarrow$ is an operator within logic.
+	The role of $\vdash$ is similar to $\Rightarrow$, but $\vdash$ is a \textbf{meta-logic} symbol, whereas $\Rightarrow$ is an operator within logic.
 }
 
 \cc{在 (\ref{eqn:deduction}) 中，${\color{red} A \Rightarrow D}$ 导致了 $A \vdash D$ 的出现。
@@ -1194,7 +1229,7 @@ Continuum hypothesis (CH):
 
 \subsection{Sheaves}
 
-Sheaves capture the idea of ``indexing''.
+Sheaves are automatically toposes, and like the topos they capture the idea of ``indexing''.
 
 Functors $\mathcal{C}^{\mathrm{op}} \rightarrow \mathbf{Set}$ are called \emp{pre-sheaves} on $\mathcal{C}$.
 
@@ -1238,8 +1273,6 @@ In topos theory $A \Rightarrow B$ is adjoint (via the hom-product adjunction) to
 
 \subsection{Heyting algebra}
 
-{\color{red} English translation proofread up to here.}
-
 \begin{equation}
 \mbox{Arend Heyting (1898-1980)} \quad 
 \vcenter{\hbox{\includegraphics[scale=0.3]{../2020/Heyting.jpg}}}
@@ -1252,59 +1285,66 @@ In topos theory $A \Rightarrow B$ is adjoint (via the hom-product adjunction) to
 
 Reference: \parencite{Dunn2001}
 
-\cc{例如，以下的 \emp{拓樸}模型 和 \emp{格} (lattice) 模型，都是 Heyting algebra 的模型： 
+A lattice is an \textbf{order} structure.  There are many variations of order structures, satisfying various conditions such as distributivity, modularity, etc, which we won't go into details.  Among lattice structures, the examples important to us are: \textbf{Boolean lattices} (which model propositions of classical logic) and \textbf{Heyting lattices} (which model propositions of intuitionistic logic).  
+
+The important thing to remember is:  in lattice theory, the order $a \le b$ usually corresponds to $a \Rightarrow b$ in logic.  Notice the arrow direction is reversed \footnote{I don't know the precise reason for this, perhaps this is just a matter of convention.}.  In the lattice, we can form new elements such as $a \wedge b$ and $a \vee b$, these of course correspond to compound logic propositions formed via logic connectives.  The lattice shows us the \textbf{implication order} ($\Rightarrow$) among such propositions.  For example, the following are Boolean lattices of 2 and 3 elements \footnote{I have not carefully examined why some elements are included or not.}:
+\begin{equation}
+\vcenter{\hbox{\includegraphics[scale=0.7]{Boolean-lattice.png}}}
+\qquad
+\vcenter{\hbox{\includegraphics[scale=0.7]{Boolean-lattice-eg1.png}}}
+\end{equation}
+The above are examples of \emp{Hasse diagrams}, with edges showing the $\le$ order.  Notice that not every $\le$ relation is shown;   the Hasse diagram only shows those edges where $a \le b$ ``immediately'', ie. the ``cover'' relation:
+\begin{equation}
+a \mbox{ covers } b \quad \mbox{means} \quad a \le b \mbox{ ``immediately''}
+\end{equation}
+
+\cc{以下的 \emp{拓樸}模型 和 \emp{格} (lattice) 模型，都是 Heyting algebra 的模型： 
 }{
-	For example, the following \emp{topological} model and \emp{lattice} model are both models of Heyting algebra:
+	The following \emp{topological} model and \emp{lattice} model are both models of Heyting algebra:
 }
 \cc{
-\begin{equation}
-\boxed{
-	\begin{aligned}
-	\mbox{下雨} & \\
-	& \hspace*{1em} \boxed{\mbox{草地湿}} \\
-	& \boxed{\mbox{没得打网球}} \; 
-	\end{aligned}
-} \quad \quad
-\vcenter{\hbox{
-		\begin{tikzpicture}[scale=0.8]
-		\node[label={[xshift=0em, yshift=-0.5em]\mbox{下雨}}] (a) at (1,0) {\textbullet};
-		\node[label={[xshift=-0.5em, yshift=-2em]\mbox{草地湿}}, swap] (b) at (0,-2) {\textbullet};
-		\node[label={[xshift=1.5em, yshift=-2em]\mbox{没得打网球}}, swap] (c) at (2,-2) {\textbullet};
-		\draw[-,shorten <=-10pt, shorten >=-10pt] (a) to (b);
-		\draw[-,shorten <=-10pt, shorten >=-10pt] (a) to (c);
-		\end{tikzpicture}
-}}
-\end{equation}
+	\begin{equation}
+	\boxed{
+		\begin{aligned}
+		\mbox{下雨} & \\
+		& \hspace*{1em} \boxed{\mbox{草地湿}} \\
+		& \boxed{\mbox{没得打网球}} \; 
+		\end{aligned}
+	} \quad \quad
+	\vcenter{\hbox{
+			\begin{tikzpicture}[scale=0.8]
+			\node[label={[xshift=0em, yshift=-0.5em]\mbox{下雨}}] (a) at (1,0) {\textbullet};
+			\node[label={[xshift=-0.5em, yshift=-2em]\mbox{草地湿}}, swap] (b) at (0,-2) {\textbullet};
+			\node[label={[xshift=1.5em, yshift=-2em]\mbox{没得打网球}}, swap] (c) at (2,-2) {\textbullet};
+			\draw[-,shorten <=-10pt, shorten >=-10pt] (a) to (b);
+			\draw[-,shorten <=-10pt, shorten >=-10pt] (a) to (c);
+			\end{tikzpicture}
+	}}
+	\end{equation}
 }{
-\begin{equation}
-\boxed{
-	\begin{aligned}
-	\mbox{rain} & \\
-	& \boxed{\mbox{grass wet}} \\
-	& \boxed{\mbox{no tennis}} \; 
-	\end{aligned}
-} \quad \quad
-\vcenter{\hbox{
-		\begin{tikzpicture}[scale=0.8]
-		\node[label={[xshift=0em, yshift=-0.1em]\mbox{rain}}] (a) at (1,0) {\textbullet};
-		\node[label={[xshift=-1em, yshift=-2.22em]\mbox{grass wet}}, swap] (b) at (0,-2) {\textbullet};
-		\node[label={[xshift=1.5em, yshift=-2em]\mbox{no tennis}}, swap] (c) at (2,-2) {\textbullet};
-		\draw[-,shorten <=-10pt, shorten >=-10pt] (a) to (b);
-		\draw[-,shorten <=-10pt, shorten >=-10pt] (a) to (c);
-		\end{tikzpicture}
-}}
-\end{equation}
+	\begin{equation}
+	\boxed{
+		\begin{aligned}
+		\mbox{rain} & \\
+		& \boxed{\mbox{grass wet}} \\
+		& \boxed{\mbox{no tennis}} \; 
+		\end{aligned}
+	} \quad \quad
+	\vcenter{\hbox{
+			\begin{tikzpicture}[scale=0.8]
+			\node[label={[xshift=0em, yshift=-0.1em]\mbox{rain}}] (a) at (1,0) {\textbullet};
+			\node[label={[xshift=-1em, yshift=-2.22em]\mbox{grass wet}}, swap] (b) at (0,-2) {\textbullet};
+			\node[label={[xshift=1.5em, yshift=-2em]\mbox{no tennis}}, swap] (c) at (2,-2) {\textbullet};
+			\draw[-,shorten <=-10pt, shorten >=-10pt] (a) to (b);
+			\draw[-,shorten <=-10pt, shorten >=-10pt] (a) to (c);
+			\end{tikzpicture}
+	}}
+	\end{equation}
 }
 \cc{两者之间是等价的，起源於 \emp{Stone duality} (every Boolean algebra is isomorphic to a topology of open sets)，其后再被推广到 \emp{Priestley} 拓扑对偶 等，都是大同小异的。
 }{
 	The two are equivalent from \emp{Stone duality} (every Boolean algebra is isomorphic to a topology of open sets), and then generalized to \emp{Priestley} topological duality, etc., all of which are similar .
 }
-
-The relation $\le$ defines the ``cover'' relation:
-\begin{equation}
-a \mbox{ covers } b \quad \mbox{means} \quad a \le b \mbox{ ``immediately''}
-\end{equation}
-and this defines also the \emp{Hasse diagram}.
 
 A lattice can be equivalently turned into an algebra via:
 \begin{equation}
@@ -1314,13 +1354,10 @@ This yields a semi-lattice.  A lattice has 2 operations, where * can be either m
 
 \cc{注意： $\mbox{下雨} \Heytingarrow \mbox{草地湿}$ 是 Heyting implication，这个 $\Heytingarrow$ 的存在 并不是因为「下雨」的\textbf{真值} 比「草地湿」的\textbf{真值 小}。 
 }{
-	Note: $\mbox{rainy} \Heytingarrow \mbox{grass wet}$ is Heyting implication. The existence of this $\Heytingarrow$ is not because the \textbf{true value} of "rainy" is better than "grass wet" \textbf{true value is small}.
+	Note: $\mbox{rainy} \Heytingarrow \mbox{grass wet}$ is a Heyting implication.  This $\Heytingarrow$ arrow does not mean the \textbf{true value} of ``rainy'' is larger than that of ``grass wet''.
 }
 
-\cc{The Heyting implication $a \Heytingarrow b$ exists for all elements $a, b, x$ such that:
-}{
-	The Heyting implication $a \Heytingarrow b$ exists for all elements $a, b, x$ such that:
-}
+The Heyting implication $a \Heytingarrow b$ exists for all elements $a, b, x$ such that:
 \begin{equation}
 x \le (a \Heytingarrow b) \quad \mbox{iff} \quad (x \wedge a) \le b.
 \end{equation}
@@ -1332,18 +1369,30 @@ x \le (a \Heytingarrow b) \quad \mbox{iff} \quad (x \wedge a) \le b.
 
 \cc{可以用以下例子说明 Heyting implication $\Heytingarrow$ 的定义：
 }{
-	The following example can be used to illustrate the definition of Heyting implication $\Heytingarrow$:
+	The following example may illustrate the definition of Heyting implication $\Heytingarrow$:
 }
-\begin{equation}
-\forall X. \quad X \subseteq (\highlight{\mbox{下雨} \Heytingarrow \mbox{草地湿}}) \quad \mbox{iff} \quad (X \wedge \mbox{下雨}) \subseteq \mbox{草地湿}
-\end{equation}
-\begin{equation}
-\vcenter{\hbox{\includegraphics[scale=0.8]{../2020/topology-Heyting-rain-wet.png}}}
-\end{equation}
+\cc{
+	\begin{equation}
+	\forall X. \quad X \subseteq (\highlight{\mbox{下雨} \Heytingarrow \mbox{草地湿}}) \quad \mbox{iff} \quad (X \wedge \mbox{下雨}) \subseteq \mbox{草地湿}
+	\end{equation}
+}{
+	\begin{equation}
+	\forall X. \quad X \subseteq (\highlight{\mbox{rain} \Heytingarrow \mbox{grass wet}}) \quad \mbox{iff} \quad (X \wedge \mbox{rain}) \subseteq \mbox{grass wet}
+	\end{equation}
+}
+\cc{
+	\begin{equation}
+	\vcenter{\hbox{\includegraphics[scale=0.8]{../2020/topology-Heyting-rain-wet.png}}}
+	\end{equation}
+}{
+	\begin{equation}
+	\vcenter{\hbox{\includegraphics[scale=0.8]{../2020/topology-Heyting-rain-wet(En).png}}}
+	\end{equation}
+}
 
 \cc{经典逻辑的 $\Rightarrow$ 和 直觉主义逻辑 $\Heytingarrow$ 只有 在\textbf{边界}上的 微小差异：
 }{
-	The classic logic $\Rightarrow$ and the intuitive logic $\Heytingarrow$ have only minor differences on the \textbf{boundary}:
+	The classical $\Rightarrow$ and the intuitive $\Heytingarrow$ have only minor differences on the \textbf{boundary}:
 }
 \begin{align}
 \mbox{classical $A \Rightarrow B$} \qquad & \qquad
@@ -1364,24 +1413,20 @@ x \le (a \Heytingarrow b) \quad \mbox{iff} \quad (x \wedge a) \le b.
 \end{align}
 \cc{这可以看成是 将白色部分不断 缩小并「消灭掉」的结果。 
 }{
-	This can be seen as the result of continuously shrinking and "wiping out" the white part.
+	This can be seen as the result of continuously shrinking and ``wiping out'' the white part.
 }
 
-\cc{根据 Stone duality, 既然可以用 Boolean 或 Heyting algebra 做逻辑推导，因此 也可以用 toplogy of (open) sets 做逻辑推导。 其根据的就是：
+\cc{根据 Stone duality, 既然可以用 Boolean 或 Heyting algebra 做逻辑推导，因此 也可以用 toplogy of (open) sets 做逻辑推导。 其根据就是 以下的等价：
 }{
-	According to Stone duality, since Boolean or Heyting algebra can be used for logical derivation, toplogy of (open) sets can also be used for logical derivation. The basis is:
+	According to Stone duality, since Boolean or Heyting algebra can be used for logical derivation, toplogy of (open) sets can also be used for logical derivation. The basis is the equivalence:
 }
 \begin{equation}
-A \vdash B \quad \mbox{和} \quad A \subseteq B
+A \vdash B \quad \Leftrightarrow \quad A \subseteq B
 \end{equation}
-\cc{之间的 等价。
-}{
-	The equivalence between.
-}
 
 \cc{这种 topology 可以视为 \textbf{truth table} 的一种形式，如下图所示，每个\textbf{区域}代 表 真值表的\textbf{一行}：
 }{
-	This kind of topology can be regarded as a form of \textbf{truth table}, as shown in the following figure, each \textbf{area} represents \textbf{line} of the truth table:
+	This kind of topology can be regarded as a form of \textbf{truth table}, as shown in the following figure, where each \textbf{area} represents a \textbf{row} of the truth table:
 }
 \begin{equation}
 \begin{tabular}{|c|c|c|c|}
@@ -1411,39 +1456,27 @@ $\bot$ & $\bot$ & $\bot$ & 8 \\
 
 \cc{之所以讲这么多，目的是想说明，Heyting algebra 和我们熟悉的 Boolean algebra 其实有很多共通点。 
 }{
-	The reason why I have said so much is to explain that Heyting algebra and the familiar Boolean algebra actually have a lot in common.
+	All this seems to show that Heyting algebra and the more familiar Boolean algebra actually have a lot in common.
 }
 
 \cc{另一点发现是，在 \S\ref{sec:material-implication} 所说的 material implication 问题，在 intuitionistic logic 里仍然存在。
 }{
-	Another finding is that the material implication problem mentioned in \S\ref{sec:material-implication} still exists in intuitionistic logic.
+	Another insight is that the material implication problem in \S\ref{sec:material-implication} still exists in intuitionistic logic.
 }
 
-\cc{In a topos $\mathbb{E}$, the subobject $\mathrm{Sub}_{\mathbb{E}}(A)$ is a \emp{poset} that admits \emp{Heyting implication}.  
-}{
-	In a topos $\mathbb{E}$, the subobject $\mathrm{Sub}_{\mathbb{E}}(A)$ is a \emp{poset} that admits \emp{Heyting implication}.
-}
+In a topos $\mathbb{E}$, the subobject $\mathrm{Sub}_{\mathbb{E}}(A)$ is a \emp{poset} that admits \emp{Heyting implication}.  
 
-\cc{Using Kripke semantics, the Heyting arrow $\rightarrow$ can be defined by:
-}{
-	Using Kripke semantics, the Heyting arrow $\rightarrow$ can be defined by:
-}
+Using Kripke semantics, the Heyting arrow $\rightarrow$ can be defined by:
 \begin{equation}
 k \Vdash A \rightarrow B \quad \Leftrightarrow \quad \forall \ell \ge k \; (\ell \Vdash A \Rightarrow \ell \Vdash B)
 \end{equation}
 
-\cc{Whereas the ``fish-hook'' \emp{strict implication} can be defined as ``A implies B necessarily'':
-}{
-	Whereas the ``fish-hook'' \emp{strict implication} can be defined as ``A implies B necessarily'':
-}
+Whereas the ``fish-hook'' \emp{strict implication} can be defined as ``A implies B necessarily'':
 \begin{equation}
 A \strictif B \quad \equiv \quad \square (A \Rightarrow B) 
 \end{equation}
 
-\cc{The two can be regarded as equivalent via:
-}{
-	The two can be regarded as equivalent via:
-}
+The two can be regarded as equivalent via:
 \begin{equation}
 \begin{aligned}
 k \Vdash \square (A \Rightarrow B) \quad \Leftrightarrow \quad & \forall \ell \ge k \; (\ell \Vdash (A \Rightarrow B)) \\
@@ -1451,32 +1484,17 @@ k \Vdash \square (A \Rightarrow B) \quad \Leftrightarrow \quad & \forall \ell \g
 \end{aligned}
 \end{equation}
 
+
 \cc{问题是将 Heyting implication 定义 by possible worlds semantics 有什么好处？  从 machine learning 角度可能更合理。  但其实也好像包含 classical implication 所以是循环的？  
 }{
-	The question is what are the benefits of defining Heyting implication by possible worlds semantics? It may be more reasonable from the perspective of machine learning. But in fact, it also seems to contain classical implication, so it is cyclic?
+	The question is what are the benefits of defining Heyting implication by possible worlds semantics? It may be more reasonable from the perspective of machine learning. But it also seems to contain classical implication, so is this cyclic?
 }
 
-\cc{根据 topos 理论，Heyting implication 的出现是因为 sub-objects 的 Heyting algebra.  但我希望 implication arrow 纯粹是因为 BHK interpretation 而出现的。 
-}{
-	According to topos theory, Heyting implication appears because of Heyting algebra of sub-objects. But I hope implication arrow appears purely because of BHK interpretation.
-}
-
-\cc{Heyting implication 的问题是它产生自 sub-object 概念。 Material truth will cause an implication to exist.  What does that mean?  
-}{
-	The problem with Heyting implication is that it arises from the concept of sub-object. Material truth will cause an implication to exist. What does that mean?
-}
-	
 \section{Modal logic}
 
-\cc{Modalities are often conceived in terms of variation over some collection or \textbf{possible worlds}.
-}{
-	Modalities are often conceived in terms of variation over some collection or \textbf{possible worlds}.
-}
+Modalities are often conceived in terms of variation over some collection or \textbf{possible worlds}.
 
-\cc{A modal operator (such as $\square$) in the category $\mathbf{Sheaf}(X)$ is a \emp{sheaf morphism} $\square: \Omega \rightarrow \Omega$ satisfying 3 conditions, $\forall U \subseteq X$ and $p, q \in \Omega(U)$:
-}{
-	A modal operator (such as $\square$) in the category $\mathbf{Sheaf}(X)$ is a \emp{sheaf morphism} $\square: \Omega \rightarrow \Omega$ satisfying 3 conditions, $\forall U \subseteq X$ and $p, q \in \Omega(U)$:
-}
+A modal operator (such as $\square$) in the category $\mathbf{Sheaf}(X)$ is a \emp{sheaf morphism} $\square: \Omega \rightarrow \Omega$ satisfying 3 conditions, $\forall U \subseteq X$ and $p, q \in \Omega(U)$:
 \begin{equation}
 \begin{aligned}
 & \mbox{a)} \quad p \le \square (p) \\
@@ -1487,10 +1505,9 @@ k \Vdash \square (A \Rightarrow B) \quad \Leftrightarrow \quad & \forall \ell \g
 
 \subsection{Possible-world semantics}
 
-\cc{Possible-world semantics is also called \emp{intensional semantics}, as opposed to \emp{extensional semantics} where truth values are directly assigned to propositions.  Does this idea jibe with the other definition of ``intension'', ie, as opposed to Leibniz extensionality and also related to intensional logic?
-}{
-	Possible-world semantics is also called \emp{intensional semantics}, as opposed to \emp{extensional semantics} where truth values are directly assigned to propositions.  Does this idea jibe with the other definition of ``intension'', ie, as opposed to Leibniz extensionality and also related to intensional logic?
-}
+{\color{red} English translation proofread up to here.}
+
+Possible-world semantics is also called \emp{intensional semantics}, as opposed to \emp{extensional semantics} where truth values are directly assigned to propositions.  Does this idea jibe with the other definition of ``intension'', ie, as opposed to Leibniz extensionality and also related to intensional logic?
 
 \begin{equation}
 \nonumber
