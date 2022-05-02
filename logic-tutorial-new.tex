@@ -1246,6 +1246,15 @@ Functors $\mathcal{C}^{\mathrm{op}} \rightarrow \mathbf{Set}$ are called \emp{pr
 \vcenter{\hbox{\includegraphics[scale=0.7]{../2020/sheaf.png}}}
 \end{equation}
 
+As a special case, the sheaf over the singleton $\{*\}$ is the $\mathbf{Set}$ topos:
+\begin{equation}
+\vcenter{\hbox{\includegraphics[scale=0.7]{Set-topos-as-sheaf-over-singleton.png}}}
+\end{equation}
+
+In general, a sheaf is built upon a \textbf{site} which is a topological space with underlying set $X$ and its set of opens $\mathcal{O}(X)$. The subobject classifier $\Omega$ depends on an open set $U$ chosen from $\mathcal{O}(X)$.  In general, $\Omega$ is the ``opens of $U$''.  For example, in the special case of the $\mathbf{Set}$ topos above, $\Omega$ is the opens of $\{*\}$ which is either $\emptyset$ or $\{*\}$.  Therefore the $\Omega$ in $\mathbf{Set}$ is $\{0, 1\}$.
+
+The sheaves defined in this way are automatically toposes and they are known as \textbf{Grothendieck toposes}.
+
 Some $\mathbf{Set}$-valued functors are \emp{representable}, ie, isomorphic to a hom-functor.
 
 For an object $S$ of a category $\mathcal{C}$, the functor
