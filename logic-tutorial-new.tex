@@ -307,7 +307,7 @@ f: A \rightarrow B
 	This $\vdash$ process is called \emp{type assignment}, and it is all that type theory does.
 }
 
-\subsubsection{$\lambda$-calculus}
+\subsubsection{\texorpdfstring{$\lambda$}{lambda}-calculus}
 
 \cc{在一个 program 里，除了定义 类型，还需要定义 \emp{函数}。 这件工作是由 $\lambda$-calculus 负责。
 }{
@@ -680,7 +680,7 @@ For example,
 \label{eqn:subobject-classifier}
 \begin{tikzcd}[column sep = normal]
 X \arrow[r, "!"] \arrow[d, tail, swap, "m"] & 1 \arrow[d, "\mathrm{true}"] \\
-Y \arrow[r, swap, "\Chi_m"] & \Omega
+Y \arrow[r, swap, "\chi_m"] & \Omega
 \end{tikzcd}
 \end{equation}
 \cc{其中：
@@ -703,9 +703,9 @@ Y \arrow[r, swap, "\Chi_m"] & \Omega
 		\item $\begin{tikzcd}[ampersand replacement=\&] X \arrow[r, tail, "m"] \& Y \end{tikzcd}$ is a \emp{monic} arrow;  Particularly, in $\mathbf{Set}$ it is the \emp{inclusion map}, ie $\begin{tikzcd}[ampersand replacement=\&] X \arrow[r, hook, "m"] \& Y \end{tikzcd}$.  It means that $X$ is a \textbf{subset} of $Y$, $X \subseteq Y$.
 	}
 
-	\cc{\item $\begin{tikzcd}[ampersand replacement=\&] Y \arrow[r, "\Chi_m"] \& \Omega \end{tikzcd}$ 是集合论中熟悉的 \emp{characteristic function}, 当元素 $e \in X \subseteq Y$ 时，$\Chi(e)$ 取值 1，否则为 0.  正是 $\Chi_m$ 的存在令这幅图 commute.  $\Chi_m$ 也记作 $\ulcorner m \urcorner$.
+	\cc{\item $\begin{tikzcd}[ampersand replacement=\&] Y \arrow[r, "\chi_m"] \& \Omega \end{tikzcd}$ 是集合论中熟悉的 \emp{characteristic function}, 当元素 $e \in X \subseteq Y$ 时，$\chi(e)$ 取值 1，否则为 0.  正是 $\chi_m$ 的存在令这幅图 commute.  $\chi_m$ 也记作 $\ulcorner m \urcorner$.
 	}{
-		\item $\begin{tikzcd}[ampersand replacement=\&] Y \arrow[r, "\Chi_m"] \& \Omega \end{tikzcd}$ is the familiar \emp{characteristic function} in set theory.  When the element $e \in X \subseteq Y$, $\Chi(e)$ takes the value 1, otherwise it is 0.  It is the existence of $\Chi_m$ that makes this diagram commute.  $\Chi_m$ is also denoted $\ulcorner m \urcorner$.
+		\item $\begin{tikzcd}[ampersand replacement=\&] Y \arrow[r, "\chi_m"] \& \Omega \end{tikzcd}$ is the familiar \emp{characteristic function} in set theory.  When the element $e \in X \subseteq Y$, $\chi(e)$ takes the value 1, otherwise it is 0.  It is the existence of $\chi_m$ that makes this diagram commute.  $\chi_m$ is also denoted $\ulcorner m \urcorner$.
 	}
 \end{itemize}
 \cc{不熟悉基本范畴论的读者，我非常推荐看一看《Conceptual Mathematics》这本书，写得连中学生也可以看懂，而作者之一的 Lawvere 正是 topos 理论的创始人。 
@@ -735,7 +735,7 @@ Y \arrow[r, swap, "\Chi_m"] & \Omega
 \begin{equation}
 \begin{tikzcd}[column sep = normal]
 X \arrow[r, "!"] \arrow[d, tail, swap, "m"] \arrow[dr, phantom, "\lrcorner", red, very near start] & {\color{red}1} \arrow[d, red, "\mathrm{true}"] \\
-Y \arrow[r, swap, "\ulcorner m \urcorner"] & {\color{red}\Omega}
+Y \arrow[r, swap, "\chi_m"] & {\color{red}\Omega}
 \end{tikzcd}
 \end{equation}
 \cc{右边的 ${\color{red}\mathrel{\substack{1\\\downarrow\\\Omega}}}$ 称为 \emp{generic subobject}.  它的 \emp{pull back} square 用 ${\color{red}\lrcorner}$ 记号表示。 而左边的 $\mathrel{\substack{X\\\downarrow\\Y}}$ 则是一般的 sub-object. We say that the \textbf{property} of being a sub-object is \emp{stable under pullbacks}.
@@ -759,7 +759,7 @@ $\Gamma$ is a \textbf{variable context} specifying the arguments (and their type
 
 According to topos theory, (\ref{eqn:proposition-in-topos}) is also a \textbf{subobject} of $\Gamma$.  For example, the predicate ``Male'' is a subobject of the domain of ``Humans''.
 
-\subsubsection{Interpreting $\Rightarrow$}
+\subsubsection{Interpreting \texorpdfstring{$\Rightarrow$}{Implication Arrow}}
 
 In proof theory, the arrow $\Rightarrow$ arises from the ($\Rightarrow$I) rule:
 \begin{equation}
@@ -778,7 +778,7 @@ The entailment relation $\vdash$ is interpreted also as subobject or \textbf{inc
 
 Recall that, under the Curry-Howard interpretation for propositional logic, $\Rightarrow$ corresponds to $\lambda$-terms and to morphisms in a CCC (Cartesian-closed Category).  Now every topos is automatically a CCC.  In a topos, $\Rightarrow$ is interpreted as sub-objects, but nevertheless they are still morphisms.
 
-\subsection{$\forall$ and $\exists$ as adjunctions}
+\subsection{\texorpdfstring{$\forall$}{For-all} and \texorpdfstring{$\exists$}{Exist} as adjunctions}
 
 Let $\mbox{Forms}(\bar{X})$ denote the set of formulas with only the variables $\bar{X}$ free. ($\bar{X}$ may contain multiple variables.)
 
@@ -853,7 +853,7 @@ It turns out that $\exists$ and $\forall$ are \textbf{adjoints} to the map $\del
 \vcenter{\hbox{\includegraphics[scale=0.7]{../2020/Lawvere-cylindrification-forall.png}}}
 \end{equation}
 
-\subsection{$\wedge$ and $\Rightarrow$ as product-hom adjunction}
+\subsection{\texorpdfstring{$\wedge$}{∧} and \texorpdfstring{$\Rightarrow$}{⇒} as product-hom adjunction}
 
 \cc{一个只有原子命题的逻辑系统是「静止」的，不能推出新的结论： 
 }{
@@ -907,7 +907,7 @@ C & \qquad & C \nonumber \\
 	This is nothing unusual in logic.  It means that $A \Rightarrow B$ can replace $A \vdash B$.  Since $\vdash$ is a \textbf{neural network} in our AI system, this means the ``black box'' knowledge in the neural network can be ``externalized'' as \textbf{logic propositions}, which is of key importance in intelligent systems, because it means that knowledge can be obtained through \textit{learning via language} (Although one does not necessarily need category theory to see it.)
 }
 
-\subsection{Classifying topos $\leftrightharpoons$ internal language}
+\subsection{Classifying topos \texorpdfstring{$\leftrightharpoons$}{⇄} internal language}
 
 \cc{想认识一个\textbf{范畴}，最重要的是问： 它的 objects 是啥？ 它的 morphisms 是啥？ 
 }{
@@ -1251,9 +1251,9 @@ As a special case, the sheaf over the singleton $\{*\}$ is the $\mathbf{Set}$ to
 \vcenter{\hbox{\includegraphics[scale=0.7]{Set-topos-as-sheaf-over-singleton.png}}}
 \end{equation}
 
-In general, a sheaf is built upon a \textbf{site} which is a topological space with underlying set $X$ and its set of opens $\mathcal{O}(X)$. The subobject classifier $\Omega$ depends on an open set $U$ chosen from $\mathcal{O}(X)$.  In general, $\Omega$ is the ``opens of $U$''.  For example, in the special case of the $\mathbf{Set}$ topos above, $\Omega$ is the opens of $\{*\}$ which is either $\emptyset$ or $\{*\}$.  Therefore the $\Omega$ in $\mathbf{Set}$ is $\{0, 1\}$.
+In general, a sheaf is built upon a \emp{site} which is a topological space with underlying set $X$ and its set of opens $\mathcal{O}(X)$. The subobject classifier $\Omega$ depends on an open set $U$ chosen from $\mathcal{O}(X)$.  In general, $\Omega$ is the ``opens of $U$''.  For example, in the special case of the $\mathbf{Set}$ topos above, $\Omega$ is the opens of $\{*\}$ which is either $\emptyset$ or $\{*\}$.  Therefore the $\Omega$ in $\mathbf{Set}$ is $\{0, 1\}$.
 
-The sheaves defined in this way are automatically toposes and they are known as \textbf{Grothendieck toposes}.
+The sheaves defined in this way are automatically toposes and they are known as \emp{Grothendieck toposes}.
 
 Some $\mathbf{Set}$-valued functors are \emp{representable}, ie, isomorphic to a hom-functor.
 
@@ -1514,8 +1514,6 @@ A modal operator (such as $\square$) in the category $\mathbf{Sheaf}(X)$ is a \e
 
 \subsection{Possible-world semantics}
 
-{\color{red} English translation proofread up to here.}
-
 Possible-world semantics is also called \emp{intensional semantics}, as opposed to \emp{extensional semantics} where truth values are directly assigned to propositions.  Does this idea jibe with the other definition of ``intension'', ie, as opposed to Leibniz extensionality and also related to intensional logic?
 
 \begin{equation}
@@ -1528,7 +1526,7 @@ Possible-world semantics is also called \emp{intensional semantics}, as opposed 
 
 \cc{要詮釋 modal logic，需要引入 frame $F = \langle W, R, D, H \rangle$, 其中：
 }{
-	To interpret modal logic, you need to introduce frame $F = \langle W, R, D, H \rangle$, where:
+	To interpret modal logic, one introduces a frame $F = \langle W, R, D, H \rangle$, where:
 }
 \begin{itemize}
 	\cc{	\item $W$ = set of possible worlds = $\{ w_1, w_2, ... \}$
@@ -1558,17 +1556,17 @@ M \Vdash \square A \; [w] \quad \Leftrightarrow \quad \forall w' \succeq w. \; M
 \end{equation}
 \cc{這牽涉到要 quantify over all $w$'s.
 }{
-	This involves quantify over all $w$'s.
+	This involves quantification over all $w$'s.
 }
 
 \cc{重點是 inference 需要什麼 data？
 }{
-	The point is what data does inference need?
+	The point is, what data are needed to do inference?
 }
 
 \cc{顯然需要決定在某 $w$ 中 $p$ 是否成立，甚至需要判斷 $\forall w. p [w]$.
 }{
-	Obviously it is necessary to decide whether $p$ is established in a certain $w$, and even to judge $\forall w. p [w]$.
+	Obviously it is necessary to decide whether $p$ is true in a certain $w$, and even to decide if $\forall w. p [w]$.
 }
 
 \cc{後者似乎需要將所有 有關的可能世界（或至少是其 summary）放到 working memory 再 quantify.  
@@ -1582,20 +1580,16 @@ M \Vdash \square A \; [w] \quad \Leftrightarrow \quad \forall w' \succeq w. \; M
 
 \subsection{Intensional logic}
 
-\cc{Possible-world semantics is also called \emp{intensional semantics}, as opposed to \emp{extensional semantics} where truth values are directly assigned to propositions.
-}{
-	Possible-world semantics is also called \emp{intensional semantics}, as opposed to \emp{extensional semantics} where truth values are directly assigned to propositions.
-}
+Possible-world semantics is also called \emp{intensional semantics}, as opposed to \emp{extensional semantics} where truth values are directly assigned to propositions.
 
-\cc{Logic terms differ in intension if and only if it is \textbf{possible} for them to differ in extension.  Thus, \emp{intensional logic} interpret its terms using possible-world semantics.
-}{
-	Logic terms differ in intension if and only if it is \textbf{possible} for them to differ in extension.  Thus, \emp{intensional logic} interpret its terms using possible-world semantics.
-}
+Logic terms differ in intension if and only if it is \textbf{possible} for them to differ in extension.  Thus, \emp{intensional logic} interpret its terms using possible-world semantics.
 
 \subsection{Strict implication}
 \label{sec:strict-implication}
 
 \subsubsection{The problem of ``material implication''}
+
+{\color{red} English translation proofread up to here.}
 
 \cc{Material implication 的意思是「实质蕴涵」，亦即是说 $A \Rightarrow B$ 等价於 $\neg A \vee B$，其真值表如下：
 }{
@@ -1666,6 +1660,33 @@ $A$ & $B$ & $A \Rightarrow B$ \\
 	\mbox{[Iranian-Jewish]}} \qquad 
 \vcenter{\hbox{\includegraphics[scale=2.5]{../2020/Zadeh.jpg}}}
 \end{equation}
+
+To develop a ``fuzzy topos'' theory, one requirement is to make the following diagram commute:
+\begin{equation}
+\begin{tikzcd}[column sep = normal]
+X \arrow[r, "!"] \arrow[d, tail, swap, "m"] & \mathbb{1} \arrow[d, "\zeta"] \\
+Y \arrow[r, swap, "\chi_m"] & \Omega
+\end{tikzcd}
+\end{equation}
+where the subobject classifier $\Omega$ should be replaced by a \textbf{lattice}.  $\zeta$ is a fuzzy distribution.  This is analogous to the idea of \emp{moduli space}, where every family over a base scheme $B$ comes from the \textbf{pullback} of an identity map $\mathrel{\substack{\mathcal{C} \\ \ \downarrow \mathbb{1} \\ \mathcal{M}}}$ where $\mathcal{M}$ is called the moduli space:
+\begin{equation}
+\begin{tikzcd}[column sep = normal]
+\mathcal{D} \arrow[r] \arrow[d, swap, "\phi"] & \mathcal{C} \arrow[d, "\mathbb{1}"] \\
+B \arrow[r, swap, "\chi"] & \mathcal{M}
+\end{tikzcd}
+\end{equation}
+
+The unit interval $[0,1]$ as $\Omega$ can be understood as a lattice, ie, ordered open sets:
+\begin{equation}
+\vcenter{\hbox{\includegraphics[scale=0.7]{../2022/fuzzy-interval-as-lattice.png}}}
+\end{equation}
+This is a category with $\subseteq$ as the $\le$ morphism.
+
+Even more figuratively, we can actually think of the human head with a topology of open sets:
+\begin{equation}
+\vcenter{\hbox{\includegraphics[scale=0.7]{../2022/fuzzy-baldness.png}}}
+\end{equation}
+This gives a very intuitive interpretation of the fuzzy degree: as the \textbf{ratio} of the has-hair area to the full area.
 
 \cc{举例来说，「人」的概念由若干个 \emp{属性} (properties) 表示：
 }{
@@ -1745,6 +1766,17 @@ $A$ & $B$ & $A \Rightarrow B$ \\
 
 \subsection{Fuzzy implication}
 \label{sec:fuzzy-implication}
+
+\begin{equation}
+\vcenter{\hbox{\includegraphics[scale=0.7]{../2022/dog-head.png}}}
+\; \wedge \;
+\vcenter{\hbox{\includegraphics[scale=0.7]{../2022/dog-body.png}}}
+\; \wedge \;
+\vcenter{\hbox{\includegraphics[scale=0.7]{../2022/dog-tail.png}}}
+\; \Rightarrow \;
+\vcenter{\hbox{\includegraphics[scale=0.7]{../2022/dog.png}}}
+\end{equation}
+
 
 \cc{本节 考察一下 fuzzy implication $A \stackrel{\sim}{\Rightarrow} B$ 的真值是如何确定的？  在  \S\ref{sec:material-implication} 已经分析过 经典 material implication 的性质。
 }{
@@ -1894,6 +1926,7 @@ subsection{Fuzzy functions?}
 
 \subsection{HoTT levels}
 
+Voevodsky proposed these ``levels'':
 \begin{equation}
 \begin{tabular}{|c|c|}
 ... & ... \\ 
@@ -1910,6 +1943,12 @@ subsection{Fuzzy functions?}
 \hline 
 \end{tabular} 
 \end{equation}
+
+On the proposition level, each type (space) either has a proof or is empty.  Any two proofs on this level are considered \textbf{identical}.  Thus, any 2 elements in a type on this level is connected by a homotopy (contractable space).  
+
+On the set level, the identity between 2 elements is a proposition $a \stackrel{?}{=} b$;  it can be true or false.  Thus a set can have multiple distinct elements.
+
+On the next level, groupoids, the identity between any 2 elements is represented by a set.
 
 \subsubsection{Truncation}
 
