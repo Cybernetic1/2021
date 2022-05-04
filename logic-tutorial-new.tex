@@ -155,27 +155,29 @@ So our goal now is to elucidate the structure of $\vdash$.  Currently the most e
 
 \section{Curry-Howard correspondence}
 
-\cc{Curry-Howard isomorphism 是一个很深刻的思想，如果不小心的话 甚至会觉得它讲了等於没讲。 
-}{
-	The Curry-Howard isomorphism is a very profound idea.  If one is not careful, it may appear like an empty statement.
-}
-
-%The Curry-Howard correspondence is a deep connection between logic and computation (in the form of type theory).
+The Curry-Howard isomorphism expresses a \textbf{connection} between logic and functions, specifically functions that map proofs to more proofs, thus implementing inference as a \textbf{process}.  The correspondence cannot be proven mathematically;  Its status in mathematics is akin to the postulates of \textbf{quantum mechanics}:  they relate certain mathematical structures, such as Hilbert space vectors and Hermitian operators, to \textbf{physical reality}.  Without these postulates, the Schr\"{o}dinger equation is just a differential equation.  Analogously, the Curry-Howard isomorphism connects mathematical structures to \textbf{logic}:
+\begin{equation}
+\begin{aligned}
+\boxed{\mbox{mathematics}} & \ \stackrel{\mbox{\scriptsize quantum theory}}{\longrightarrow} && \boxed{\mbox{physical reality}} \\
+\boxed{\mbox{mathematics}} & \ \stackrel{\mbox{\scriptsize Curry-Howard}}{\longrightarrow} && \boxed{\mbox{logic}}
+\end{aligned}
+\end{equation}
+Here logic is viewed as some kind of \textit{empirical} phenomenon, whose rules are not known to us \textit{a priori}, but are distilled from our experience.
 
 \cc{简单来说： 当我们做 逻辑思考时，表面上有一种语法上 (syntax) 的形式，即 $A \Rightarrow B$：
 }{
-	Simply put: When we think logically, there is a syntax on the surface, namely $A \Rightarrow B$:
+	Simply put: logic is a \textbf{syntax} on the surface, for example the formula $A \Rightarrow B$:
 }
 \begin{equation}
 \label{eqn:Curry-Howard}
 \begin{aligned}
-\boxed{\mbox{logic}} \quad \quad \underdash{$A \Longrightarrow B$} & \\
-\boxed{\mbox{program}} \quad \quad \witness \; \stackrel{f}{\longmapsto} \; \witness \hspace*{10pt} &
+\boxed{\mbox{logic}} \qquad \underdash{$A \Longrightarrow B$} & \\
+\boxed{\mbox{program}} \qquad \witness \; \stackrel{f}{\longmapsto} \; \witness \hspace*{10pt} &
 \end{aligned}
 \end{equation}
-\cc{而在这 语法「底下」，还有一个 \emp{运算}，它可以看成是执行 \emp{证明} (proof) 的工作，它将 $A$ 的证明 map 到 $B$ 的证明 （为了避免符号累赘，我将这些 ``proof witness'' 都记作 $\witness$，但它们每个是不同的）.
+\cc{而在这 语法「底下」，还有一个 \emp{运算}，它可以看成是执行 \emp{证明} (proof) 的工作，它将 $A$ 的证明 map 到 $B$ 的证明。 \footnote{为了避免符号累赘，我将这些 ``proof witness'' 都记作 $\witness$，但它们每个是不同的。}
 }{
-	And underneath this syntax, there is an \emp{operation}, which can be regarded as the work of executing a \emp{proof}, which maps the proof of $A$ to the proof of $B$ (To avoid clutter, I will denote all ``proof witnesses'' as $\witness$, even though each of them is different).
+	And underneath this syntax, there is an \emp{operation}, which can be regarded as executing a \emp{proof}, which maps the proof of $A$ to the proof of $B$. \footnote{To avoid clutter, I will denote all ``proof witnesses'' as $\witness$, even though each of them is different.}
 }
 
 \cc{一个传统的数学函数，例如 $f(x) = x + 2$ 用我们惯常的符号表示为：
@@ -197,7 +199,7 @@ x \mbox{\cc{ 是偶数}{ is even}} \Longrightarrow x + 2 \mbox{\cc{ 是偶数}{ 
 \end{equation}
 \cc{也不是新的。 但如果将「$x$是偶数」这个\textbf{命题}，看成是一个\textbf{类型}或\textbf{集合}，里面有个\textbf{证明} (witness)，这个看法是新的： 
 }{
-	is also not new.  But if the \textbf{proposition} ``$x$ is even'' is regarded as a \textbf{type} or \textbf{set} with a \textbf{proof witness}, this view is new:
+	is also not new.  But to regard the \textbf{proposition} ``$x$ is even'' as a \textbf{type} or \textbf{set} with a \textbf{proof witness}, this perspective has new substance:
 }
 \begin{equation}
 \begin{aligned}
@@ -210,6 +212,8 @@ x \mbox{\cc{ 是偶数}{ is even}} \Longrightarrow x + 2 \mbox{\cc{ 是偶数}{ 
 }
 	{This is called the \emp{Brouwer-Heyting-Kolmogorov (BHK) interpretation}.  Because of the subtlety of the idea, it has been re-discovered many times.  The names can include: Brouwer-Heyting-Kolmogorov-Sch\"{o}nfinkel -Curry-Meredith-Kleene-Feys-G\"{o}del-L\"{a}uchli-Kreisel-Tait-Lawvere-Howard-\mbox{de Bruijn}-Scott-Martin-L\"{o} f-Girard-Reynolds-Stenlund-Constable-Coquand-Huet-Lambek...
 }
+
+Once we associate a mathematical function to the logic symbol $\Rightarrow$, such a correspondence induces a lot of other correspondences:  propositions are abstract spaces, and as spaces they may possess topological structure, ... and so on.  Thus the Curry-Howard isomorphism induces an entire enterprise of applying mathematics to the study of logic.  
 
 \cc{根据 HoTT (homotopy type theory)，一个命题 可以\textbf{有}或\textbf{没有}证明； 如果有，则它的证明都是一样的，所以 经典逻辑命题 只可以取值 \textbf{真}或\textbf{假}。 我的理论推断： 模糊逻辑的取值 $\in [ 0,1 ]$ 是因为 fuzzy 命题 可以有「部分」的证明（见 \S\ref{sec:fuzzy-logic}）。 
 }{
@@ -864,16 +868,16 @@ A & \qquad & A \nonumber \\
 B & \quad \vdash \quad & B \\
 C & \qquad & C \nonumber
 \end{eqnarray}
-\cc{但如果左边加多一个式子 $A \Rightarrow D$，则可以推出新的结论 $D$：
+\cc{但如果左边加多一个式子 $A \wedge B \wedge C \Rightarrow D$，则可以推出新的结论 $D$：
 }{
-	But if a conditional formula $A \Rightarrow D$ is added to the left, a new conclusion $D$ can be drawn:
+	But if a conditional formula $A \wedge B \wedge C \Rightarrow D$ is added to the left, a new conclusion $D$ can be drawn:
 }
 \begin{eqnarray}
 \label{eqn:deduction}
 A & \qquad & A \nonumber \\
 B & \quad \vdash \quad & B \\
 C & \qquad & C \nonumber \\
-& \hspace*{-3em} {\color{red}A \Rightarrow D} \qquad & D \nonumber
+& \hspace*{-8.6em} {\color{red}A \wedge B \wedge C \Rightarrow D} \qquad & D \nonumber
 \end{eqnarray}
 \cc{换句话说，$\Rightarrow$ 算符 是逻辑引擎的「燃料」，没有它不能推动逻辑 inference 的过程。 
 }{
@@ -885,9 +889,9 @@ C & \qquad & C \nonumber \\
 	The role of $\vdash$ is similar to $\Rightarrow$, but $\vdash$ is a \textbf{meta-logic} symbol, whereas $\Rightarrow$ is an operator within logic.
 }
 
-\cc{在 (\ref{eqn:deduction}) 中，${\color{red} A \Rightarrow D}$ 导致了 $A \vdash D$ 的出现。
+\cc{在 (\ref{eqn:deduction}) 中，${\color{red} A \wedge B \wedge C \Rightarrow D}$ 导致了 $A \wedge B \wedge C \vdash D$ 的出现。
 }{
-	In (\ref{eqn:deduction}), ${\color{red} A \Rightarrow D}$ led to the appearance of $A \vdash D$.
+	In (\ref{eqn:deduction}), ${\color{red} A \wedge B \wedge C \Rightarrow D}$ led to the appearance of $A \wedge B \wedge C \vdash D$.
 }
 
 \cc{一般来说，$\Delta \Rightarrow \Gamma$ 就是 $\vdash$ 这个映射 对於 $\Delta$ 的一个 \emp{截面} (a restriction of the $\vdash$ map to the domain $\Delta$).  这一点很重要： 一个 map 作用在某些元素上，但这些元素 和那个 map 是「同类」的。 这其实是逻辑结构的一个 defining characteristic.
@@ -1767,6 +1771,11 @@ This gives a very intuitive interpretation of the fuzzy degree: as the \textbf{r
 \subsection{Fuzzy implication}
 \label{sec:fuzzy-implication}
 
+Consider this (rather simplistic) \textbf{binary} logic formula for recognizing a ``dog'':
+\begin{equation}
+\mbox{dog-head} \wedge \mbox{dog-body} \wedge \mbox{dog-tail} \Rightarrow \mbox{dog}
+\end{equation}
+From the Curry-Howard view, each atomic proposition corresponds to an abstract space representing its type:
 \begin{equation}
 \vcenter{\hbox{\includegraphics[scale=0.7]{../2022/dog-head.png}}}
 \; \wedge \;
@@ -1776,7 +1785,27 @@ This gives a very intuitive interpretation of the fuzzy degree: as the \textbf{r
 \; \Rightarrow \;
 \vcenter{\hbox{\includegraphics[scale=0.7]{../2022/dog.png}}}
 \end{equation}
-
+In binary logic, each type-space is either inhabited or empty:
+\begin{equation}
+\vcenter{\hbox{\includegraphics[scale=0.7]{../2022/dog-head-2.png}}}
+\; \wedge \;
+\vcenter{\hbox{\includegraphics[scale=0.7]{../2022/dog-body-2.png}}}
+\; \wedge \;
+\vcenter{\hbox{\includegraphics[scale=0.7]{../2022/dog-tail-2.png}}}
+\; \Rightarrow \;
+\vcenter{\hbox{\includegraphics[scale=0.7]{../2022/dog-2.png}}}
+\end{equation}
+We want to extend this to the fuzzy case.  Each proof will have a \textbf{fuzzy degree} which is an element from the $[0,1]$ lattice, which we represent by sub-spaces of the type-spaces:
+\begin{equation}
+\vcenter{\hbox{\includegraphics[scale=0.7]{../2022/dog-head-3.png}}}
+\; \wedge \;
+\vcenter{\hbox{\includegraphics[scale=0.7]{../2022/dog-body-3.png}}}
+\; \wedge \;
+\vcenter{\hbox{\includegraphics[scale=0.7]{../2022/dog-tail-3.png}}}
+\; \Rightarrow \;
+\vcenter{\hbox{\includegraphics[scale=0.7]{../2022/dog-3.png}}}
+\end{equation}
+where we interpret $\wedge$ as $\min$ to shade the areas.  The above picture seems compatible with Voevodsky's HoTT.
 
 \cc{本节 考察一下 fuzzy implication $A \stackrel{\sim}{\Rightarrow} B$ 的真值是如何确定的？  在  \S\ref{sec:material-implication} 已经分析过 经典 material implication 的性质。
 }{
