@@ -155,7 +155,7 @@ So our goal now is to elucidate the structure of $\vdash$.  Currently the most e
 
 \section{Curry-Howard correspondence}
 
-The Curry-Howard isomorphism expresses a \textbf{connection} between logic and functions, specifically functions that map proofs to more proofs, thus implementing inference as a \textbf{process}.  The correspondence cannot be proven mathematically;  Its status in mathematics is akin to the postulates of \textbf{quantum mechanics}:  they relate certain mathematical structures, such as Hilbert space vectors and Hermitian operators, to \textbf{physical reality}.  Without these postulates, the Schr\"{o}dinger equation is just a differential equation.  Analogously, the Curry-Howard isomorphism connects mathematical structures to \textbf{logic}:
+The Curry-Howard isomorphism expresses a \textbf{connection} between logic and functions, specifically functions that map proofs to more proofs, thus implementing inference as a \textbf{process}.  The correspondence \uline{cannot be proven mathematically};  Its status in mathematics is akin to the postulates of \textbf{quantum mechanics}:  they relate certain mathematical structures, such as Hilbert space vectors and Hermitian operators, to \textbf{physical reality}.  Without these postulates, the Schr\"{o}dinger equation is just a differential equation.  Analogously, the Curry-Howard isomorphism connects mathematical structures to \textbf{logic}:
 \begin{equation}
 \begin{aligned}
 \boxed{\mbox{mathematics}} & \ \stackrel{\mbox{\scriptsize quantum theory}}{\longrightarrow} && \boxed{\mbox{physical reality}} \\
@@ -1593,11 +1593,9 @@ Logic terms differ in intension if and only if it is \textbf{possible} for them 
 
 \subsubsection{The problem of ``material implication''}
 
-{\color{red} English translation proofread up to here.}
-
 \cc{Material implication 的意思是「实质蕴涵」，亦即是说 $A \Rightarrow B$ 等价於 $\neg A \vee B$，其真值表如下：
 }{
-	Material implication means "substantial implication", which means that $A \Rightarrow B$ is equivalent to $\neg A \vee B$, and its truth table is as follows:
+	Material implication describes implication as it actually ``happens'', which dictates that $A \Rightarrow B$ is equivalent to $\neg A \vee B$, and the truth table is as follows:
 }
 
 \begin{equation}
@@ -1619,10 +1617,11 @@ $A$ & $B$ & $A \Rightarrow B$ \\
 
 \cc{Material implication 的概念向来很有争议，例如，当前提是错误时，它永远是真的： 
 }{
-	The concept of material implication has always been controversial. For example, when the current mention is wrong, it is always true:
+	The concept of material implication has always been controversial.  In particular, when the premise is false, the implication is always true:
 }
 \begin{equation}
-\mbox{瑞士在非洲} \Rightarrow \mbox{猪会飞}
+\cc{\mbox{瑞士在非洲} \Rightarrow \mbox{猪会飞}}
+   {\mbox{Switzerland is in Africa} \Rightarrow \mbox{pigs can fly}}
 \end{equation}
 
 \begin{center}
@@ -1634,25 +1633,21 @@ $A$ & $B$ & $A \Rightarrow B$ \\
 	By observing the truth table, we can find that each column of it actually represents a \emp{possible world}, and these possible worlds will not happen at the same time. In other words, material implication and strict implication are originally the same, but the former hides the semantics of the possible world "behind the scenes."
 }
 
-\cc{For strict implication to make sense, it is always necessary to invoke possible-world semantics.  A strict implication is always \emp{learned} from numerous examples from experience, in accord with the philosophical tradition of ``empiricism''.
-}{
-	For strict implication to make sense, it is always necessary to invoke possible-world semantics.  A strict implication is always \emp{learned} from numerous examples from experience, in accord with the philosophical tradition of ``empiricism''.
-}
+For strict implication to make sense, it is always necessary to invoke possible-world semantics.  A strict implication is always \emp{learned} from numerous examples from experience, in accord with the philosophical tradition of ``empiricism''.
 
-\cc{Strict implication is equivalent to material implication over multiple instances.  The truth table of material implication agrees with the functional interpretation of implication.  
-}{
-	Strict implication is equivalent to material implication over multiple instances.  The truth table of material implication agrees with the functional interpretation of implication.
-}
+Strict implication is equivalent to material implication over multiple instances.  The truth table of material implication agrees with the functional interpretation of implication.
 
 {\color{red}
 	\begin{center}
 		\rule{0.8\textwidth}{1pt} \\
 		\cc{
 		以下部分 包含很多未落实的想法，包括我自己的 ``thinking aloud'' }{
-		The following section contains many unimplemented ideas, including my own ``thinking aloud''
+		The following sections contain tentative ideas, including my own ``thinking aloud''
 		}
 	\end{center}
 }
+
+{\color{red} English translation proofread up to here.}
 
 \section{Fuzzy logic}
 \label{sec:fuzzy-logic}
@@ -1672,7 +1667,7 @@ X \arrow[r, "!"] \arrow[d, tail, swap, "m"] & \mathbb{1} \arrow[d, "\zeta"] \\
 Y \arrow[r, swap, "\chi_m"] & \Omega
 \end{tikzcd}
 \end{equation}
-where the subobject classifier $\Omega$ should be replaced by a \textbf{lattice}.  $\zeta$ is a fuzzy distribution.  This is analogous to the idea of \emp{moduli space}, where every family over a base scheme $B$ comes from the \textbf{pullback} of an identity map $\mathrel{\substack{\mathcal{C} \\ \ \downarrow \mathbb{1} \\ \mathcal{M}}}$ where $\mathcal{M}$ is called the moduli space:
+where the subobject classifier $\Omega$ is now a \textbf{lattice}.  $\zeta$ is a fuzzy ``distribution''.  This commutative diagram is similar to the one for \emp{moduli space}, where every family over a base scheme $B$ arises from the \textbf{pullback} of an identity map $\mathrel{\substack{\mathcal{C} \\ \ \downarrow \mathbb{1} \\ \mathcal{M}}}$ where $\mathcal{M}$ is the moduli space:
 \begin{equation}
 \begin{tikzcd}[column sep = normal]
 \mathcal{D} \arrow[r] \arrow[d, swap, "\phi"] & \mathcal{C} \arrow[d, "\mathbb{1}"] \\
@@ -1805,7 +1800,7 @@ We want to extend this to the fuzzy case.  Each proof will have a \textbf{fuzzy 
 \; \Rightarrow \;
 \vcenter{\hbox{\includegraphics[scale=0.7]{../2022/dog-3.png}}}
 \end{equation}
-where we interpret $\wedge$ as $\min$ to shade the areas.  The above picture seems compatible with Voevodsky's HoTT.
+where we interpret $\wedge$ as $\min()$, so the fuzzy truth value of the conclusion is the minimum among the antecedents.  The above picture seems compatible with Voevodsky's HoTT, where fuzzy sets are at level 0, and the identity of elements are expressed by propositions (level -1).  Indeed, the fuzzy type-space may have a metric structure allowing to \textbf{measure} areas.
 
 \cc{本节 考察一下 fuzzy implication $A \stackrel{\sim}{\Rightarrow} B$ 的真值是如何确定的？  在  \S\ref{sec:material-implication} 已经分析过 经典 material implication 的性质。
 }{
