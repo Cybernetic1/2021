@@ -24,7 +24,7 @@
 
 \usepackage[backend=biber,style=numeric]{biblatex}
 \bibliography{../AGI-book}
-% \renewcommand*{\bibfont}{\footnotesize}
+\renewcommand*{\bibfont}{\footnotesize}
 
 \usepackage{graphicx} % Allows including images
 \usepackage{tikz-cd}
@@ -72,7 +72,7 @@
 
 \section*{Summary}
 \begin{itemize}
-\cc{\item 描述一种可以完整地解决 AGI 的 univeral logic
+\cc{\item 用比较简单的方法讲解 范畴论下逻辑的结构，这亦叫 categorical logic.  这是目前数学上描述逻辑结构的最满意的形式。 了解逻辑的抽象结构之后，可以将它应用到 AGI 或神经网络的设计上。 
 }{
 \item Outlines the mathematical structure of logic as formulated using category theory, the latest and most satisfactory approach so far.  This mathematical knowledge may help the AGI designer if they want to endow neural networks with logic structure, if this is deemed desirable.
 }
@@ -1186,6 +1186,8 @@ is a condition.
 	For example, a condition $c$ can ``force'' the set $G$ to have at least 100 prime numbers, or at least 10,000 prime numbers.  The notation is $c \Vdash P$, where $P$ is a logic proposition.
 }
 
+Unlike set theory, topos theory allows more \textbf{models}, which is the reason behind Cohen's proof's success.
+
 \cc{以下内容和 AGI 无关，但因为数学上有趣所以写一下。
 }{
 	The following content is unrelated to AGI, but is included for mathematical interest.
@@ -1503,6 +1505,28 @@ k \Vdash \square (A \Rightarrow B) \quad \Leftrightarrow \quad & \forall \ell \g
 	The question is what are the benefits of defining Heyting implication by possible worlds semantics? It may be more reasonable from the perspective of machine learning. But it also seems to contain classical implication, so is this cyclic?
 }
 
+\section{Logic's connections with algebras}
+
+[ These sections will be expanded later... ]
+
+\subsection{Gr\"{o}bner bases}
+
+In the book \textit{``Term Rewriting and All That''} [1998, Ch. 8], it is mentioned that the Knuth-Bendix \textbf{completion procedure} [1970, first correctness proof by Huet in 1981] for rewriting logic is roughly the same as \textbf{Buchberger's algorithm} [1965] for finding Gr\"{o}bner bases for polynomial rings.  The completion procedure takes as input a set of rewriting rules and tries to find an equivalent rewriting system that is \textbf{convergent} (ie. guaranteed to terminate), or return failure.  In computational algebra, Gr\"{o}bner bases [first discovered by Hironaka \cc{（弘中平佑）}{} in 1964] are used to decide the \textbf{ideal congruence} and \textbf{ideal membership} problems in polynomial rings.  The ideal congruence problem can be seen as a \textbf{word problem}, and Gr\"{o}bner bases define convergent reduction relations on polynomials.
+
+\subsection{BCI / BCK algebras}
+
+There is another, perhaps related, and perhaps even more important connection:  If we apply the Curry-Howard correspondence to ``Hilbert-style'' proofs, we find that proof elements behave as \textbf{combinators}, as in combinatory logic.  This gives rise to \textbf{BCI algebra}, a kind of non-associative algebra capturing the syntax of $\rightarrow$.  The name BCI comes from the combinators B, C, I, K, etc.  These algebras are non-associative but they also have close connections with associative algebras....
+
+Reference: \parencite{Sorensen2006}
+
+\subsection{Representation theory}
+
+Using techniques from representation theory, one starts with a \textbf{quiver} $Q$, which is a kind of graph, and gets a \textbf{path algebra} $k Q$ and its vector-space \textbf{representation}.  The path algebra is a vector space with all possible paths (of lengths $\ge 0$) forming its basis, and with multiplication given by path concatenation.  For its representation, each vertex is seen as a vector space and each path is a linear transformation between the spaces.  In other words, a representation of a quiver $Q$ is an association of an $R$-module to each vertex of $Q$, and a morphism between each module for each arrow.
+
+But this technique only works for \textbf{associative} algebras.
+
+With matrix representations of logic inference, maybe we can perform (syntactic) inference with matrices?  Inference would be performed as multiplication of matrices.  This is very different from the ``mainstream'' approach, where syntactic inference is implemented as a complicated mapping by a neural network.
+
 \section{Modal logic}
 
 Modalities are often conceived in terms of variation over some collection or \textbf{possible worlds}.
@@ -1802,6 +1826,8 @@ We want to extend this to the fuzzy case.  Each proof will have a \textbf{fuzzy 
 \end{equation}
 where we interpret $\wedge$ as $\min()$, so the fuzzy truth value of the conclusion is the minimum among the antecedents.  The above picture seems compatible with Voevodsky's HoTT, where fuzzy sets are at level 0, and the identity of elements are expressed by propositions (level -1).  Indeed, the fuzzy type-space may have a metric structure allowing to \textbf{measure} areas.
 
+\footnotesize 
+
 \cc{本节 考察一下 fuzzy implication $A \stackrel{\sim}{\Rightarrow} B$ 的真值是如何确定的？  在  \S\ref{sec:material-implication} 已经分析过 经典 material implication 的性质。
 }{
 	This section examines how the true value of fuzzy implication $A \stackrel{\sim}{\Rightarrow} B$ is determined? The properties of classic material implication have been analyzed in \S\ref{sec:material-implication}.
@@ -1876,12 +1902,13 @@ $A$ & $B$ & $A \stackrel{\sim}{\Rightarrow} B$ & $B^A$ \\
 	but the problem is how to interpret the truth value of $A \stackrel{\sim}{\Rightarrow} B$ as \textbf{counting} the number of maps?
 }
 
-subsection{Fuzzy functions?}
+\subsection{Fuzzy functions?}
 
 \cc{What are fuzzy functions?  \underconst
 }{
 	What are fuzzy functions?  \underconst
 }
+\normalsize
 
 \section{Homotopy type theory (HoTT)}
 \label{sec:HoTT}
@@ -1994,6 +2021,8 @@ On the next level, groupoids, the identity between any 2 elements is represented
 }{
 	If I did not understand the error, the meaning of univalence axiom seems to be to "force" the fuzzy truth value of = into binary.
 }
+
+\footnotesize
 
 \section{Transfer to deep learning}
 
@@ -2239,5 +2268,7 @@ So back to the question: Since there can be tuple-to-tuple, what should topologi
 \section*{References}
 \cc{欢迎提问和讨论}{Questions, comments welcome} \smiley \\ \vspace*{0.4cm}
 \printbibliography
+
+[ more references will be added... ]
 
 \end{document} 
