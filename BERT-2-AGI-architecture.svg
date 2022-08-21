@@ -8,9 +8,9 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="432.1969mm"
-   height="881.15295mm"
-   viewBox="0 0 432.1969 881.15296"
+   width="452.1969mm"
+   height="901.15295mm"
+   viewBox="0 0 452.1969 901.15296"
    version="1.1"
    id="svg8"
    inkscape:version="1.0.2 (1.0.2+r75+1)"
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:cx="798.37958"
-     inkscape:cy="2859.7339"
+     inkscape:zoom="1.2055703"
+     inkscape:cx="1351.9299"
+     inkscape:cy="3100.8298"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -37,11 +37,11 @@
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0"
-     showborder="false"
+     fit-margin-top="10"
+     fit-margin-left="10"
+     fit-margin-right="10"
+     fit-margin-bottom="10"
+     showborder="true"
      inkscape:document-rotation="0" />
   <defs
      id="defs2">
@@ -3750,7 +3750,7 @@
     </rdf:RDF>
   </metadata>
   <g
-     transform="translate(6.5316299,292.8014)"
+     transform="translate(16.53163,302.8014)"
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Layer 1">
@@ -7281,7 +7281,7 @@
     <g
        inkscape:export-ydpi="192"
        inkscape:export-xdpi="192"
-       transform="matrix(0.03290001,0,0,0.0310692,283.42585,273.42528)"
+       transform="matrix(0.03290001,0,0,0.0310692,281.83831,273.42528)"
        id="g401-2"
        inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png">
       <g
@@ -7328,7 +7328,7 @@
     <g
        inkscape:export-ydpi="192"
        inkscape:export-xdpi="192"
-       transform="matrix(0.02583821,0,0,0.02563151,263.15109,274.93711)"
+       transform="matrix(0.02583821,0,0,0.02563151,261.56355,274.93711)"
        id="g467-9"
        style="fill:#000000"
        inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png">
@@ -7397,7 +7397,7 @@
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path7169-9"
-       d="M 269.76567,275.0165 V 262.05193"
+       d="M 268.17813,275.0165 V 262.05193"
        style="fill:none;stroke:#000000;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7221-5)"
        inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
     <path
@@ -7405,7 +7405,7 @@
        inkscape:export-xdpi="192"
        inkscape:connector-curvature="0"
        id="path7171-3"
-       d="m 292.25524,260.99358 v 12.7"
+       d="m 290.6677,260.99358 v 12.7"
        style="fill:none;stroke:#000000;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7181-36)"
        inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
     <g
@@ -7819,7 +7819,7 @@
        sodipodi:nodetypes="ccc"
        inkscape:connector-curvature="0"
        id="path1595-6-4-6-0"
-       d="m 268.91394,541.12134 c -20.37292,-8.73124 -13.49243,-26.18992 8.99584,-26.06142 20.17959,1.16622 23.35475,20.88316 6.08543,25.92914"
+       d="m 268.91394,540.063 c -20.37292,-8.73124 -13.49243,-26.18992 8.99584,-26.06142 20.17959,1.16622 23.35475,20.88316 6.08543,25.92914"
        style="fill:none;stroke:#000000;stroke-width:0.794;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-mid:url(#marker4379-5-8-3-3)"
        inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
     <g
@@ -7851,7 +7851,7 @@
     <g
        inkscape:export-ydpi="192"
        inkscape:export-xdpi="192"
-       transform="matrix(0.02583821,0,0,0.02563151,269.86631,577.68882)"
+       transform="matrix(0.02583821,0,0,0.02563151,269.86631,575.04297)"
        id="g467-9-7-7-4"
        style="fill:#000000"
        inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png">
@@ -7893,14 +7893,14 @@
        inkscape:export-ydpi="192"
        inkscape:export-xdpi="192"
        id="text3247-1-4-2-7"
-       y="509.24133"
+       y="508.71216"
        x="249.44528"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
        xml:space="preserve"
        inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png"><tspan
          id="tspan7888-2-3-6-4"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.264583"
-         y="509.24133"
+         y="508.71216"
          x="249.44528"
          sodipodi:role="line">transition function <tspan
    style="font-style:italic;stroke-width:0.264583"
@@ -7911,8 +7911,8 @@
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path7169-9-7-8-2"
-       d="m 276.48092,577.76826 v -15.6104"
-       style="fill:none;stroke:#000000;stroke-width:0.79374999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7221-5-4-7-0)"
+       d="M 276.48092,575.65159 V 562.15786"
+       style="fill:none;stroke:#000000;stroke-width:0.79375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7221-5-4-7-0)"
        inkscape:export-filename="/home/yky/latex/2021/LBAI-architecture.png" />
     <g
        inkscape:export-ydpi="192"
@@ -8027,7 +8027,7 @@
      inkscape:label="Hidden"
      id="layer2"
      inkscape:groupmode="layer"
-     transform="translate(12.223924,216.14153)">
+     transform="translate(22.223924,226.14153)">
     <path
        style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000005;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Mend-9-3-3)"
        d="m 44.470406,149.1704 c 1.111255,24.02415 -16.496483,20.677 -24.354605,20.88868"
